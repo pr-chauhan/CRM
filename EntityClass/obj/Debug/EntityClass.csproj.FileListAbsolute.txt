@@ -1,0 +1,12 @@
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityClass.dll.config
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityClass.dll
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityClass.pdb
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityFramework.dll
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityFramework.xml
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs.cache
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.csproj.CopyComplete
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.dll
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.pdb
+C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.csproj.AssemblyReference.cache
