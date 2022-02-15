@@ -1,0 +1,67 @@
+﻿@model EntityClass.City
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.State_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_UserID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.City_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

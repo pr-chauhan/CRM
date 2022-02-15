@@ -10,3 +10,14 @@ C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClas
 C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.dll
 C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.pdb
 C:\Users\dharmesh.p\source\repos\Electra_WebApi\EntityClass\obj\Debug\EntityClass.csproj.AssemblyReference.cache
+C:\Electra\EntityClass\bin\Debug\EntityClass.dll.config
+C:\Electra\EntityClass\bin\Debug\EntityClass.dll
+C:\Electra\EntityClass\bin\Debug\EntityClass.pdb
+C:\Electra\EntityClass\bin\Debug\EntityFramework.dll
+C:\Electra\EntityClass\bin\Debug\EntityFramework.SqlServer.dll
+C:\Electra\EntityClass\bin\Debug\EntityFramework.xml
+C:\Electra\EntityClass\bin\Debug\EntityFramework.SqlServer.xml
+C:\Electra\EntityClass\obj\Debug\EntityClass.csproj.AssemblyReference.cache
+C:\Electra\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs.cache
+C:\Electra\EntityClass\obj\Debug\EntityClass.dll
+C:\Electra\EntityClass\obj\Debug\EntityClass.pdb

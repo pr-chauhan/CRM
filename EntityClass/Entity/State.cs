@@ -10,7 +10,7 @@ namespace EntityClass
     public partial class State
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int State_ID { get; set; }
 
         [StringLength(255)]
