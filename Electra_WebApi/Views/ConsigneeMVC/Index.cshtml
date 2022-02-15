@@ -1,0 +1,112 @@
+﻿@model IEnumerable<EntityClass.Consignee>
+
+@{
+    ViewBag.Title = "Consignee Master";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Consignee Master</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Consignee_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tin_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CST_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ECC_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAnge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PANNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.commission_rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GSTNO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Consignee_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tin_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CST_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ECC_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAnge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Division)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PANNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.commission_rate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GSTNO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Consignee_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Consignee_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Consignee_ID })
+        </td>
+    </tr>
+}
+
+</table>

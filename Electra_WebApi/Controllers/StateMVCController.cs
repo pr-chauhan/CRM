@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using EntityClass;
 namespace Electra_WebApi.Controllers
 {
-    public class StateController : Controller
+    public class StateMVCController : Controller
     {
         HttpClient client = new HttpClient();
         // GET: States

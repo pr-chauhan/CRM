@@ -114,7 +114,7 @@ namespace Electra_WebApi.Controllers
             }
             ViewBag.CL = list;
             City lstCity = null;
-            client.BaseAddress = new Uri("https://localhost:44305/api/CityApi/");
+            //client.BaseAddress = new Uri("https://localhost:44305/api/CityApi/");
             var response = client.GetAsync("CityApi?id=" + id.ToString());
             response.Wait();
 

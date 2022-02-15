@@ -18,18 +18,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.City_Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoE)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoM)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.E_UserID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.M_UserID)
-            </th>
+            
             <th></th>
         </tr>
 
@@ -42,18 +31,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.City_Name)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DoE)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DoM)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.E_UserID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.M_UserID)
-                </td>
+                
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.City_ID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.City_ID }) |

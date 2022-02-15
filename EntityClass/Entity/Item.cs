@@ -10,7 +10,7 @@ namespace EntityClass
     public partial class Item
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Item_ID { get; set; }
 
         public decimal? Tarriff_no { get; set; }

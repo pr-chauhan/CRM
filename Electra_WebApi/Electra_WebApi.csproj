@@ -156,11 +156,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CityApiController.cs" />
+    <Compile Include="Controllers\ConsigneeApiController.cs" />
+    <Compile Include="Controllers\ConsigneeMVCController.cs" />
+    <Compile Include="Controllers\ItemApiController.cs" />
+    <Compile Include="Controllers\ItemMVCController.cs" />
     <Compile Include="Controllers\OldCityApiController.cs" />
     <Compile Include="Controllers\CityMVCController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StateApiController.cs" />
-    <Compile Include="Controllers\StateController.cs" />
+    <Compile Include="Controllers\StateMVCController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,11 +226,21 @@
     <Content Include="Views\CityMVC\Create.cshtml" />
     <Content Include="Views\CityMVC\Edit.cshtml" />
     <Content Include="Views\CityMVC\Delete.cshtml" />
-    <Content Include="Views\State\Index.cshtml" />
-    <Content Include="Views\State\Create.cshtml" />
-    <Content Include="Views\State\Details.cshtml" />
-    <Content Include="Views\State\Edit.cshtml" />
-    <Content Include="Views\State\Delete.cshtml" />
+    <Content Include="Views\StateMVC\Index.cshtml" />
+    <Content Include="Views\StateMVC\Create.cshtml" />
+    <Content Include="Views\StateMVC\Details.cshtml" />
+    <Content Include="Views\StateMVC\Edit.cshtml" />
+    <Content Include="Views\StateMVC\Delete.cshtml" />
+    <Content Include="Views\ItemMVC\Delete.cshtml" />
+    <Content Include="Views\ItemMVC\Create.cshtml" />
+    <Content Include="Views\ItemMVC\Edit.cshtml" />
+    <Content Include="Views\ItemMVC\Details.cshtml" />
+    <Content Include="Views\ItemMVC\Index.cshtml" />
+    <Content Include="Views\ConsigneeMVC\Create.cshtml" />
+    <Content Include="Views\ConsigneeMVC\Delete.cshtml" />
+    <Content Include="Views\ConsigneeMVC\Edit.cshtml" />
+    <Content Include="Views\ConsigneeMVC\Details.cshtml" />
+    <Content Include="Views\ConsigneeMVC\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
