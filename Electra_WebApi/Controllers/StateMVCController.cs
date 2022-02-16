@@ -11,6 +11,7 @@ namespace Electra_WebApi.Controllers
     public class StateMVCController : Controller
     {
         HttpClient client = new HttpClient();
+        private CraModel db = new CraModel();
         // GET: States
         public ActionResult Index()
         {
@@ -60,11 +61,18 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add insert logic here
-
                 collection.DoE = DateTime.Now;
                 collection.DoM = DateTime.Now;
                 collection.E_UserID = "admin";
                 collection.M_UserID = "admin";
+                client.BaseAddress = null;
+                if (!Validate(collection.State_Name))
+                {
+                    ModelState.AddModelError(nameof(State.State_Name), "Duplicate state is not allowed..!!");
+                    return View(collection);
+                    
+                }
+              
                 client.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var putdata = client.PostAsJsonAsync("StateApi", collection);
@@ -78,7 +86,7 @@ namespace Electra_WebApi.Controllers
 
                 return View(collection);
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
@@ -158,6 +166,20 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add delete logic here
+
+                var st = (from l in db.Cities
+                          where l.State_ID == id
+                          select new
+                          {
+                              sName = l.State_ID
+                          }).ToList();
+                if (st.Count > 0)
+                {
+                    ModelState.AddModelError(nameof(State.State_Name), "State is used in city master, So state can't be delete..!!");
+                    return View(collection);
+                }
+
+
                 client.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var putdata = client.DeleteAsync("StateApi?id="+id.ToString());
@@ -176,5 +198,36 @@ namespace Electra_WebApi.Controllers
                 return View();
             }
         }
+
+        public bool  Validate(string Parameter)
+        {
+            bool lRetVal = true;
+            //HttpClient _client = new HttpClient();
+            //List<State> list = new List<State>();
+            //_client.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
+            //var response = _client.GetAsync("StateApi");
+            //response.Wait();
+
+            //var test = response.Result;
+            //if (test.IsSuccessStatusCode)
+            //{
+            //    var display = test.Content.ReadAsAsync<List<State>>();
+            //    display.Wait();
+            //    list = display.Result;
+            //}
+
+            var st = (from l in db.States
+                      where l.State_Name == Parameter
+                      select new
+                      {
+                          sName = l.State_Name
+                      }).ToList();
+            if(st.Count>0)
+            {
+                lRetVal= false;
+            }
+            return lRetVal;
+        }
+
     }
 }

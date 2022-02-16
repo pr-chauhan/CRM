@@ -12,6 +12,7 @@ namespace Electra_WebApi.Controllers
     public class ConsigneeMVCController : Controller
     {
         HttpClient client = new HttpClient();
+        private CraModel db = new CraModel();
         // GET: Consignees
         public ActionResult Index()
         {
@@ -51,9 +52,25 @@ namespace Electra_WebApi.Controllers
         // GET: Consignees/Create
         public ActionResult Create()
         {
+            ViewBag.CL = GetCityList();
             return View();
         }
+        public List<City> GetCityList()
+        {
+            List<City> list = new List<City>();
+            client.BaseAddress = new Uri("https://localhost:44305/api/CityApi");
+            var response = client.GetAsync("CityApi");
+            response.Wait();
 
+            var test = response.Result;
+            if (test.IsSuccessStatusCode)
+            {
+                var display = test.Content.ReadAsAsync<List<City>>();
+                display.Wait();
+                list = display.Result;
+            }
+            return list;
+        }
         // POST: Consignees/Create
         [HttpPost]
         public ActionResult Create(Consignee collection)
@@ -61,11 +78,17 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add insert logic here
-
                 collection.DoE = DateTime.Now;
                 collection.DoM = DateTime.Now;
                 collection.E_UserID = "admin";
                 collection.M_UserID = "admin";
+                if (!Validate(collection.Consignee_Name))
+                {
+                    ModelState.AddModelError(nameof(Consignee.Consignee_Name), "Duplicate Consignee is not allowed..!!");
+                    return View(collection);
+
+                }
+              
                 client.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var putdata = client.PostAsJsonAsync("ConsigneeApi", collection);
@@ -159,6 +182,19 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add delete logic here
+
+                var st = (from l in db.Invoices
+                          where l.Consignee_ID == id
+                          select new
+                          {
+                              sName = l.Consignee_ID
+                          }).ToList();
+                if (st.Count > 0)
+                {
+                    ModelState.AddModelError(nameof(Consignee.Consignee_Name), "Consignee is used in Invoice, So Consignee can't be delete..!!");
+                    return View(collection);
+                }
+
                 client.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var putdata = client.DeleteAsync("ConsigneeApi?id=" + id.ToString());
@@ -177,5 +213,36 @@ namespace Electra_WebApi.Controllers
                 return View();
             }
         }
+
+        public bool Validate(string Parameter)
+        {
+            bool lRetVal = true;
+            HttpClient _client = new HttpClient();
+            List<Consignee> list = new List<Consignee>();
+            _client.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
+            var response = _client.GetAsync("ConsigneeApi");
+            response.Wait();
+
+            var test = response.Result;
+            if (test.IsSuccessStatusCode)
+            {
+                var display = test.Content.ReadAsAsync<List<Consignee>>();
+                display.Wait();
+                list = display.Result;
+            }
+
+            var st = (from l in list
+                      where l.Consignee_Name == Parameter
+                      select new
+                      {
+                          sName = l.Consignee_Name
+                      }).ToList();
+            if (st.Count > 0)
+            {
+                lRetVal = false;
+            }
+            return lRetVal;
+        }
+
     }
 }

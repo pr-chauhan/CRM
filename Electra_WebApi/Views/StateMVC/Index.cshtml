@@ -8,15 +8,15 @@
 <h2>State Master</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create","", new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
+<table class="table table-bordered">
+    <tr class="bg-primary" style="color:#ffffff;">
         <th>
             @Html.DisplayNameFor(model => model.State_Name)
         </th>
-       
-        <th></th>
+
+        <th>Action / Command</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -26,9 +26,9 @@
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.State_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.State_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.State_ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.State_ID }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.State_ID }, new { @class = "btn btn-default" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.State_ID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

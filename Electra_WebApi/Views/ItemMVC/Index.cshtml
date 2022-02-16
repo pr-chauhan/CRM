@@ -8,10 +8,10 @@
 <h2>Item Master</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
 </p>
-<table class="table">
-    <tr>
+<table class="table table-bordered">
+    <tr class="bg-primary" style="color:#ffffff;">
         <th>
             @Html.DisplayNameFor(model => model.Tarriff_no)
         </th>
@@ -21,27 +21,29 @@
         <th>
             @Html.DisplayNameFor(model => model.Full_Desc)
         </th>
-       
-        <th></th>
+
+        <th>Action / Command</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tarriff_no)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Item_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Full_Desc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Item_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Item_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Item_ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarriff_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Full_Desc)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Item_ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.Item_ID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Item_ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>

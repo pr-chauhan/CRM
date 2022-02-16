@@ -12,6 +12,7 @@ namespace Electra_WebApi.Controllers
     public class ItemMVCController : Controller
     {
         HttpClient client = new HttpClient();
+        private CraModel db = new CraModel();
         // GET: ItemMVC
         public ActionResult Index()
         {
@@ -65,6 +66,13 @@ namespace Electra_WebApi.Controllers
                 collection.DoM = DateTime.Now;
                 collection.E_UserID = "admin";
                 collection.M_UserID = "admin";
+                if (!Validate(collection.Item_Name))
+                {
+                    ModelState.AddModelError(nameof(Item.Item_Name), "Duplicate item is not allowed..!!");
+                    return View(collection);
+
+                }
+               
                 client.BaseAddress = new Uri("https://localhost:44305/api/ItemApi");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var putdata = client.PostAsJsonAsync("ItemApi", collection);
@@ -158,6 +166,19 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add delete logic here
+
+                var st = (from l in db.Invoice_Detail
+                          where l.Item_id == id
+                          select new
+                          {
+                              sName = l.Item_id
+                          }).ToList();
+                if (st.Count > 0)
+                {
+                    ModelState.AddModelError(nameof(Item.Item_Name), "Item is used in Invoice, So item can't be delete..!!");
+                    return View(collection);
+                }
+
                 client.BaseAddress = new Uri("https://localhost:44305/api/ItemApi");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var putdata = client.DeleteAsync("ItemApi?id=" + id.ToString());
@@ -175,6 +196,35 @@ namespace Electra_WebApi.Controllers
             {
                 return View();
             }
+        }
+        public bool Validate(string Parameter)
+        {
+            bool lRetVal = true;
+            HttpClient _client = new HttpClient();
+            List<Item> list = new List<Item>();
+            _client.BaseAddress = new Uri("https://localhost:44305/api/ItemApi");
+            var response = _client.GetAsync("ItemApi");
+            response.Wait();
+
+            var test = response.Result;
+            if (test.IsSuccessStatusCode)
+            {
+                var display = test.Content.ReadAsAsync<List<Item>>();
+                display.Wait();
+                list = display.Result;
+            }
+
+            var st = (from l in list
+                      where l.Item_Name == Parameter
+                      select new
+                      {
+                          sName = l.Item_Name
+                      }).ToList();
+            if (st.Count > 0)
+            {
+                lRetVal = false;
+            }
+            return lRetVal;
         }
     }
 }
