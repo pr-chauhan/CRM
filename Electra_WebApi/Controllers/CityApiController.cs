@@ -36,27 +36,15 @@ namespace Electra_WebApi.Controllers
             return Ok(city);
         }
 
-        [ResponseType(typeof(City))]
-        public async Task<IHttpActionResult> GetState(int id)
-        {
-            City city = await db.Cities.SingleOrDefaultAsync(x=> x.State_ID==id);
-            if (city == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(city);
-        }
         // PUT: api/CityApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCity( City city)//int id,
+        public async Task<IHttpActionResult> PutCity( City city)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             int id = city.City_ID;
-
             if (id != city.City_ID)
             {
                 return BadRequest();

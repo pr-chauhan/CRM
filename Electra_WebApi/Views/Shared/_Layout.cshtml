@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-dark bg-primary  navbar-fixed-top">
+    <div class="navbar navbar-dark bg-primary embed-responsive-item">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("City", "Index", "CityMVC", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Item", "Index", "ItemMVC", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Consignee", "Index", "ConsigneeMVC", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Add New User", "Index", "UserDetailMVC", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("User", "Index", "UserDetailMVC", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Change Password", "Index", "ChangePwd", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Database Backup", "Index", "DataBaseBackup", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Invoice Generation", "Index", "InvoiceMVC", new { area = "" }, null)</li>

@@ -10,105 +10,85 @@
 <p>
     @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
 </p>
-<table class="table table-bordered">
-    <tr class="bg-primary" style="color:#ffffff;">
-        <th>
-            @Html.DisplayNameFor(model => model.Consignee_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City_ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone_No)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fax)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email_id)
-        </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.Tin_no)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CST_No)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ECC_No)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RAnge)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Division)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PANNO)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.commission_rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GSTNO)
-            </th>*@
-        <th>Action / Command</th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Consignee_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone_No)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fax)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email_id)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.Tin_no)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CST_No)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ECC_No)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RAnge)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Division)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PANNO)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.commission_rate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GSTNO)
-                </td>*@
-            <td>
 
-                @Html.ActionLink("Edit", "Edit", new { id = item.Consignee_ID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Details", "Details", new { id = item.Consignee_ID }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.Consignee_ID }, new { @class = "btn btn-danger" })
-            </td>
-        </tr>
-    }
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary list-panel" id="list-panel">
+            <div class="panel-heading list-panel-heading">
+                <h1 class="panel-title list-panel-title">States</h1>
+            </div>
+            <div class="panel-body">
+                <table id="Dynamic-data-table" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Consignee_Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.City_ID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone_No)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fax)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email_id)
+                            </th>
+                            <th>Action / Command</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Consignee_Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone_No)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fax)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email_id)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Consignee_ID }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = item.Consignee_ID }, new { @class = "btn btn-info" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Consignee_ID }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
 
-</table>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+     $(document).ready(function () {
+
+         $('#Dynamic-data-table').DataTable();
+     });
+    </script>
+
+}

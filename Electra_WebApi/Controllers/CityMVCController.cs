@@ -61,6 +61,7 @@ namespace Electra_WebApi.Controllers
         public List<State> GetStateList()
         {
             List<State> list = new List<State>();
+            HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
             var response = client.GetAsync("StateApi");
             response.Wait();
@@ -114,21 +115,10 @@ namespace Electra_WebApi.Controllers
         // GET: CityMVC/Edit/5
         public ActionResult Edit(int id)
         {
-            List<State> list = new List<State>();
-            client.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
-            var res = client.GetAsync("StateApi");
-            res.Wait();
-
-            var data = res.Result;
-            if (data.IsSuccessStatusCode)
-            {
-                var display = data.Content.ReadAsAsync<List<State>>();
-                display.Wait();
-                list = display.Result;
-            }
-            ViewBag.CL = list;
+           
+            ViewBag.CL = GetStateList();
             City lstCity = null;
-            //client.BaseAddress = new Uri("https://localhost:44305/api/CityApi/");
+            client.BaseAddress = new Uri("https://localhost:44305/api/CityApi/");
             var response = client.GetAsync("CityApi?id=" + id.ToString());
             response.Wait();
 
@@ -149,7 +139,7 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add update logic here
-                //City lstCity = new City();
+                ViewBag.CL = GetStateList();
                 collection.DoE = DateTime.Now;
                 collection.DoM = DateTime.Now;
                 collection.E_UserID = "admin";
@@ -176,19 +166,7 @@ namespace Electra_WebApi.Controllers
         // GET: CityMVC/Delete/5
         public ActionResult Delete(int id)
         {
-            List<State> list = new List<State>();
-            //client.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
-            //var res = client.GetAsync("StateApi");
-            //res.Wait();
-
-            //var data = res.Result;
-            //if (data.IsSuccessStatusCode)
-            //{
-            //    var display = data.Content.ReadAsAsync<List<State>>();
-            //    display.Wait();
-            //    list = display.Result;
-            //}
-            //ViewBag.CL = list;
+            
             City lstCity = null;
             client.BaseAddress = new Uri("https://localhost:44305/api/CityApi");
             var response = client.GetAsync("CityApi?id=" + id.ToString());
@@ -245,19 +223,7 @@ namespace Electra_WebApi.Controllers
         public bool Validate(string Parameter)
         {
             bool lRetVal = true;
-            //HttpClient _client = new HttpClient();
-            //List<City> list = new List<City>();
-            //_client.BaseAddress = new Uri("https://localhost:44305/api/CityApi");
-            //var response = _client.GetAsync("CityApi");
-            //response.Wait();
-
-            //var test = response.Result;
-            //if (test.IsSuccessStatusCode)
-            //{
-            //    var display = test.Content.ReadAsAsync<List<City>>();
-            //    display.Wait();
-            //    list = display.Result;
-            //}
+           
 
             var st = (from l in db.Cities
                       where l.City_Name == Parameter

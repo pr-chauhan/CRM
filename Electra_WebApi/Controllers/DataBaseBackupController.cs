@@ -20,7 +20,7 @@ namespace Electra_WebApi.Controllers
             {
                 string backlocation = Server.MapPath("~/BackupFolder/");
                 String query = "backup database Inventory to disk='" + backlocation + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".Bak'";
-                String mycon = "Data Source=lap-139; Initial Catalog=Inventory; Integrated Security=true";
+                String mycon = "Data Source=lap-150; Initial Catalog=Inventory; Integrated Security=true";
                 SqlConnection con = new SqlConnection(mycon);
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
@@ -29,7 +29,7 @@ namespace Electra_WebApi.Controllers
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch (Exception ex)
+            catch 
             {
 
             }

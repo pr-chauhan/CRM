@@ -13,6 +13,7 @@ namespace EntityClass
         public string User_Name { get; set; }
 
         [StringLength(50)]
+        [DataType(DataType.Password)]
         public string Passwrd { get; set; }
 
         public DateTime? DoE { get; set; }

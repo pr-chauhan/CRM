@@ -86,7 +86,7 @@ namespace Electra_WebApi.Controllers
 
                 return View(collection);
             }
-            catch (Exception ex)
+            catch
             {
                 return View();
             }

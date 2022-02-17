@@ -200,21 +200,7 @@ namespace Electra_WebApi.Controllers
         public bool Validate(string Parameter)
         {
             bool lRetVal = true;
-            HttpClient _client = new HttpClient();
-            List<Item> list = new List<Item>();
-            _client.BaseAddress = new Uri("https://localhost:44305/api/ItemApi");
-            var response = _client.GetAsync("ItemApi");
-            response.Wait();
-
-            var test = response.Result;
-            if (test.IsSuccessStatusCode)
-            {
-                var display = test.Content.ReadAsAsync<List<Item>>();
-                display.Wait();
-                list = display.Result;
-            }
-
-            var st = (from l in list
+            var st = (from l in db.Items
                       where l.Item_Name == Parameter
                       select new
                       {

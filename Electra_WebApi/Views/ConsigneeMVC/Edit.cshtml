@@ -11,9 +11,8 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Consignee</h4>
+
+    <div class="form-horizontal" style="box-shadow:#0094ff 1px 0px 3px 2px ; border-radius:10px 10px 10px 10px;">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Consignee_ID)
@@ -37,8 +36,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.City_ID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.City_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.City_ID, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.City_ID, new SelectList(ViewBag.CL, "City_ID", "City_Name"), new { @class = "form-control", @id = "City_Name" })
                 @Html.ValidationMessageFor(model => model.City_ID, "", new { @class = "text-danger" })
+                @Html.Label("State_Name", new { @id = "State_Name" })
             </div>
         </div>
 
@@ -131,16 +132,31 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#State_Name").text("");
+            $("#City_Name").change(function () {
+                var id = $("#City_Name").val();
+                $.get("/ConsigneeMVC/GetStateName", { city_id: id }, function (data) {
+                    $("#State_Name").text(data);
+                });
+
+            });
+        });
+    </script>
+
 }

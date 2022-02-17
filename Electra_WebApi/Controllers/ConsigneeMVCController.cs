@@ -58,6 +58,7 @@ namespace Electra_WebApi.Controllers
         public List<City> GetCityList()
         {
             List<City> list = new List<City>();
+            HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44305/api/CityApi");
             var response = client.GetAsync("CityApi");
             response.Wait();
@@ -78,6 +79,7 @@ namespace Electra_WebApi.Controllers
             try
             {
                 // TODO: Add insert logic here
+                ViewBag.CL = GetCityList();
                 collection.DoE = DateTime.Now;
                 collection.DoM = DateTime.Now;
                 collection.E_UserID = "admin";
@@ -111,6 +113,8 @@ namespace Electra_WebApi.Controllers
         // GET: Consignees/Edit/5
         public ActionResult Edit(int id)
         {
+
+            ViewBag.CL = GetCityList();
             Consignee list = new Consignee();
             client.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
             var response = client.GetAsync("ConsigneeApi?id=" + id.ToString());
@@ -217,21 +221,9 @@ namespace Electra_WebApi.Controllers
         public bool Validate(string Parameter)
         {
             bool lRetVal = true;
-            HttpClient _client = new HttpClient();
-            List<Consignee> list = new List<Consignee>();
-            _client.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
-            var response = _client.GetAsync("ConsigneeApi");
-            response.Wait();
+           
 
-            var test = response.Result;
-            if (test.IsSuccessStatusCode)
-            {
-                var display = test.Content.ReadAsAsync<List<Consignee>>();
-                display.Wait();
-                list = display.Result;
-            }
-
-            var st = (from l in list
+            var st = (from l in db.Consignees
                       where l.Consignee_Name == Parameter
                       select new
                       {
@@ -242,6 +234,22 @@ namespace Electra_WebApi.Controllers
                 lRetVal = false;
             }
             return lRetVal;
+        }
+
+        public string GetStateName( int city_id)
+        {
+            string res = city_id.ToString();
+
+            var state = (from ct in db.Cities
+                      join ss in db.States on ct.State_ID equals ss.State_ID
+                      where ct.City_ID.Equals(city_id)
+                      select new
+                      {
+                          StateName = ss.State_Name
+                      }).ToList();
+                      
+            // do here some operation  
+            return state[0].StateName.ToString();
         }
 
     }

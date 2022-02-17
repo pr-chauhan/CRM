@@ -9,6 +9,8 @@ namespace Electra_WebApi
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                       "~/Scripts/DataTables/jquery.dataTables.min.js",
+                       "~/Scripts/DataTables/dataTables.bootstrap.js",
                         "~/Scripts/jquery-{version}.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -20,6 +22,7 @@ namespace Electra_WebApi
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/DataTables/css/dataTables.bootstrap.css",
                       "~/Content/bootstrap.css",
                         "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));

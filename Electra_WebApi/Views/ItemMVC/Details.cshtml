@@ -7,7 +7,7 @@
 
 <h2>Detail</h2>
 
-<div>
+<div style="box-shadow:#0094ff 1px 0px 3px 2px ; border-radius:10px 10px 10px 10px;">
     <h4>Item</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -70,6 +70,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Item_ID }) |
-    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Item_ID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index","", new { @class = "btn btn-primary" })
 </p>

@@ -1,6 +1,6 @@
-﻿using EntityClass;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -9,45 +9,48 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using EntityClass;
 
 namespace Electra_WebApi.Controllers
 {
     public class ItemApiController : ApiController
     {
         private CraModel db = new CraModel();
+
         // GET: api/ItemApi
         public IQueryable<Item> GetItems()
         {
             return db.Items;
         }
-        // GET: api/StatesApi/5
+
+        // GET: api/ItemApi/5
         [ResponseType(typeof(Item))]
         public async Task<IHttpActionResult> GetItem(int id)
         {
-            Item itemDet = await db.Items.FindAsync(id);
-            if (itemDet == null)
+            Item item = await db.Items.FindAsync(id);
+            if (item == null)
             {
                 return NotFound();
             }
 
-            return Ok(itemDet);
+            return Ok(item);
         }
 
-        // PUT: api/StatesApi/5
+        // PUT: api/ItemApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutState(Item itemDet)//int id, 
+        public async Task<IHttpActionResult> PutItem( Item item)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            int id = itemDet.Item_ID;
-            if (id != itemDet.Item_ID)
+            int id = item.Item_ID;
+            if (id != item.Item_ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(itemDet).State = EntityState.Modified;
+            db.Entry(item).State = EntityState.Modified;
 
             try
             {
@@ -67,49 +70,36 @@ namespace Electra_WebApi.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-       
-        public async Task<IHttpActionResult> PostState(Item itemDet)
+
+        // POST: api/ItemApi
+        [ResponseType(typeof(Item))]
+        public async Task<IHttpActionResult> PostItem(Item item)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Items.Add(itemDet);
+            db.Items.Add(item);
+            await db.SaveChangesAsync();
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ItemExists(itemDet.Item_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = itemDet.Item_ID }, itemDet);
+            return CreatedAtRoute("DefaultApi", new { id = item.Item_ID }, item);
         }
 
-        // DELETE: api/StatesApi/5
-        [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> DeleteState(int id)
+        // DELETE: api/ItemApi/5
+        [ResponseType(typeof(Item))]
+        public async Task<IHttpActionResult> DeleteItem(int id)
         {
-            Item itemDet = await db.Items.FindAsync(id);
-            if (itemDet == null)
+            Item item = await db.Items.FindAsync(id);
+            if (item == null)
             {
                 return NotFound();
             }
 
-            db.Items.Remove(itemDet);
+            db.Items.Remove(item);
             await db.SaveChangesAsync();
 
-            return Ok(itemDet);
+            return Ok(item);
         }
 
         protected override void Dispose(bool disposing)
@@ -120,12 +110,10 @@ namespace Electra_WebApi.Controllers
             }
             base.Dispose(disposing);
         }
-        // POST: api/StatesApi
-        [ResponseType(typeof(State))]
+
         private bool ItemExists(int id)
         {
             return db.Items.Count(e => e.Item_ID == id) > 0;
         }
-
     }
 }

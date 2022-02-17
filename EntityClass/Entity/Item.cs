@@ -15,7 +15,7 @@ namespace EntityClass
         public int Item_ID { get; set; }
         [Required]
         [DisplayName("Tarif No")]
-        [RegularExpression("([0-9]+)", ErrorMessage = "Please enter valid Number")]
+        [RegularExpression(@"^\d+.\d{0,2}$", ErrorMessage = "Please enter valid Number")]
         public decimal? Tarriff_no { get; set; }
 
         [StringLength(255)]
