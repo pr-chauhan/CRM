@@ -1,0 +1,13 @@
+﻿@model IEnumerable<EntityClass.User_detail>
+
+@{
+    ViewBag.Title = "Change Password";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Change Password</h2>
+
+<p>
+    @Html.ActionLink("Change Password", "Edit","", new { @class = "btn btn-primary" })
+</p>
+

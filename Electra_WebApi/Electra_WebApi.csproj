@@ -155,9 +155,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ChangePwdController.cs" />
     <Compile Include="Controllers\CityApiController.cs" />
     <Compile Include="Controllers\ConsigneeApiController.cs" />
     <Compile Include="Controllers\ConsigneeMVCController.cs" />
+    <Compile Include="Controllers\DataBaseBackupController.cs" />
     <Compile Include="Controllers\ItemApiController.cs" />
     <Compile Include="Controllers\ItemMVCController.cs" />
     <Compile Include="Controllers\OldCityApiController.cs" />
@@ -165,6 +167,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StateApiController.cs" />
     <Compile Include="Controllers\StateMVCController.cs" />
+    <Compile Include="Controllers\UserDetailApiController.cs" />
+    <Compile Include="Controllers\UserDetailMVCController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +245,13 @@
     <Content Include="Views\ConsigneeMVC\Edit.cshtml" />
     <Content Include="Views\ConsigneeMVC\Details.cshtml" />
     <Content Include="Views\ConsigneeMVC\Index.cshtml" />
+    <Content Include="Views\UserDetailMVC\Create.cshtml" />
+    <Content Include="Views\UserDetailMVC\Index.cshtml" />
+    <Content Include="Views\UserDetailMVC\Delete.cshtml" />
+    <Content Include="Views\ChangePwd\Index.cshtml" />
+    <Content Include="Views\ChangePwd\Edit.cshtml" />
+    <Content Include="Views\DatabaseBackup\Index.cshtml" />
+    <Content Include="Views\DatabaseBackup\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
