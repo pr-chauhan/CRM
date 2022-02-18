@@ -197,8 +197,22 @@ namespace Electra_WebApi.Controllers
                           }).ToList();
                 if (st.Count > 0)
                 {
-                    ModelState.AddModelError(nameof(City.City_Name), "City is used in Consignees master, So city can't be delete..!!");
-                    return View(collection);
+                    ModelState.AddModelError(nameof(City.City_ID), "City is used in Consignees master, So city can't be delete..!!");
+
+                    City lstCity = null;
+                    HttpClient clientd = new HttpClient();
+                    clientd.BaseAddress = new Uri("https://localhost:44305/api/CityApi");
+                    var responsed = clientd.GetAsync("CityApi?id=" + id.ToString());
+                    responsed.Wait();
+
+                    var testd = responsed.Result;
+                    if (testd.IsSuccessStatusCode)
+                    {
+                        var display = testd.Content.ReadAsAsync<City>();
+                        display.Wait();
+                        lstCity = display.Result;
+                    }
+                    return View(lstCity);
                 }
 
 

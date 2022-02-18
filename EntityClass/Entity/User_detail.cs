@@ -10,9 +10,11 @@ namespace EntityClass
     {
         [Key]
         [StringLength(50)]
+        [Required]
         public string User_Name { get; set; }
 
         [StringLength(50)]
+        [Required]
         [DataType(DataType.Password)]
         public string Passwrd { get; set; }
 

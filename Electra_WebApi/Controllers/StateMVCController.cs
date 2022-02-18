@@ -175,8 +175,21 @@ namespace Electra_WebApi.Controllers
                           }).ToList();
                 if (st.Count > 0)
                 {
-                    ModelState.AddModelError(nameof(State.State_Name), "State is used in city master, So state can't be delete..!!");
-                    return View(collection);
+                    ModelState.AddModelError(nameof(State.State_ID), "State is used in city master, So state can't be delete..!!");
+                    State list = new State();
+                    HttpClient htpc = new HttpClient();
+                    htpc.BaseAddress = new Uri("https://localhost:44305/api/StateApi");
+                    var response = htpc.GetAsync("StateApi?id=" + id.ToString());
+                    response.Wait();
+
+                    var testd = response.Result;
+                    if (testd.IsSuccessStatusCode)
+                    {
+                        var display = testd.Content.ReadAsAsync<State>();
+                        display.Wait();
+                        list = display.Result;
+                    }
+                    return View(list);
                 }
 
 

@@ -6,18 +6,31 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="~/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.smartmenus.js"></script>
+    <link type="text/css" href="~/Content/sm-blue.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/sm-core-css.css" rel="stylesheet" />
+    <!-- SmartMenus jQuery init -->
+    <script type="text/javascript">
+    	$(function() {
+    		$('#main-menu').smartmenus({
+    			subMenusSubOffsetX: 1,
+    			subMenusSubOffsetY: -8
+    		});
+    	});
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-dark bg-primary embed-responsive-item">
+    <!--<div class="navbar navbar-dark bg-primary embed-responsive-item">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button>-->
                 @*@Html.ActionLink("Electra", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-            </div>
+            <!--</div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("State", "Index", "StateMVC", new { area = "" }, null)</li>
@@ -34,7 +47,25 @@
             </div>
 
         </div>
+    </div>-->
+
+
+    <div  id="main-nav">
+        <ul id="main-menu" class="sm sm-blue">
+            <li>@Html.ActionLink("State", "Index", "StateMVC", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("City", "Index", "CityMVC", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Item", "Index", "ItemMVC", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Consignee", "Index", "ConsigneeMVC", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("User", "Index", "UserDetailMVC", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Change Password", "Index", "ChangePwd", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Database Backup", "Index", "DataBaseBackup", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Invoice Generation", "Index", "InvoiceMVC", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Report", "Index", "Report", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Invoice List Datewise", "Index", "InvoiceMVC", new { area = "" }, null)</li>
+        </ul>
     </div>
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />

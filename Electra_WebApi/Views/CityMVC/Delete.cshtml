@@ -12,13 +12,7 @@
     <h4>City</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.State_ID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State_ID)
-        </dd>
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.City_Name)
@@ -26,6 +20,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.City_Name)
+            @Html.ValidationMessageFor(model => model.City_ID, "", new { @class = "text-danger" })
         </dd>
         
     </dl>

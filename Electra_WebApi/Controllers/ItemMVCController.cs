@@ -175,8 +175,21 @@ namespace Electra_WebApi.Controllers
                           }).ToList();
                 if (st.Count > 0)
                 {
-                    ModelState.AddModelError(nameof(Item.Item_Name), "Item is used in Invoice, So item can't be delete..!!");
-                    return View(collection);
+                    ModelState.AddModelError(nameof(Item.Item_ID), "Item is used in Invoice, So item can't be delete..!!");
+                    Item list = new Item();
+                    HttpClient htpc = new HttpClient();
+                    htpc.BaseAddress = new Uri("https://localhost:44305/api/ItemApi");
+                    var response = htpc.GetAsync("ItemApi?id=" + id.ToString());
+                    response.Wait();
+
+                    var testd = response.Result;
+                    if (testd.IsSuccessStatusCode)
+                    {
+                        var display = testd.Content.ReadAsAsync<Item>();
+                        display.Wait();
+                        list = display.Result;
+                    }
+                    return View(list);
                 }
 
                 client.BaseAddress = new Uri("https://localhost:44305/api/ItemApi");

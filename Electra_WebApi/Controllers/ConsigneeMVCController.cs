@@ -195,8 +195,21 @@ namespace Electra_WebApi.Controllers
                           }).ToList();
                 if (st.Count > 0)
                 {
-                    ModelState.AddModelError(nameof(Consignee.Consignee_Name), "Consignee is used in Invoice, So Consignee can't be delete..!!");
-                    return View(collection);
+                    ModelState.AddModelError(nameof(Consignee.Consignee_ID), "Consignee is used in Invoice, So Consignee can't be delete..!!");
+                    Consignee list = new Consignee();
+                    HttpClient htcp = new HttpClient();
+                    htcp.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
+                    var response = htcp.GetAsync("ConsigneeApi?id=" + id.ToString());
+                    response.Wait();
+
+                    var testd = response.Result;
+                    if (testd.IsSuccessStatusCode)
+                    {
+                        var display = testd.Content.ReadAsAsync<Consignee>();
+                        display.Wait();
+                        list = display.Result;
+                    }
+                    return View(list);
                 }
 
                 client.BaseAddress = new Uri("https://localhost:44305/api/ConsigneeApi");
