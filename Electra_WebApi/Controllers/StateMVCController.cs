@@ -242,5 +242,11 @@ namespace Electra_WebApi.Controllers
             return lRetVal;
         }
 
+        public string GetStateName(int state_id)
+        {
+            var state = db.States.Where(x => x.State_ID.Equals(state_id)).ToList();
+            // do here some operation  
+            return state[0].State_Name.ToString();
+        }
     }
 }

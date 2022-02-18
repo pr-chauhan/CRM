@@ -31,8 +31,18 @@
             @Html.DisplayNameFor(model => model.City_ID)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.City_ID)
+        <dd id="city_id">
+           
+            <script type="text/javascript">
+
+                var id =   @Html.DisplayFor(model => model.City_ID);
+
+                $.get("/CityMVC/GetCityName", { city_id: id }, function (data) {
+                    $('<div>' + data + '</div>').appendTo("#city_id");
+                });
+
+
+            </script>
         </dd>
 
         <dt>

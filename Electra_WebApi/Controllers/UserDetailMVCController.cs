@@ -164,5 +164,44 @@ namespace Electra_WebApi.Controllers
             }
             return lRetVal;
         }
+
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(User_detail collection)
+        {
+            User_detail list = new User_detail();
+            client.BaseAddress = new Uri("https://localhost:44305/api/UserDetailApi");
+            var response = client.GetAsync("UserDetailApi?id=" + collection.User_Name.ToString());
+            response.Wait();
+
+            var test = response.Result;
+            if (test.IsSuccessStatusCode)
+            {
+                var display = test.Content.ReadAsAsync<User_detail>();
+                display.Wait();
+                list = display.Result;
+                if (list.User_Name.Equals(collection.User_Name) && list.Passwrd.Equals(collection.Passwrd))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                return View();
+            }
+           
+        }
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Login", "UserDetailMVC");
+        }
     }
 }

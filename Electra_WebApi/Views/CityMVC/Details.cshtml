@@ -15,8 +15,18 @@
             @Html.DisplayNameFor(model => model.State_ID)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.State_ID)
+        <dd id="state_id">
+            @*@Html.DisplayFor(model => model.State_ID)*@
+            <script type="text/javascript">
+
+                var id =  @Html.DisplayFor(model => model.State_ID);
+                 
+                $.get("/StateMVC/GetStateName", { state_id: id }, function (data) {
+                    $('<div>' + data + '</div>').appendTo("#state_id");
+                });
+
+
+            </script>
         </dd>
 
         <dt>

@@ -9,6 +9,7 @@
 
 <p>
     @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
+    <button class="btn btn-success" id="export">Export To Excel</button>
 </p>
 
 
@@ -46,31 +47,31 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Consignee_Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.address)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.City_ID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Phone_No)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Fax)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email_id)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Consignee_ID }, new { @class = "btn btn-primary" })
-                                @Html.ActionLink("Details", "Details", new { id = item.Consignee_ID }, new { @class = "btn btn-info" })
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Consignee_ID }, new { @class = "btn btn-danger" })
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Consignee_Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.City_ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone_No)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fax)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email_id)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Consignee_ID }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Details", "Details", new { id = item.Consignee_ID }, new { @class = "btn btn-info" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Consignee_ID }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
 
                         }
                     </tbody>
@@ -85,10 +86,48 @@
 
     <script type="text/javascript">
 
-     $(document).ready(function () {
+        $(document).ready(function () {
 
-         $('#Dynamic-data-table').DataTable();
-     });
+            $('#Dynamic-data-table').DataTable();
+        });
     </script>
 
+    @*=====================script for download data to csv=====================*@
+    <script>
+        function download_csv(csv, filename) {
+            var csvFile;
+            var downloadLink;
+
+            csvFile = new Blob([csv], { type: "text/csv" });
+            downloadLink = document.createElement("a");
+            downloadLink.download = filename;
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+        }
+
+        function export_table_to_csv(html, filename) {
+            var csv = [];
+            var rows = document.querySelectorAll("table tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+
+                for (var j = 0; j < cols.length-1; j++)
+                    row.push(cols[j].innerText);
+
+                csv.push(row.join(","));
+            }
+
+            // Download CSV
+            download_csv(csv.join("\n"), filename);
+        }
+
+        document.querySelector("button").addEventListener("click", function () {
+            var html = document.querySelector("table").outerHTML;
+            export_table_to_csv(html, "Consignee.csv");
+        });
+    </script>
+    @*=====================script for download data to csv=====================*@
 }

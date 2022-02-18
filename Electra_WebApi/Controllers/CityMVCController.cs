@@ -85,9 +85,10 @@ namespace Electra_WebApi.Controllers
                 collection.DoM = DateTime.Now;
                 collection.E_UserID = "admin";
                 collection.M_UserID = "admin";
+                ViewBag.CL = GetStateList();
                 if (!Validate(collection.City_Name))
                 {
-                    ViewBag.CL = GetStateList();
+                   
                     ModelState.AddModelError(nameof(City.City_Name), "Duplicate City is not allowed..!!");
                     return View(collection);
 
@@ -250,6 +251,13 @@ namespace Electra_WebApi.Controllers
                 lRetVal = false;
             }
             return lRetVal;
+        }
+
+        public string GetCityName(int city_id)
+        {
+            var state = db.Cities.Where(x => x.City_ID.Equals(city_id)).ToList();
+            // do here some operation  
+            return state[0].City_Name.ToString();
         }
     }
 }
