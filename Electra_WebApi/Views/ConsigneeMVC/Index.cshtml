@@ -9,7 +9,7 @@
 
 <p>
     @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
-    <button class="btn btn-success" id="export">Export To Excel</button>
+    <button class="btn btn-success" id="export"  style='float:right;' >Export To Excel</button>
 </p>
 
 
@@ -67,7 +67,7 @@
                                     @Html.DisplayFor(modelItem => item.Email_id)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Consignee_ID }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Consignee_ID }, new { @class = "btn btn-primary" } )
                                     @Html.ActionLink("Details", "Details", new { id = item.Consignee_ID }, new { @class = "btn btn-info" })
                                     @Html.ActionLink("Delete", "Delete", new { id = item.Consignee_ID }, new { @class = "btn btn-danger" })
                                 </td>

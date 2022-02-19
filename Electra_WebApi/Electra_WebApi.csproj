@@ -183,6 +183,8 @@
     <Compile Include="Controllers\ConsigneeApiController.cs" />
     <Compile Include="Controllers\ConsigneeMVCController.cs" />
     <Compile Include="Controllers\DataBaseBackupController.cs" />
+    <Compile Include="Controllers\InvoiceApiController.cs" />
+    <Compile Include="Controllers\InvoiceMVCController.cs" />
     <Compile Include="Controllers\ItemApiController.cs" />
     <Compile Include="Controllers\ItemMVCController.cs" />
     <Compile Include="Controllers\OldCityApiController.cs" />
@@ -317,6 +319,7 @@
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Views\InvoiceMVC\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

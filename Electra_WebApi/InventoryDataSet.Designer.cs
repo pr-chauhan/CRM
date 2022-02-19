@@ -24,9 +24,7 @@ namespace Electra_WebApi {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class InventoryDataSet : global::System.Data.DataSet {
         
-        private InvoiceDataTable tableInvoice;
-        
-        private Invoice_DetailDataTable tableInvoice_Detail;
+        private SP_PrintInvoiceDataTable tableSP_PrintInvoice;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -56,11 +54,8 @@ namespace Electra_WebApi {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Invoice"] != null)) {
-                    base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
-                }
-                if ((ds.Tables["Invoice_Detail"] != null)) {
-                    base.Tables.Add(new Invoice_DetailDataTable(ds.Tables["Invoice_Detail"]));
+                if ((ds.Tables["SP_PrintInvoice"] != null)) {
+                    base.Tables.Add(new SP_PrintInvoiceDataTable(ds.Tables["SP_PrintInvoice"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -84,19 +79,9 @@ namespace Electra_WebApi {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public InvoiceDataTable Invoice {
+        public SP_PrintInvoiceDataTable SP_PrintInvoice {
             get {
-                return this.tableInvoice;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Invoice_DetailDataTable Invoice_Detail {
-            get {
-                return this.tableInvoice_Detail;
+                return this.tableSP_PrintInvoice;
             }
         }
         
@@ -167,11 +152,8 @@ namespace Electra_WebApi {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Invoice"] != null)) {
-                    base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
-                }
-                if ((ds.Tables["Invoice_Detail"] != null)) {
-                    base.Tables.Add(new Invoice_DetailDataTable(ds.Tables["Invoice_Detail"]));
+                if ((ds.Tables["SP_PrintInvoice"] != null)) {
+                    base.Tables.Add(new SP_PrintInvoiceDataTable(ds.Tables["SP_PrintInvoice"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +188,10 @@ namespace Electra_WebApi {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableInvoice = ((InvoiceDataTable)(base.Tables["Invoice"]));
+            this.tableSP_PrintInvoice = ((SP_PrintInvoiceDataTable)(base.Tables["SP_PrintInvoice"]));
             if ((initTable == true)) {
-                if ((this.tableInvoice != null)) {
-                    this.tableInvoice.InitVars();
-                }
-            }
-            this.tableInvoice_Detail = ((Invoice_DetailDataTable)(base.Tables["Invoice_Detail"]));
-            if ((initTable == true)) {
-                if ((this.tableInvoice_Detail != null)) {
-                    this.tableInvoice_Detail.InitVars();
+                if ((this.tableSP_PrintInvoice != null)) {
+                    this.tableSP_PrintInvoice.InitVars();
                 }
             }
         }
@@ -228,21 +204,13 @@ namespace Electra_WebApi {
             this.Namespace = "http://tempuri.org/InventoryDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableInvoice = new InvoiceDataTable();
-            base.Tables.Add(this.tableInvoice);
-            this.tableInvoice_Detail = new Invoice_DetailDataTable();
-            base.Tables.Add(this.tableInvoice_Detail);
+            this.tableSP_PrintInvoice = new SP_PrintInvoiceDataTable();
+            base.Tables.Add(this.tableSP_PrintInvoice);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeInvoice() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeInvoice_Detail() {
+        private bool ShouldSerializeSP_PrintInvoice() {
             return false;
         }
         
@@ -302,25 +270,20 @@ namespace Electra_WebApi {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void InvoiceRowChangeEventHandler(object sender, InvoiceRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Invoice_DetailRowChangeEventHandler(object sender, Invoice_DetailRowChangeEvent e);
+        public delegate void SP_PrintInvoiceRowChangeEventHandler(object sender, SP_PrintInvoiceRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class InvoiceDataTable : global::System.Data.TypedTableBase<InvoiceRow> {
-            
-            private global::System.Data.DataColumn columnFinancial_Yr;
+        public partial class SP_PrintInvoiceDataTable : global::System.Data.TypedTableBase<SP_PrintInvoiceRow> {
             
             private global::System.Data.DataColumn columnInvoice_ID;
             
-            private global::System.Data.DataColumn columnInvoice_Date;
+            private global::System.Data.DataColumn columnFinancial_Yr;
             
-            private global::System.Data.DataColumn columnConsignee_ID;
+            private global::System.Data.DataColumn columnInvoice_Date;
             
             private global::System.Data.DataColumn columnPO_NO;
             
@@ -328,15 +291,31 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnRemoval_Time;
             
-            private global::System.Data.DataColumn columnCon_Adr_Check;
+            private global::System.Data.DataColumn columnpo_no1;
             
-            private global::System.Data.DataColumn columnConsignee_DelAddress;
+            private global::System.Data.DataColumn columnTotal_amount;
             
-            private global::System.Data.DataColumn columnConsignee_DelRange;
+            private global::System.Data.DataColumn columnTotal_Excise;
             
-            private global::System.Data.DataColumn columnConsignee_DelDivision;
+            private global::System.Data.DataColumn columnPCess_Per;
             
-            private global::System.Data.DataColumn columnConsignee_DelCommRate;
+            private global::System.Data.DataColumn columnPCess_Val;
+            
+            private global::System.Data.DataColumn columnBED_Per;
+            
+            private global::System.Data.DataColumn columnBED_Val;
+            
+            private global::System.Data.DataColumn columnSub_total;
+            
+            private global::System.Data.DataColumn columnInsurance_per;
+            
+            private global::System.Data.DataColumn columnInsurance_val;
+            
+            private global::System.Data.DataColumn columnOthers;
+            
+            private global::System.Data.DataColumn columnVat_CST_Val;
+            
+            private global::System.Data.DataColumn columnDESTINATION1;
             
             private global::System.Data.DataColumn columnTransporter_Name;
             
@@ -344,72 +323,74 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnGRR_No;
             
-            private global::System.Data.DataColumn columnTotal_Ass_Amt;
-            
-            private global::System.Data.DataColumn columnBED_Per;
-            
-            private global::System.Data.DataColumn columnBED_Val;
-            
-            private global::System.Data.DataColumn columnPCess_Per;
-            
-            private global::System.Data.DataColumn columnPCess_Val;
-            
-            private global::System.Data.DataColumn columnEDU_Per;
-            
-            private global::System.Data.DataColumn columnEDU_Val;
-            
-            private global::System.Data.DataColumn columnSHE_PEr;
-            
-            private global::System.Data.DataColumn columnShe_val;
-            
-            private global::System.Data.DataColumn columnTotal_Excise;
-            
-            private global::System.Data.DataColumn columnSub_total;
-            
-            private global::System.Data.DataColumn columnVAT_CST_per;
-            
-            private global::System.Data.DataColumn columnVat_CST_Val;
-            
-            private global::System.Data.DataColumn columnVat_CST_flag;
-            
-            private global::System.Data.DataColumn columnSurcharge_PER;
-            
-            private global::System.Data.DataColumn columnSurcharge_Val;
-            
-            private global::System.Data.DataColumn columnFrieght;
-            
-            private global::System.Data.DataColumn columnOthers;
-            
-            private global::System.Data.DataColumn columnInsurance_per;
-            
-            private global::System.Data.DataColumn columnInsurance_val;
-            
-            private global::System.Data.DataColumn columnTotal_amount;
-            
-            private global::System.Data.DataColumn columnDESTINATION1;
-            
             private global::System.Data.DataColumn columnDESTINATION2;
             
             private global::System.Data.DataColumn columnDEST_THROUGH2;
             
-            private global::System.Data.DataColumn columnDEST_FLAG;
+            private global::System.Data.DataColumn columnFrieght;
             
-            private global::System.Data.DataColumn columnEXTRA_INFO;
+            private global::System.Data.DataColumn columnTotal_Ass_Amt;
             
-            private global::System.Data.DataColumn columnDOE;
+            private global::System.Data.DataColumn columnConsignee_DelDivision;
             
-            private global::System.Data.DataColumn columnDOM;
+            private global::System.Data.DataColumn columnConsignee_DelRange;
             
-            private global::System.Data.DataColumn columnE_userid;
+            private global::System.Data.DataColumn columnConsignee_DelCommRate;
             
-            private global::System.Data.DataColumn columnM_userid;
+            private global::System.Data.DataColumn columnConsignee_DelAddress;
             
-            private global::System.Data.DataColumn columnDEL_PARTY;
+            private global::System.Data.DataColumn columnsr_flag;
+            
+            private global::System.Data.DataColumn columnNo_of_pkg;
+            
+            private global::System.Data.DataColumn columnQty;
+            
+            private global::System.Data.DataColumn columnRate;
+            
+            private global::System.Data.DataColumn columnTotal_amt;
+            
+            private global::System.Data.DataColumn columnDEC;
+            
+            private global::System.Data.DataColumn columnTYPE;
+            
+            private global::System.Data.DataColumn columnItem_Name;
+            
+            private global::System.Data.DataColumn columnTarriff_no;
+            
+            private global::System.Data.DataColumn columnGSTNO;
+            
+            private global::System.Data.DataColumn columnECC_No;
+            
+            private global::System.Data.DataColumn columnPANNO;
+            
+            private global::System.Data.DataColumn columnConsignee_Name;
+            
+            private global::System.Data.DataColumn columnGSTNO1;
+            
+            private global::System.Data.DataColumn columnECC_No1;
+            
+            private global::System.Data.DataColumn columnRAnge;
+            
+            private global::System.Data.DataColumn columnDivision;
+            
+            private global::System.Data.DataColumn columncommission_rate;
+            
+            private global::System.Data.DataColumn columnPANNO1;
+            
+            private global::System.Data.DataColumn columnaddress;
+            
+            private global::System.Data.DataColumn columnPhone_No;
+            
+            private global::System.Data.DataColumn columnCity_Name;
+            
+            private global::System.Data.DataColumn columnState_Name;
+            
+            private global::System.Data.DataColumn columnConsignee_Name1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceDataTable() {
-                this.TableName = "Invoice";
+            public SP_PrintInvoiceDataTable() {
+                this.TableName = "SP_PrintInvoice";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -417,7 +398,7 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal InvoiceDataTable(global::System.Data.DataTable table) {
+            internal SP_PrintInvoiceDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -434,17 +415,9 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected InvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SP_PrintInvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Financial_YrColumn {
-                get {
-                    return this.columnFinancial_Yr;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -457,17 +430,17 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Invoice_DateColumn {
+            public global::System.Data.DataColumn Financial_YrColumn {
                 get {
-                    return this.columnInvoice_Date;
+                    return this.columnFinancial_Yr;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Consignee_IDColumn {
+            public global::System.Data.DataColumn Invoice_DateColumn {
                 get {
-                    return this.columnConsignee_ID;
+                    return this.columnInvoice_Date;
                 }
             }
             
@@ -497,41 +470,105 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Con_Adr_CheckColumn {
+            public global::System.Data.DataColumn po_no1Column {
                 get {
-                    return this.columnCon_Adr_Check;
+                    return this.columnpo_no1;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Consignee_DelAddressColumn {
+            public global::System.Data.DataColumn Total_amountColumn {
                 get {
-                    return this.columnConsignee_DelAddress;
+                    return this.columnTotal_amount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Consignee_DelRangeColumn {
+            public global::System.Data.DataColumn Total_ExciseColumn {
                 get {
-                    return this.columnConsignee_DelRange;
+                    return this.columnTotal_Excise;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Consignee_DelDivisionColumn {
+            public global::System.Data.DataColumn PCess_PerColumn {
                 get {
-                    return this.columnConsignee_DelDivision;
+                    return this.columnPCess_Per;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Consignee_DelCommRateColumn {
+            public global::System.Data.DataColumn PCess_ValColumn {
                 get {
-                    return this.columnConsignee_DelCommRate;
+                    return this.columnPCess_Val;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BED_PerColumn {
+                get {
+                    return this.columnBED_Per;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BED_ValColumn {
+                get {
+                    return this.columnBED_Val;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Sub_totalColumn {
+                get {
+                    return this.columnSub_total;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Insurance_perColumn {
+                get {
+                    return this.columnInsurance_per;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Insurance_valColumn {
+                get {
+                    return this.columnInsurance_val;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OthersColumn {
+                get {
+                    return this.columnOthers;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Vat_CST_ValColumn {
+                get {
+                    return this.columnVat_CST_Val;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DESTINATION1Column {
+                get {
+                    return this.columnDESTINATION1;
                 }
             }
             
@@ -561,182 +598,6 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Total_Ass_AmtColumn {
-                get {
-                    return this.columnTotal_Ass_Amt;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BED_PerColumn {
-                get {
-                    return this.columnBED_Per;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BED_ValColumn {
-                get {
-                    return this.columnBED_Val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PCess_PerColumn {
-                get {
-                    return this.columnPCess_Per;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PCess_ValColumn {
-                get {
-                    return this.columnPCess_Val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EDU_PerColumn {
-                get {
-                    return this.columnEDU_Per;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EDU_ValColumn {
-                get {
-                    return this.columnEDU_Val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SHE_PErColumn {
-                get {
-                    return this.columnSHE_PEr;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn She_valColumn {
-                get {
-                    return this.columnShe_val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Total_ExciseColumn {
-                get {
-                    return this.columnTotal_Excise;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Sub_totalColumn {
-                get {
-                    return this.columnSub_total;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn VAT_CST_perColumn {
-                get {
-                    return this.columnVAT_CST_per;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Vat_CST_ValColumn {
-                get {
-                    return this.columnVat_CST_Val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Vat_CST_flagColumn {
-                get {
-                    return this.columnVat_CST_flag;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Surcharge_PERColumn {
-                get {
-                    return this.columnSurcharge_PER;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Surcharge_ValColumn {
-                get {
-                    return this.columnSurcharge_Val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FrieghtColumn {
-                get {
-                    return this.columnFrieght;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OthersColumn {
-                get {
-                    return this.columnOthers;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Insurance_perColumn {
-                get {
-                    return this.columnInsurance_per;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Insurance_valColumn {
-                get {
-                    return this.columnInsurance_val;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Total_amountColumn {
-                get {
-                    return this.columnTotal_amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DESTINATION1Column {
-                get {
-                    return this.columnDESTINATION1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn DESTINATION2Column {
                 get {
                     return this.columnDESTINATION2;
@@ -753,606 +614,57 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DEST_FLAGColumn {
+            public global::System.Data.DataColumn FrieghtColumn {
                 get {
-                    return this.columnDEST_FLAG;
+                    return this.columnFrieght;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EXTRA_INFOColumn {
+            public global::System.Data.DataColumn Total_Ass_AmtColumn {
                 get {
-                    return this.columnEXTRA_INFO;
+                    return this.columnTotal_Ass_Amt;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DOEColumn {
+            public global::System.Data.DataColumn Consignee_DelDivisionColumn {
                 get {
-                    return this.columnDOE;
+                    return this.columnConsignee_DelDivision;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DOMColumn {
+            public global::System.Data.DataColumn Consignee_DelRangeColumn {
                 get {
-                    return this.columnDOM;
+                    return this.columnConsignee_DelRange;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn E_useridColumn {
+            public global::System.Data.DataColumn Consignee_DelCommRateColumn {
                 get {
-                    return this.columnE_userid;
+                    return this.columnConsignee_DelCommRate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn M_useridColumn {
+            public global::System.Data.DataColumn Consignee_DelAddressColumn {
                 get {
-                    return this.columnM_userid;
+                    return this.columnConsignee_DelAddress;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DEL_PARTYColumn {
+            public global::System.Data.DataColumn sr_flagColumn {
                 get {
-                    return this.columnDEL_PARTY;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceRow this[int index] {
-                get {
-                    return ((InvoiceRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddInvoiceRow(InvoiceRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceRow AddInvoiceRow(
-                        string Financial_Yr, 
-                        int Invoice_ID, 
-                        System.DateTime Invoice_Date, 
-                        int Consignee_ID, 
-                        string PO_NO, 
-                        System.DateTime Removal_Date, 
-                        string Removal_Time, 
-                        string Con_Adr_Check, 
-                        string Consignee_DelAddress, 
-                        string Consignee_DelRange, 
-                        string Consignee_DelDivision, 
-                        string Consignee_DelCommRate, 
-                        string Transporter_Name, 
-                        string Vehicle_No, 
-                        string GRR_No, 
-                        double Total_Ass_Amt, 
-                        int BED_Per, 
-                        double BED_Val, 
-                        decimal PCess_Per, 
-                        double PCess_Val, 
-                        int EDU_Per, 
-                        double EDU_Val, 
-                        int SHE_PEr, 
-                        double She_val, 
-                        double Total_Excise, 
-                        double Sub_total, 
-                        decimal VAT_CST_per, 
-                        double Vat_CST_Val, 
-                        string Vat_CST_flag, 
-                        decimal Surcharge_PER, 
-                        double Surcharge_Val, 
-                        double Frieght, 
-                        double Others, 
-                        decimal Insurance_per, 
-                        double Insurance_val, 
-                        double Total_amount, 
-                        string DESTINATION1, 
-                        string DESTINATION2, 
-                        string DEST_THROUGH2, 
-                        string DEST_FLAG, 
-                        string EXTRA_INFO, 
-                        System.DateTime DOE, 
-                        System.DateTime DOM, 
-                        string E_userid, 
-                        string M_userid, 
-                        int DEL_PARTY) {
-                InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Financial_Yr,
-                        Invoice_ID,
-                        Invoice_Date,
-                        Consignee_ID,
-                        PO_NO,
-                        Removal_Date,
-                        Removal_Time,
-                        Con_Adr_Check,
-                        Consignee_DelAddress,
-                        Consignee_DelRange,
-                        Consignee_DelDivision,
-                        Consignee_DelCommRate,
-                        Transporter_Name,
-                        Vehicle_No,
-                        GRR_No,
-                        Total_Ass_Amt,
-                        BED_Per,
-                        BED_Val,
-                        PCess_Per,
-                        PCess_Val,
-                        EDU_Per,
-                        EDU_Val,
-                        SHE_PEr,
-                        She_val,
-                        Total_Excise,
-                        Sub_total,
-                        VAT_CST_per,
-                        Vat_CST_Val,
-                        Vat_CST_flag,
-                        Surcharge_PER,
-                        Surcharge_Val,
-                        Frieght,
-                        Others,
-                        Insurance_per,
-                        Insurance_val,
-                        Total_amount,
-                        DESTINATION1,
-                        DESTINATION2,
-                        DEST_THROUGH2,
-                        DEST_FLAG,
-                        EXTRA_INFO,
-                        DOE,
-                        DOM,
-                        E_userid,
-                        M_userid,
-                        DEL_PARTY};
-                rowInvoiceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowInvoiceRow);
-                return rowInvoiceRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceRow FindByFinancial_YrInvoice_ID(string Financial_Yr, int Invoice_ID) {
-                return ((InvoiceRow)(this.Rows.Find(new object[] {
-                            Financial_Yr,
-                            Invoice_ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                InvoiceDataTable cln = ((InvoiceDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new InvoiceDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnFinancial_Yr = base.Columns["Financial_Yr"];
-                this.columnInvoice_ID = base.Columns["Invoice_ID"];
-                this.columnInvoice_Date = base.Columns["Invoice_Date"];
-                this.columnConsignee_ID = base.Columns["Consignee_ID"];
-                this.columnPO_NO = base.Columns["PO_NO"];
-                this.columnRemoval_Date = base.Columns["Removal_Date"];
-                this.columnRemoval_Time = base.Columns["Removal_Time"];
-                this.columnCon_Adr_Check = base.Columns["Con_Adr_Check"];
-                this.columnConsignee_DelAddress = base.Columns["Consignee_DelAddress"];
-                this.columnConsignee_DelRange = base.Columns["Consignee_DelRange"];
-                this.columnConsignee_DelDivision = base.Columns["Consignee_DelDivision"];
-                this.columnConsignee_DelCommRate = base.Columns["Consignee_DelCommRate"];
-                this.columnTransporter_Name = base.Columns["Transporter_Name"];
-                this.columnVehicle_No = base.Columns["Vehicle_No"];
-                this.columnGRR_No = base.Columns["GRR_No"];
-                this.columnTotal_Ass_Amt = base.Columns["Total_Ass_Amt"];
-                this.columnBED_Per = base.Columns["BED_Per"];
-                this.columnBED_Val = base.Columns["BED_Val"];
-                this.columnPCess_Per = base.Columns["PCess_Per"];
-                this.columnPCess_Val = base.Columns["PCess_Val"];
-                this.columnEDU_Per = base.Columns["EDU_Per"];
-                this.columnEDU_Val = base.Columns["EDU_Val"];
-                this.columnSHE_PEr = base.Columns["SHE_PEr"];
-                this.columnShe_val = base.Columns["She_val"];
-                this.columnTotal_Excise = base.Columns["Total_Excise"];
-                this.columnSub_total = base.Columns["Sub_total"];
-                this.columnVAT_CST_per = base.Columns["VAT_CST_per"];
-                this.columnVat_CST_Val = base.Columns["Vat_CST_Val"];
-                this.columnVat_CST_flag = base.Columns["Vat_CST_flag"];
-                this.columnSurcharge_PER = base.Columns["Surcharge_PER"];
-                this.columnSurcharge_Val = base.Columns["Surcharge_Val"];
-                this.columnFrieght = base.Columns["Frieght"];
-                this.columnOthers = base.Columns["Others"];
-                this.columnInsurance_per = base.Columns["Insurance_per"];
-                this.columnInsurance_val = base.Columns["Insurance_val"];
-                this.columnTotal_amount = base.Columns["Total_amount"];
-                this.columnDESTINATION1 = base.Columns["DESTINATION1"];
-                this.columnDESTINATION2 = base.Columns["DESTINATION2"];
-                this.columnDEST_THROUGH2 = base.Columns["DEST_THROUGH2"];
-                this.columnDEST_FLAG = base.Columns["DEST_FLAG"];
-                this.columnEXTRA_INFO = base.Columns["EXTRA_INFO"];
-                this.columnDOE = base.Columns["DOE"];
-                this.columnDOM = base.Columns["DOM"];
-                this.columnE_userid = base.Columns["E_userid"];
-                this.columnM_userid = base.Columns["M_userid"];
-                this.columnDEL_PARTY = base.Columns["DEL_PARTY"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnFinancial_Yr = new global::System.Data.DataColumn("Financial_Yr", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFinancial_Yr);
-                this.columnInvoice_ID = new global::System.Data.DataColumn("Invoice_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoice_ID);
-                this.columnInvoice_Date = new global::System.Data.DataColumn("Invoice_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoice_Date);
-                this.columnConsignee_ID = new global::System.Data.DataColumn("Consignee_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsignee_ID);
-                this.columnPO_NO = new global::System.Data.DataColumn("PO_NO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPO_NO);
-                this.columnRemoval_Date = new global::System.Data.DataColumn("Removal_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRemoval_Date);
-                this.columnRemoval_Time = new global::System.Data.DataColumn("Removal_Time", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRemoval_Time);
-                this.columnCon_Adr_Check = new global::System.Data.DataColumn("Con_Adr_Check", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCon_Adr_Check);
-                this.columnConsignee_DelAddress = new global::System.Data.DataColumn("Consignee_DelAddress", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsignee_DelAddress);
-                this.columnConsignee_DelRange = new global::System.Data.DataColumn("Consignee_DelRange", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsignee_DelRange);
-                this.columnConsignee_DelDivision = new global::System.Data.DataColumn("Consignee_DelDivision", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsignee_DelDivision);
-                this.columnConsignee_DelCommRate = new global::System.Data.DataColumn("Consignee_DelCommRate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsignee_DelCommRate);
-                this.columnTransporter_Name = new global::System.Data.DataColumn("Transporter_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTransporter_Name);
-                this.columnVehicle_No = new global::System.Data.DataColumn("Vehicle_No", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVehicle_No);
-                this.columnGRR_No = new global::System.Data.DataColumn("GRR_No", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGRR_No);
-                this.columnTotal_Ass_Amt = new global::System.Data.DataColumn("Total_Ass_Amt", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal_Ass_Amt);
-                this.columnBED_Per = new global::System.Data.DataColumn("BED_Per", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBED_Per);
-                this.columnBED_Val = new global::System.Data.DataColumn("BED_Val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBED_Val);
-                this.columnPCess_Per = new global::System.Data.DataColumn("PCess_Per", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPCess_Per);
-                this.columnPCess_Val = new global::System.Data.DataColumn("PCess_Val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPCess_Val);
-                this.columnEDU_Per = new global::System.Data.DataColumn("EDU_Per", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEDU_Per);
-                this.columnEDU_Val = new global::System.Data.DataColumn("EDU_Val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEDU_Val);
-                this.columnSHE_PEr = new global::System.Data.DataColumn("SHE_PEr", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSHE_PEr);
-                this.columnShe_val = new global::System.Data.DataColumn("She_val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShe_val);
-                this.columnTotal_Excise = new global::System.Data.DataColumn("Total_Excise", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal_Excise);
-                this.columnSub_total = new global::System.Data.DataColumn("Sub_total", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSub_total);
-                this.columnVAT_CST_per = new global::System.Data.DataColumn("VAT_CST_per", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVAT_CST_per);
-                this.columnVat_CST_Val = new global::System.Data.DataColumn("Vat_CST_Val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVat_CST_Val);
-                this.columnVat_CST_flag = new global::System.Data.DataColumn("Vat_CST_flag", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVat_CST_flag);
-                this.columnSurcharge_PER = new global::System.Data.DataColumn("Surcharge_PER", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSurcharge_PER);
-                this.columnSurcharge_Val = new global::System.Data.DataColumn("Surcharge_Val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSurcharge_Val);
-                this.columnFrieght = new global::System.Data.DataColumn("Frieght", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFrieght);
-                this.columnOthers = new global::System.Data.DataColumn("Others", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOthers);
-                this.columnInsurance_per = new global::System.Data.DataColumn("Insurance_per", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsurance_per);
-                this.columnInsurance_val = new global::System.Data.DataColumn("Insurance_val", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInsurance_val);
-                this.columnTotal_amount = new global::System.Data.DataColumn("Total_amount", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal_amount);
-                this.columnDESTINATION1 = new global::System.Data.DataColumn("DESTINATION1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESTINATION1);
-                this.columnDESTINATION2 = new global::System.Data.DataColumn("DESTINATION2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESTINATION2);
-                this.columnDEST_THROUGH2 = new global::System.Data.DataColumn("DEST_THROUGH2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDEST_THROUGH2);
-                this.columnDEST_FLAG = new global::System.Data.DataColumn("DEST_FLAG", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDEST_FLAG);
-                this.columnEXTRA_INFO = new global::System.Data.DataColumn("EXTRA_INFO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEXTRA_INFO);
-                this.columnDOE = new global::System.Data.DataColumn("DOE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDOE);
-                this.columnDOM = new global::System.Data.DataColumn("DOM", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDOM);
-                this.columnE_userid = new global::System.Data.DataColumn("E_userid", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnE_userid);
-                this.columnM_userid = new global::System.Data.DataColumn("M_userid", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnM_userid);
-                this.columnDEL_PARTY = new global::System.Data.DataColumn("DEL_PARTY", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDEL_PARTY);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnFinancial_Yr,
-                                this.columnInvoice_ID}, true));
-                this.columnFinancial_Yr.AllowDBNull = false;
-                this.columnFinancial_Yr.MaxLength = 10;
-                this.columnInvoice_ID.AllowDBNull = false;
-                this.columnPO_NO.MaxLength = 255;
-                this.columnRemoval_Time.MaxLength = 255;
-                this.columnCon_Adr_Check.MaxLength = 255;
-                this.columnConsignee_DelAddress.MaxLength = 255;
-                this.columnConsignee_DelRange.MaxLength = 255;
-                this.columnConsignee_DelDivision.MaxLength = 255;
-                this.columnConsignee_DelCommRate.MaxLength = 255;
-                this.columnTransporter_Name.MaxLength = 255;
-                this.columnVehicle_No.MaxLength = 255;
-                this.columnGRR_No.MaxLength = 255;
-                this.columnVat_CST_flag.MaxLength = 255;
-                this.columnDESTINATION1.MaxLength = 255;
-                this.columnDESTINATION2.MaxLength = 255;
-                this.columnDEST_THROUGH2.MaxLength = 255;
-                this.columnDEST_FLAG.MaxLength = 255;
-                this.columnEXTRA_INFO.MaxLength = 255;
-                this.columnE_userid.MaxLength = 50;
-                this.columnM_userid.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceRow NewInvoiceRow() {
-                return ((InvoiceRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new InvoiceRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(InvoiceRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.InvoiceRowChanged != null)) {
-                    this.InvoiceRowChanged(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.InvoiceRowChanging != null)) {
-                    this.InvoiceRowChanging(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.InvoiceRowDeleted != null)) {
-                    this.InvoiceRowDeleted(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.InvoiceRowDeleting != null)) {
-                    this.InvoiceRowDeleting(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveInvoiceRow(InvoiceRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                InventoryDataSet ds = new InventoryDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "InvoiceDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Invoice_DetailDataTable : global::System.Data.TypedTableBase<Invoice_DetailRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnFinancial_Yr;
-            
-            private global::System.Data.DataColumn columnInvoice_Id;
-            
-            private global::System.Data.DataColumn columnItem_id;
-            
-            private global::System.Data.DataColumn columnNo_of_pkg;
-            
-            private global::System.Data.DataColumn columnQty;
-            
-            private global::System.Data.DataColumn columnRate;
-            
-            private global::System.Data.DataColumn columnTotal_amt;
-            
-            private global::System.Data.DataColumn columnsr_flag;
-            
-            private global::System.Data.DataColumn columnTYPE;
-            
-            private global::System.Data.DataColumn columnDEC;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailDataTable() {
-                this.TableName = "Invoice_Detail";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Invoice_DetailDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Invoice_DetailDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Financial_YrColumn {
-                get {
-                    return this.columnFinancial_Yr;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Invoice_IdColumn {
-                get {
-                    return this.columnInvoice_Id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Item_idColumn {
-                get {
-                    return this.columnItem_id;
+                    return this.columnsr_flag;
                 }
             }
             
@@ -1390,9 +702,9 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn sr_flagColumn {
+            public global::System.Data.DataColumn DECColumn {
                 get {
-                    return this.columnsr_flag;
+                    return this.columnDEC;
                 }
             }
             
@@ -1406,9 +718,137 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DECColumn {
+            public global::System.Data.DataColumn Item_NameColumn {
                 get {
-                    return this.columnDEC;
+                    return this.columnItem_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Tarriff_noColumn {
+                get {
+                    return this.columnTarriff_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GSTNOColumn {
+                get {
+                    return this.columnGSTNO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ECC_NoColumn {
+                get {
+                    return this.columnECC_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PANNOColumn {
+                get {
+                    return this.columnPANNO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Consignee_NameColumn {
+                get {
+                    return this.columnConsignee_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GSTNO1Column {
+                get {
+                    return this.columnGSTNO1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ECC_No1Column {
+                get {
+                    return this.columnECC_No1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RAngeColumn {
+                get {
+                    return this.columnRAnge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DivisionColumn {
+                get {
+                    return this.columnDivision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn commission_rateColumn {
+                get {
+                    return this.columncommission_rate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PANNO1Column {
+                get {
+                    return this.columnPANNO1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn addressColumn {
+                get {
+                    return this.columnaddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Phone_NoColumn {
+                get {
+                    return this.columnPhone_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn City_NameColumn {
+                get {
+                    return this.columnCity_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn State_NameColumn {
+                get {
+                    return this.columnState_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Consignee_Name1Column {
+                get {
+                    return this.columnConsignee_Name1;
                 }
             }
             
@@ -1423,62 +863,160 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailRow this[int index] {
+            public SP_PrintInvoiceRow this[int index] {
                 get {
-                    return ((Invoice_DetailRow)(this.Rows[index]));
+                    return ((SP_PrintInvoiceRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Invoice_DetailRowChangeEventHandler Invoice_DetailRowChanging;
+            public event SP_PrintInvoiceRowChangeEventHandler SP_PrintInvoiceRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Invoice_DetailRowChangeEventHandler Invoice_DetailRowChanged;
+            public event SP_PrintInvoiceRowChangeEventHandler SP_PrintInvoiceRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Invoice_DetailRowChangeEventHandler Invoice_DetailRowDeleting;
+            public event SP_PrintInvoiceRowChangeEventHandler SP_PrintInvoiceRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Invoice_DetailRowChangeEventHandler Invoice_DetailRowDeleted;
+            public event SP_PrintInvoiceRowChangeEventHandler SP_PrintInvoiceRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddInvoice_DetailRow(Invoice_DetailRow row) {
+            public void AddSP_PrintInvoiceRow(SP_PrintInvoiceRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailRow AddInvoice_DetailRow(string Financial_Yr, int Invoice_Id, int Item_id, int No_of_pkg, decimal Qty, decimal Rate, double Total_amt, int sr_flag, string TYPE, string DEC) {
-                Invoice_DetailRow rowInvoice_DetailRow = ((Invoice_DetailRow)(this.NewRow()));
+            public SP_PrintInvoiceRow AddSP_PrintInvoiceRow(
+                        int Invoice_ID, 
+                        string Financial_Yr, 
+                        System.DateTime Invoice_Date, 
+                        string PO_NO, 
+                        System.DateTime Removal_Date, 
+                        string Removal_Time, 
+                        string po_no1, 
+                        double Total_amount, 
+                        double Total_Excise, 
+                        decimal PCess_Per, 
+                        double PCess_Val, 
+                        int BED_Per, 
+                        double BED_Val, 
+                        double Sub_total, 
+                        decimal Insurance_per, 
+                        double Insurance_val, 
+                        double Others, 
+                        double Vat_CST_Val, 
+                        string DESTINATION1, 
+                        string Transporter_Name, 
+                        string Vehicle_No, 
+                        string GRR_No, 
+                        string DESTINATION2, 
+                        string DEST_THROUGH2, 
+                        double Frieght, 
+                        double Total_Ass_Amt, 
+                        string Consignee_DelDivision, 
+                        string Consignee_DelRange, 
+                        string Consignee_DelCommRate, 
+                        string Consignee_DelAddress, 
+                        int sr_flag, 
+                        int No_of_pkg, 
+                        decimal Qty, 
+                        decimal Rate, 
+                        double Total_amt, 
+                        string DEC, 
+                        string TYPE, 
+                        string Item_Name, 
+                        decimal Tarriff_no, 
+                        string GSTNO, 
+                        string ECC_No, 
+                        string PANNO, 
+                        string Consignee_Name, 
+                        string GSTNO1, 
+                        string ECC_No1, 
+                        string RAnge, 
+                        string Division, 
+                        string commission_rate, 
+                        string PANNO1, 
+                        string address, 
+                        string Phone_No, 
+                        string City_Name, 
+                        string State_Name, 
+                        string Consignee_Name1) {
+                SP_PrintInvoiceRow rowSP_PrintInvoiceRow = ((SP_PrintInvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        Invoice_ID,
                         Financial_Yr,
-                        Invoice_Id,
-                        Item_id,
+                        Invoice_Date,
+                        PO_NO,
+                        Removal_Date,
+                        Removal_Time,
+                        po_no1,
+                        Total_amount,
+                        Total_Excise,
+                        PCess_Per,
+                        PCess_Val,
+                        BED_Per,
+                        BED_Val,
+                        Sub_total,
+                        Insurance_per,
+                        Insurance_val,
+                        Others,
+                        Vat_CST_Val,
+                        DESTINATION1,
+                        Transporter_Name,
+                        Vehicle_No,
+                        GRR_No,
+                        DESTINATION2,
+                        DEST_THROUGH2,
+                        Frieght,
+                        Total_Ass_Amt,
+                        Consignee_DelDivision,
+                        Consignee_DelRange,
+                        Consignee_DelCommRate,
+                        Consignee_DelAddress,
+                        sr_flag,
                         No_of_pkg,
                         Qty,
                         Rate,
                         Total_amt,
-                        sr_flag,
+                        DEC,
                         TYPE,
-                        DEC};
-                rowInvoice_DetailRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowInvoice_DetailRow);
-                return rowInvoice_DetailRow;
+                        Item_Name,
+                        Tarriff_no,
+                        GSTNO,
+                        ECC_No,
+                        PANNO,
+                        Consignee_Name,
+                        GSTNO1,
+                        ECC_No1,
+                        RAnge,
+                        Division,
+                        commission_rate,
+                        PANNO1,
+                        address,
+                        Phone_No,
+                        City_Name,
+                        State_Name,
+                        Consignee_Name1};
+                rowSP_PrintInvoiceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_PrintInvoiceRow);
+                return rowSP_PrintInvoiceRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailRow FindByID(int ID) {
-                return ((Invoice_DetailRow)(this.Rows.Find(new object[] {
-                            ID})));
+            public SP_PrintInvoiceRow FindByInvoice_IDFinancial_Yr(int Invoice_ID, string Financial_Yr) {
+                return ((SP_PrintInvoiceRow)(this.Rows.Find(new object[] {
+                            Invoice_ID,
+                            Financial_Yr})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Invoice_DetailDataTable cln = ((Invoice_DetailDataTable)(base.Clone()));
+                SP_PrintInvoiceDataTable cln = ((SP_PrintInvoiceDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1486,36 +1024,133 @@ namespace Electra_WebApi {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Invoice_DetailDataTable();
+                return new SP_PrintInvoiceDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
+                this.columnInvoice_ID = base.Columns["Invoice_ID"];
                 this.columnFinancial_Yr = base.Columns["Financial_Yr"];
-                this.columnInvoice_Id = base.Columns["Invoice_Id"];
-                this.columnItem_id = base.Columns["Item_id"];
+                this.columnInvoice_Date = base.Columns["Invoice_Date"];
+                this.columnPO_NO = base.Columns["PO_NO"];
+                this.columnRemoval_Date = base.Columns["Removal_Date"];
+                this.columnRemoval_Time = base.Columns["Removal_Time"];
+                this.columnpo_no1 = base.Columns["po_no1"];
+                this.columnTotal_amount = base.Columns["Total_amount"];
+                this.columnTotal_Excise = base.Columns["Total_Excise"];
+                this.columnPCess_Per = base.Columns["PCess_Per"];
+                this.columnPCess_Val = base.Columns["PCess_Val"];
+                this.columnBED_Per = base.Columns["BED_Per"];
+                this.columnBED_Val = base.Columns["BED_Val"];
+                this.columnSub_total = base.Columns["Sub_total"];
+                this.columnInsurance_per = base.Columns["Insurance_per"];
+                this.columnInsurance_val = base.Columns["Insurance_val"];
+                this.columnOthers = base.Columns["Others"];
+                this.columnVat_CST_Val = base.Columns["Vat_CST_Val"];
+                this.columnDESTINATION1 = base.Columns["DESTINATION1"];
+                this.columnTransporter_Name = base.Columns["Transporter_Name"];
+                this.columnVehicle_No = base.Columns["Vehicle_No"];
+                this.columnGRR_No = base.Columns["GRR_No"];
+                this.columnDESTINATION2 = base.Columns["DESTINATION2"];
+                this.columnDEST_THROUGH2 = base.Columns["DEST_THROUGH2"];
+                this.columnFrieght = base.Columns["Frieght"];
+                this.columnTotal_Ass_Amt = base.Columns["Total_Ass_Amt"];
+                this.columnConsignee_DelDivision = base.Columns["Consignee_DelDivision"];
+                this.columnConsignee_DelRange = base.Columns["Consignee_DelRange"];
+                this.columnConsignee_DelCommRate = base.Columns["Consignee_DelCommRate"];
+                this.columnConsignee_DelAddress = base.Columns["Consignee_DelAddress"];
+                this.columnsr_flag = base.Columns["sr_flag"];
                 this.columnNo_of_pkg = base.Columns["No_of_pkg"];
                 this.columnQty = base.Columns["Qty"];
                 this.columnRate = base.Columns["Rate"];
                 this.columnTotal_amt = base.Columns["Total_amt"];
-                this.columnsr_flag = base.Columns["sr_flag"];
-                this.columnTYPE = base.Columns["TYPE"];
                 this.columnDEC = base.Columns["DEC"];
+                this.columnTYPE = base.Columns["TYPE"];
+                this.columnItem_Name = base.Columns["Item_Name"];
+                this.columnTarriff_no = base.Columns["Tarriff_no"];
+                this.columnGSTNO = base.Columns["GSTNO"];
+                this.columnECC_No = base.Columns["ECC_No"];
+                this.columnPANNO = base.Columns["PANNO"];
+                this.columnConsignee_Name = base.Columns["Consignee_Name"];
+                this.columnGSTNO1 = base.Columns["GSTNO1"];
+                this.columnECC_No1 = base.Columns["ECC_No1"];
+                this.columnRAnge = base.Columns["RAnge"];
+                this.columnDivision = base.Columns["Division"];
+                this.columncommission_rate = base.Columns["commission_rate"];
+                this.columnPANNO1 = base.Columns["PANNO1"];
+                this.columnaddress = base.Columns["address"];
+                this.columnPhone_No = base.Columns["Phone_No"];
+                this.columnCity_Name = base.Columns["City_Name"];
+                this.columnState_Name = base.Columns["State_Name"];
+                this.columnConsignee_Name1 = base.Columns["Consignee_Name1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
+                this.columnInvoice_ID = new global::System.Data.DataColumn("Invoice_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoice_ID);
                 this.columnFinancial_Yr = new global::System.Data.DataColumn("Financial_Yr", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFinancial_Yr);
-                this.columnInvoice_Id = new global::System.Data.DataColumn("Invoice_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoice_Id);
-                this.columnItem_id = new global::System.Data.DataColumn("Item_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItem_id);
+                this.columnInvoice_Date = new global::System.Data.DataColumn("Invoice_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoice_Date);
+                this.columnPO_NO = new global::System.Data.DataColumn("PO_NO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPO_NO);
+                this.columnRemoval_Date = new global::System.Data.DataColumn("Removal_Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemoval_Date);
+                this.columnRemoval_Time = new global::System.Data.DataColumn("Removal_Time", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemoval_Time);
+                this.columnpo_no1 = new global::System.Data.DataColumn("po_no1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpo_no1);
+                this.columnTotal_amount = new global::System.Data.DataColumn("Total_amount", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_amount);
+                this.columnTotal_Excise = new global::System.Data.DataColumn("Total_Excise", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Excise);
+                this.columnPCess_Per = new global::System.Data.DataColumn("PCess_Per", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPCess_Per);
+                this.columnPCess_Val = new global::System.Data.DataColumn("PCess_Val", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPCess_Val);
+                this.columnBED_Per = new global::System.Data.DataColumn("BED_Per", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBED_Per);
+                this.columnBED_Val = new global::System.Data.DataColumn("BED_Val", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBED_Val);
+                this.columnSub_total = new global::System.Data.DataColumn("Sub_total", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSub_total);
+                this.columnInsurance_per = new global::System.Data.DataColumn("Insurance_per", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInsurance_per);
+                this.columnInsurance_val = new global::System.Data.DataColumn("Insurance_val", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInsurance_val);
+                this.columnOthers = new global::System.Data.DataColumn("Others", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOthers);
+                this.columnVat_CST_Val = new global::System.Data.DataColumn("Vat_CST_Val", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVat_CST_Val);
+                this.columnDESTINATION1 = new global::System.Data.DataColumn("DESTINATION1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESTINATION1);
+                this.columnTransporter_Name = new global::System.Data.DataColumn("Transporter_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransporter_Name);
+                this.columnVehicle_No = new global::System.Data.DataColumn("Vehicle_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVehicle_No);
+                this.columnGRR_No = new global::System.Data.DataColumn("GRR_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGRR_No);
+                this.columnDESTINATION2 = new global::System.Data.DataColumn("DESTINATION2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESTINATION2);
+                this.columnDEST_THROUGH2 = new global::System.Data.DataColumn("DEST_THROUGH2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDEST_THROUGH2);
+                this.columnFrieght = new global::System.Data.DataColumn("Frieght", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrieght);
+                this.columnTotal_Ass_Amt = new global::System.Data.DataColumn("Total_Ass_Amt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Ass_Amt);
+                this.columnConsignee_DelDivision = new global::System.Data.DataColumn("Consignee_DelDivision", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsignee_DelDivision);
+                this.columnConsignee_DelRange = new global::System.Data.DataColumn("Consignee_DelRange", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsignee_DelRange);
+                this.columnConsignee_DelCommRate = new global::System.Data.DataColumn("Consignee_DelCommRate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsignee_DelCommRate);
+                this.columnConsignee_DelAddress = new global::System.Data.DataColumn("Consignee_DelAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsignee_DelAddress);
+                this.columnsr_flag = new global::System.Data.DataColumn("sr_flag", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsr_flag);
                 this.columnNo_of_pkg = new global::System.Data.DataColumn("No_of_pkg", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNo_of_pkg);
                 this.columnQty = new global::System.Data.DataColumn("Qty", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1524,49 +1159,107 @@ namespace Electra_WebApi {
                 base.Columns.Add(this.columnRate);
                 this.columnTotal_amt = new global::System.Data.DataColumn("Total_amt", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_amt);
-                this.columnsr_flag = new global::System.Data.DataColumn("sr_flag", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsr_flag);
-                this.columnTYPE = new global::System.Data.DataColumn("TYPE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTYPE);
                 this.columnDEC = new global::System.Data.DataColumn("DEC", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDEC);
+                this.columnTYPE = new global::System.Data.DataColumn("TYPE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTYPE);
+                this.columnItem_Name = new global::System.Data.DataColumn("Item_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItem_Name);
+                this.columnTarriff_no = new global::System.Data.DataColumn("Tarriff_no", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTarriff_no);
+                this.columnGSTNO = new global::System.Data.DataColumn("GSTNO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGSTNO);
+                this.columnECC_No = new global::System.Data.DataColumn("ECC_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnECC_No);
+                this.columnPANNO = new global::System.Data.DataColumn("PANNO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPANNO);
+                this.columnConsignee_Name = new global::System.Data.DataColumn("Consignee_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsignee_Name);
+                this.columnGSTNO1 = new global::System.Data.DataColumn("GSTNO1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGSTNO1);
+                this.columnECC_No1 = new global::System.Data.DataColumn("ECC_No1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnECC_No1);
+                this.columnRAnge = new global::System.Data.DataColumn("RAnge", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRAnge);
+                this.columnDivision = new global::System.Data.DataColumn("Division", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDivision);
+                this.columncommission_rate = new global::System.Data.DataColumn("commission_rate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncommission_rate);
+                this.columnPANNO1 = new global::System.Data.DataColumn("PANNO1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPANNO1);
+                this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaddress);
+                this.columnPhone_No = new global::System.Data.DataColumn("Phone_No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhone_No);
+                this.columnCity_Name = new global::System.Data.DataColumn("City_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCity_Name);
+                this.columnState_Name = new global::System.Data.DataColumn("State_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnState_Name);
+                this.columnConsignee_Name1 = new global::System.Data.DataColumn("Consignee_Name1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsignee_Name1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnID.Unique = true;
+                                this.columnInvoice_ID,
+                                this.columnFinancial_Yr}, true));
+                this.columnInvoice_ID.AllowDBNull = false;
+                this.columnFinancial_Yr.AllowDBNull = false;
                 this.columnFinancial_Yr.MaxLength = 10;
-                this.columnTYPE.MaxLength = 255;
+                this.columnPO_NO.MaxLength = 255;
+                this.columnRemoval_Time.MaxLength = 255;
+                this.columnpo_no1.MaxLength = 255;
+                this.columnDESTINATION1.MaxLength = 255;
+                this.columnTransporter_Name.MaxLength = 255;
+                this.columnVehicle_No.MaxLength = 255;
+                this.columnGRR_No.MaxLength = 255;
+                this.columnDESTINATION2.MaxLength = 255;
+                this.columnDEST_THROUGH2.MaxLength = 255;
+                this.columnConsignee_DelDivision.MaxLength = 255;
+                this.columnConsignee_DelRange.MaxLength = 255;
+                this.columnConsignee_DelCommRate.MaxLength = 255;
+                this.columnConsignee_DelAddress.MaxLength = 255;
                 this.columnDEC.MaxLength = 255;
+                this.columnTYPE.MaxLength = 255;
+                this.columnItem_Name.MaxLength = 255;
+                this.columnGSTNO.MaxLength = 255;
+                this.columnECC_No.MaxLength = 255;
+                this.columnPANNO.MaxLength = 255;
+                this.columnConsignee_Name.MaxLength = 255;
+                this.columnGSTNO1.MaxLength = 255;
+                this.columnECC_No1.MaxLength = 255;
+                this.columnRAnge.MaxLength = 255;
+                this.columnDivision.MaxLength = 255;
+                this.columncommission_rate.MaxLength = 255;
+                this.columnPANNO1.MaxLength = 255;
+                this.columnaddress.MaxLength = 255;
+                this.columnPhone_No.MaxLength = 255;
+                this.columnCity_Name.MaxLength = 255;
+                this.columnState_Name.MaxLength = 255;
+                this.columnConsignee_Name1.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailRow NewInvoice_DetailRow() {
-                return ((Invoice_DetailRow)(this.NewRow()));
+            public SP_PrintInvoiceRow NewSP_PrintInvoiceRow() {
+                return ((SP_PrintInvoiceRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Invoice_DetailRow(builder);
+                return new SP_PrintInvoiceRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Invoice_DetailRow);
+                return typeof(SP_PrintInvoiceRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Invoice_DetailRowChanged != null)) {
-                    this.Invoice_DetailRowChanged(this, new Invoice_DetailRowChangeEvent(((Invoice_DetailRow)(e.Row)), e.Action));
+                if ((this.SP_PrintInvoiceRowChanged != null)) {
+                    this.SP_PrintInvoiceRowChanged(this, new SP_PrintInvoiceRowChangeEvent(((SP_PrintInvoiceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1574,8 +1267,8 @@ namespace Electra_WebApi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Invoice_DetailRowChanging != null)) {
-                    this.Invoice_DetailRowChanging(this, new Invoice_DetailRowChangeEvent(((Invoice_DetailRow)(e.Row)), e.Action));
+                if ((this.SP_PrintInvoiceRowChanging != null)) {
+                    this.SP_PrintInvoiceRowChanging(this, new SP_PrintInvoiceRowChangeEvent(((SP_PrintInvoiceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1583,8 +1276,8 @@ namespace Electra_WebApi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Invoice_DetailRowDeleted != null)) {
-                    this.Invoice_DetailRowDeleted(this, new Invoice_DetailRowChangeEvent(((Invoice_DetailRow)(e.Row)), e.Action));
+                if ((this.SP_PrintInvoiceRowDeleted != null)) {
+                    this.SP_PrintInvoiceRowDeleted(this, new SP_PrintInvoiceRowChangeEvent(((SP_PrintInvoiceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1592,14 +1285,14 @@ namespace Electra_WebApi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Invoice_DetailRowDeleting != null)) {
-                    this.Invoice_DetailRowDeleting(this, new Invoice_DetailRowChangeEvent(((Invoice_DetailRow)(e.Row)), e.Action));
+                if ((this.SP_PrintInvoiceRowDeleting != null)) {
+                    this.SP_PrintInvoiceRowDeleting(this, new SP_PrintInvoiceRowChangeEvent(((SP_PrintInvoiceRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveInvoice_DetailRow(Invoice_DetailRow row) {
+            public void RemoveSP_PrintInvoiceRow(SP_PrintInvoiceRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1626,7 +1319,7 @@ namespace Electra_WebApi {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Invoice_DetailDataTable";
+                attribute2.FixedValue = "SP_PrintInvoiceDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1670,36 +1363,36 @@ namespace Electra_WebApi {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class InvoiceRow : global::System.Data.DataRow {
+        public partial class SP_PrintInvoiceRow : global::System.Data.DataRow {
             
-            private InvoiceDataTable tableInvoice;
+            private SP_PrintInvoiceDataTable tableSP_PrintInvoice;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal InvoiceRow(global::System.Data.DataRowBuilder rb) : 
+            internal SP_PrintInvoiceRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableInvoice = ((InvoiceDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Financial_Yr {
-                get {
-                    return ((string)(this[this.tableInvoice.Financial_YrColumn]));
-                }
-                set {
-                    this[this.tableInvoice.Financial_YrColumn] = value;
-                }
+                this.tableSP_PrintInvoice = ((SP_PrintInvoiceDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Invoice_ID {
                 get {
-                    return ((int)(this[this.tableInvoice.Invoice_IDColumn]));
+                    return ((int)(this[this.tableSP_PrintInvoice.Invoice_IDColumn]));
                 }
                 set {
-                    this[this.tableInvoice.Invoice_IDColumn] = value;
+                    this[this.tableSP_PrintInvoice.Invoice_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Financial_Yr {
+                get {
+                    return ((string)(this[this.tableSP_PrintInvoice.Financial_YrColumn]));
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Financial_YrColumn] = value;
                 }
             }
             
@@ -1708,30 +1401,14 @@ namespace Electra_WebApi {
             public System.DateTime Invoice_Date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableInvoice.Invoice_DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableSP_PrintInvoice.Invoice_DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Invoice_Date\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Invoice_Date\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Invoice_DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Consignee_ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice.Consignee_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_ID\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Consignee_IDColumn] = value;
+                    this[this.tableSP_PrintInvoice.Invoice_DateColumn] = value;
                 }
             }
             
@@ -1740,14 +1417,14 @@ namespace Electra_WebApi {
             public string PO_NO {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.PO_NOColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.PO_NOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PO_NO\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PO_NO\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.PO_NOColumn] = value;
+                    this[this.tableSP_PrintInvoice.PO_NOColumn] = value;
                 }
             }
             
@@ -1756,14 +1433,14 @@ namespace Electra_WebApi {
             public System.DateTime Removal_Date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableInvoice.Removal_DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableSP_PrintInvoice.Removal_DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Removal_Date\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Removal_Date\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Removal_DateColumn] = value;
+                    this[this.tableSP_PrintInvoice.Removal_DateColumn] = value;
                 }
             }
             
@@ -1772,462 +1449,30 @@ namespace Electra_WebApi {
             public string Removal_Time {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.Removal_TimeColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.Removal_TimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Removal_Time\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Removal_Time\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Removal_TimeColumn] = value;
+                    this[this.tableSP_PrintInvoice.Removal_TimeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Con_Adr_Check {
+            public string po_no1 {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.Con_Adr_CheckColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.po_no1Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Con_Adr_Check\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'po_no1\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Con_Adr_CheckColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Consignee_DelAddress {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Consignee_DelAddressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelAddress\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Consignee_DelAddressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Consignee_DelRange {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Consignee_DelRangeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelRange\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Consignee_DelRangeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Consignee_DelDivision {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Consignee_DelDivisionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelDivision\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Consignee_DelDivisionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Consignee_DelCommRate {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Consignee_DelCommRateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelCommRate\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Consignee_DelCommRateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Transporter_Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Transporter_NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Transporter_Name\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Transporter_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Vehicle_No {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Vehicle_NoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Vehicle_No\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Vehicle_NoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string GRR_No {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.GRR_NoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GRR_No\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.GRR_NoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Total_Ass_Amt {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.Total_Ass_AmtColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Ass_Amt\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Total_Ass_AmtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int BED_Per {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice.BED_PerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BED_Per\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.BED_PerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double BED_Val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.BED_ValColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BED_Val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.BED_ValColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal PCess_Per {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableInvoice.PCess_PerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PCess_Per\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.PCess_PerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double PCess_Val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.PCess_ValColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PCess_Val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.PCess_ValColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int EDU_Per {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice.EDU_PerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EDU_Per\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.EDU_PerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double EDU_Val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.EDU_ValColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EDU_Val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.EDU_ValColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int SHE_PEr {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice.SHE_PErColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SHE_PEr\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.SHE_PErColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double She_val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.She_valColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'She_val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.She_valColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Total_Excise {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.Total_ExciseColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Excise\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Total_ExciseColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Sub_total {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.Sub_totalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Sub_total\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Sub_totalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal VAT_CST_per {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableInvoice.VAT_CST_perColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VAT_CST_per\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.VAT_CST_perColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Vat_CST_Val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.Vat_CST_ValColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Vat_CST_Val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Vat_CST_ValColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Vat_CST_flag {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Vat_CST_flagColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Vat_CST_flag\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Vat_CST_flagColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Surcharge_PER {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableInvoice.Surcharge_PERColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Surcharge_PER\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Surcharge_PERColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Surcharge_Val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.Surcharge_ValColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Surcharge_Val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Surcharge_ValColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Frieght {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.FrieghtColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Frieght\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.FrieghtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Others {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.OthersColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Others\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.OthersColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Insurance_per {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableInvoice.Insurance_perColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Insurance_per\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Insurance_perColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Insurance_val {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice.Insurance_valColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Insurance_val\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Insurance_valColumn] = value;
+                    this[this.tableSP_PrintInvoice.po_no1Column] = value;
                 }
             }
             
@@ -2236,14 +1481,174 @@ namespace Electra_WebApi {
             public double Total_amount {
                 get {
                     try {
-                        return ((double)(this[this.tableInvoice.Total_amountColumn]));
+                        return ((double)(this[this.tableSP_PrintInvoice.Total_amountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_amount\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_amount\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Total_amountColumn] = value;
+                    this[this.tableSP_PrintInvoice.Total_amountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Total_Excise {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.Total_ExciseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Excise\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Total_ExciseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal PCess_Per {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.PCess_PerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PCess_Per\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.PCess_PerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double PCess_Val {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.PCess_ValColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PCess_Val\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.PCess_ValColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int BED_Per {
+                get {
+                    try {
+                        return ((int)(this[this.tableSP_PrintInvoice.BED_PerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BED_Per\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.BED_PerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double BED_Val {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.BED_ValColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BED_Val\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.BED_ValColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Sub_total {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.Sub_totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Sub_total\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Sub_totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Insurance_per {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.Insurance_perColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Insurance_per\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Insurance_perColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Insurance_val {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.Insurance_valColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Insurance_val\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Insurance_valColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Others {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.OthersColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Others\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.OthersColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Vat_CST_Val {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.Vat_CST_ValColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Vat_CST_Val\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Vat_CST_ValColumn] = value;
                 }
             }
             
@@ -2252,14 +1657,62 @@ namespace Electra_WebApi {
             public string DESTINATION1 {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.DESTINATION1Column]));
+                        return ((string)(this[this.tableSP_PrintInvoice.DESTINATION1Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DESTINATION1\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DESTINATION1\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DESTINATION1Column] = value;
+                    this[this.tableSP_PrintInvoice.DESTINATION1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Transporter_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Transporter_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Transporter_Name\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Transporter_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Vehicle_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Vehicle_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Vehicle_No\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Vehicle_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string GRR_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.GRR_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GRR_No\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.GRR_NoColumn] = value;
                 }
             }
             
@@ -2268,14 +1721,14 @@ namespace Electra_WebApi {
             public string DESTINATION2 {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.DESTINATION2Column]));
+                        return ((string)(this[this.tableSP_PrintInvoice.DESTINATION2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DESTINATION2\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DESTINATION2\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DESTINATION2Column] = value;
+                    this[this.tableSP_PrintInvoice.DESTINATION2Column] = value;
                 }
             }
             
@@ -2284,792 +1737,113 @@ namespace Electra_WebApi {
             public string DEST_THROUGH2 {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.DEST_THROUGH2Column]));
+                        return ((string)(this[this.tableSP_PrintInvoice.DEST_THROUGH2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DEST_THROUGH2\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DEST_THROUGH2\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DEST_THROUGH2Column] = value;
+                    this[this.tableSP_PrintInvoice.DEST_THROUGH2Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DEST_FLAG {
+            public double Frieght {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.DEST_FLAGColumn]));
+                        return ((double)(this[this.tableSP_PrintInvoice.FrieghtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DEST_FLAG\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Frieght\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DEST_FLAGColumn] = value;
+                    this[this.tableSP_PrintInvoice.FrieghtColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string EXTRA_INFO {
+            public double Total_Ass_Amt {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.EXTRA_INFOColumn]));
+                        return ((double)(this[this.tableSP_PrintInvoice.Total_Ass_AmtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EXTRA_INFO\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Ass_Amt\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.EXTRA_INFOColumn] = value;
+                    this[this.tableSP_PrintInvoice.Total_Ass_AmtColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime DOE {
+            public string Consignee_DelDivision {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableInvoice.DOEColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.Consignee_DelDivisionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DOE\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelDivision\' in table \'SP_PrintInvoice\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DOEColumn] = value;
+                    this[this.tableSP_PrintInvoice.Consignee_DelDivisionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime DOM {
+            public string Consignee_DelRange {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableInvoice.DOMColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.Consignee_DelRangeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DOM\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelRange\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DOMColumn] = value;
+                    this[this.tableSP_PrintInvoice.Consignee_DelRangeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string E_userid {
+            public string Consignee_DelCommRate {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.E_useridColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.Consignee_DelCommRateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'E_userid\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelCommRate\' in table \'SP_PrintInvoice\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.E_useridColumn] = value;
+                    this[this.tableSP_PrintInvoice.Consignee_DelCommRateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string M_userid {
+            public string Consignee_DelAddress {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.M_useridColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.Consignee_DelAddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'M_userid\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_DelAddress\' in table \'SP_PrintInvoice\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.M_useridColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int DEL_PARTY {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice.DEL_PARTYColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DEL_PARTY\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.DEL_PARTYColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInvoice_DateNull() {
-                return this.IsNull(this.tableInvoice.Invoice_DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInvoice_DateNull() {
-                this[this.tableInvoice.Invoice_DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConsignee_IDNull() {
-                return this.IsNull(this.tableInvoice.Consignee_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConsignee_IDNull() {
-                this[this.tableInvoice.Consignee_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPO_NONull() {
-                return this.IsNull(this.tableInvoice.PO_NOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPO_NONull() {
-                this[this.tableInvoice.PO_NOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRemoval_DateNull() {
-                return this.IsNull(this.tableInvoice.Removal_DateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRemoval_DateNull() {
-                this[this.tableInvoice.Removal_DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRemoval_TimeNull() {
-                return this.IsNull(this.tableInvoice.Removal_TimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRemoval_TimeNull() {
-                this[this.tableInvoice.Removal_TimeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCon_Adr_CheckNull() {
-                return this.IsNull(this.tableInvoice.Con_Adr_CheckColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCon_Adr_CheckNull() {
-                this[this.tableInvoice.Con_Adr_CheckColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConsignee_DelAddressNull() {
-                return this.IsNull(this.tableInvoice.Consignee_DelAddressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConsignee_DelAddressNull() {
-                this[this.tableInvoice.Consignee_DelAddressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConsignee_DelRangeNull() {
-                return this.IsNull(this.tableInvoice.Consignee_DelRangeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConsignee_DelRangeNull() {
-                this[this.tableInvoice.Consignee_DelRangeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConsignee_DelDivisionNull() {
-                return this.IsNull(this.tableInvoice.Consignee_DelDivisionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConsignee_DelDivisionNull() {
-                this[this.tableInvoice.Consignee_DelDivisionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConsignee_DelCommRateNull() {
-                return this.IsNull(this.tableInvoice.Consignee_DelCommRateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConsignee_DelCommRateNull() {
-                this[this.tableInvoice.Consignee_DelCommRateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTransporter_NameNull() {
-                return this.IsNull(this.tableInvoice.Transporter_NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTransporter_NameNull() {
-                this[this.tableInvoice.Transporter_NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsVehicle_NoNull() {
-                return this.IsNull(this.tableInvoice.Vehicle_NoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetVehicle_NoNull() {
-                this[this.tableInvoice.Vehicle_NoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGRR_NoNull() {
-                return this.IsNull(this.tableInvoice.GRR_NoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGRR_NoNull() {
-                this[this.tableInvoice.GRR_NoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotal_Ass_AmtNull() {
-                return this.IsNull(this.tableInvoice.Total_Ass_AmtColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotal_Ass_AmtNull() {
-                this[this.tableInvoice.Total_Ass_AmtColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBED_PerNull() {
-                return this.IsNull(this.tableInvoice.BED_PerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBED_PerNull() {
-                this[this.tableInvoice.BED_PerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBED_ValNull() {
-                return this.IsNull(this.tableInvoice.BED_ValColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBED_ValNull() {
-                this[this.tableInvoice.BED_ValColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPCess_PerNull() {
-                return this.IsNull(this.tableInvoice.PCess_PerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPCess_PerNull() {
-                this[this.tableInvoice.PCess_PerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPCess_ValNull() {
-                return this.IsNull(this.tableInvoice.PCess_ValColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPCess_ValNull() {
-                this[this.tableInvoice.PCess_ValColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEDU_PerNull() {
-                return this.IsNull(this.tableInvoice.EDU_PerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEDU_PerNull() {
-                this[this.tableInvoice.EDU_PerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEDU_ValNull() {
-                return this.IsNull(this.tableInvoice.EDU_ValColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEDU_ValNull() {
-                this[this.tableInvoice.EDU_ValColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSHE_PErNull() {
-                return this.IsNull(this.tableInvoice.SHE_PErColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSHE_PErNull() {
-                this[this.tableInvoice.SHE_PErColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsShe_valNull() {
-                return this.IsNull(this.tableInvoice.She_valColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetShe_valNull() {
-                this[this.tableInvoice.She_valColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotal_ExciseNull() {
-                return this.IsNull(this.tableInvoice.Total_ExciseColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotal_ExciseNull() {
-                this[this.tableInvoice.Total_ExciseColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSub_totalNull() {
-                return this.IsNull(this.tableInvoice.Sub_totalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSub_totalNull() {
-                this[this.tableInvoice.Sub_totalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsVAT_CST_perNull() {
-                return this.IsNull(this.tableInvoice.VAT_CST_perColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetVAT_CST_perNull() {
-                this[this.tableInvoice.VAT_CST_perColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsVat_CST_ValNull() {
-                return this.IsNull(this.tableInvoice.Vat_CST_ValColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetVat_CST_ValNull() {
-                this[this.tableInvoice.Vat_CST_ValColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsVat_CST_flagNull() {
-                return this.IsNull(this.tableInvoice.Vat_CST_flagColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetVat_CST_flagNull() {
-                this[this.tableInvoice.Vat_CST_flagColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSurcharge_PERNull() {
-                return this.IsNull(this.tableInvoice.Surcharge_PERColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSurcharge_PERNull() {
-                this[this.tableInvoice.Surcharge_PERColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSurcharge_ValNull() {
-                return this.IsNull(this.tableInvoice.Surcharge_ValColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSurcharge_ValNull() {
-                this[this.tableInvoice.Surcharge_ValColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFrieghtNull() {
-                return this.IsNull(this.tableInvoice.FrieghtColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFrieghtNull() {
-                this[this.tableInvoice.FrieghtColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOthersNull() {
-                return this.IsNull(this.tableInvoice.OthersColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOthersNull() {
-                this[this.tableInvoice.OthersColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInsurance_perNull() {
-                return this.IsNull(this.tableInvoice.Insurance_perColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInsurance_perNull() {
-                this[this.tableInvoice.Insurance_perColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInsurance_valNull() {
-                return this.IsNull(this.tableInvoice.Insurance_valColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInsurance_valNull() {
-                this[this.tableInvoice.Insurance_valColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotal_amountNull() {
-                return this.IsNull(this.tableInvoice.Total_amountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotal_amountNull() {
-                this[this.tableInvoice.Total_amountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDESTINATION1Null() {
-                return this.IsNull(this.tableInvoice.DESTINATION1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDESTINATION1Null() {
-                this[this.tableInvoice.DESTINATION1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDESTINATION2Null() {
-                return this.IsNull(this.tableInvoice.DESTINATION2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDESTINATION2Null() {
-                this[this.tableInvoice.DESTINATION2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDEST_THROUGH2Null() {
-                return this.IsNull(this.tableInvoice.DEST_THROUGH2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDEST_THROUGH2Null() {
-                this[this.tableInvoice.DEST_THROUGH2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDEST_FLAGNull() {
-                return this.IsNull(this.tableInvoice.DEST_FLAGColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDEST_FLAGNull() {
-                this[this.tableInvoice.DEST_FLAGColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEXTRA_INFONull() {
-                return this.IsNull(this.tableInvoice.EXTRA_INFOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEXTRA_INFONull() {
-                this[this.tableInvoice.EXTRA_INFOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDOENull() {
-                return this.IsNull(this.tableInvoice.DOEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDOENull() {
-                this[this.tableInvoice.DOEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDOMNull() {
-                return this.IsNull(this.tableInvoice.DOMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDOMNull() {
-                this[this.tableInvoice.DOMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsE_useridNull() {
-                return this.IsNull(this.tableInvoice.E_useridColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetE_useridNull() {
-                this[this.tableInvoice.E_useridColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsM_useridNull() {
-                return this.IsNull(this.tableInvoice.M_useridColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetM_useridNull() {
-                this[this.tableInvoice.M_useridColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDEL_PARTYNull() {
-                return this.IsNull(this.tableInvoice.DEL_PARTYColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDEL_PARTYNull() {
-                this[this.tableInvoice.DEL_PARTYColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class Invoice_DetailRow : global::System.Data.DataRow {
-            
-            private Invoice_DetailDataTable tableInvoice_Detail;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Invoice_DetailRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableInvoice_Detail = ((Invoice_DetailDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableInvoice_Detail.IDColumn]));
-                }
-                set {
-                    this[this.tableInvoice_Detail.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Financial_Yr {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice_Detail.Financial_YrColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Financial_Yr\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.Financial_YrColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Invoice_Id {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice_Detail.Invoice_IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Invoice_Id\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.Invoice_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Item_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice_Detail.Item_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Item_id\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.Item_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int No_of_pkg {
-                get {
-                    try {
-                        return ((int)(this[this.tableInvoice_Detail.No_of_pkgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'No_of_pkg\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.No_of_pkgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Qty {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableInvoice_Detail.QtyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Qty\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.QtyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal Rate {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableInvoice_Detail.RateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Rate\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.RateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Total_amt {
-                get {
-                    try {
-                        return ((double)(this[this.tableInvoice_Detail.Total_amtColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_amt\' in table \'Invoice_Detail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice_Detail.Total_amtColumn] = value;
+                    this[this.tableSP_PrintInvoice.Consignee_DelAddressColumn] = value;
                 }
             }
             
@@ -3078,30 +1852,78 @@ namespace Electra_WebApi {
             public int sr_flag {
                 get {
                     try {
-                        return ((int)(this[this.tableInvoice_Detail.sr_flagColumn]));
+                        return ((int)(this[this.tableSP_PrintInvoice.sr_flagColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'sr_flag\' in table \'Invoice_Detail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'sr_flag\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice_Detail.sr_flagColumn] = value;
+                    this[this.tableSP_PrintInvoice.sr_flagColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TYPE {
+            public int No_of_pkg {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice_Detail.TYPEColumn]));
+                        return ((int)(this[this.tableSP_PrintInvoice.No_of_pkgColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TYPE\' in table \'Invoice_Detail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'No_of_pkg\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice_Detail.TYPEColumn] = value;
+                    this[this.tableSP_PrintInvoice.No_of_pkgColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Qty {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.QtyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Qty\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.QtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Rate {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.RateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rate\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.RateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Total_amt {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_PrintInvoice.Total_amtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_amt\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Total_amtColumn] = value;
                 }
             }
             
@@ -3110,135 +1932,927 @@ namespace Electra_WebApi {
             public string DEC {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice_Detail.DECColumn]));
+                        return ((string)(this[this.tableSP_PrintInvoice.DECColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DEC\' in table \'Invoice_Detail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DEC\' in table \'SP_PrintInvoice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice_Detail.DECColumn] = value;
+                    this[this.tableSP_PrintInvoice.DECColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFinancial_YrNull() {
-                return this.IsNull(this.tableInvoice_Detail.Financial_YrColumn);
+            public string TYPE {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.TYPEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TYPE\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.TYPEColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFinancial_YrNull() {
-                this[this.tableInvoice_Detail.Financial_YrColumn] = global::System.Convert.DBNull;
+            public string Item_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Item_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Item_Name\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Item_NameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInvoice_IdNull() {
-                return this.IsNull(this.tableInvoice_Detail.Invoice_IdColumn);
+            public decimal Tarriff_no {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.Tarriff_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tarriff_no\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Tarriff_noColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInvoice_IdNull() {
-                this[this.tableInvoice_Detail.Invoice_IdColumn] = global::System.Convert.DBNull;
+            public string GSTNO {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.GSTNOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GSTNO\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.GSTNOColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsItem_idNull() {
-                return this.IsNull(this.tableInvoice_Detail.Item_idColumn);
+            public string ECC_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.ECC_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ECC_No\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.ECC_NoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetItem_idNull() {
-                this[this.tableInvoice_Detail.Item_idColumn] = global::System.Convert.DBNull;
+            public string PANNO {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.PANNOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PANNO\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.PANNOColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNo_of_pkgNull() {
-                return this.IsNull(this.tableInvoice_Detail.No_of_pkgColumn);
+            public string Consignee_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Consignee_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_Name\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Consignee_NameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNo_of_pkgNull() {
-                this[this.tableInvoice_Detail.No_of_pkgColumn] = global::System.Convert.DBNull;
+            public string GSTNO1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.GSTNO1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GSTNO1\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.GSTNO1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsQtyNull() {
-                return this.IsNull(this.tableInvoice_Detail.QtyColumn);
+            public string ECC_No1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.ECC_No1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ECC_No1\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.ECC_No1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetQtyNull() {
-                this[this.tableInvoice_Detail.QtyColumn] = global::System.Convert.DBNull;
+            public string RAnge {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.RAngeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RAnge\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.RAngeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsRateNull() {
-                return this.IsNull(this.tableInvoice_Detail.RateColumn);
+            public string Division {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.DivisionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Division\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.DivisionColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetRateNull() {
-                this[this.tableInvoice_Detail.RateColumn] = global::System.Convert.DBNull;
+            public string commission_rate {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.commission_rateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'commission_rate\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.commission_rateColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotal_amtNull() {
-                return this.IsNull(this.tableInvoice_Detail.Total_amtColumn);
+            public string PANNO1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.PANNO1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PANNO1\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.PANNO1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotal_amtNull() {
-                this[this.tableInvoice_Detail.Total_amtColumn] = global::System.Convert.DBNull;
+            public string address {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.addressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'address\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.addressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Phone_No {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Phone_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone_No\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Phone_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string City_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.City_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'City_Name\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.City_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string State_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.State_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'State_Name\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.State_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Consignee_Name1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Consignee_Name1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consignee_Name1\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Consignee_Name1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInvoice_DateNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Invoice_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInvoice_DateNull() {
+                this[this.tableSP_PrintInvoice.Invoice_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPO_NONull() {
+                return this.IsNull(this.tableSP_PrintInvoice.PO_NOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPO_NONull() {
+                this[this.tableSP_PrintInvoice.PO_NOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRemoval_DateNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Removal_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRemoval_DateNull() {
+                this[this.tableSP_PrintInvoice.Removal_DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRemoval_TimeNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Removal_TimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRemoval_TimeNull() {
+                this[this.tableSP_PrintInvoice.Removal_TimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispo_no1Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.po_no1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpo_no1Null() {
+                this[this.tableSP_PrintInvoice.po_no1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotal_amountNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Total_amountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotal_amountNull() {
+                this[this.tableSP_PrintInvoice.Total_amountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotal_ExciseNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Total_ExciseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotal_ExciseNull() {
+                this[this.tableSP_PrintInvoice.Total_ExciseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPCess_PerNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.PCess_PerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPCess_PerNull() {
+                this[this.tableSP_PrintInvoice.PCess_PerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPCess_ValNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.PCess_ValColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPCess_ValNull() {
+                this[this.tableSP_PrintInvoice.PCess_ValColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBED_PerNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.BED_PerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBED_PerNull() {
+                this[this.tableSP_PrintInvoice.BED_PerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBED_ValNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.BED_ValColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBED_ValNull() {
+                this[this.tableSP_PrintInvoice.BED_ValColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSub_totalNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Sub_totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSub_totalNull() {
+                this[this.tableSP_PrintInvoice.Sub_totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInsurance_perNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Insurance_perColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInsurance_perNull() {
+                this[this.tableSP_PrintInvoice.Insurance_perColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInsurance_valNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Insurance_valColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInsurance_valNull() {
+                this[this.tableSP_PrintInvoice.Insurance_valColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOthersNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.OthersColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOthersNull() {
+                this[this.tableSP_PrintInvoice.OthersColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVat_CST_ValNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Vat_CST_ValColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVat_CST_ValNull() {
+                this[this.tableSP_PrintInvoice.Vat_CST_ValColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDESTINATION1Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.DESTINATION1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDESTINATION1Null() {
+                this[this.tableSP_PrintInvoice.DESTINATION1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTransporter_NameNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Transporter_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTransporter_NameNull() {
+                this[this.tableSP_PrintInvoice.Transporter_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVehicle_NoNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Vehicle_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVehicle_NoNull() {
+                this[this.tableSP_PrintInvoice.Vehicle_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGRR_NoNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.GRR_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGRR_NoNull() {
+                this[this.tableSP_PrintInvoice.GRR_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDESTINATION2Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.DESTINATION2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDESTINATION2Null() {
+                this[this.tableSP_PrintInvoice.DESTINATION2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDEST_THROUGH2Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.DEST_THROUGH2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDEST_THROUGH2Null() {
+                this[this.tableSP_PrintInvoice.DEST_THROUGH2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFrieghtNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.FrieghtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFrieghtNull() {
+                this[this.tableSP_PrintInvoice.FrieghtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotal_Ass_AmtNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Total_Ass_AmtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotal_Ass_AmtNull() {
+                this[this.tableSP_PrintInvoice.Total_Ass_AmtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsignee_DelDivisionNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Consignee_DelDivisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsignee_DelDivisionNull() {
+                this[this.tableSP_PrintInvoice.Consignee_DelDivisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsignee_DelRangeNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Consignee_DelRangeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsignee_DelRangeNull() {
+                this[this.tableSP_PrintInvoice.Consignee_DelRangeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsignee_DelCommRateNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Consignee_DelCommRateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsignee_DelCommRateNull() {
+                this[this.tableSP_PrintInvoice.Consignee_DelCommRateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsignee_DelAddressNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Consignee_DelAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsignee_DelAddressNull() {
+                this[this.tableSP_PrintInvoice.Consignee_DelAddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Issr_flagNull() {
-                return this.IsNull(this.tableInvoice_Detail.sr_flagColumn);
+                return this.IsNull(this.tableSP_PrintInvoice.sr_flagColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setsr_flagNull() {
-                this[this.tableInvoice_Detail.sr_flagColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_PrintInvoice.sr_flagColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTYPENull() {
-                return this.IsNull(this.tableInvoice_Detail.TYPEColumn);
+            public bool IsNo_of_pkgNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.No_of_pkgColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTYPENull() {
-                this[this.tableInvoice_Detail.TYPEColumn] = global::System.Convert.DBNull;
+            public void SetNo_of_pkgNull() {
+                this[this.tableSP_PrintInvoice.No_of_pkgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQtyNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.QtyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQtyNull() {
+                this[this.tableSP_PrintInvoice.QtyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRateNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.RateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRateNull() {
+                this[this.tableSP_PrintInvoice.RateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotal_amtNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Total_amtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotal_amtNull() {
+                this[this.tableSP_PrintInvoice.Total_amtColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDECNull() {
-                return this.IsNull(this.tableInvoice_Detail.DECColumn);
+                return this.IsNull(this.tableSP_PrintInvoice.DECColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDECNull() {
-                this[this.tableInvoice_Detail.DECColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_PrintInvoice.DECColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTYPENull() {
+                return this.IsNull(this.tableSP_PrintInvoice.TYPEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTYPENull() {
+                this[this.tableSP_PrintInvoice.TYPEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsItem_NameNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Item_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetItem_NameNull() {
+                this[this.tableSP_PrintInvoice.Item_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTarriff_noNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Tarriff_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTarriff_noNull() {
+                this[this.tableSP_PrintInvoice.Tarriff_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGSTNONull() {
+                return this.IsNull(this.tableSP_PrintInvoice.GSTNOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGSTNONull() {
+                this[this.tableSP_PrintInvoice.GSTNOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsECC_NoNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.ECC_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetECC_NoNull() {
+                this[this.tableSP_PrintInvoice.ECC_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPANNONull() {
+                return this.IsNull(this.tableSP_PrintInvoice.PANNOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPANNONull() {
+                this[this.tableSP_PrintInvoice.PANNOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsignee_NameNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Consignee_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsignee_NameNull() {
+                this[this.tableSP_PrintInvoice.Consignee_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGSTNO1Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.GSTNO1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGSTNO1Null() {
+                this[this.tableSP_PrintInvoice.GSTNO1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsECC_No1Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.ECC_No1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetECC_No1Null() {
+                this[this.tableSP_PrintInvoice.ECC_No1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRAngeNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.RAngeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRAngeNull() {
+                this[this.tableSP_PrintInvoice.RAngeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDivisionNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.DivisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDivisionNull() {
+                this[this.tableSP_PrintInvoice.DivisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscommission_rateNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.commission_rateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcommission_rateNull() {
+                this[this.tableSP_PrintInvoice.commission_rateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPANNO1Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.PANNO1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPANNO1Null() {
+                this[this.tableSP_PrintInvoice.PANNO1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsaddressNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.addressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetaddressNull() {
+                this[this.tableSP_PrintInvoice.addressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPhone_NoNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Phone_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPhone_NoNull() {
+                this[this.tableSP_PrintInvoice.Phone_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCity_NameNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.City_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCity_NameNull() {
+                this[this.tableSP_PrintInvoice.City_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsState_NameNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.State_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetState_NameNull() {
+                this[this.tableSP_PrintInvoice.State_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsignee_Name1Null() {
+                return this.IsNull(this.tableSP_PrintInvoice.Consignee_Name1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsignee_Name1Null() {
+                this[this.tableSP_PrintInvoice.Consignee_Name1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -3246,56 +2860,22 @@ namespace Electra_WebApi {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class InvoiceRowChangeEvent : global::System.EventArgs {
+        public class SP_PrintInvoiceRowChangeEvent : global::System.EventArgs {
             
-            private InvoiceRow eventRow;
+            private SP_PrintInvoiceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceRowChangeEvent(InvoiceRow row, global::System.Data.DataRowAction action) {
+            public SP_PrintInvoiceRowChangeEvent(SP_PrintInvoiceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InvoiceRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Invoice_DetailRowChangeEvent : global::System.EventArgs {
-            
-            private Invoice_DetailRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailRowChangeEvent(Invoice_DetailRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Invoice_DetailRow Row {
+            public SP_PrintInvoiceRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3323,7 +2903,7 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class InvoiceTableAdapter : global::System.ComponentModel.Component {
+    public partial class SP_PrintInvoiceTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3337,7 +2917,7 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public InvoiceTableAdapter() {
+        public SP_PrintInvoiceTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3434,1184 +3014,69 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Invoice";
-            tableMapping.ColumnMappings.Add("Financial_Yr", "Financial_Yr");
+            tableMapping.DataSetTable = "SP_PrintInvoice";
             tableMapping.ColumnMappings.Add("Invoice_ID", "Invoice_ID");
+            tableMapping.ColumnMappings.Add("Financial_Yr", "Financial_Yr");
             tableMapping.ColumnMappings.Add("Invoice_Date", "Invoice_Date");
-            tableMapping.ColumnMappings.Add("Consignee_ID", "Consignee_ID");
             tableMapping.ColumnMappings.Add("PO_NO", "PO_NO");
             tableMapping.ColumnMappings.Add("Removal_Date", "Removal_Date");
             tableMapping.ColumnMappings.Add("Removal_Time", "Removal_Time");
-            tableMapping.ColumnMappings.Add("Con_Adr_Check", "Con_Adr_Check");
-            tableMapping.ColumnMappings.Add("Consignee_DelAddress", "Consignee_DelAddress");
-            tableMapping.ColumnMappings.Add("Consignee_DelRange", "Consignee_DelRange");
-            tableMapping.ColumnMappings.Add("Consignee_DelDivision", "Consignee_DelDivision");
-            tableMapping.ColumnMappings.Add("Consignee_DelCommRate", "Consignee_DelCommRate");
+            tableMapping.ColumnMappings.Add("po_no1", "po_no1");
+            tableMapping.ColumnMappings.Add("Total_amount", "Total_amount");
+            tableMapping.ColumnMappings.Add("Total_Excise", "Total_Excise");
+            tableMapping.ColumnMappings.Add("PCess_Per", "PCess_Per");
+            tableMapping.ColumnMappings.Add("PCess_Val", "PCess_Val");
+            tableMapping.ColumnMappings.Add("BED_Per", "BED_Per");
+            tableMapping.ColumnMappings.Add("BED_Val", "BED_Val");
+            tableMapping.ColumnMappings.Add("Sub_total", "Sub_total");
+            tableMapping.ColumnMappings.Add("Insurance_per", "Insurance_per");
+            tableMapping.ColumnMappings.Add("Insurance_val", "Insurance_val");
+            tableMapping.ColumnMappings.Add("Others", "Others");
+            tableMapping.ColumnMappings.Add("Vat_CST_Val", "Vat_CST_Val");
+            tableMapping.ColumnMappings.Add("DESTINATION1", "DESTINATION1");
             tableMapping.ColumnMappings.Add("Transporter_Name", "Transporter_Name");
             tableMapping.ColumnMappings.Add("Vehicle_No", "Vehicle_No");
             tableMapping.ColumnMappings.Add("GRR_No", "GRR_No");
-            tableMapping.ColumnMappings.Add("Total_Ass_Amt", "Total_Ass_Amt");
-            tableMapping.ColumnMappings.Add("BED_Per", "BED_Per");
-            tableMapping.ColumnMappings.Add("BED_Val", "BED_Val");
-            tableMapping.ColumnMappings.Add("PCess_Per", "PCess_Per");
-            tableMapping.ColumnMappings.Add("PCess_Val", "PCess_Val");
-            tableMapping.ColumnMappings.Add("EDU_Per", "EDU_Per");
-            tableMapping.ColumnMappings.Add("EDU_Val", "EDU_Val");
-            tableMapping.ColumnMappings.Add("SHE_PEr", "SHE_PEr");
-            tableMapping.ColumnMappings.Add("She_val", "She_val");
-            tableMapping.ColumnMappings.Add("Total_Excise", "Total_Excise");
-            tableMapping.ColumnMappings.Add("Sub_total", "Sub_total");
-            tableMapping.ColumnMappings.Add("VAT_CST_per", "VAT_CST_per");
-            tableMapping.ColumnMappings.Add("Vat_CST_Val", "Vat_CST_Val");
-            tableMapping.ColumnMappings.Add("Vat_CST_flag", "Vat_CST_flag");
-            tableMapping.ColumnMappings.Add("Surcharge_PER", "Surcharge_PER");
-            tableMapping.ColumnMappings.Add("Surcharge_Val", "Surcharge_Val");
-            tableMapping.ColumnMappings.Add("Frieght", "Frieght");
-            tableMapping.ColumnMappings.Add("Others", "Others");
-            tableMapping.ColumnMappings.Add("Insurance_per", "Insurance_per");
-            tableMapping.ColumnMappings.Add("Insurance_val", "Insurance_val");
-            tableMapping.ColumnMappings.Add("Total_amount", "Total_amount");
-            tableMapping.ColumnMappings.Add("DESTINATION1", "DESTINATION1");
             tableMapping.ColumnMappings.Add("DESTINATION2", "DESTINATION2");
             tableMapping.ColumnMappings.Add("DEST_THROUGH2", "DEST_THROUGH2");
-            tableMapping.ColumnMappings.Add("DEST_FLAG", "DEST_FLAG");
-            tableMapping.ColumnMappings.Add("EXTRA_INFO", "EXTRA_INFO");
-            tableMapping.ColumnMappings.Add("DOE", "DOE");
-            tableMapping.ColumnMappings.Add("DOM", "DOM");
-            tableMapping.ColumnMappings.Add("E_userid", "E_userid");
-            tableMapping.ColumnMappings.Add("M_userid", "M_userid");
-            tableMapping.ColumnMappings.Add("DEL_PARTY", "DEL_PARTY");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Invoice] WHERE (([Financial_Yr] = @Original_Financial_Yr) AND " +
-                "([Invoice_ID] = @Original_Invoice_ID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Financial_Yr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Financial_Yr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Invoice] ([Financial_Yr], [Invoice_ID], [Invoice_Date], [Consignee_ID], [PO_NO], [Removal_Date], [Removal_Time], [Con_Adr_Check], [Consignee_DelAddress], [Consignee_DelRange], [Consignee_DelDivision], [Consignee_DelCommRate], [Transporter_Name], [Vehicle_No], [GRR_No], [Total_Ass_Amt], [BED_Per], [BED_Val], [PCess_Per], [PCess_Val], [EDU_Per], [EDU_Val], [SHE_PEr], [She_val], [Total_Excise], [Sub_total], [VAT_CST_per], [Vat_CST_Val], [Vat_CST_flag], [Surcharge_PER], [Surcharge_Val], [Frieght], [Others], [Insurance_per], [Insurance_val], [Total_amount], [DESTINATION1], [DESTINATION2], [DEST_THROUGH2], [DEST_FLAG], [EXTRA_INFO], [DOE], [DOM], [E_userid], [M_userid], [DEL_PARTY]) VALUES (@Financial_Yr, @Invoice_ID, @Invoice_Date, @Consignee_ID, @PO_NO, @Removal_Date, @Removal_Time, @Con_Adr_Check, @Consignee_DelAddress, @Consignee_DelRange, @Consignee_DelDivision, @Consignee_DelCommRate, @Transporter_Name, @Vehicle_No, @GRR_No, @Total_Ass_Amt, @BED_Per, @BED_Val, @PCess_Per, @PCess_Val, @EDU_Per, @EDU_Val, @SHE_PEr, @She_val, @Total_Excise, @Sub_total, @VAT_CST_per, @Vat_CST_Val, @Vat_CST_flag, @Surcharge_PER, @Surcharge_Val, @Frieght, @Others, @Insurance_per, @Insurance_val, @Total_amount, @DESTINATION1, @DESTINATION2, @DEST_THROUGH2, @DEST_FLAG, @EXTRA_INFO, @DOE, @DOM, @E_userid, @M_userid, @DEL_PARTY)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Financial_Yr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Financial_Yr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PO_NO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PO_NO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Removal_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Removal_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Removal_Time", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Removal_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Con_Adr_Check", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Con_Adr_Check", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelAddress", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelRange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelRange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelDivision", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelDivision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelCommRate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelCommRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Transporter_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporter_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vehicle_No", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicle_No", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GRR_No", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GRR_No", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_Ass_Amt", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_Ass_Amt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BED_Per", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BED_Per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BED_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BED_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PCess_Per", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "PCess_Per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PCess_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PCess_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EDU_Per", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EDU_Per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EDU_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EDU_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SHE_PEr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SHE_PEr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@She_val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "She_val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_Excise", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_Excise", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sub_total", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sub_total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VAT_CST_per", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "VAT_CST_per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vat_CST_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vat_CST_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vat_CST_flag", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vat_CST_flag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surcharge_PER", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "Surcharge_PER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surcharge_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surcharge_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frieght", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frieght", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Others", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Others", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Insurance_per", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "Insurance_per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Insurance_val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Insurance_val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESTINATION1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESTINATION1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESTINATION2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESTINATION2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEST_THROUGH2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEST_THROUGH2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEST_FLAG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEST_FLAG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EXTRA_INFO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EXTRA_INFO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOE", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@E_userid", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "E_userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@M_userid", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "M_userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEL_PARTY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEL_PARTY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Invoice] SET [Financial_Yr] = @Financial_Yr, [Invoice_ID] = @Invoice_ID, [Invoice_Date] = @Invoice_Date, [Consignee_ID] = @Consignee_ID, [PO_NO] = @PO_NO, [Removal_Date] = @Removal_Date, [Removal_Time] = @Removal_Time, [Con_Adr_Check] = @Con_Adr_Check, [Consignee_DelAddress] = @Consignee_DelAddress, [Consignee_DelRange] = @Consignee_DelRange, [Consignee_DelDivision] = @Consignee_DelDivision, [Consignee_DelCommRate] = @Consignee_DelCommRate, [Transporter_Name] = @Transporter_Name, [Vehicle_No] = @Vehicle_No, [GRR_No] = @GRR_No, [Total_Ass_Amt] = @Total_Ass_Amt, [BED_Per] = @BED_Per, [BED_Val] = @BED_Val, [PCess_Per] = @PCess_Per, [PCess_Val] = @PCess_Val, [EDU_Per] = @EDU_Per, [EDU_Val] = @EDU_Val, [SHE_PEr] = @SHE_PEr, [She_val] = @She_val, [Total_Excise] = @Total_Excise, [Sub_total] = @Sub_total, [VAT_CST_per] = @VAT_CST_per, [Vat_CST_Val] = @Vat_CST_Val, [Vat_CST_flag] = @Vat_CST_flag, [Surcharge_PER] = @Surcharge_PER, [Surcharge_Val] = @Surcharge_Val, [Frieght] = @Frieght, [Others] = @Others, [Insurance_per] = @Insurance_per, [Insurance_val] = @Insurance_val, [Total_amount] = @Total_amount, [DESTINATION1] = @DESTINATION1, [DESTINATION2] = @DESTINATION2, [DEST_THROUGH2] = @DEST_THROUGH2, [DEST_FLAG] = @DEST_FLAG, [EXTRA_INFO] = @EXTRA_INFO, [DOE] = @DOE, [DOM] = @DOM, [E_userid] = @E_userid, [M_userid] = @M_userid, [DEL_PARTY] = @DEL_PARTY WHERE (([Financial_Yr] = @Original_Financial_Yr) AND ([Invoice_ID] = @Original_Invoice_ID))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Financial_Yr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Financial_Yr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PO_NO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PO_NO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Removal_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Removal_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Removal_Time", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Removal_Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Con_Adr_Check", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Con_Adr_Check", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelAddress", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelRange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelRange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelDivision", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelDivision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consignee_DelCommRate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consignee_DelCommRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Transporter_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Transporter_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vehicle_No", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vehicle_No", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GRR_No", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GRR_No", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_Ass_Amt", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_Ass_Amt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BED_Per", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BED_Per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BED_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BED_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PCess_Per", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "PCess_Per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PCess_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PCess_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EDU_Per", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EDU_Per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EDU_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EDU_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SHE_PEr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SHE_PEr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@She_val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "She_val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_Excise", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_Excise", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sub_total", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sub_total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VAT_CST_per", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "VAT_CST_per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vat_CST_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vat_CST_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vat_CST_flag", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vat_CST_flag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surcharge_PER", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "Surcharge_PER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surcharge_Val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surcharge_Val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frieght", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frieght", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Others", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Others", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Insurance_per", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 3, "Insurance_per", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Insurance_val", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Insurance_val", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESTINATION1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESTINATION1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESTINATION2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESTINATION2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEST_THROUGH2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEST_THROUGH2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEST_FLAG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEST_FLAG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EXTRA_INFO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EXTRA_INFO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOE", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOM", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DOM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@E_userid", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "E_userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@M_userid", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "M_userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEL_PARTY", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEL_PARTY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Financial_Yr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Financial_Yr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Invoice_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAP-139;Initial Catalog=Inventory;Persist Security Info=True;User ID=" +
-                "sa;Password=devansh@123;MultipleActiveResultSets=True;Application Name=EntityFra" +
-                "mework";
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Financial_Yr, Invoice_ID, Invoice_Date, Consignee_ID, PO_NO, Removal_Date, Removal_Time, Con_Adr_Check, Consignee_DelAddress, Consignee_DelRange, Consignee_DelDivision, Consignee_DelCommRate, Transporter_Name, Vehicle_No, GRR_No, Total_Ass_Amt, BED_Per, BED_Val, PCess_Per, PCess_Val, EDU_Per, EDU_Val, SHE_PEr, She_val, Total_Excise, Sub_total, VAT_CST_per, Vat_CST_Val, Vat_CST_flag, Surcharge_PER, Surcharge_Val, Frieght, Others, Insurance_per, Insurance_val, Total_amount, DESTINATION1, DESTINATION2, DEST_THROUGH2, DEST_FLAG, EXTRA_INFO, DOE, DOM, E_userid, M_userid, DEL_PARTY FROM dbo.Invoice";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InventoryDataSet.InvoiceDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InventoryDataSet.InvoiceDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            InventoryDataSet.InvoiceDataTable dataTable = new InventoryDataSet.InvoiceDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryDataSet.InvoiceDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Invoice");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Financial_Yr, int Original_Invoice_ID) {
-            if ((Original_Financial_Yr == null)) {
-                throw new global::System.ArgumentNullException("Original_Financial_Yr");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Financial_Yr));
-            }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Invoice_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string Financial_Yr, 
-                    int Invoice_ID, 
-                    global::System.Nullable<global::System.DateTime> Invoice_Date, 
-                    global::System.Nullable<int> Consignee_ID, 
-                    string PO_NO, 
-                    global::System.Nullable<global::System.DateTime> Removal_Date, 
-                    string Removal_Time, 
-                    string Con_Adr_Check, 
-                    string Consignee_DelAddress, 
-                    string Consignee_DelRange, 
-                    string Consignee_DelDivision, 
-                    string Consignee_DelCommRate, 
-                    string Transporter_Name, 
-                    string Vehicle_No, 
-                    string GRR_No, 
-                    global::System.Nullable<double> Total_Ass_Amt, 
-                    global::System.Nullable<int> BED_Per, 
-                    global::System.Nullable<double> BED_Val, 
-                    global::System.Nullable<decimal> PCess_Per, 
-                    global::System.Nullable<double> PCess_Val, 
-                    global::System.Nullable<int> EDU_Per, 
-                    global::System.Nullable<double> EDU_Val, 
-                    global::System.Nullable<int> SHE_PEr, 
-                    global::System.Nullable<double> She_val, 
-                    global::System.Nullable<double> Total_Excise, 
-                    global::System.Nullable<double> Sub_total, 
-                    global::System.Nullable<decimal> VAT_CST_per, 
-                    global::System.Nullable<double> Vat_CST_Val, 
-                    string Vat_CST_flag, 
-                    global::System.Nullable<decimal> Surcharge_PER, 
-                    global::System.Nullable<double> Surcharge_Val, 
-                    global::System.Nullable<double> Frieght, 
-                    global::System.Nullable<double> Others, 
-                    global::System.Nullable<decimal> Insurance_per, 
-                    global::System.Nullable<double> Insurance_val, 
-                    global::System.Nullable<double> Total_amount, 
-                    string DESTINATION1, 
-                    string DESTINATION2, 
-                    string DEST_THROUGH2, 
-                    string DEST_FLAG, 
-                    string EXTRA_INFO, 
-                    global::System.Nullable<global::System.DateTime> DOE, 
-                    global::System.Nullable<global::System.DateTime> DOM, 
-                    string E_userid, 
-                    string M_userid, 
-                    global::System.Nullable<int> DEL_PARTY) {
-            if ((Financial_Yr == null)) {
-                throw new global::System.ArgumentNullException("Financial_Yr");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Financial_Yr));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Invoice_ID));
-            if ((Invoice_Date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Invoice_Date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Consignee_ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Consignee_ID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((PO_NO == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PO_NO));
-            }
-            if ((Removal_Date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Removal_Date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Removal_Time == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Removal_Time));
-            }
-            if ((Con_Adr_Check == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Con_Adr_Check));
-            }
-            if ((Consignee_DelAddress == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Consignee_DelAddress));
-            }
-            if ((Consignee_DelRange == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Consignee_DelRange));
-            }
-            if ((Consignee_DelDivision == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Consignee_DelDivision));
-            }
-            if ((Consignee_DelCommRate == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Consignee_DelCommRate));
-            }
-            if ((Transporter_Name == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Transporter_Name));
-            }
-            if ((Vehicle_No == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Vehicle_No));
-            }
-            if ((GRR_No == null)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(GRR_No));
-            }
-            if ((Total_Ass_Amt.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((double)(Total_Ass_Amt.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((BED_Per.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((int)(BED_Per.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((BED_Val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((double)(BED_Val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((PCess_Per.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(PCess_Per.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((PCess_Val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((double)(PCess_Val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((EDU_Per.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(EDU_Per.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((EDU_Val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((double)(EDU_Val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((SHE_PEr.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((int)(SHE_PEr.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((She_val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((double)(She_val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Total_Excise.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((double)(Total_Excise.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((Sub_total.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((double)(Sub_total.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((VAT_CST_per.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((decimal)(VAT_CST_per.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Vat_CST_Val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((double)(Vat_CST_Val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Vat_CST_flag == null)) {
-                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(Vat_CST_flag));
-            }
-            if ((Surcharge_PER.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((decimal)(Surcharge_PER.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Surcharge_Val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((double)(Surcharge_Val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            if ((Frieght.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((double)(Frieght.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((Others.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((double)(Others.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Insurance_per.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(Insurance_per.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            if ((Insurance_val.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((double)(Insurance_val.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            if ((Total_amount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((double)(Total_amount.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            if ((DESTINATION1 == null)) {
-                this.Adapter.InsertCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[36].Value = ((string)(DESTINATION1));
-            }
-            if ((DESTINATION2 == null)) {
-                this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[37].Value = ((string)(DESTINATION2));
-            }
-            if ((DEST_THROUGH2 == null)) {
-                this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((string)(DEST_THROUGH2));
-            }
-            if ((DEST_FLAG == null)) {
-                this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[39].Value = ((string)(DEST_FLAG));
-            }
-            if ((EXTRA_INFO == null)) {
-                this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[40].Value = ((string)(EXTRA_INFO));
-            }
-            if ((DOE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[41].Value = ((System.DateTime)(DOE.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
-            }
-            if ((DOM.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[42].Value = ((System.DateTime)(DOM.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            if ((E_userid == null)) {
-                this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[43].Value = ((string)(E_userid));
-            }
-            if ((M_userid == null)) {
-                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[44].Value = ((string)(M_userid));
-            }
-            if ((DEL_PARTY.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[45].Value = ((int)(DEL_PARTY.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Financial_Yr, 
-                    int Invoice_ID, 
-                    global::System.Nullable<global::System.DateTime> Invoice_Date, 
-                    global::System.Nullable<int> Consignee_ID, 
-                    string PO_NO, 
-                    global::System.Nullable<global::System.DateTime> Removal_Date, 
-                    string Removal_Time, 
-                    string Con_Adr_Check, 
-                    string Consignee_DelAddress, 
-                    string Consignee_DelRange, 
-                    string Consignee_DelDivision, 
-                    string Consignee_DelCommRate, 
-                    string Transporter_Name, 
-                    string Vehicle_No, 
-                    string GRR_No, 
-                    global::System.Nullable<double> Total_Ass_Amt, 
-                    global::System.Nullable<int> BED_Per, 
-                    global::System.Nullable<double> BED_Val, 
-                    global::System.Nullable<decimal> PCess_Per, 
-                    global::System.Nullable<double> PCess_Val, 
-                    global::System.Nullable<int> EDU_Per, 
-                    global::System.Nullable<double> EDU_Val, 
-                    global::System.Nullable<int> SHE_PEr, 
-                    global::System.Nullable<double> She_val, 
-                    global::System.Nullable<double> Total_Excise, 
-                    global::System.Nullable<double> Sub_total, 
-                    global::System.Nullable<decimal> VAT_CST_per, 
-                    global::System.Nullable<double> Vat_CST_Val, 
-                    string Vat_CST_flag, 
-                    global::System.Nullable<decimal> Surcharge_PER, 
-                    global::System.Nullable<double> Surcharge_Val, 
-                    global::System.Nullable<double> Frieght, 
-                    global::System.Nullable<double> Others, 
-                    global::System.Nullable<decimal> Insurance_per, 
-                    global::System.Nullable<double> Insurance_val, 
-                    global::System.Nullable<double> Total_amount, 
-                    string DESTINATION1, 
-                    string DESTINATION2, 
-                    string DEST_THROUGH2, 
-                    string DEST_FLAG, 
-                    string EXTRA_INFO, 
-                    global::System.Nullable<global::System.DateTime> DOE, 
-                    global::System.Nullable<global::System.DateTime> DOM, 
-                    string E_userid, 
-                    string M_userid, 
-                    global::System.Nullable<int> DEL_PARTY, 
-                    string Original_Financial_Yr, 
-                    int Original_Invoice_ID) {
-            if ((Financial_Yr == null)) {
-                throw new global::System.ArgumentNullException("Financial_Yr");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Financial_Yr));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Invoice_ID));
-            if ((Invoice_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Invoice_Date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Consignee_ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Consignee_ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((PO_NO == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PO_NO));
-            }
-            if ((Removal_Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Removal_Date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Removal_Time == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Removal_Time));
-            }
-            if ((Con_Adr_Check == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Con_Adr_Check));
-            }
-            if ((Consignee_DelAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Consignee_DelAddress));
-            }
-            if ((Consignee_DelRange == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Consignee_DelRange));
-            }
-            if ((Consignee_DelDivision == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Consignee_DelDivision));
-            }
-            if ((Consignee_DelCommRate == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Consignee_DelCommRate));
-            }
-            if ((Transporter_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Transporter_Name));
-            }
-            if ((Vehicle_No == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Vehicle_No));
-            }
-            if ((GRR_No == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(GRR_No));
-            }
-            if ((Total_Ass_Amt.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((double)(Total_Ass_Amt.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((BED_Per.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(BED_Per.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((BED_Val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(BED_Val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((PCess_Per.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(PCess_Per.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((PCess_Val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(PCess_Val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((EDU_Per.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(EDU_Per.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((EDU_Val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((double)(EDU_Val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((SHE_PEr.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(SHE_PEr.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((She_val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((double)(She_val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Total_Excise.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((double)(Total_Excise.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((Sub_total.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Sub_total.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((VAT_CST_per.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(VAT_CST_per.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Vat_CST_Val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((double)(Vat_CST_Val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Vat_CST_flag == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Vat_CST_flag));
-            }
-            if ((Surcharge_PER.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(Surcharge_PER.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Surcharge_Val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((double)(Surcharge_Val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            if ((Frieght.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((double)(Frieght.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((Others.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((double)(Others.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Insurance_per.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((decimal)(Insurance_per.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            if ((Insurance_val.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((double)(Insurance_val.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            if ((Total_amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((double)(Total_amount.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            if ((DESTINATION1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(DESTINATION1));
-            }
-            if ((DESTINATION2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(DESTINATION2));
-            }
-            if ((DEST_THROUGH2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(DEST_THROUGH2));
-            }
-            if ((DEST_FLAG == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(DEST_FLAG));
-            }
-            if ((EXTRA_INFO == null)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(EXTRA_INFO));
-            }
-            if ((DOE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((System.DateTime)(DOE.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
-            }
-            if ((DOM.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((System.DateTime)(DOM.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
-            }
-            if ((E_userid == null)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(E_userid));
-            }
-            if ((M_userid == null)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(M_userid));
-            }
-            if ((DEL_PARTY.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(DEL_PARTY.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Financial_Yr == null)) {
-                throw new global::System.ArgumentNullException("Original_Financial_Yr");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_Financial_Yr));
-            }
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_Invoice_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<global::System.DateTime> Invoice_Date, 
-                    global::System.Nullable<int> Consignee_ID, 
-                    string PO_NO, 
-                    global::System.Nullable<global::System.DateTime> Removal_Date, 
-                    string Removal_Time, 
-                    string Con_Adr_Check, 
-                    string Consignee_DelAddress, 
-                    string Consignee_DelRange, 
-                    string Consignee_DelDivision, 
-                    string Consignee_DelCommRate, 
-                    string Transporter_Name, 
-                    string Vehicle_No, 
-                    string GRR_No, 
-                    global::System.Nullable<double> Total_Ass_Amt, 
-                    global::System.Nullable<int> BED_Per, 
-                    global::System.Nullable<double> BED_Val, 
-                    global::System.Nullable<decimal> PCess_Per, 
-                    global::System.Nullable<double> PCess_Val, 
-                    global::System.Nullable<int> EDU_Per, 
-                    global::System.Nullable<double> EDU_Val, 
-                    global::System.Nullable<int> SHE_PEr, 
-                    global::System.Nullable<double> She_val, 
-                    global::System.Nullable<double> Total_Excise, 
-                    global::System.Nullable<double> Sub_total, 
-                    global::System.Nullable<decimal> VAT_CST_per, 
-                    global::System.Nullable<double> Vat_CST_Val, 
-                    string Vat_CST_flag, 
-                    global::System.Nullable<decimal> Surcharge_PER, 
-                    global::System.Nullable<double> Surcharge_Val, 
-                    global::System.Nullable<double> Frieght, 
-                    global::System.Nullable<double> Others, 
-                    global::System.Nullable<decimal> Insurance_per, 
-                    global::System.Nullable<double> Insurance_val, 
-                    global::System.Nullable<double> Total_amount, 
-                    string DESTINATION1, 
-                    string DESTINATION2, 
-                    string DEST_THROUGH2, 
-                    string DEST_FLAG, 
-                    string EXTRA_INFO, 
-                    global::System.Nullable<global::System.DateTime> DOE, 
-                    global::System.Nullable<global::System.DateTime> DOM, 
-                    string E_userid, 
-                    string M_userid, 
-                    global::System.Nullable<int> DEL_PARTY, 
-                    string Original_Financial_Yr, 
-                    int Original_Invoice_ID) {
-            return this.Update(Original_Financial_Yr, Original_Invoice_ID, Invoice_Date, Consignee_ID, PO_NO, Removal_Date, Removal_Time, Con_Adr_Check, Consignee_DelAddress, Consignee_DelRange, Consignee_DelDivision, Consignee_DelCommRate, Transporter_Name, Vehicle_No, GRR_No, Total_Ass_Amt, BED_Per, BED_Val, PCess_Per, PCess_Val, EDU_Per, EDU_Val, SHE_PEr, She_val, Total_Excise, Sub_total, VAT_CST_per, Vat_CST_Val, Vat_CST_flag, Surcharge_PER, Surcharge_Val, Frieght, Others, Insurance_per, Insurance_val, Total_amount, DESTINATION1, DESTINATION2, DEST_THROUGH2, DEST_FLAG, EXTRA_INFO, DOE, DOM, E_userid, M_userid, DEL_PARTY, Original_Financial_Yr, Original_Invoice_ID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Invoice_DetailTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Invoice_DetailTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Invoice_Detail";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("Financial_Yr", "Financial_Yr");
-            tableMapping.ColumnMappings.Add("Invoice_Id", "Invoice_Id");
-            tableMapping.ColumnMappings.Add("Item_id", "Item_id");
+            tableMapping.ColumnMappings.Add("Frieght", "Frieght");
+            tableMapping.ColumnMappings.Add("Total_Ass_Amt", "Total_Ass_Amt");
+            tableMapping.ColumnMappings.Add("Consignee_DelDivision", "Consignee_DelDivision");
+            tableMapping.ColumnMappings.Add("Consignee_DelRange", "Consignee_DelRange");
+            tableMapping.ColumnMappings.Add("Consignee_DelCommRate", "Consignee_DelCommRate");
+            tableMapping.ColumnMappings.Add("Consignee_DelAddress", "Consignee_DelAddress");
+            tableMapping.ColumnMappings.Add("sr_flag", "sr_flag");
             tableMapping.ColumnMappings.Add("No_of_pkg", "No_of_pkg");
             tableMapping.ColumnMappings.Add("Qty", "Qty");
             tableMapping.ColumnMappings.Add("Rate", "Rate");
             tableMapping.ColumnMappings.Add("Total_amt", "Total_amt");
-            tableMapping.ColumnMappings.Add("sr_flag", "sr_flag");
-            tableMapping.ColumnMappings.Add("TYPE", "TYPE");
             tableMapping.ColumnMappings.Add("DEC", "DEC");
+            tableMapping.ColumnMappings.Add("TYPE", "TYPE");
+            tableMapping.ColumnMappings.Add("Item_Name", "Item_Name");
+            tableMapping.ColumnMappings.Add("Tarriff_no", "Tarriff_no");
+            tableMapping.ColumnMappings.Add("GSTNO", "GSTNO");
+            tableMapping.ColumnMappings.Add("ECC_No", "ECC_No");
+            tableMapping.ColumnMappings.Add("PANNO", "PANNO");
+            tableMapping.ColumnMappings.Add("Consignee_Name", "Consignee_Name");
+            tableMapping.ColumnMappings.Add("GSTNO1", "GSTNO1");
+            tableMapping.ColumnMappings.Add("ECC_No1", "ECC_No1");
+            tableMapping.ColumnMappings.Add("RAnge", "RAnge");
+            tableMapping.ColumnMappings.Add("Division", "Division");
+            tableMapping.ColumnMappings.Add("commission_rate", "commission_rate");
+            tableMapping.ColumnMappings.Add("PANNO1", "PANNO1");
+            tableMapping.ColumnMappings.Add("address", "address");
+            tableMapping.ColumnMappings.Add("Phone_No", "Phone_No");
+            tableMapping.ColumnMappings.Add("City_Name", "City_Name");
+            tableMapping.ColumnMappings.Add("State_Name", "State_Name");
+            tableMapping.ColumnMappings.Add("Consignee_Name1", "Consignee_Name1");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Invoice_Detail] WHERE (([ID] = @Original_ID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Invoice_Detail] ([Financial_Yr], [Invoice_Id], [Item_id], [No_" +
-                "of_pkg], [Qty], [Rate], [Total_amt], [sr_flag], [TYPE], [DEC]) VALUES (@Financia" +
-                "l_Yr, @Invoice_Id, @Item_id, @No_of_pkg, @Qty, @Rate, @Total_amt, @sr_flag, @TYP" +
-                "E, @DEC)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Financial_Yr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Financial_Yr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@No_of_pkg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "No_of_pkg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rate", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_amt", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_amt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sr_flag", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sr_flag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TYPE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TYPE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEC", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Invoice_Detail] SET [Financial_Yr] = @Financial_Yr, [Invoice_Id] = @Invoice_Id, [Item_id] = @Item_id, [No_of_pkg] = @No_of_pkg, [Qty] = @Qty, [Rate] = @Rate, [Total_amt] = @Total_amt, [sr_flag] = @sr_flag, [TYPE] = @TYPE, [DEC] = @DEC WHERE (([ID] = @Original_ID))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Financial_Yr", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Financial_Yr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Invoice_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@No_of_pkg", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "No_of_pkg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Qty", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rate", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_amt", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total_amt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sr_flag", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sr_flag", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TYPE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TYPE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEC", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAP-139;Initial Catalog=Inventory;Persist Security Info=True;User ID=" +
-                "sa;Password=devansh@123;MultipleActiveResultSets=True;Application Name=EntityFra" +
-                "mework";
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CraModel"].ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4620,17 +3085,31 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Financial_Yr, Invoice_Id, Item_id, No_of_pkg, Qty, Rate, Total_amt, sr" +
-                "_flag, TYPE, DEC FROM dbo.Invoice_Detail";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.SP_PrintInvoice";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinancialYr", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InventoryDataSet.Invoice_DetailDataTable dataTable) {
+        public virtual int Fill(InventoryDataSet.SP_PrintInvoiceDataTable dataTable, global::System.Nullable<int> InvoiceId, string FinancialYr) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((InvoiceId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(InvoiceId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((FinancialYr == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(FinancialYr));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -4642,225 +3121,23 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InventoryDataSet.Invoice_DetailDataTable GetData() {
+        public virtual InventoryDataSet.SP_PrintInvoiceDataTable GetData(global::System.Nullable<int> InvoiceId, string FinancialYr) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            InventoryDataSet.Invoice_DetailDataTable dataTable = new InventoryDataSet.Invoice_DetailDataTable();
+            if ((InvoiceId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(InvoiceId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((FinancialYr == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(FinancialYr));
+            }
+            InventoryDataSet.SP_PrintInvoiceDataTable dataTable = new InventoryDataSet.SP_PrintInvoiceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryDataSet.Invoice_DetailDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(InventoryDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Invoice_Detail");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Financial_Yr, global::System.Nullable<int> Invoice_Id, global::System.Nullable<int> Item_id, global::System.Nullable<int> No_of_pkg, global::System.Nullable<decimal> Qty, global::System.Nullable<decimal> Rate, global::System.Nullable<double> Total_amt, global::System.Nullable<int> sr_flag, string TYPE, string DEC) {
-            if ((Financial_Yr == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Financial_Yr));
-            }
-            if ((Invoice_Id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Invoice_Id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Item_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Item_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((No_of_pkg.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(No_of_pkg.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Qty.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Qty.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Rate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Rate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Total_amt.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(Total_amt.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((sr_flag.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(sr_flag.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((TYPE == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(TYPE));
-            }
-            if ((DEC == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(DEC));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Financial_Yr, global::System.Nullable<int> Invoice_Id, global::System.Nullable<int> Item_id, global::System.Nullable<int> No_of_pkg, global::System.Nullable<decimal> Qty, global::System.Nullable<decimal> Rate, global::System.Nullable<double> Total_amt, global::System.Nullable<int> sr_flag, string TYPE, string DEC, int Original_ID) {
-            if ((Financial_Yr == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Financial_Yr));
-            }
-            if ((Invoice_Id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Invoice_Id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Item_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Item_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((No_of_pkg.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(No_of_pkg.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Qty.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Qty.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Rate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Rate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Total_amt.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Total_amt.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((sr_flag.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(sr_flag.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((TYPE == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(TYPE));
-            }
-            if ((DEC == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(DEC));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -4876,10 +3153,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private InvoiceTableAdapter _invoiceTableAdapter;
-        
-        private Invoice_DetailTableAdapter _invoice_DetailTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -4892,34 +3165,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public InvoiceTableAdapter InvoiceTableAdapter {
-            get {
-                return this._invoiceTableAdapter;
-            }
-            set {
-                this._invoiceTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public Invoice_DetailTableAdapter Invoice_DetailTableAdapter {
-            get {
-                return this._invoice_DetailTableAdapter;
-            }
-            set {
-                this._invoice_DetailTableAdapter = value;
             }
         }
         
@@ -4942,14 +3187,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._invoiceTableAdapter != null) 
-                            && (this._invoiceTableAdapter.Connection != null))) {
-                    return this._invoiceTableAdapter.Connection;
-                }
-                if (((this._invoice_DetailTableAdapter != null) 
-                            && (this._invoice_DetailTableAdapter.Connection != null))) {
-                    return this._invoice_DetailTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -4963,12 +3200,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._invoiceTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._invoice_DetailTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -4980,24 +3211,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(InventoryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._invoiceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Invoice.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._invoiceTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._invoice_DetailTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Invoice_Detail.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._invoice_DetailTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -5008,22 +3221,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(InventoryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._invoiceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Invoice.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._invoiceTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._invoice_DetailTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Invoice_Detail.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._invoice_DetailTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -5034,22 +3231,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(InventoryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._invoice_DetailTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Invoice_Detail.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._invoice_DetailTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._invoiceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Invoice.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._invoiceTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -5089,16 +3270,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._invoiceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._invoiceTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._invoice_DetailTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._invoice_DetailTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -5131,24 +3302,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._invoiceTableAdapter != null)) {
-                    revertConnections.Add(this._invoiceTableAdapter, this._invoiceTableAdapter.Connection);
-                    this._invoiceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._invoiceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._invoiceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._invoiceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._invoiceTableAdapter.Adapter);
-                    }
-                }
-                if ((this._invoice_DetailTableAdapter != null)) {
-                    revertConnections.Add(this._invoice_DetailTableAdapter, this._invoice_DetailTableAdapter.Connection);
-                    this._invoice_DetailTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._invoice_DetailTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._invoice_DetailTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._invoice_DetailTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._invoice_DetailTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -5206,14 +3359,6 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._invoiceTableAdapter != null)) {
-                    this._invoiceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._invoiceTableAdapter]));
-                    this._invoiceTableAdapter.Transaction = null;
-                }
-                if ((this._invoice_DetailTableAdapter != null)) {
-                    this._invoice_DetailTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._invoice_DetailTableAdapter]));
-                    this._invoice_DetailTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EntityClass.Invoice>
+
+@{
+    ViewBag.Title = "Invoice Generation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Invoice Generation</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-success" id="export" style='float:right;'>Export To Excel</button>
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary list-panel" id="list-panel">
+            <div class="panel-heading list-panel-heading">
+                <h1 class="panel-title list-panel-title">States</h1>
+            </div>
+            <div class="panel-body">
+                <table id="Dynamic-data-table" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Financial_Yr)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Invoice_ID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Invoice_Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Consignee_ID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PO_NO)
+                            </th>
+                            
+                            <th>Action / Command</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Financial_Yr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Invoice_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Invoice_Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Consignee_ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PO_NO)
+                            </td>
+                            
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#Dynamic-data-table').DataTable();
+        });
+    </script>
+    }
