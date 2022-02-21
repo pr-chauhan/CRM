@@ -32,5 +32,9 @@ namespace EntityClass
 
         [StringLength(255)]
         public string DEC { get; set; }
+
+        public decimal? TCSPer { get; set; }
+
+        public decimal? TCSVal { get; set; }
     }
 }
