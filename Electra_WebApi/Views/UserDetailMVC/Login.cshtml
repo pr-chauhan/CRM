@@ -16,39 +16,41 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
 
 </head>
-<body style="width:45%;margin:auto;">
-    @using (Html.BeginForm()) 
+<body style="width: 30%; margin: auto;">
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <div style="text-align: center; font-size: 5em; font-family: 'Colonna MT'">Electra</div>
-        <div class="form-horizontal" style="border:1px solid #0026ff;border-radius:10px 10px 10px 10px;box-shadow:1px 1px 1px 2px;">
+        <div style="text-align: center; font-size: 5em;  font-family: 'Colonna MT'">Electra</div>
+        <div class="form-horizontal" style="padding:10%;margin:auto; border: 1px solid #0026ff; border-radius: 10px 10px 10px 10px; box-shadow: 1px 1px 1px 2px;">
             <h1 style="text-align:center;color:#0026ff;">Login</h1>
-            <hr/>
+            <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.User_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 <div class="col-md-10">
+                    @Html.LabelFor(model => model.User_Name, htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Passwrd, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 <div class="col-md-10">
+                    @Html.LabelFor(model => model.Passwrd, htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.Passwrd, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Passwrd, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
-           
+
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Login" class="btn btn-success" />
+                    <input type="submit" value="Login" class="btn btn-success" style="width:50%;" />
                 </div>
             </div>
         </div>
     }
-     
+
 </body>
 </html>

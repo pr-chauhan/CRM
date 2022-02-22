@@ -1,0 +1,490 @@
+﻿@*@model Tuple<EntityClass.Invoice, EntityClass.Invoice_Detail>*@
+@model  EntityClass.InvoiceModel
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Invoice</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="border: 1px solid #1945d7; border-radius: 5px 5px 5px 5px; padding:5px;">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Financial_Yr, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Invoice_ID, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Invoice_ID, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Invoice_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Invoice_Date, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Invoice_Date, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Invoice_Date, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.PO_NO, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.PO_NO, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.PO_NO, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Removal_Date, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Removal_Date, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Removal_Date, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Removal_Time, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Removal_Time, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Removal_Time, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Consignee_ID, htmlAttributes: new { @class = "control-label " })
+                            @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @id = "Consignee_ID" })
+                            @Html.ValidationMessageFor(model => model.invoice.Consignee_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Consignee_DelAddress, new { htmlAttributes = new { @class = "form-control", @id = "ConsigneeAddress" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </td>
+                <td colspan="2">
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.DEL_PARTY, htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList("", "", ""), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.invoice.DEL_PARTY, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Con_Adr_Check, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Con_Adr_Check, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Con_Adr_Check, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Consignee_DelRange, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Consignee_DelRange, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelRange, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Consignee_DelDivision, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Consignee_DelDivision, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelDivision, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Consignee_DelCommRate, htmlAttributes: new { @class = "control-label " })
+                            @Html.EditorFor(model => model.invoice.Consignee_DelCommRate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelCommRate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <div style="overflow-y:scroll;height:300px;border:1px solid #1945d7;">
+            <fieldset>
+                <legend>Item Details</legend>
+                <p style="display:inline;">
+                    <button id="add" type="button" class="btn btn-primary" style="float:right;">Add Line</button>
+                    @Html.DropDownListFor(model => model.Invoice_Detail.Item_id, new SelectList(ViewBag.IT, "Item_ID", "Item_Name"), new { @class = "form-control", @name = "Item_id[0]", @required = "required", @id = "Item_Name" })
+
+                </p>
+                <table id="ItemDetailsTable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>No of Package</th>
+                            <th>Quantity</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*<tr id="tablerow0">
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.Invoice_Detail.Item_id, new { htmlAttributes = new { @class = "form-control", @name = "Item_id[0]", @required = "required" }, @type = "text",@value="" })
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.Invoice_Detail.No_of_pkg, new { htmlAttributes = new { @class = "form-control", @name = "No_of_pkg[0]", @required = "required", @type = "text", @value = "" } })
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.Invoice_Detail.Qty, new { htmlAttributes = new { @class = "form-control", @name = "Qty[0]", @required = "required", @type = "text", @value = "" } })
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.Invoice_Detail.Rate, new { htmlAttributes = new { @class = "form-control", @name = "Rate[0]", @required = "required", @type = "text", @value = "" } })
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.Invoice_Detail.Total_amt, new { htmlAttributes = new { @class = "form-control", @name = "Total_amt[0]", @required = "required", @type = "text", @value = "" } })
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick="removeTr(0);">Delete</button>
+                                </td>
+                            </tr>*@
+                    </tbody>
+                </table>
+
+                <hr />
+
+
+            </fieldset>
+        </div>
+        <hr />
+        <table>
+            <tr>
+
+                <td colspan="1">
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Transporter_Name, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Transporter_Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Transporter_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.invoice.Vehicle_No, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Vehicle_No, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.invoice.GRR_No, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.GRR_No, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.DESTINATION1, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.DESTINATION1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.DESTINATION1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.DESTINATION2, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.DESTINATION2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.DESTINATION2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.DEST_THROUGH2, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.DEST_THROUGH2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.DEST_THROUGH2, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.DEST_FLAG, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.DEST_FLAG, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.DEST_FLAG, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Vat_CST_flag, htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.invoice.Vat_CST_flag, new SelectList(ViewBag.GST, "Value", "Text"), new { @class = "form-control", @style = "width:150px;positopn:top;" })
+                            @Html.ValidationMessageFor(model => model.invoice.Vat_CST_flag, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Total_Ass_Amt, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Total_Ass_Amt, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Total_Ass_Amt, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Frieght, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Frieght, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Frieght, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Others, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Others, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Others, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+
+
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Insurance_per, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Insurance_val, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Insurance_val, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Insurance_val, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.PCess_Per, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.PCess_Per, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.PCess_Val, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.PCess_Val, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.PCess_Val, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.EDU_Per, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.EDU_Per, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.EDU_Per, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.EDU_Val, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.EDU_Val, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.EDU_Val, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Total_Excise, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Total_Excise, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Total_Excise, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.invoice.Sub_total, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.invoice.Sub_total, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Sub_total, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+        <script type="text/javascript">
+        var counter = 0;
+            $(function () {
+                $("#Consignee_ID").change(function () {
+                    var id = $("#Consignee_ID").val();
+                    $.get("/ConsigneeMVC/GetConsigneeAddress", { Consigneey_id: id }, function (data) {
+                        $("#ConsigneeAddress").val(data);
+                    });
+                });
+
+                $("#submit").click(function () {
+                    var Item_id=0;
+                    var No_of_pkg=0;
+                    var Qty=0;
+                    var Rate=0;
+                    var Total_amt=0;
+                    var row;
+                    $("#ItemDetailsTable TBODY TR").each(function () {
+                        row = $(this);
+                         Item_id = row.find("td:eq(0) input[type='text']").val();
+                         No_of_pkg = row.find("td:eq(1) input[type='text']").val();
+                         Qty = row.find("td:eq(2) input[type='text']").val();
+                         Rate = row.find("td:eq(3) input[type='text']").val();;
+                         Total_amt = row.find("td:eq(4) input[type='text']").val();
+
+                        $.get("/InvoiceMVC/SaveInvoiceDetail", { Item_id: Item_id, No_of_pkg: No_of_pkg, Qty: Qty, Rate: Rate, Total_amt: Total_amt  }, function (data) {
+                            alert("Done");
+                            });
+                    });
+                });
+
+                $('#add').click(function () {
+                    var itemid = $("#Item_Name").val();
+                    $("#Item_id").val(itemid);
+                    $("#No_of_pkg").val();
+                    $("#Qty").val();
+                    $("#Rate").val();
+                    $("#Total_amt").val();
+
+                $('<tr id="tablerow' + counter + '"><td>' +
+                    @*'@Html.EditorFor(model => model.Invoice_Detail.Item_id, new { htmlAttributes = new { @class = "form-control", @name = "Item_id[' + counter + ']", @id = "Item_id", @type = "text", @value = "" } } )' +*@
+                    '<input type="text" class="text-box single-line" name="Item_id[' + counter + ']" value='+ itemid+' required="required" />' +
+                    '</td>' +
+                    '<td>' +
+                    '@Html.EditorFor(model => model.Invoice_Detail.No_of_pkg, new { htmlAttributes = new { @class = "form-control" , @name = "No_of_pkg[' + counter + ']", @id = "No_of_pkg", @type = "text", @value = "" } })' +
+                    '</td>' +
+                    '<td>' +
+                    '@Html.EditorFor(model => model.Invoice_Detail.Qty, new { htmlAttributes = new { @class = "form-control" , @name = "Qty[' + counter + ']", @id = "Qty", @type = "text", @value = "" } })' +
+                    '</td>' +
+                    '<td>' +
+                    '@Html.EditorFor(model => model.Invoice_Detail.Rate, new { htmlAttributes = new { @class = "form-control" , @name = "Rate[' + counter + ']", @id = "Rate", @type = "text", @value = "" } })' +
+                    '</td>' +
+                    '<td>' +
+                    '@Html.EditorFor(model => model.Invoice_Detail.Total_amt, new { htmlAttributes = new { @class = "form-control" , @name = "Total_amt[' + counter + ']", @type = "text", @id = "Total_amt" , @value = "" } })' +
+                    '</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-primary" onclick="removeTr(' + counter + ');">Delete</button>' +
+                    '</td>' +
+                    '</tr>').appendTo('#ItemDetailsTable');
+                    counter++;
+                    return false;
+
+            });
+        });
+        function removeTr(index) {
+            if (counter > 1) {
+                $('#tablerow' + index).remove();
+                counter--;
+            }
+            return false;
+        }
+
+
+        </script>
+
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+</div>

@@ -55,6 +55,7 @@
     <Compile Include="Entity\Consignee.cs" />
     <Compile Include="Entity\CraModel.cs" />
     <Compile Include="Entity\Invoice.cs" />
+    <Compile Include="Entity\InvoiceModel.cs" />
     <Compile Include="Entity\Invoice_Detail.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

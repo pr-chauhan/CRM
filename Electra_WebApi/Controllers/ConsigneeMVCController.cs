@@ -264,6 +264,17 @@ namespace Electra_WebApi.Controllers
             // do here some operation  
             return state[0].StateName.ToString();
         }
-
+        public string GetConsigneeName(int Consigneey_id)
+        {
+            var state = db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
+            // do here some operation  
+            return state[0].Consignee_Name.ToString();
+        }
+        public string GetConsigneeAddress(int Consigneey_id)
+        {
+            var state = db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
+            // do here some operation  
+            return state[0].address.ToString();
+        }
     }
 }
