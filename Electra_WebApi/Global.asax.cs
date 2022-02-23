@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using EntityClass;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -11,6 +8,9 @@ namespace Electra_WebApi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        public static CommonFunctions objCommon = new CommonFunctions();
+        public static StaticVariables staticVariables = new StaticVariables();
+        public static CraModel db = new CraModel();
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

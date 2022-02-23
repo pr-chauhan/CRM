@@ -1,11 +1,6 @@
 ﻿using EntityClass;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -14,7 +9,7 @@ namespace Electra_WebApi.Controllers
 {
     public class UserDetailApiController : ApiController
     {
-        private CraModel db = new CraModel();
+        private readonly CraModel db = new CraModel();
 
         // GET: api/UserDetailApi
         public IQueryable<User_detail> GetUserDetail()
@@ -30,7 +25,6 @@ namespace Electra_WebApi.Controllers
             {
                 return NotFound();
             }
-
             return Ok(uDet);
         }
         // POST: api/UserDetailApi
@@ -43,7 +37,6 @@ namespace Electra_WebApi.Controllers
             }
 
             db.User_detail.Add(uDet);
-
             try
             {
                 await db.SaveChangesAsync();
@@ -71,10 +64,8 @@ namespace Electra_WebApi.Controllers
             {
                 return NotFound();
             }
-
             db.User_detail.Remove(uDet);
             await db.SaveChangesAsync();
-
             return Ok(uDet);
         }
         protected override void Dispose(bool disposing)

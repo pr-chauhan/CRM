@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -13,44 +9,44 @@ using EntityClass;
 
 namespace Electra_WebApi.Controllers
 {
-    public class ItemApiController : ApiController
+    public class CityApiController : ApiController
     {
-        private CraModel db = new CraModel();
+        private readonly CraModel db = new CraModel();
 
-        // GET: api/ItemApi
-        public IQueryable<Item> GetItems()
+        // GET: api/CityApi
+        public IQueryable<City> GetCities()
         {
-            return db.Items;
+            return db.Cities;
         }
 
-        // GET: api/ItemApi/5
-        [ResponseType(typeof(Item))]
-        public async Task<IHttpActionResult> GetItem(int id)
+        // GET: api/CityApi/5
+        [ResponseType(typeof(City))]
+        public async Task<IHttpActionResult> GetCity(int id)
         {
-            Item item = await db.Items.FindAsync(id);
-            if (item == null)
+            City city = await db.Cities.FindAsync(id);
+            if (city == null)
             {
                 return NotFound();
             }
 
-            return Ok(item);
+            return Ok(city);
         }
 
-        // PUT: api/ItemApi/5
+        // PUT: api/CityApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutItem( Item item)
+        public async Task<IHttpActionResult> PutCity( City city)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            int id = item.Item_ID;
-            if (id != item.Item_ID)
+            int id = city.City_ID;
+            if (id != city.City_ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(item).State = EntityState.Modified;
+            db.Entry(city).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +54,7 @@ namespace Electra_WebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ItemExists(id))
+                if (!CityExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +67,35 @@ namespace Electra_WebApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ItemApi
-        [ResponseType(typeof(Item))]
-        public async Task<IHttpActionResult> PostItem(Item item)
+        // POST: api/CityApi
+        [ResponseType(typeof(City))]
+        public async Task<IHttpActionResult> PostCity(City city)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Items.Add(item);
+            db.Cities.Add(city);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = item.Item_ID }, item);
+            return CreatedAtRoute("DefaultApi", new { id = city.City_ID }, city);
         }
 
-        // DELETE: api/ItemApi/5
-        [ResponseType(typeof(Item))]
-        public async Task<IHttpActionResult> DeleteItem(int id)
+        // DELETE: api/CityApi/5
+        [ResponseType(typeof(City))]
+        public async Task<IHttpActionResult> DeleteCity(int id)
         {
-            Item item = await db.Items.FindAsync(id);
-            if (item == null)
+            City city = await db.Cities.FindAsync(id);
+            if (city == null)
             {
                 return NotFound();
             }
 
-            db.Items.Remove(item);
+            db.Cities.Remove(city);
             await db.SaveChangesAsync();
 
-            return Ok(item);
+            return Ok(city);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +107,9 @@ namespace Electra_WebApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ItemExists(int id)
+        private bool CityExists(int id)
         {
-            return db.Items.Count(e => e.Item_ID == id) > 0;
+            return db.Cities.Count(e => e.City_ID == id) > 0;
         }
     }
 }

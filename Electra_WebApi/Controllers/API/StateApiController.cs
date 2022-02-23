@@ -1,63 +1,57 @@
-﻿using EntityClass;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using EntityClass;
 
 namespace Electra_WebApi.Controllers
 {
-    public class ConsigneeApiController : ApiController
+    public class StateApiController : ApiController
     {
-        private CraModel db = new CraModel();
+        private readonly CraModel db = new CraModel();
 
-        // GET: api/ConsigneesApi
-        public IQueryable<Consignee> GetConsignees()
+        // GET: api/StatesApi
+        public IQueryable<State> GetStates()
         {
-            return db.Consignees;
+            return db.States;
         }
 
-        // GET: api/ConsigneesApi/5
+        // GET: api/StatesApi/5
         [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> GetConsignee(int id)
+        public async Task<IHttpActionResult> GetState(int id)
         {
-            Consignee consigneeDet = await db.Consignees.FindAsync(id);
-            if (consigneeDet == null)
+            State state = await db.States.FindAsync(id);
+            if (state == null)
             {
                 return NotFound();
             }
-
-            return Ok(consigneeDet);
+            return Ok(state);
         }
 
-        // PUT: api/ConsigneesApi/5
+        // PUT: api/StatesApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutState(Consignee consigneeDet)//int id, 
+        public async Task<IHttpActionResult> PutState(State state)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            int id = consigneeDet.Consignee_ID;
-            if (id != consigneeDet.Consignee_ID)
+            int id = state.State_ID;
+            if (id != state.State_ID)
             {
                 return BadRequest();
             }
-
-            db.Entry(consigneeDet).State = EntityState.Modified;
-
+            db.Entry(state).State = EntityState.Modified;
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ConsigneeExists(id))
+                if (!StateExists(id))
                 {
                     return NotFound();
                 }
@@ -66,28 +60,25 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ConsigneesApi
+        // POST: api/StatesApi
         [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> PostState(Consignee ConsigneeDet)
+        public async Task<IHttpActionResult> PostState(State state)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Consignees.Add(ConsigneeDet);
-
+            db.States.Add(state);
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (ConsigneeExists(ConsigneeDet.Consignee_ID))
+                if (StateExists(state.State_ID))
                 {
                     return Conflict();
                 }
@@ -96,24 +87,22 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
-
-            return CreatedAtRoute("DefaultApi", new { id = ConsigneeDet.Consignee_ID }, ConsigneeDet);
+            return CreatedAtRoute("DefaultApi", new { id = state.State_ID }, state);
         }
 
-        // DELETE: api/ConsigneesApi/5
+        // DELETE: api/StatesApi/5
         [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> DeleteConsignee(int id)
+        public async Task<IHttpActionResult> DeleteState(int id)
         {
-            Consignee ConsigneeDet = await db.Consignees.FindAsync(id);
-            if (ConsigneeDet == null)
+            State state = await db.States.FindAsync(id);
+            if (state == null)
             {
                 return NotFound();
             }
 
-            db.Consignees.Remove(ConsigneeDet);
+            db.States.Remove(state);
             await db.SaveChangesAsync();
-
-            return Ok(ConsigneeDet);
+            return Ok(state);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +114,9 @@ namespace Electra_WebApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ConsigneeExists(int id)
+        private bool StateExists(int id)
         {
-            return db.Consignees.Count(e => e.Consignee_ID == id) > 0;
+            return db.States.Count(e => e.State_ID == id) > 0;
         }
     }
 }

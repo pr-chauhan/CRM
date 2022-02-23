@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Electra_WebApi.Areas.HelpPage.ModelDescriptions

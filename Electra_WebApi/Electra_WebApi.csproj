@@ -178,27 +178,29 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\ChangePwdController.cs" />
-    <Compile Include="Controllers\CityApiController.cs" />
-    <Compile Include="Controllers\ConsigneeApiController.cs" />
-    <Compile Include="Controllers\ConsigneeMVCController.cs" />
-    <Compile Include="Controllers\DataBaseBackupController.cs" />
-    <Compile Include="Controllers\InvoiceApiController.cs" />
-    <Compile Include="Controllers\InvoiceMVCController.cs" />
-    <Compile Include="Controllers\ItemApiController.cs" />
-    <Compile Include="Controllers\ItemMVCController.cs" />
-    <Compile Include="Controllers\OldCityApiController.cs" />
-    <Compile Include="Controllers\CityMVCController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\StateApiController.cs" />
-    <Compile Include="Controllers\StateMVCController.cs" />
-    <Compile Include="Controllers\UserDetailApiController.cs" />
-    <Compile Include="Controllers\UserDetailMVCController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Classes\CommonFunctions.cs" />
+    <Compile Include="Controllers\MVC\HomeController.cs" />
+    <Compile Include="Controllers\MVC\ChangePwdController.cs" />
+    <Compile Include="Controllers\API\CityApiController.cs" />
+    <Compile Include="Controllers\API\ConsigneeApiController.cs" />
+    <Compile Include="Controllers\MVC\ConsigneeMVCController.cs" />
+    <Compile Include="Controllers\MVC\DataBaseBackupController.cs" />
+    <Compile Include="Controllers\API\InvoiceApiController.cs" />
+    <Compile Include="Controllers\MVC\InvoiceMVCController.cs" />
+    <Compile Include="Controllers\API\Invoice_DetailApiController.cs" />
+    <Compile Include="Controllers\API\ItemApiController.cs" />
+    <Compile Include="Controllers\MVC\ItemMVCController.cs" />
+    <Compile Include="Controllers\MVC\CityMVCController.cs" />
+    <Compile Include="Controllers\MVC\ReportController.cs" />
+    <Compile Include="Controllers\API\StateApiController.cs" />
+    <Compile Include="Controllers\MVC\StateMVCController.cs" />
+    <Compile Include="Controllers\API\UserDetailApiController.cs" />
+    <Compile Include="Controllers\MVC\UserDetailMVCController.cs" />
+    <Compile Include="Classes\EntityRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Classes\IntEntityRepository.cs" />
     <Compile Include="InventoryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,6 +222,7 @@
       <DependentUpon>PrintInvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Classes\StaticVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -328,6 +331,10 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\InvoiceMVC\Index.cshtml" />
+    <Content Include="Views\UserDetailMVC\Login.cshtml" />
+    <Content Include="Views\UserDetailMVC\Logout.cshtml" />
+    <Content Include="Views\InvoiceMVC\Create.cshtml" />
+    <Content Include="Views\InvoiceMVC\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

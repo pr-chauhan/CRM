@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -15,7 +11,7 @@ namespace Electra_WebApi.Controllers
 {
     public class Invoice_DetailApiController : ApiController
     {
-        private CraModel db = new CraModel();
+        private readonly CraModel db = new CraModel();
 
         // GET: api/Invoice_DetailApi
         public IQueryable<Invoice_Detail> GetInvoice_Detail()
@@ -32,7 +28,6 @@ namespace Electra_WebApi.Controllers
             {
                 return NotFound();
             }
-
             return Ok(invoice_Detail);
         }
 
@@ -44,14 +39,11 @@ namespace Electra_WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             if (id != invoice_Detail.ID)
             {
                 return BadRequest();
             }
-
             db.Entry(invoice_Detail).State = EntityState.Modified;
-
             try
             {
                 await db.SaveChangesAsync();
@@ -67,7 +59,6 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -79,10 +70,8 @@ namespace Electra_WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             db.Invoice_Detail.Add(invoice_Detail);
             await db.SaveChangesAsync();
-
             return CreatedAtRoute("DefaultApi", new { id = invoice_Detail.ID }, invoice_Detail);
         }
 
@@ -95,10 +84,8 @@ namespace Electra_WebApi.Controllers
             {
                 return NotFound();
             }
-
             db.Invoice_Detail.Remove(invoice_Detail);
             await db.SaveChangesAsync();
-
             return Ok(invoice_Detail);
         }
 

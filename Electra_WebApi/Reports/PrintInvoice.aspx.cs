@@ -1,15 +1,11 @@
 ﻿using EntityClass;
 using Microsoft.Reporting.WebForms;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.Entity;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Electra_WebApi
 {

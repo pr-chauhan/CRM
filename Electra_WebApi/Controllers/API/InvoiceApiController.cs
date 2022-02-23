@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -13,52 +9,48 @@ using EntityClass;
 
 namespace Electra_WebApi.Controllers
 {
-    public class StateApiController : ApiController
+    public class InvoiceApiController : ApiController
     {
-        private CraModel db = new CraModel();
+        private readonly CraModel db = new CraModel();
 
-        // GET: api/StatesApi
-        public IQueryable<State> GetStates()
+        // GET: api/InvoiceApi
+        public IQueryable<Invoice> GetInvoices()
         {
-            return db.States;
+            return db.Invoices;
         }
 
-        // GET: api/StatesApi/5
-        [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> GetState(int id)
+        // GET: api/InvoiceApi/5
+        [ResponseType(typeof(Invoice))]
+        public async Task<IHttpActionResult> GetInvoice(string id)
         {
-            State state = await db.States.FindAsync(id);
-            if (state == null)
+            Invoice invoice = await db.Invoices.FindAsync(id);
+            if (invoice == null)
             {
                 return NotFound();
             }
-
-            return Ok(state);
+            return Ok(invoice);
         }
 
-        // PUT: api/StatesApi/5
+        // PUT: api/InvoiceApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutState(State state)//int id, 
+        public async Task<IHttpActionResult> PutInvoice(string id, Invoice invoice)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            int id = state.State_ID;
-            if (id != state.State_ID)
+            if (id != invoice.Financial_Yr)
             {
                 return BadRequest();
             }
-
-            db.Entry(state).State = EntityState.Modified;
-
+            db.Entry(invoice).State = EntityState.Modified;
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StateExists(id))
+                if (!InvoiceExists(id))
                 {
                     return NotFound();
                 }
@@ -67,28 +59,25 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/StatesApi
-        [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> PostState(State state)
+        // POST: api/InvoiceApi
+        [ResponseType(typeof(Invoice))]
+        public async Task<IHttpActionResult> PostInvoice(Invoice invoice)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.States.Add(state);
-
+            db.Invoices.Add(invoice);
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (StateExists(state.State_ID))
+                if (InvoiceExists(invoice.Financial_Yr))
                 {
                     return Conflict();
                 }
@@ -97,24 +86,21 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
-
-            return CreatedAtRoute("DefaultApi", new { id = state.State_ID }, state);
+            return CreatedAtRoute("DefaultApi", new { id = invoice.Financial_Yr }, invoice);
         }
 
-        // DELETE: api/StatesApi/5
-        [ResponseType(typeof(State))]
-        public async Task<IHttpActionResult> DeleteState(int id)
+        // DELETE: api/InvoiceApi/5
+        [ResponseType(typeof(Invoice))]
+        public async Task<IHttpActionResult> DeleteInvoice(string id)
         {
-            State state = await db.States.FindAsync(id);
-            if (state == null)
+            Invoice invoice = await db.Invoices.FindAsync(id);
+            if (invoice == null)
             {
                 return NotFound();
             }
-
-            db.States.Remove(state);
+            db.Invoices.Remove(invoice);
             await db.SaveChangesAsync();
-
-            return Ok(state);
+            return Ok(invoice);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +112,9 @@ namespace Electra_WebApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool StateExists(int id)
+        private bool InvoiceExists(string id)
         {
-            return db.States.Count(e => e.State_ID == id) > 0;
+            return db.Invoices.Count(e => e.Financial_Yr == id) > 0;
         }
     }
 }

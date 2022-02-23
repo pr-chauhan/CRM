@@ -1,64 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using EntityClass;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using EntityClass;
 
 namespace Electra_WebApi.Controllers
 {
-    public class InvoiceApiController : ApiController
+    public class ConsigneeApiController : ApiController
     {
-        private CraModel db = new CraModel();
+        private readonly CraModel db = new CraModel();
 
-        // GET: api/InvoiceApi
-        public IQueryable<Invoice> GetInvoices()
+        // GET: api/ConsigneesApi
+        public IQueryable<Consignee> GetConsignees()
         {
-            return db.Invoices;
+            return db.Consignees;
         }
 
-        // GET: api/InvoiceApi/5
-        [ResponseType(typeof(Invoice))]
-        public async Task<IHttpActionResult> GetInvoice(string id)
+        // GET: api/ConsigneesApi/5
+        [ResponseType(typeof(State))]
+        public async Task<IHttpActionResult> GetConsignee(int id)
         {
-            Invoice invoice = await db.Invoices.FindAsync(id);
-            if (invoice == null)
+            Consignee consigneeDet = await db.Consignees.FindAsync(id);
+            if (consigneeDet == null)
             {
                 return NotFound();
             }
-
-            return Ok(invoice);
+            return Ok(consigneeDet);
         }
 
-        // PUT: api/InvoiceApi/5
+        // PUT: api/ConsigneesApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutInvoice(string id, Invoice invoice)
+        public async Task<IHttpActionResult> PutState(Consignee consigneeDet)//int id, 
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            if (id != invoice.Financial_Yr)
+            int id = consigneeDet.Consignee_ID;
+            if (id != consigneeDet.Consignee_ID)
             {
                 return BadRequest();
             }
-
-            db.Entry(invoice).State = EntityState.Modified;
-
+            db.Entry(consigneeDet).State = EntityState.Modified;
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InvoiceExists(id))
+                if (!ConsigneeExists(id))
                 {
                     return NotFound();
                 }
@@ -67,28 +60,25 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/InvoiceApi
-        [ResponseType(typeof(Invoice))]
-        public async Task<IHttpActionResult> PostInvoice(Invoice invoice)
+        // POST: api/ConsigneesApi
+        [ResponseType(typeof(State))]
+        public async Task<IHttpActionResult> PostState(Consignee ConsigneeDet)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Invoices.Add(invoice);
-
+            db.Consignees.Add(ConsigneeDet);
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (InvoiceExists(invoice.Financial_Yr))
+                if (ConsigneeExists(ConsigneeDet.Consignee_ID))
                 {
                     return Conflict();
                 }
@@ -98,23 +88,21 @@ namespace Electra_WebApi.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = invoice.Financial_Yr }, invoice);
+            return CreatedAtRoute("DefaultApi", new { id = ConsigneeDet.Consignee_ID }, ConsigneeDet);
         }
 
-        // DELETE: api/InvoiceApi/5
-        [ResponseType(typeof(Invoice))]
-        public async Task<IHttpActionResult> DeleteInvoice(string id)
+        // DELETE: api/ConsigneesApi/5
+        [ResponseType(typeof(State))]
+        public async Task<IHttpActionResult> DeleteConsignee(int id)
         {
-            Invoice invoice = await db.Invoices.FindAsync(id);
-            if (invoice == null)
+            Consignee ConsigneeDet = await db.Consignees.FindAsync(id);
+            if (ConsigneeDet == null)
             {
                 return NotFound();
             }
-
-            db.Invoices.Remove(invoice);
+            db.Consignees.Remove(ConsigneeDet);
             await db.SaveChangesAsync();
-
-            return Ok(invoice);
+            return Ok(ConsigneeDet);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +114,9 @@ namespace Electra_WebApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool InvoiceExists(string id)
+        private bool ConsigneeExists(int id)
         {
-            return db.Invoices.Count(e => e.Financial_Yr == id) > 0;
+            return db.Consignees.Count(e => e.Consignee_ID == id) > 0;
         }
     }
 }
