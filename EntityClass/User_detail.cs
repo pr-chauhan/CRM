@@ -7,30 +7,26 @@ namespace EntityClass
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("State")]
-    public partial class State
+    public partial class User_detail
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int State_ID { get; set; }
+        [StringLength(50)]
+        [DisplayName("User Name")]
+        public string User_Name { get; set; }
 
-        [StringLength(255)]
-        [Required]
-        [DisplayName("State Name")]
-        public string State_Name { get; set; }
+        [StringLength(50)]
+        [DisplayName("Password")]
+        [DataType(DataType.Password)]
+        public string Passwrd { get; set; }
 
-        [DisplayName("Date of Entry")]
         public DateTime? DoE { get; set; }
 
-        [DisplayName("Date of Modify")]
         public DateTime? DoM { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Enter By")]
         public string E_UserID { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Modify By")]
         public string M_UserID { get; set; }
     }
 }

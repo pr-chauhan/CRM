@@ -36,8 +36,7 @@ namespace EntityClass
         [DisplayName("Removal Time")]
         public string Removal_Time { get; set; }
 
-        [StringLength(255)]
-        public string Con_Adr_Check { get; set; }
+        public bool Con_Adr_Check { get; set; }
 
         [StringLength(255)]
         [DisplayName("Consignee Address")]
@@ -70,19 +69,19 @@ namespace EntityClass
         [DisplayName("Total Assesment")]
         public double? Total_Ass_Amt { get; set; }
 
-        [DisplayName("BED Percent")]
+        [DisplayName("GST Percent")]
         public int? BED_Per { get; set; }
-        [DisplayName("BED Value")]
+        [DisplayName("GST Value")]
         public double? BED_Val { get; set; }
-        [DisplayName("Cess Percent")]
+        [DisplayName("SGST Percent")]
         public decimal? PCess_Per { get; set; }
-        [DisplayName("Cess Value")]
+        [DisplayName("SGST Value")]
         public double? PCess_Val { get; set; }
         [DisplayName("EDU Percent")]
         public int? EDU_Per { get; set; }
         [DisplayName("EDU Value")]
         public double? EDU_Val { get; set; }
-      
+
         public int? SHE_PEr { get; set; }
 
         public double? She_val { get; set; }
@@ -106,9 +105,9 @@ namespace EntityClass
         public double? Frieght { get; set; }
 
         public double? Others { get; set; }
-        [DisplayName("Insurance")]
+        [DisplayName("Insurance Percent")]
         public decimal? Insurance_per { get; set; }
-        [DisplayName("Insurance")]
+        [DisplayName("Insurance Value")]
         public double? Insurance_val { get; set; }
         [DisplayName("Total Amount")]
         public double? Total_amount { get; set; }
@@ -125,9 +124,8 @@ namespace EntityClass
         [DisplayName("Through Transport")]
         public string DEST_THROUGH2 { get; set; }
 
-        [StringLength(255)]
         [DisplayName("Transhipment")]
-        public string DEST_FLAG { get; set; }
+        public bool DEST_FLAG { get; set; }
 
         [StringLength(255)]
         public string EXTRA_INFO { get; set; }

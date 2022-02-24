@@ -12,18 +12,19 @@ namespace EntityClass
         {
         }
 
-        public virtual DbSet<State> States { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Consignee> Consignees { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<Invoice_Detail> Invoice_Detail { get; set; }
         public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<State> States { get; set; }
         public virtual DbSet<User_detail> User_detail { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Invoice>()
-               .Property(e => e.PCess_Per)
-               .HasPrecision(18, 3);
+                .Property(e => e.PCess_Per)
+                .HasPrecision(18, 3);
 
             modelBuilder.Entity<Invoice>()
                 .Property(e => e.VAT_CST_per)

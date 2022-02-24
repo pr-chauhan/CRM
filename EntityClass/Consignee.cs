@@ -11,43 +11,40 @@ namespace EntityClass
     public partial class Consignee
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Consignee ID")]
         public int Consignee_ID { get; set; }
 
         [StringLength(255)]
-        [Required]
         [DisplayName("Consignee Name")]
         public string Consignee_Name { get; set; }
 
         [StringLength(255)]
         [DisplayName("Address")]
         public string address { get; set; }
-        [Required]
         [DisplayName("City")]
         public int? City_ID { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Phone No")]
+        [DisplayName("Phone Number")]
         public string Phone_No { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Fax No")]
+        [DisplayName("Fax Number")]
         public string Fax { get; set; }
-
-        [StringLength(255)]
         [DisplayName("Email ID")]
+        [StringLength(255)]
         public string Email_id { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Tin No")]
+        [DisplayName("TIN No")]
         public string Tin_no { get; set; }
 
         [StringLength(255)]
-        [DisplayName("CST No")]
+        [DisplayName("CST No.")]
         public string CST_No { get; set; }
 
         [StringLength(255)]
-        [DisplayName("ECC No")]
+        [DisplayName("ECC No.")]
         public string ECC_No { get; set; }
 
         [StringLength(255)]
@@ -59,28 +56,25 @@ namespace EntityClass
         public string Division { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Pan No")]
+        [DisplayName("PAN No.")]
         public string PANNO { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Commision Rate")]
+        [DisplayName("Commission Rate")]
         public string commission_rate { get; set; }
 
         [StringLength(255)]
-        [DisplayName("GST No")]
+        [DisplayName("GST No.")]
         public string GSTNO { get; set; }
-        [DisplayName("Date of Entry")]
+
         public DateTime? DoE { get; set; }
 
-        [DisplayName("Date of Modify")]
         public DateTime? DoM { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Enter By")]
         public string E_UserID { get; set; }
 
         [StringLength(50)]
-        [DisplayName("Modify By")]
         public string M_UserID { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using EntityClass;
 using System.Net.Http;
 using System.Web.Mvc;
-
+using System.Linq;
 namespace Electra_WebApi.Controllers
 {
     public class ConsigneeMVCController : Controller
@@ -124,9 +124,52 @@ namespace Electra_WebApi.Controllers
         {
             return WebApiApplication.objCommon.GetConsigneeNameByID(Consignee_id);
         }
-        public string GetConsigneeAddress(int Consignee_id)
+        //public string GetConsigneeAddress(int Consignee_id)
+        //{
+        //   // return WebApiApplication.objCommon.GetConsigneeAddressByID(Consignee_id);
+        //}
+        public string GetCityName(int Consigneey_id)
         {
-            return WebApiApplication.objCommon.GetConsigneeAddressByID(Consignee_id);
+           
+            var state = (from cg in WebApiApplication.db.Consignees 
+                         join ct in WebApiApplication.db.Cities on cg.City_ID equals ct.City_ID
+                         where cg.Consignee_ID == Consigneey_id
+                         select new
+                         {
+                             City = ct.City_Name
+                         }
+                         ).ToList();
+            // do here some operation  
+            return state[0].City;
+        }
+
+        public string GetConsigneeAddress(int Consigneey_id)
+        {
+            //var address = db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
+
+            var address = (from cg in WebApiApplication.db.Consignees
+                           join ct in WebApiApplication.db.Cities on cg.City_ID equals ct.City_ID
+                           join st in WebApiApplication.db.States on ct.State_ID equals st.State_ID
+                           where cg.Consignee_ID == Consigneey_id
+                           select new
+                           {
+                               _address = cg.address,
+                               _city = ct.City_Name,
+                               _state = st.State_Name,
+                               _range = cg.RAnge,
+                               _division = cg.Division,
+                               _comm_rate = cg.commission_rate
+                           }).ToList();
+
+
+            string fulladdress = address[0]._address + ", " +
+                address[0]._city + ", " +
+                address[0]._state + ", Range : " +
+              address[0]._range + ", Division: " +
+               address[0]._division + ", Comm.Rate : " +
+                address[0]._comm_rate;
+            // do here some operation  
+            return fulladdress;
         }
     }
 }

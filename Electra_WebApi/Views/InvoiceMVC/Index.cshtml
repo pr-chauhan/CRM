@@ -53,23 +53,26 @@
                             <td>
                                 @item.Invoice_Date
                             </td>
+                            <td>
+                                @item.Consignee_ID
+                            </td>
                             <!--<td id=@item.Consignee_ID>-->
-                                @*<script type="text/javascript">
-                                   
-                                    var id = @item.Consignee_ID;
-                                        $.get("/ConsigneeMVC/GetConsigneeName", { Consigneey_id : id }, function (data) {
-                                            $('<div>' + data + '</div>').appendTo("#"+@item.Consignee_ID);
-                                        });
-                                </script>*@
+                            @*<script type="text/javascript">
+
+            var id = @item.Consignee_ID;
+                $.get("/ConsigneeMVC/GetConsigneeName", { Consigneey_id : id }, function (data) {
+                    $('<div>' + data + '</div>').appendTo("#"+@item.Consignee_ID);
+                });
+        </script>*@
                             <!--</td>-->
                             <td>
                                 @item.PO_NO
                             </td>
-                            
+
                             <td>
-                                @Html.ActionLink("Modify", "Edit", new {  fyr=item.Financial_Yr , id=item.Invoice_ID} , new { @class="btn btn-primary",  @style = "width:75px;" }) 
-                                @Html.ActionLink("Details", "Details", new { fyr = item.Financial_Yr, id = item.Invoice_ID }, new { @class ="btn btn-info" , @style = "width:75px;" }) 
-                                @Html.ActionLink("Delete", "Delete", new { fyr = item.Financial_Yr, id = item.Invoice_ID }, new { @class ="btn btn-danger" , @style = "width:75px;" })
+                                @Html.ActionLink("Modify", "Edit", new { fyr = item.Financial_Yr, id = item.Invoice_ID }, new { @class = "btn btn-primary", @style = "width:75px;" })
+                                @Html.ActionLink("Details", "Details", new { fyr = item.Financial_Yr, id = item.Invoice_ID }, new { @class = "btn btn-info", @style = "width:75px;" })
+                                @Html.ActionLink("Delete", "Delete", new { fyr = item.Financial_Yr, id = item.Invoice_ID }, new { @class = "btn btn-danger", @style = "width:75px;" })
                             </td>
                         </tr>
                         }

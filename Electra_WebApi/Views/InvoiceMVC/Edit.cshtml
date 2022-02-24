@@ -307,9 +307,6 @@
                 </td>
 
                 <td>
-
-
-
                     <div class="form-group">
 
                         <div class="col-md-10">
@@ -441,7 +438,7 @@
 
                 $('<tr id="tablerow' + counter + '"><td>' +
                     @*'@Html.EditorFor(model => model.Invoice_Detail.Item_id, new { htmlAttributes = new { @class = "form-control", @name = "Item_id[' + counter + ']", @id = "Item_id", @type = "text", @value = "" } } )' +*@
-                    '<input type="text" class="text-box single-line" name="Item_id[' + counter + ']" value='+ itemid+' required="required" />' +
+                    '<input type="text" class="form-control" name="Item_id[' + counter + ']" value='+ itemid+' required="required" />' +
                     '</td>' +
                     '<td>' +
                     '@Html.EditorFor(model => model.Invoice_Detail.No_of_pkg, new { htmlAttributes = new { @class = "form-control" , @name = "No_of_pkg[' + counter + ']", @id = "No_of_pkg", @type = "text", @value = "" } })' +

@@ -54,8 +54,15 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.address)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.City_ID)
+                                <td id=@item.City_ID>
+                                    @item.City_ID
+                                    <script type="text/javascript">
+                                    var id = @item.City_ID;
+                                    $.get("/CityMVC/GetCityName", { city_id: id }, function (data) {
+                                        $('<div>' + data + '</div>').appendTo("#"+@item.City_ID);
+                                        
+                                    });
+                                    </script>
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Phone_No)
