@@ -1,17 +1,21 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using EntityClass;
 
-namespace Electra_WebApi.Controllers
+namespace Electra_WebApi.Controllers.API
 {
     public class InvoiceApiController : ApiController
     {
-        private readonly CraModel db = new CraModel();
+        private CraModel db = new CraModel();
 
         // GET: api/InvoiceApi
         public IQueryable<Invoice> GetInvoices()
@@ -28,6 +32,7 @@ namespace Electra_WebApi.Controllers
             {
                 return NotFound();
             }
+
             return Ok(invoice);
         }
 
@@ -39,11 +44,14 @@ namespace Electra_WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             if (id != invoice.Financial_Yr)
             {
                 return BadRequest();
             }
+
             db.Entry(invoice).State = EntityState.Modified;
+
             try
             {
                 await db.SaveChangesAsync();
@@ -59,6 +67,7 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
+
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -70,7 +79,9 @@ namespace Electra_WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             db.Invoices.Add(invoice);
+
             try
             {
                 await db.SaveChangesAsync();
@@ -86,6 +97,7 @@ namespace Electra_WebApi.Controllers
                     throw;
                 }
             }
+
             return CreatedAtRoute("DefaultApi", new { id = invoice.Financial_Yr }, invoice);
         }
 
@@ -98,8 +110,10 @@ namespace Electra_WebApi.Controllers
             {
                 return NotFound();
             }
+
             db.Invoices.Remove(invoice);
             await db.SaveChangesAsync();
+
             return Ok(invoice);
         }
 

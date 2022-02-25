@@ -41,6 +41,14 @@ namespace EntityClass
             modelBuilder.Entity<Item>()
                 .Property(e => e.Tarriff_no)
                 .HasPrecision(18, 4);
+
+            modelBuilder.Entity<Invoice>()
+               .Property(e => e.TCSPer)
+               .HasPrecision(18, 3);
+
+            modelBuilder.Entity<Invoice>()
+                .Property(e => e.TCSVal)
+                .HasPrecision(18, 3);
         }
     }
 }

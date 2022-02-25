@@ -2,6 +2,8 @@
 using System.Net.Http;
 using System.Web.Mvc;
 using System.Linq;
+using System.Collections.Generic;
+
 namespace Electra_WebApi.Controllers
 {
     public class ConsigneeMVCController : Controller
@@ -141,6 +143,14 @@ namespace Electra_WebApi.Controllers
                          ).ToList();
             // do here some operation  
             return state[0].City;
+        }
+        public JsonResult GetConsigneeDetails(int Consigneey_id)
+        {
+
+            var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
+                         
+            // do here some operation  
+            return Json(state, JsonRequestBehavior.AllowGet);
         }
 
         public string GetConsigneeAddress(int Consigneey_id)

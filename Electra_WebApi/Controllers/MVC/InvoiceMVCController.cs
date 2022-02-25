@@ -7,7 +7,6 @@ namespace Electra_WebApi.Controllers
     public class InvoiceMVCController : Controller
     {
         private readonly HttpClient client = new HttpClient();
-
         public ActionResult Index()
         {
             var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
@@ -20,8 +19,9 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client1, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
-            ViewBag.IDT = System.DateTime.Today.ToString("dd-MMM-yyyy");
-            ViewBag.ITime = System.DateTime.Today.TimeOfDay;
+            //ViewBag.INVID = WebApiApplication.objCommon.GetInvoiceMaxNo();
+            ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
+            ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
             return View();
         }
 
@@ -33,6 +33,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
+          
             var test = WebApiApplication.objCommon.ExecutePost(client, invoiceModel.invoice, WebApiApplication.staticVariables.InvoiceApiName);
             if (test.IsSuccessStatusCode)
             {
@@ -75,6 +76,19 @@ namespace Electra_WebApi.Controllers
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
             return View(invoices);
+        }
+
+        public string GetInvoiceNo(string financial_yr)
+        {
+            var InvoiceNo = WebApiApplication.objCommon.GetInvoiceMaxNo(financial_yr);
+            return InvoiceNo;
+        }
+
+        public bool DeletePerformaInvoice(string financial_yr, string id)
+        {
+           var res= WebApiApplication.objCommon.ExecuteDeleteByID(client, id ,WebApiApplication.staticVariables.ItemApiName);
+           
+            return true;
         }
     }
 }

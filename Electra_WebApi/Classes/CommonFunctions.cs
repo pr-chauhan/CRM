@@ -110,6 +110,11 @@ namespace Electra_WebApi
             var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consignee_id)).ToList();
             return state[0].address.ToString();
         }
+        public string GetInvoiceMaxNo( string financial_yr)
+        {
+            var state = WebApiApplication.db.Invoices.Where(x=> x != null).Where(x=> x.Financial_Yr.Equals(financial_yr)).Select(x=> x.Invoice_ID).DefaultIfEmpty().Max() + 1;
+            return state.ToString();
+        }
         public string GetStateNameByID(int state_ID)
         {
             var state = WebApiApplication.db.States.Where(x => x.State_ID.Equals(state_ID)).ToList();
