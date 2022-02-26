@@ -45,6 +45,7 @@ namespace EntityClass
         [StringLength(255)]
         [DisplayName("Consignee Address")]
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Consignee_DelAddress { get; set; }
 
         [StringLength(255)]

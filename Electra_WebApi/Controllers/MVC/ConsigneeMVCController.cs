@@ -155,8 +155,6 @@ namespace Electra_WebApi.Controllers
 
         public string GetConsigneeAddress(int Consigneey_id)
         {
-            //var address = db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
-
             var address = (from cg in WebApiApplication.db.Consignees
                            join ct in WebApiApplication.db.Cities on cg.City_ID equals ct.City_ID
                            join st in WebApiApplication.db.States on ct.State_ID equals st.State_ID

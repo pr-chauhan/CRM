@@ -172,17 +172,17 @@
         <fieldset>
             <legend>Item Details</legend>
             <div style="display:inline;">
-                <table>
+                <table cellpadding="5" cellspacing="5">
                     <tr>
                         <td>
                             <label>Item Name</label>
                             @Html.DropDownListFor(model => model.invoice_Detail.Item_id, new SelectList(ViewBag.IT, "Item_ID", "Item_Name"), new { @class = "form-control", @required = "required", @id = "Item_Name", @style = "width:200px;" })
                         </td>
-                        <td>
+                        <td width="120px">
                             <label> No of Package</label>
                             <input type="text" class="form-control" id="INo_of_pkg" value="" />
                         </td>
-                        <td>
+                        <td width="120px">
                             <label>Type</label>
                             <select class="form-control" id="IType">
                                 <option value="">Select</option>
@@ -197,35 +197,40 @@
                                 <option value="U">U</option>
                             </select>
                         </td>
-                        <td>
+                        <td width="120px">
                             <label> Quantity</label>
                             <input type="text" class="form-control" id="IQty" value="" />
                         </td>
-                        <td>
+                        <td width="120px">
                             <label>Rate</label>
                             <input type="text" class="form-control" id="IRate" value="" />
                         </td>
-                        <td>
+                        <td width="400px">
                             <label>Description</label>
-                            <input type="text" class="form-control" id="IDescription" value="" />
-                        </td>
+                            <input type="text" class="form-control" id="IDescription" value="" style="width:400px;" />
 
+                        </td>
+                        <td>
+                            <label>Command</label><br />
+                            <button id="add" type="button" class="btn btn-primary" style="float:right;">Add Line</button>
+                        </td>
 
                     </tr>
                 </table>
-                <button id="add" type="button" class="btn btn-primary" style="float:right;">Add Line</button>
+               
             </div>
             <table id="ItemDetailsTable" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Item ID</th>
-                        <th>No of Package</th>
-                        <td>Type</td>
-                        <th>Quantity</th>
-                        <th>Rate</th>
-                        <th>Amount</th>
-                        <td>Item Description</td>
-                        <th>Delete</th>
+                        <th width="5%">ID</th>
+                        <th width="27%">Item Name</th>
+                        <th width="5%">No of Package</th>
+                        <th width="5%">Type</th>
+                        <th width="5%">Quantity</th>
+                        <th width="7%">Rate</th>
+                        <th width="10%">Amount</th>
+                        <th width="30%">Item Description</th>
+                        <th width="5%">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -464,7 +469,7 @@
 
                     <div class="col-md-10">
                         @Html.LabelFor(model => model.invoice.TCSPer, htmlAttributes: new { @class = "control-label" })
-                        @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                        @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:50px;" } })
                         @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -568,7 +573,7 @@
 
                     }
                 });
-                $("#Consignee_DelRange").keyup(function () {
+                $("#Consignee_DelRange").change(function () {
                     if ($.isNumeric($("#Consignee_DelRange").val())) {
                         alert("Only Alphabet allowed..!!");
                         $("#Consignee_DelRange").val("");
@@ -576,28 +581,28 @@
                     }
                 });
 
-                $("#INo_of_pkg").keyup(function () {
+                $("#INo_of_pkg").change(function () {
                     if (!$.isNumeric($("#INo_of_pkg").val())) {
                         alert("Only Number allowed..!!");
                         $("#INo_of_pkg").val("");
                         return;
                     }
                 });
-                $("#IQty").keyup(function () {
+                $("#IQty").change(function () {
                     if (!$.isNumeric($("#IQty").val())) {
                         alert("Only Number allowed..!!");
                         $("#IQty").val("");
                         return;
                     }
                 });
-                $("#IRate").keyup(function () {
+                $("#IRate").change(function () {
                     if (!$.isNumeric($("#IRate").val())) {
                         alert("Only Number allowed..!!");
                         $("#IRate").val("");
                         return;
                     }
                 });
-                $("#Insurance_per").keyup(function () {
+                $("#Insurance_per").change(function () {
                     if (!$.isNumeric($("#Insurance_per").val())) {
                         alert("Only Number allowed..!!");
                         $("#Insurance_per").val("");
@@ -605,7 +610,7 @@
                     }
                 })
 
-                $("#invoice_PCess_Per").keyup(function () {
+                $("#invoice_PCess_Per").change(function () {
                     if (!$.isNumeric($("#invoice_PCess_Per").val())) {
                         alert("Only Number allowed..!!");
                         $("#invoice_PCess_Per").val("");
@@ -650,7 +655,11 @@
                 $("#invoice_TCSPer").change(function () {
                     var TotalAmount = $("#invoice_Total_amount").val();
                     var TcsPer = (!$.isNumeric($("#invoice_TCSPer").val())) ? 0 : parseFloat($("#invoice_TCSPer").val(), 2);
-                    if (TcsPer > 0) {
+                    if (TcsPer >= 100) {
+                        alert("Invalid Percentage");
+                        $("#invoice_TCSPer").val("");
+                    }
+                    if (TcsPer > 0 && TcsPer < 100) {
                         var TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                         $("#invoice_TCSVal").val(TcsVal);
                     }
@@ -659,10 +668,11 @@
                 $('#add').click(function () {
 
                     var itemid = $("#Item_Name").val();
-                    if (temp_itemid == itemid) {
-                        alert("Duplicate item not allowed");
-                        return false;
-                    }
+                    var item_name = $("#Item_Name").text();
+                    //if (temp_itemid == itemid) {
+                    //    alert("Duplicate item not allowed");
+                    //    return false;
+                    //}
                     if ($("#INo_of_pkg").val() == "") {
                         alert("No of Package Required");
                         return;
@@ -694,13 +704,16 @@
 
 
                     $('<tr id="tablerow' + counter + '"><td>' +
-                        '<input type="text" class="form-control" id="Item_id[' + counter + ']" value=' + itemid + ' required="required"  readonly=readonly  style = "background-color:#FFA500" />' +
+                        '<input type="text" class="form-control" id="Item_id[' + counter + ']" value=' + itemid + ' required="required"  readonly=readonly  style = "background-color:#FFA500;" />' +
                         '</td>' +
                         '<td>' +
-                        '<input type="text" class="form-control" id="TYPE[' + counter + ']" value=' + type + ' required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
+                        '<input type="text" class="form-control" id="ItemName[' + counter + ']" value=' + item_name + ' required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
                         '</td>' +
                         '<td>' +
                         '<input type="text" class="form-control" id="No_of_pkg[' + counter + ']" value=' + Noofpak + ' required="required"  readonly=readonly  style = "background-color:#FFA500" />' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="text" class="form-control" id="TYPE[' + counter + ']" value=' + type + ' required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
                         '</td>' +
                         '<td>' +
                         '<input type="text" class="form-control" id="Qty[' + counter + ']" value=' + Qty + ' required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
@@ -806,9 +819,15 @@
                     var InsPer = 0;
                     var TcsPer = 0;
                     var TcsVal = 0;
+                    $("#Total_Ass_Amt").val(Total_Assmt);
+                    $("#invoice_Sub_total").val(SubTot);
+                    $("#invoice_Total_Excise").val(TotalTax);
+                    $("#invoice_Total_amount").val(TotalAmount);
+                    $("#invoice_Insurance_val").val(InsVal);
+                    $("#GSTValue").val(cAmount);
                     $("#ItemDetailsTable TBODY TR").each(function () {
                         row = $(this);
-                        Total_Assmt += parseFloat(row.find("td:eq(5) input[type='text']").val());
+                        Total_Assmt += parseFloat(row.find("td:eq(6) input[type='text']").val());
                         $("#Total_Ass_Amt").val(Math.round(Total_Assmt));
                     });
                     Total = (!$.isNumeric($("#Total_Ass_Amt").val())) ? 0 : parseFloat($("#Total_Ass_Amt").val(), 2);
@@ -880,7 +899,7 @@
                     var r;
                     $("#ItemDetailsTable TBODY TR").each(function () {
                         r = $(this);
-                        Assmt += parseFloat(r.find("td:eq(5) input[type='text']").val());
+                        Assmt += parseFloat(r.find("td:eq(6) input[type='text']").val());
                         if (Assmt <= 0) {
                             alert("Please check item details in list.");
                             return false;
@@ -930,12 +949,12 @@
                     $("#ItemDetailsTable TBODY TR").each(function () {
                         row = $(this);
                         Item_id = row.find("td:eq(0) input[type='text']").val();
-                        type = row.find("td:eq(1) input[type='text']").val();
                         No_of_pkg = row.find("td:eq(2) input[type='text']").val();
-                        Qty = row.find("td:eq(3) input[type='text']").val();
-                        Rate = row.find("td:eq(4) input[type='text']").val();;
-                        Total_amt = row.find("td:eq(5) input[type='text']").val();
-                        description = row.find("td:eq(6) input[type='text']").val();
+                        type = row.find("td:eq(3) input[type='text']").val();
+                        Qty = row.find("td:eq(4) input[type='text']").val();
+                        Rate = row.find("td:eq(5) input[type='text']").val();;
+                        Total_amt = row.find("td:eq(6) input[type='text']").val();
+                        description = row.find("td:eq(7) input[type='text']").val();
                         fy_year = $("#Financial_Yr").val();
                         invoiceid = $("#Invoice_ID").val();
 
@@ -958,7 +977,7 @@
         });
         function removeTr(index) {
             if (confirm('Are you sure to delete this row ?')) {
-                if (counter > 1) {
+                if (counter => 1) {
                     $('#tablerow' + index).remove();
                     counter--;
                 }
@@ -978,9 +997,15 @@
                 var InsPer = 0;
                 var TcsPer = 0;
                 var TcsVal = 0;
+                $("#Total_Ass_Amt").val(Total_Assmt);
+                $("#invoice_Sub_total").val(SubTot);
+                $("#invoice_Total_Excise").val(TotalTax);
+                $("#invoice_Total_amount").val(TotalAmount);
+                $("#invoice_Insurance_val").val(InsVal);
+                $("#GSTValue").val(cAmount);
                 $("#ItemDetailsTable TBODY TR").each(function () {
                     row = $(this);
-                    Total_Assmt += parseFloat(row.find("td:eq(5) input[type='text']").val());
+                    Total_Assmt += parseFloat(row.find("td:eq(6) input[type='text']").val());
                     $("#Total_Ass_Amt").val(Math.round(Total_Assmt));
                 });
                 Total = (!$.isNumeric($("#Total_Ass_Amt").val())) ? 0 : parseFloat($("#Total_Ass_Amt").val(), 2);
