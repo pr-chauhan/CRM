@@ -40,7 +40,7 @@ namespace EntityClass
         [DisplayName("Removal Time")]
         public string Removal_Time { get; set; }
         [DisplayName("Same")]
-        public bool Con_Adr_Check { get; set; }
+        public string Con_Adr_Check { get; set; }
 
         [StringLength(255)]
         [DisplayName("Consignee Address")]
@@ -138,7 +138,7 @@ namespace EntityClass
         public string DEST_THROUGH2 { get; set; }
 
         [DisplayName("Transhipment")]
-        public bool DEST_FLAG { get; set; }
+        public string DEST_FLAG { get; set; }
 
         [StringLength(255)]
         public string EXTRA_INFO { get; set; }
