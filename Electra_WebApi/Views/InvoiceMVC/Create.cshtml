@@ -535,9 +535,17 @@
                 $("#invoice_Con_Adr_Check").change(function () {
                     if ($(this).is(':checked')) {
                         $("#ConsigneeDelAddress").val($("#ConsigneeAddress").val());
+                        $("#ConsigneeDelAddress").attr('readonly', true);
+                        $("#Consignee_DelRange").attr('readonly', true);
+                        $("#Consignee_DelDivision").attr('readonly', true);
+                        $("#Consignee_DelCommRate").attr('readonly', true);
                     }
                     else {
                         $("#ConsigneeDelAddress").val("");
+                        $("#ConsigneeDelAddress").attr('readonly', false);
+                        $("#Consignee_DelRange").attr('readonly', false);
+                        $("#Consignee_DelDivision").attr('readonly', false);
+                        $("#Consignee_DelCommRate").attr('readonly', false);
                     }
                 });
 
@@ -553,6 +561,13 @@
                             });
                         }
 
+                    }
+                });
+                $("#Consignee_DelRange").keyup(function () {
+                    if ($.isNumeric($("#Consignee_DelRange").val())) {
+                        alert("Only Alphabet allowed..!!");
+                        $("#Consignee_DelRange").val("");
+                        return;
                     }
                 });
 
@@ -728,6 +743,9 @@
                     TotalAssValTaxCalculation();
                 });
                 $("#GSTType").change(function () {
+                    TotalAssValTaxCalculation();
+                });
+                $("#invoice_TCSPer").change(function () {
                     TotalAssValTaxCalculation();
                 });
 
