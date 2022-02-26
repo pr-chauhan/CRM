@@ -2,6 +2,8 @@
 using System.Net.Http;
 using System.Web.Mvc;
 using Electra_WebApi.Models;
+using System.Collections.Generic;
+
 namespace Electra_WebApi.Controllers
 {
     public class InvoiceMVCController : Controller
@@ -33,7 +35,8 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
-          
+            ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
+            ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
             var test = WebApiApplication.objCommon.ExecutePost(client, invoiceModel.invoice, WebApiApplication.staticVariables.InvoiceApiName);
             if (test.IsSuccessStatusCode)
             {
@@ -84,23 +87,27 @@ namespace Electra_WebApi.Controllers
             return InvoiceNo;
         }
 
-        public bool DeletePerformaInvoice(string financial_yr, string id)
+        public int DeletePerformaInvoice(string financial_yr, int id)
         {
-            bool lRetVal = true;
-            HttpClient client1 = new HttpClient();
-            HttpClient client2 = new HttpClient();
-            var res= WebApiApplication.objCommon.ExecuteDeleteByID(client1, id ,WebApiApplication.staticVariables.InvoiceApiName);
-            if(res.IsSuccessStatusCode)
-            { 
-                var res1 = WebApiApplication.objCommon.ExecuteDeleteByID(client2, id, WebApiApplication.staticVariables.Invoice_DetailApiName);
-                if(!res1.IsSuccessStatusCode)
-                {
-                    lRetVal = false;
-                }
-            }
-            else
+            int lRetVal = 0;
+            var inv = new Invoice();
+            var invDet = new Invoice_Detail();
+            inv = WebApiApplication.db.Invoices.Find( financial_yr , id );
+            if (inv != null)
             {
-                lRetVal = false;
+                WebApiApplication.db.Invoices.Remove(inv);
+                WebApiApplication.db.SaveChangesAsync();
+               if(lRetVal > 0)
+                {
+                    var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail Where Invoice_Id=" + id + " and  Financial_Yr ='" + financial_yr + "'");
+                    foreach(var dt in data)
+                    {
+                       invDet =  WebApiApplication.db.Invoice_Detail.Find(dt.ID);
+                        WebApiApplication.db.Invoice_Detail.Remove(invDet);
+                        WebApiApplication.db.SaveChangesAsync();
+
+                    }
+                }
             }
             return lRetVal;
         }
