@@ -97,8 +97,9 @@ namespace Electra_WebApi
 
         public string GetCityNameByID(int city_id)
         {
-            var state = WebApiApplication.db.Cities.Where(x => x.City_ID.Equals(city_id)).ToList();
-            return state[0].City_Name.ToString();
+            //var state = WebApiApplication.db.Cities.Where(x => x.City_ID.Equals(city_id)).ToList();
+            //return state[0].City_Name.ToString();
+            return string.Empty;
         }
         public string GetConsigneeNameByID(int Consignee_id)
         {

@@ -78,11 +78,11 @@ namespace EntityClass
         [DisplayName("Total Assesment")]
         public double? Total_Ass_Amt { get; set; }
 
-        [DisplayName("GST Percent")]
+        [DisplayName("GST")]
         public int? BED_Per { get; set; }
         [DisplayName("GST Value")]
         public double? BED_Val { get; set; }
-        [DisplayName("SGST Percent")]
+        [DisplayName("SGST")]
         public decimal? PCess_Per { get; set; }
         [DisplayName("SGST Value")]
         public double? PCess_Val { get; set; }
@@ -117,7 +117,7 @@ namespace EntityClass
         public double? Frieght { get; set; }
 
         public double? Others { get; set; }
-        [DisplayName("Insurance Percent")]
+        [DisplayName("Insurance")]
         public decimal? Insurance_per { get; set; }
         [DisplayName("Insurance Value")]
         public double? Insurance_val { get; set; }
@@ -155,7 +155,7 @@ namespace EntityClass
         public string M_userid { get; set; }
         [DisplayName("Delivery")]
         public int? DEL_PARTY { get; set; }
-        [DisplayName("TCS Percent")]
+        [DisplayName("TCS")]
         public decimal? TCSPer { get; set; }
         [DisplayName("TCS Value")]
         public decimal? TCSVal { get; set; }

@@ -27,7 +27,7 @@ namespace Electra_WebApi
                 using (var _context = new CraModel())
                 {
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                    var InvMain = GetData("exec SP_PrintInvoice 822, '2017-2018'");
+                    var InvMain = GetData("exec SP_PrintInvoice 1, '2020-2021'");
                     //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/ReportInvoice.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
