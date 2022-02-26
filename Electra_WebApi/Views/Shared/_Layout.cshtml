@@ -20,7 +20,7 @@
     	});
     </script>
 </head>
-<body>
+<body style="zoom:80%">
     <!--<div class="navbar navbar-dark bg-primary embed-responsive-item">
         <div class="container">
             <div class="navbar-header">
@@ -29,8 +29,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>-->
-                @*@Html.ActionLink("Electra", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-            <!--</div>
+    @*@Html.ActionLink("Electra", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+    <!--</div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("State", "Index", "StateMVC", new { area = "" }, null)</li>
@@ -41,7 +41,8 @@
                     <li>@Html.ActionLink("Change Password", "Index", "ChangePwd", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Database Backup", "Index", "DataBaseBackup", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Invoice Generation", "Index", "InvoiceMVC", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Report", "Index", "Report", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Reports", "Index", "Report", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "UserDetailMVC", new { area = "" }, null)</li>
                 </ul>
             </div>
 
@@ -49,7 +50,7 @@
     </div>-->
 
 
-    <div  id="main-nav">
+    <div id="main-nav">
         <ul id="main-menu" class="sm sm-blue">
             <li>@Html.ActionLink("State", "Index", "StateMVC", new { area = "" }, null)</li>
             <li>@Html.ActionLink("City", "Index", "CityMVC", new { area = "" }, null)</li>
