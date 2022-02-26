@@ -1579,7 +1579,6 @@
                             </Border>
                           </Style>
                         </Subreport>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2767,6 +2766,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3481,7 +3481,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>DateWise Invoice List</Value>
+                    <Value>Partywise/DateWise Invoice List</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>

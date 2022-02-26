@@ -208,6 +208,20 @@
     </Compile>
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ItemwiseSummary.aspx.cs">
+      <DependentUpon>ItemwiseSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ItemwiseSummary.aspx.designer.cs">
+      <DependentUpon>ItemwiseSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MonthlySummary.aspx.cs">
+      <DependentUpon>MonthlySummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\MonthlySummary.aspx.designer.cs">
+      <DependentUpon>MonthlySummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\DataWiseInvoiceList.aspx.cs">
       <DependentUpon>DataWiseInvoiceList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -234,6 +248,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Reports\ItemwiseSummary.aspx" />
+    <Content Include="Reports\MonthlySummary.aspx" />
     <Content Include="Reports\DataWiseInvoiceList.aspx" />
     <Content Include="Reports\PrintInvoice.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -374,6 +390,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ItemWiseSummary.rdlc" />
+    <EmbeddedResource Include="Reports\MonthlySummary.rdlc" />
     <EmbeddedResource Include="Reports\InvoiceDatewiseDetail.rdlc" />
     <EmbeddedResource Include="Reports\DataWiseInvoiceList.rdlc" />
     <EmbeddedResource Include="Reports\ReportInvoice.rdlc" />

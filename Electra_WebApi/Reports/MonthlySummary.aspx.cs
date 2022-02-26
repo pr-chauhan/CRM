@@ -9,7 +9,7 @@ using System.Web.UI;
 
 namespace Electra_WebApi.Reports
 {
-    public partial class DataWiseInvoiceList : System.Web.UI.Page
+    public partial class MonthlySummary : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,29 +26,17 @@ namespace Electra_WebApi.Reports
                 using (var _context = new CraModel())
                 {
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                    var InvMain = GetData("exec SP_DatewiseInvoice 3,'2016-11-26','2018-11-28'");
+                    var InvMain = GetData("exec SP_Summary '2018-12-01','2018-12-31'");
                     //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/DataWiseInvoiceList.rdlc");
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/MonthlySummary.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
-                    ReportDataSource rdc = new ReportDataSource("InvoiceDataSet", InvMain.Tables[0]);
+                    ReportDataSource rdc = new ReportDataSource("SummaryDataSet", InvMain.Tables[0]);
                     ReportViewer1.LocalReport.DataSources.Add(rdc);
-                    ReportViewer1.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
+                    //ReportViewer1.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
                     //ReportViewer1.LocalReport.Refresh();
                     //ReportViewer1.DataBind();
                     Open();
                 }
-            }
-        }
-        private void LocalReport_SubreportProcessing(object sender, SubreportProcessingEventArgs e)
-        {
-            var Financial_yr = e.Parameters[0].Values[0];
-            var Invoice_ID = Convert.ToInt32(e.Parameters[1].Values[0]);
-            var InvMain = GetData("exec SP_DatewiseInvoiceSubReport "+ Invoice_ID + ",'" + Financial_yr + "'");
-            if (e.ReportPath == "InvoiceDatewiseDetail")
-            {
-                //var eDetails = new ReportDataSource() { Name = "InvoiceDataSet", Value = InvMain };
-                ReportDataSource rdc = new ReportDataSource("InvoiceDataSet", InvMain.Tables[0]);
-                e.DataSources.Add(rdc);
             }
         }
         private DataSet GetData(string query)

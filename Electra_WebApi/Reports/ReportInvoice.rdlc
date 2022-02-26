@@ -1445,7 +1445,7 @@
                       </TextRun>
                     </TextRuns>
                     <Style>
-                      <TextAlign>Center</TextAlign>
+                      <TextAlign>Right</TextAlign>
                     </Style>
                   </Paragraph>
                 </Paragraphs>
@@ -1453,7 +1453,7 @@
                 <Top>0.00972in</Top>
                 <Left>0.02361in</Left>
                 <Height>0.19in</Height>
-                <Width>7.38333in</Width>
+                <Width>4.13193in</Width>
                 <ZIndex>45</ZIndex>
                 <Style>
                   <Border>
@@ -2348,6 +2348,17 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                   </TextRuns>
                                   <Style />
                                 </Paragraph>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=iif(Fields!DEC.Value="","","(" &amp; Fields!DEC.Value &amp; ")")</Value>
+                                      <Style>
+                                        <FontSize>7pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Item_Name</rd:DefaultName>
                               <Style>
@@ -2377,7 +2388,9 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Tarriff_no</rd:DefaultName>
@@ -2408,7 +2421,30 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Switch(Fields!TYPE.Value = "R", "Reels",
+Fields!TYPE.Value ="B","Boxes",
+Fields!TYPE.Value ="P","Pkts",
+Fields!TYPE.Value ="L","Loose",
+Fields!TYPE.Value ="U","Bundles",
+Fields!TYPE.Value ="S","Sludge",
+Fields!TYPE.Value ="N","Nos.",
+Fields!TYPE.Value ="M","Nag",
+Fields!TYPE.Value ="A","Bag")</Value>
+                                      <Style>
+                                        <FontSize>7pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>No_of_pkg</rd:DefaultName>
@@ -2786,6 +2822,69 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                   </Border>
                 </Style>
               </Tablix>
+              <Textbox Name="headng">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Parameters!headng.Value</Value>
+                        <Style>
+                          <FontSize>8pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>headng</rd:DefaultName>
+                <Top>0.00972in</Top>
+                <Left>4.83471in</Left>
+                <Height>0.19722in</Height>
+                <Width>2.55557in</Width>
+                <ZIndex>68</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox33">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Hrs.</Value>
+                        <Style>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox33</rd:DefaultName>
+                <Top>1.83333in</Top>
+                <Left>5.3639in</Left>
+                <Height>0.13472in</Height>
+                <Width>0.59304in</Width>
+                <ZIndex>69</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                </Style>
+              </Textbox>
             </ReportItems>
             <Top>0.105in</Top>
             <Left>0.10639in</Left>
@@ -3278,6 +3377,20 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
+                        <TextRun>
+                          <Value>=Fields!Insurance_per.Value</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value> %</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
                       </TextRuns>
                       <Style>
                         <TextAlign>Left</TextAlign>
@@ -3342,7 +3455,28 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=IIf(Fields!Vat_CST_Val.Value = "CGST/SGST","CGST",Fields!Vat_CST_Val.Value)</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>@ </Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>=Fields!BED_Per.Value</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value> %</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
@@ -3378,6 +3512,20 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                       <TextRuns>
                         <TextRun>
                           <Value>SGST @</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>=Fields!PCess_Per.Value</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value> %</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
@@ -3509,8 +3657,8 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.05554in</Top>
                   <Left>0.06666in</Left>
-                  <Height>0.18056in</Height>
-                  <Width>1.63333in</Width>
+                  <Height>0.38384in</Height>
+                  <Width>0.76945in</Width>
                   <ZIndex>10</ZIndex>
                   <Style>
                     <Border>
@@ -3540,8 +3688,8 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.51818in</Top>
                   <Left>0.05972in</Left>
-                  <Height>0.18056in</Height>
-                  <Width>1.38333in</Width>
+                  <Height>0.38007in</Height>
+                  <Width>0.77639in</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
                     <Border>
@@ -4310,6 +4458,70 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                     </Border>
                   </Style>
                 </Textbox>
+                <Textbox Name="totamt">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Parameters!totamt.Value</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>totamt</rd:DefaultName>
+                  <Top>1.52728in</Top>
+                  <Left>0.89167in</Left>
+                  <Height>0.39875in</Height>
+                  <Width>3.17359in</Width>
+                  <ZIndex>44</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="excamt">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Parameters!excamt.Value</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>excamt</rd:DefaultName>
+                  <Top>1.07777in</Top>
+                  <Left>0.89167in</Left>
+                  <Height>0.38007in</Height>
+                  <Width>3.17359in</Width>
+                  <ZIndex>45</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0.10501in</Left>
@@ -4339,10 +4551,58 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="headng">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="h1">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="totamt">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="excamt">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>headng</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>h1</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>totamt</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>excamt</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <EmbeddedImages>
