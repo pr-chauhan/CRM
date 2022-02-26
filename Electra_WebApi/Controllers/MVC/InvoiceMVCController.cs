@@ -86,9 +86,23 @@ namespace Electra_WebApi.Controllers
 
         public bool DeletePerformaInvoice(string financial_yr, string id)
         {
-           var res= WebApiApplication.objCommon.ExecuteDeleteByID(client, id ,WebApiApplication.staticVariables.ItemApiName);
-           
-            return true;
+            bool lRetVal = true;
+            HttpClient client1 = new HttpClient();
+            HttpClient client2 = new HttpClient();
+            var res= WebApiApplication.objCommon.ExecuteDeleteByID(client1, id ,WebApiApplication.staticVariables.InvoiceApiName);
+            if(res.IsSuccessStatusCode)
+            { 
+                var res1 = WebApiApplication.objCommon.ExecuteDeleteByID(client2, id, WebApiApplication.staticVariables.Invoice_DetailApiName);
+                if(!res1.IsSuccessStatusCode)
+                {
+                    lRetVal = false;
+                }
+            }
+            else
+            {
+                lRetVal = false;
+            }
+            return lRetVal;
         }
     }
 }
