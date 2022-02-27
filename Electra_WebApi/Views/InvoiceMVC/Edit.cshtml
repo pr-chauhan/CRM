@@ -1,265 +1,210 @@
-﻿@*@model Tuple<EntityClass.Invoice, EntityClass.Invoice_Detail>*@
-@model  EntityClass.Invoice
+﻿@model  Electra_WebApi.Models.InvoiceModel
 
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Invoice</h2>
+<h4>Edit Invoice</h4>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div style="border: 1px solid #1945d7; border-radius: 5px 5px 5px 5px; padding:5px;">
+    <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding:2px; overflow-wrap:break-word;overflow-x:auto;zoom:80%">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <table>
-            <tr>
-                <td>
-                    <div class="form-group">
-                        @{
-                            var Fin_year = new SelectList(
-                                new List<SelectListItem>
-                                {
+
+        <div>
+            <div class="col-md-12">
+                <div class="col-md-1">
+                    @{
+                        var Fin_year = new SelectList(
+                            new List<SelectListItem>
+                                                    {
                                     new SelectListItem {Text = "2020-2021", Value = "2020-2021"},
                                     new SelectListItem {Text = "2021-2022", Value = "2021-2022"},
-                                     new SelectListItem {Text = "2022-2023", Value = "2022-2023"},
-}, "Value", "Text");
-                        }
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
-                            @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text"), new { @class = "form-control", @style = "width:150px;", @id = "Financial_Yr" })
-                            @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group">
+                                    new SelectListItem {Text = "2022-2023", Value = "2022-2023"}, }, "Value", "Text");
+                    }
 
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Invoice_ID, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Invoice_ID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.INVID, @type = "text", @id = "Invoice_ID", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Invoice_ID, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Invoice_Date, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Invoice_Date, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.IDT, @type = "date", @style = "width:160px;" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Invoice_Date, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.PO_NO, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.PO_NO, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.PO_NO, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Removal_Date, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Removal_Date, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.IDT, @type = "date", @style = "width:160px;" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Removal_Date, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Removal_Time, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Removal_Time, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.ITime, @type = "time", @style = "width:120px;" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Removal_Time, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Consignee_ID, htmlAttributes: new { @class = "control-label " })
-                            @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @id = "Consignee_ID" })
-                            @Html.ValidationMessageFor(model => model.invoice.Consignee_ID, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Consignee_DelAddress, new { htmlAttributes = new { @class = "form-control", @id = "ConsigneeAddress", @style = "height : 150px;word-break: break-word;background-color:#FFA500", @readonly = "readonly" } });
-                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                </td>
-                <td colspan="2">
-                    <div class="form-group">
-                        <div class="col-md-10">
-
-                        </div>
-                        <div class="col-md-10">
-
-                            @Html.LabelFor(model => model.invoice.DEL_PARTY, htmlAttributes: new { @class = "control-label" })
-                            <input type="checkbox" id="Con_Adr_Check" value="checked" />
-                            @Html.LabelFor(model => model.invoice.Con_Adr_Check, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Con_Adr_Check, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Con_Adr_Check, "", new { @class = "text-danger" })
-
-                            @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @id = "DEL_PARTY" })
-                            @Html.ValidationMessageFor(model => model.invoice.DEL_PARTY, "", new { @class = "text-danger" })
-                            <div class="col-md-10">
-                                @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                                @Html.EditorFor(model => model.invoice.Consignee_DelAddress, new { htmlAttributes = new { @class = "form-control", @id = "ConsigneeDelAddress", @style = "height : 150px;word-break: break-word;" } })
-                                @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
-                            </div>
-
-                        </div>
-                    </div>
-
-                </td>
-                <td colspan="2">
-                    <label>Performa Invoice</label>
-                    <input type="checkbox" id="PerformaInvoice" value="checked" />
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-
-                            @Html.LabelFor(model => model.invoice.Consignee_DelRange, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Consignee_DelRange, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelRange" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelRange, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Consignee_DelDivision, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Consignee_DelDivision, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelDivision" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelDivision, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Consignee_DelCommRate, htmlAttributes: new { @class = "control-label " })
-                            @Html.EditorFor(model => model.invoice.Consignee_DelCommRate, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelCommRate" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Consignee_DelCommRate, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                </td>
-            </tr>
-        </table>
-        <hr />
-        <div style="overflow-y:scroll;height:300px;border:1px solid #1945d7;">
-            <fieldset>
-                <legend>Item Details</legend>
-                <div style="display:inline;">
-                    <table>
+                    @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text"), new { @class = "form-control", @style = "width:140px;", @id = "Financial_Yr" })
+                    @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.invoice.Invoice_ID, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Invoice_ID, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "Invoice_ID", @style = "background-color:#FFA500;width:140px", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Invoice_ID, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.invoice.Invoice_Date, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Invoice_Date, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.IDT, @type = "date", @style = "width:150px;" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Invoice_Date, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.invoice.PO_NO, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.PO_NO, new { htmlAttributes = new { @class = "form-control", @style = "width:300px;" } })
+                    @Html.ValidationMessageFor(model => model.invoice.PO_NO, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.invoice.Removal_Date, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Removal_Date, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.RDT, @type = "date", @style = "width:150px;" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Removal_Date, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1">
+                    @Html.LabelFor(model => model.invoice.Removal_Time, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Removal_Time, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.ITime, @type = "time", @style = "width:130px;" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Removal_Time, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-3">
+                    <table style="margin-top:20px;">
                         <tr>
                             <td>
-                                <label>Item Name</label>
-                                @Html.DropDownListFor(model => model.invoice_Detail.Item_id, new SelectList(ViewBag.IT, "Item_ID", "Item_Name"), new { @class = "form-control", @required = "required", @id = "Item_Name", @style = "width:200px;" })
+                                <input type="checkbox" id="PerformaInvoice" value="checked" style="zoom:1.5;" />
+                                @Html.Label("Performa Invoice", htmlAttributes: new { @class = "control-label" })
                             </td>
-                            <td>
-                                <label> No of Package</label>
-                                <input type="text" class="form-control" id="INo_of_pkg" value="" />
-                            </td>
-                            <td>
-                                <label>Type</label>
-                                <select class="form-control" id="IType">
-                                    <option value="">Select</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="L">L</option>
-                                    <option value="M">M</option>
-                                    <option value="N">N</option>
-                                    <option value="P">P</option>
-                                    <option value="R">R</option>
-                                    <option value="S">S</option>
-                                    <option value="U">U</option>
-                                </select>
-                            </td>
-                            <td>
-                                <label> Quantity</label>
-                                <input type="text" class="form-control" id="IQty" value="" />
-                            </td>
-                            <td>
-                                <label>Rate</label>
-                                <input type="text" class="form-control" id="IRate" value="" />
-                            </td>
-                            <td>
-                                <label>Description</label>
-                                <input type="text" class="form-control" id="IDescription" value="" />
-                            </td>
-
-
                         </tr>
                     </table>
-                    <button id="add" type="button" class="btn btn-primary" style="float:right;">Add Line</button>
+
+                </div>
+                <div class="col-md-2">
+
+                    @Html.LabelFor(model => model.invoice.Consignee_DelRange, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Consignee_DelRange, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelRange" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelRange, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.invoice.Consignee_ID, htmlAttributes: new { @class = "control-label " })
+                    @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @style = "width:450px;", @id = "Consignee_ID" })
+                    @Html.ValidationMessageFor(model => model.invoice.Consignee_ID, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-7">
+                    @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
+                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeAddress", @style = "background-color:#FFA500;width=900px;", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.invoice.Consignee_DelDivision, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Consignee_DelDivision, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelDivision" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelDivision, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.invoice.DEL_PARTY, htmlAttributes: new { @class = "control-label" })
+                    &nbsp;&nbsp;
+                    <input type="checkbox" id="Con_Adr_Check" value="checked" style="margin-top:5px;" />
+                    @Html.LabelFor(model => model.invoice.Con_Adr_Check, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.invoice.Con_Adr_Check, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Con_Adr_Check, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @style = "width:450px;", @id = "DEL_PARTY" })
+                    @Html.ValidationMessageFor(model => model.invoice.DEL_PARTY, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-7">
+                    @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
+                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeDelAddress", @style = "width:900px;" })
+                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.invoice.Consignee_DelCommRate, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.invoice.Consignee_DelCommRate, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelCommRate" } })
+                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelCommRate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow-y:scroll;height:400px;border:1px solid #999;">
+            <fieldset>
+                <div style="display:inline;">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label>Item Name</label>
+                            @Html.DropDownListFor(model => model.invoice_Detail.Item_id, new SelectList(ViewBag.IT, "Item_ID", "Item_Name"), new { @class = "form-control", @required = "required", @id = "Item_Name", @style = "width:590px;" })
+                        </div>
+                        <div class="col-md-1">
+                            <label> No of Package</label>
+                            <input type="text" class="form-control" id="INo_of_pkg" value="" style="width:140px;" />
+                        </div>
+                        <div class="col-md-1">
+                            <label>Type</label>
+                            <select class="form-control" id="IType" style="width:140px;">
+                                <option value="">Select</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="L">L</option>
+                                <option value="M">M</option>
+                                <option value="N">N</option>
+                                <option value="P">P</option>
+                                <option value="R">R</option>
+                                <option value="S">S</option>
+                                <option value="U">U</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <label> Quantity</label>
+                            <input type="text" class="form-control" id="IQty" value="" style="width:140px;" />
+                        </div>
+                        <div class="col-md-1">
+                            <label>Rate</label>
+                            <input type="text" class="form-control" id="IRate" value="" style="width:140px;" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>Description</label>
+                            <input type="text" class="form-control" id="IDescription" value="" style="width:480px;" />
+                        </div>
+                        <div class="col-md-1">
+                            <br />
+                            <button id="add" type="button" class="btn btn-primary" style="float:right;margin-top:5px;">Add Line</button>
+                        </div>
+                    </div>
+
                 </div>
                 <table id="ItemDetailsTable" class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Item ID</th>
-                            <th>No of Package</th>
-                            <td>Type</td>
-                            <th>Quantity</th>
-                            <th>Rate</th>
-                            <th>Amount</th>
-                            <td>Item Description</td>
-                            <th>Delete</th>
+                            <th width="1%" style="visibility:hidden;width:1px;">ID</th>
+                            <th width="27%">Item Name</th>
+                            <th width="5%">Package</th>
+                            <th width="5%">Type</th>
+                            <th width="5%">Quantity</th>
+                            <th width="7%">Rate</th>
+                            <th width="10%">Amount</th>
+                            <th width="30%">Item Description</th>
+                            <th width="5%">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @*<tr id="tablerow0">
-                                <td>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Invoice_Detail.Item_id, new { htmlAttributes = new { @class = "form-control", @name = "Item_id[0]", @required = "required" }, @type = "text",@value="" })
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Invoice_Detail.No_of_pkg, new { htmlAttributes = new { @class = "form-control", @name = "No_of_pkg[0]", @required = "required", @type = "text", @value = "" } })
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Invoice_Detail.Qty, new { htmlAttributes = new { @class = "form-control", @name = "Qty[0]", @required = "required", @type = "text", @value = "" } })
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Invoice_Detail.Rate, new { htmlAttributes = new { @class = "form-control", @name = "Rate[0]", @required = "required", @type = "text", @value = "" } })
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Invoice_Detail.Total_amt, new { htmlAttributes = new { @class = "form-control", @name = "Total_amt[0]", @required = "required", @type = "text", @value = "" } })
-                                    </div>
-                                </td>
 
-                                <td>
-                                    <button type="button" class="btn btn-primary" onclick="removeTr(0);">Delete</button>
-                                </td>
-                            </tr>*@
+                        @{
+
+
+                            int counter = 0;
+
+                            foreach (var item in ViewBag.DataList)
+                            {
+                                int itemid = @item.Item_id;
+                                var itemname = WebApiApplication.db.Items.Where(x => x.Item_ID.Equals(itemid)).ToList();
+                                var id= "tablerow"+@counter;
+                                <tr id=@id>
+                                    <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required" readonly=readonly style="background-color:#FFA500;visibility:hidden;width:1px;" /></td>
+                                    <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><input type="text" class="form-control" id="TYPE[ @counter ]" value=" @item.TYPE " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><input type="text" class="form-control" id="Total_amt[ @counter ]" value=" @item.Total_amt " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><input type="text" class="form-control" id="DEC[ @counter ]" value=" @item.DEC " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                    <td><button type="button" id="DeleteRow'@counter" class="btn btn-danger" onclick="removeTr(@counter);">Delete</button></td>
+                                </tr>
+                                counter += 1;
+                            }
+                        }
+
+
                     </tbody>
                 </table>
 
@@ -268,220 +213,165 @@
 
             </fieldset>
         </div>
-        <hr />
-        <table>
-            <tr>
 
-                <td colspan="1">
-                    <div class="form-group">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.invoice.DESTINATION1, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.invoice.DESTINATION1, new { @class = "form-control", @style = "width:580px;" })
+                @Html.ValidationMessageFor(model => model.invoice.DESTINATION1, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Total_Ass_Amt, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Total_Ass_Amt, new { htmlAttributes = new { @class = "form-control", @id = "Total_Ass_Amt", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.invoice.Total_Ass_Amt, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Sub_total, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Sub_total, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.invoice.Sub_total, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Total_Excise, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Total_Excise, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.invoice.Total_Excise, "", new { @class = "text-danger" })
+                <br />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.invoice.Transporter_Name, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Transporter_Name, new { htmlAttributes = new { @class = "form-control", @style = "width:580px;" } })
+                @Html.ValidationMessageFor(model => model.invoice.Transporter_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Frieght, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Frieght, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.invoice.Frieght, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Vat_CST_flag, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.invoice.Vat_CST_flag, new SelectList(ViewBag.GST, "Value", "Text"), new { @class = "form-control", @style = "width:150px;positopn:top;", @id = "GSTType" })
+                @Html.ValidationMessageFor(model => model.invoice.Vat_CST_flag, "", new { @class = "text-danger" })
+            </div>
 
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Transporter_Name, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Transporter_Name, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Transporter_Name, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
+            </div>
 
-                    <div class="form-group">
-
-                        <div class="col-md-3">
-                            @Html.LabelFor(model => model.invoice.Vehicle_No, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Vehicle_No, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="col-md-3">
-                            @Html.LabelFor(model => model.invoice.GRR_No, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.GRR_No, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.DESTINATION1, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.DESTINATION1, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.DESTINATION1, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="form-group">
-
-
-                        <div class="col-md-10">
-                            <input type="checkbox" id="DEST_FLAG" value="checked" />
-                            @Html.LabelFor(model => model.invoice.DEST_FLAG, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.DEST_FLAG, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.DEST_FLAG, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.DEST_THROUGH2, htmlAttributes: new { @class = "control-label", @id = "lDEST_THROUGH2" })
-                            @Html.EditorFor(model => model.invoice.DEST_THROUGH2, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.DEST_THROUGH2, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.DESTINATION2, htmlAttributes: new { @class = "control-label", @id = "lDESTINATION2" })
-                            @Html.EditorFor(model => model.invoice.DESTINATION2, new { htmlAttributes = new { @class = "form-control", @id = "DESTINATION2" } })
-                            @Html.ValidationMessageFor(model => model.invoice.DESTINATION2, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-                <td colspan="1">
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Total_Ass_Amt, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Total_Ass_Amt, new { htmlAttributes = new { @class = "form-control", @id = "Total_Ass_Amt", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Total_Ass_Amt, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Frieght, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Frieght, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Frieght, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Others, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Others, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Others, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Insurance_per, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Insurance_val, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Insurance_val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Insurance_val, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                </td>
-
-                <td>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Sub_total, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Sub_total, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Sub_total, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Vat_CST_flag, htmlAttributes: new { @class = "control-label" })
-                            @Html.DropDownListFor(model => model.invoice.Vat_CST_flag, new SelectList(ViewBag.GST, "Value", "Text"), new { @class = "form-control", @style = "width:150px;positopn:top;", @id = "GSTType" })
-                            @Html.ValidationMessageFor(model => model.invoice.Vat_CST_flag, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.BED_Per, htmlAttributes: new { @class = "control-label", @id = "lGSTPercent" })
-                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:60px;" } })
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.invoice.Vehicle_No, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.invoice.Vehicle_No, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.invoice.GRR_No, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.invoice.GRR_No, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Others, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Others, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.invoice.Others, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.BED_Per, htmlAttributes: new { @class = "control-label", @id = "lGSTPercent" })
+                <table>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Per, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.BED_Val, htmlAttributes: new { @class = "control-label", @id = "lGSTValue" })
+                        </td>
+                        <td>
+                            <label>&nbsp;%&nbsp;</label>
+                        </td>
+                        <td>
                             @Html.EditorFor(model => model.invoice.BED_Val, new { htmlAttributes = new { @class = "form-control", @id = "GSTValue", @style = "background-color:#FFA500", @readonly = "readonly" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Val, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.TCSPer, htmlAttributes: new { @class = "input-group-text" })
+                <table>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:50px;" } })
+                            @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label> &nbsp;%&nbsp;</label>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.invoice.TCSVal, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500;", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.invoice.TCSVal, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.PCess_Per, htmlAttributes: new { @class = "control-label", @id = "lPCess_Per" })
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <input type="checkbox" id="DEST_FLAG" value="checked" />
+                @Html.LabelFor(model => model.invoice.DEST_FLAG, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.DEST_FLAG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.invoice.DEST_FLAG, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.invoice.DESTINATION2, htmlAttributes: new { @class = "control-label", @id = "lDESTINATION2" })
+                @Html.EditorFor(model => model.invoice.DESTINATION2, new { htmlAttributes = new { @class = "form-control", @id = "DESTINATION2" } })
+                @Html.ValidationMessageFor(model => model.invoice.DESTINATION2, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.DEST_THROUGH2, htmlAttributes: new { @class = "control-label", @id = "lDEST_THROUGH2" })
+                @Html.EditorFor(model => model.invoice.DEST_THROUGH2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.invoice.DEST_THROUGH2, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Insurance_per, htmlAttributes: new { @class = "control-label" })
+                <table>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label>&nbsp;%&nbsp;</label>
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.invoice.Insurance_val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.invoice.Insurance_val, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.PCess_Per, htmlAttributes: new { @class = "control-label", @id = "lPCess_Per" })
+                <table>
+                    <tr>
+                        <td>
                             @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Per, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.PCess_Val, htmlAttributes: new { @class = "control-label", @id = "lPCess_Val" })
+                        </td>
+                        <td>
+                            <label> &nbsp;%&nbsp;</label>
+                        </td>
+                        <td>
                             @Html.EditorFor(model => model.invoice.PCess_Val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Val, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Total_Excise, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Total_Excise, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Total_Excise, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.TCSPer, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
-                            @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(model => model.invoice.TCSVal, htmlAttributes: new { @class = "control-label" })
-                            @Html.EditorFor(model => model.invoice.TCSVal, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.invoice.TCSVal, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </td>
-
-            </tr>
-
-        </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <input id="submit" type="submit" value="Save" class="btn btn-success" style="float:right;zoom:1.25;" />
+            </div>
+        </div>
 
         <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
         <script type="text/javascript">
@@ -492,9 +382,6 @@
                 $(function () {
 
                     var financial_yr = $("#Financial_Yr").val();
-                    $.get("/InvoiceMVC/GetInvoiceNo", { financial_yr: financial_yr }, function (data) {
-                        $("#Invoice_ID").val(data);
-                    });
                     $("#Financial_Yr").change(function () {
                         var financial_yr = $("#Financial_Yr").val();
                         $.get("/InvoiceMVC/GetInvoiceNo", { financial_yr: financial_yr }, function (data) {
@@ -568,7 +455,7 @@
 
                         }
                     });
-                    $("#Consignee_DelRange").keyup(function () {
+                    $("#Consignee_DelRange").change(function () {
                         if ($.isNumeric($("#Consignee_DelRange").val())) {
                             alert("Only Alphabet allowed..!!");
                             $("#Consignee_DelRange").val("");
@@ -576,28 +463,28 @@
                         }
                     });
 
-                    $("#INo_of_pkg").keyup(function () {
+                    $("#INo_of_pkg").change(function () {
                         if (!$.isNumeric($("#INo_of_pkg").val())) {
                             alert("Only Number allowed..!!");
                             $("#INo_of_pkg").val("");
                             return;
                         }
                     });
-                    $("#IQty").keyup(function () {
+                    $("#IQty").change(function () {
                         if (!$.isNumeric($("#IQty").val())) {
                             alert("Only Number allowed..!!");
                             $("#IQty").val("");
                             return;
                         }
                     });
-                    $("#IRate").keyup(function () {
+                    $("#IRate").change(function () {
                         if (!$.isNumeric($("#IRate").val())) {
                             alert("Only Number allowed..!!");
                             $("#IRate").val("");
                             return;
                         }
                     });
-                    $("#Insurance_per").keyup(function () {
+                    $("#Insurance_per").change(function () {
                         if (!$.isNumeric($("#Insurance_per").val())) {
                             alert("Only Number allowed..!!");
                             $("#Insurance_per").val("");
@@ -605,7 +492,7 @@
                         }
                     })
 
-                    $("#invoice_PCess_Per").keyup(function () {
+                    $("#invoice_PCess_Per").change(function () {
                         if (!$.isNumeric($("#invoice_PCess_Per").val())) {
                             alert("Only Number allowed..!!");
                             $("#invoice_PCess_Per").val("");
@@ -650,7 +537,11 @@
                     $("#invoice_TCSPer").change(function () {
                         var TotalAmount = $("#invoice_Total_amount").val();
                         var TcsPer = (!$.isNumeric($("#invoice_TCSPer").val())) ? 0 : parseFloat($("#invoice_TCSPer").val(), 2);
-                        if (TcsPer > 0) {
+                        if (TcsPer >= 100) {
+                            alert("Invalid Percentage");
+                            $("#invoice_TCSPer").val("");
+                        }
+                        if (TcsPer > 0 && TcsPer < 100) {
                             var TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                             $("#invoice_TCSVal").val(TcsVal);
                         }
@@ -659,10 +550,7 @@
                     $('#add').click(function () {
 
                         var itemid = $("#Item_Name").val();
-                        if (temp_itemid == itemid) {
-                            alert("Duplicate item not allowed");
-                            return false;
-                        }
+                        var item_name = $("#Item_Name option:selected").text();
                         if ($("#INo_of_pkg").val() == "") {
                             alert("No of Package Required");
                             return;
@@ -694,25 +582,28 @@
 
 
                         $('<tr id="tablerow' + counter + '"><td>' +
-                            '<input type="text" class="form-control" id="Item_id[' + counter + ']" value=' + itemid + ' required="required"  readonly=readonly  style = "background-color:#FFA500" />' +
+                            '<input type="text" class="form-control" id="Item_id[' + counter + ']" value="' + itemid + '" required="required"  readonly=readonly  style = "background-color:#FFA500;visibility:hidden;width=1px;" />' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="TYPE[' + counter + ']" value=' + type + ' required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="ItemName[' + counter + ']" value="' + item_name + '" required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="No_of_pkg[' + counter + ']" value=' + Noofpak + ' required="required"  readonly=readonly  style = "background-color:#FFA500" />' +
+                            '<input type="text" class="form-control" id="No_of_pkg[' + counter + ']" value="' + Noofpak + '" required="required"  readonly=readonly  style = "background-color:#FFA500" />' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Qty[' + counter + ']" value=' + Qty + ' required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="TYPE[' + counter + ']" value="' + type + '" required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Rate[' + counter + ']" value=' + Rate + ' required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="Qty[' + counter + ']" value="' + Qty + '" required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Total_amt[' + counter + ']" value=' + Amount + ' required="required" readonly=readonly  style = "background-color:#FFA500" />' +
+                            '<input type="text" class="form-control" id="Rate[' + counter + ']" value="' + Rate + '" required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Description[' + counter + ']" value=' + description + ' required="required" readonly=readonly  style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="Total_amt[' + counter + ']" value="' + Amount + '" required="required" readonly=readonly  style = "background-color:#FFA500" />' +
+                            '</td>' +
+                            '<td>' +
+                            '<input type="text" class="form-control" id="Description[' + counter + ']" value="' + description + '" required="required" readonly=readonly  style = "background-color:#FFA500"/>' +
                             '</td>' +
                             '<td>' +
                             '<button type="button" id="DeleteRow' + counter + '" class="btn btn-danger" onclick="removeTr(' + counter + ');">Delete</button>' +
@@ -806,9 +697,15 @@
                         var InsPer = 0;
                         var TcsPer = 0;
                         var TcsVal = 0;
+                        $("#Total_Ass_Amt").val(Total_Assmt);
+                        $("#invoice_Sub_total").val(SubTot);
+                        $("#invoice_Total_Excise").val(TotalTax);
+                        $("#invoice_Total_amount").val(TotalAmount);
+                        $("#invoice_Insurance_val").val(InsVal);
+                        $("#GSTValue").val(cAmount);
                         $("#ItemDetailsTable TBODY TR").each(function () {
                             row = $(this);
-                            Total_Assmt += parseFloat(row.find("td:eq(5) input[type='text']").val());
+                            Total_Assmt += parseFloat(row.find("td:eq(6) input[type='text']").val());
                             $("#Total_Ass_Amt").val(Math.round(Total_Assmt));
                         });
                         Total = (!$.isNumeric($("#Total_Ass_Amt").val())) ? 0 : parseFloat($("#Total_Ass_Amt").val(), 2);
@@ -880,7 +777,7 @@
                         var r;
                         $("#ItemDetailsTable TBODY TR").each(function () {
                             r = $(this);
-                            Assmt += parseFloat(r.find("td:eq(5) input[type='text']").val());
+                            Assmt += parseFloat(r.find("td:eq(6) input[type='text']").val());
                             if (Assmt <= 0) {
                                 alert("Please check item details in list.");
                                 return false;
@@ -930,17 +827,17 @@
                         $("#ItemDetailsTable TBODY TR").each(function () {
                             row = $(this);
                             Item_id = row.find("td:eq(0) input[type='text']").val();
-                            type = row.find("td:eq(1) input[type='text']").val();
                             No_of_pkg = row.find("td:eq(2) input[type='text']").val();
-                            Qty = row.find("td:eq(3) input[type='text']").val();
-                            Rate = row.find("td:eq(4) input[type='text']").val();;
-                            Total_amt = row.find("td:eq(5) input[type='text']").val();
-                            description = row.find("td:eq(6) input[type='text']").val();
+                            type = row.find("td:eq(3) input[type='text']").val();
+                            Qty = row.find("td:eq(4) input[type='text']").val();
+                            Rate = row.find("td:eq(5) input[type='text']").val();;
+                            Total_amt = row.find("td:eq(6) input[type='text']").val();
+                            description = row.find("td:eq(7) input[type='text']").val();
                             fy_year = $("#Financial_Yr").val();
                             invoiceid = $("#Invoice_ID").val();
 
 
-                            $.post("/InvoiceMVC/SaveInvoiceDetail", {
+                            $.post("/InvoiceMVC/UpdateInvoiceDetail", {
                                 Item_id: Item_id, No_of_pkg: No_of_pkg,
                                 type: type, Qty: Qty, Rate: Rate, Total_amt:
                                     Total_amt, description: description,
@@ -957,8 +854,12 @@
 
             });
             function removeTr(index) {
+                counter = 0;
+                $("#ItemDetailsTable TBODY TR").each(function () {
+                    counter += 1;
+                });
                 if (confirm('Are you sure to delete this row ?')) {
-                    if (counter > 1) {
+                    if (counter => 1) {
                         $('#tablerow' + index).remove();
                         counter--;
                     }
@@ -978,9 +879,15 @@
                     var InsPer = 0;
                     var TcsPer = 0;
                     var TcsVal = 0;
+                    $("#Total_Ass_Amt").val(Total_Assmt);
+                    $("#invoice_Sub_total").val(SubTot);
+                    $("#invoice_Total_Excise").val(TotalTax);
+                    $("#invoice_Total_amount").val(TotalAmount);
+                    $("#invoice_Insurance_val").val(InsVal);
+                    $("#GSTValue").val(cAmount);
                     $("#ItemDetailsTable TBODY TR").each(function () {
                         row = $(this);
-                        Total_Assmt += parseFloat(row.find("td:eq(5) input[type='text']").val());
+                        Total_Assmt += parseFloat(row.find("td:eq(6) input[type='text']").val());
                         $("#Total_Ass_Amt").val(Math.round(Total_Assmt));
                     });
                     Total = (!$.isNumeric($("#Total_Ass_Amt").val())) ? 0 : parseFloat($("#Total_Ass_Amt").val(), 2);
@@ -1020,16 +927,9 @@
 
             }
         </script>
-        <br /><br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input id="submit" type="submit" value="Create" class="btn btn-success" style="float:right" />
-            </div>
-        </div>
-        <br />
     </div>
 
-    <hr />
+    <br />
 }
 
 <div>

@@ -112,15 +112,15 @@ namespace Electra_WebApi.Controllers
         public string GetStateName(int city_id)
         {
             string res = city_id.ToString();
-            //var state = (from ct in WebApiApplication.db.Cities
-            //             join ss in WebApiApplication.db.States on ct.State_ID equals ss.State_ID
-            //             where ct.City_ID.Equals(city_id)
-            //             select new
-            //             {
-            //                 StateName = ss.State_Name
-            //             }).ToList();
-           //return state[0].StateName.ToString();
-            return string.Empty;
+            var state = (from ct in WebApiApplication.db.Cities
+                         join ss in WebApiApplication.db.States on ct.State_ID equals ss.State_ID
+                         where ct.City_ID.Equals(city_id)
+                         select new
+                         {
+                             StateName = ss.State_Name
+                         }).ToList();
+            return state[0].StateName.ToString();
+            //return string.Empty;
         }
         public string GetConsigneeName(int Consignee_id)
         {
