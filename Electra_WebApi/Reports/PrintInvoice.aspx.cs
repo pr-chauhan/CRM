@@ -4,6 +4,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 
@@ -29,9 +30,17 @@ namespace Electra_WebApi
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
                     var InvMain = GetData("exec SP_PrintInvoice 1, '2020-2021'");
                     //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
+                    var totExcise = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("TOTAL_EXCISE")).FirstOrDefault();
+                    var totamt = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("total_amount")).FirstOrDefault();
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/ReportInvoice.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rdc = new ReportDataSource("InvoiceDataSet", InvMain.Tables[0]);
+                    ReportParameter[] parameters = new ReportParameter[4];
+                    parameters[0] = new ReportParameter("headng",string.Empty);
+                    parameters[1] = new ReportParameter("h1", string.Empty);
+                    parameters[2] = new ReportParameter("totamt", WebApiApplication.objCommon.words_money(totamt));
+                    parameters[3] = new ReportParameter("excamt", WebApiApplication.objCommon.words_money(totExcise));
+                    ReportViewer1.LocalReport.SetParameters(parameters);
                     ReportViewer1.LocalReport.DataSources.Add(rdc);
                     //ReportViewer1.LocalReport.Refresh();
                     //ReportViewer1.DataBind();
