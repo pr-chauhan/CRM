@@ -54,7 +54,8 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Edit(int id)
         {
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
+            HttpClient client1 = new HttpClient();
+            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<City>(client1, WebApiApplication.staticVariables.CityApiName);
             var lst = WebApiApplication.objCommon.ExecuteDetailByID<Consignee>(client, id.ToString(), WebApiApplication.staticVariables.ConsigneeApiName);
             return View(lst);
         }

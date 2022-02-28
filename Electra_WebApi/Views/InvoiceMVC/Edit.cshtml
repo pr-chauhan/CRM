@@ -166,7 +166,7 @@
                 <table id="ItemDetailsTable" class="table table-bordered">
                     <thead>
                         <tr>
-                            <th width="1%" style="visibility:hidden;width:1px;">ID</th>
+                            <th width="1%" style="visibility:hidden;width:1px;">Item ID</th>
                             <th width="27%">Item Name</th>
                             <th width="5%">Package</th>
                             <th width="5%">Type</th>
@@ -189,17 +189,17 @@
                                 int itemid = @item.Item_id;
                                 var itemname = WebApiApplication.db.Items.Where(x => x.Item_ID.Equals(itemid)).ToList();
                                 var id= "tablerow"+@counter;
-                                <tr id=@id>
-                                    <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required" readonly=readonly style="background-color:#FFA500;visibility:hidden;width:1px;" /></td>
-                                    <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><input type="text" class="form-control" id="TYPE[ @counter ]" value=" @item.TYPE " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><input type="text" class="form-control" id="Total_amt[ @counter ]" value=" @item.Total_amt " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><input type="text" class="form-control" id="DEC[ @counter ]" value=" @item.DEC " required="required" readonly=readonly style="background-color:#FFA500" /></td>
-                                    <td><button type="button" id="DeleteRow'@counter" class="btn btn-danger" onclick="removeTr(@counter);">Delete</button></td>
-                                </tr>
+                                                <tr id=@id>
+                                                    <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required" readonly=readonly style="background-color:#FFA500;visibility:hidden;width:1px;" /></td>
+                                                    <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><input type="text" class="form-control" id="TYPE[ @counter ]" value=" @item.TYPE " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><input type="text" class="form-control" id="Total_amt[ @counter ]" value=" @item.Total_amt " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><input type="text" class="form-control" id="DEC[ @counter ]" value=" @item.DEC " required="required" readonly=readonly style="background-color:#FFA500" /></td>
+                                                    <td><button type="button" id="DeleteRow'@counter" class="btn btn-danger" onclick="removeTr(@counter);">Delete</button></td>
+                                                </tr>
                                 counter += 1;
                             }
                         }
@@ -744,7 +744,9 @@
                     }
 
                     $("#submit").click(function () {
-
+                        var id = $("#Invoice_ID").val();
+                        var financial_yr = $("#Financial_Yr").val();
+                     
                         if ($("#invoice_PO_NO").val() == "") {
                             alert("Please check PO Number.");
                             return false;
@@ -817,33 +819,36 @@
                             alert("Please check GST Percentage.");
                             return false;
                         }
-
+                        var id = 0;
                         var Item_id = 0;
                         var No_of_pkg = 0;
                         var Qty = 0;
                         var Rate = 0;
                         var Total_amt = 0;
                         var row;
-                        $("#ItemDetailsTable TBODY TR").each(function () {
-                            row = $(this);
-                            Item_id = row.find("td:eq(0) input[type='text']").val();
-                            No_of_pkg = row.find("td:eq(2) input[type='text']").val();
-                            type = row.find("td:eq(3) input[type='text']").val();
-                            Qty = row.find("td:eq(4) input[type='text']").val();
-                            Rate = row.find("td:eq(5) input[type='text']").val();;
-                            Total_amt = row.find("td:eq(6) input[type='text']").val();
-                            description = row.find("td:eq(7) input[type='text']").val();
-                            fy_year = $("#Financial_Yr").val();
-                            invoiceid = $("#Invoice_ID").val();
+                        $.post("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
+                      
+                            $("#ItemDetailsTable TBODY TR").each(function () {
+                                row = $(this);
+                                Item_id = row.find("td:eq(0) input[type='text']").val();
+                                No_of_pkg = row.find("td:eq(2) input[type='text']").val();
+                                type = row.find("td:eq(3) input[type='text']").val();
+                                Qty = row.find("td:eq(4) input[type='text']").val();
+                                Rate = row.find("td:eq(5) input[type='text']").val();;
+                                Total_amt = row.find("td:eq(6) input[type='text']").val();
+                                description = row.find("td:eq(7) input[type='text']").val();
+                                fy_year = $("#Financial_Yr").val();
+                                invoiceid = $("#Invoice_ID").val();
 
 
-                            $.post("/InvoiceMVC/UpdateInvoiceDetail", {
-                                Item_id: Item_id, No_of_pkg: No_of_pkg,
-                                type: type, Qty: Qty, Rate: Rate, Total_amt:
-                                    Total_amt, description: description,
-                                fy_year: fy_year, invoiceid: invoiceid
-                            }, function (data) {
-                                //  alert("Done");
+                                $.post("/InvoiceMVC/UpdateInvoiceDetail", {id: id,
+                                    Item_id: Item_id, No_of_pkg: No_of_pkg,
+                                    type: type, Qty: Qty, Rate: Rate, Total_amt:
+                                        Total_amt, description: description,
+                                    fy_year: fy_year, invoiceid: invoiceid
+                                }, function (data) {
+                                    //  alert("Done");
+                                });
                             });
                         });
                     });

@@ -424,7 +424,7 @@
                         var financial_yr = $("#Financial_Yr").val();
                         alert("Are you sure. Want to create performa invoice ?..!  for Financial Year : " + financial_yr + " And Invoice No. : " + id);
                         if (confirm()) {
-                            $.get("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
+                            $.post("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
                                 alert("performa invoice deleted successfully..!!");
                             });
                         }

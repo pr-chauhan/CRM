@@ -97,7 +97,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
-            var test = WebApiApplication.objCommon.ExecutePut(client, invoiceModel.invoice, WebApiApplication.staticVariables.InvoiceApiName);
+            var test = WebApiApplication.objCommon.ExecutePost(client, invoiceModel.invoice, WebApiApplication.staticVariables.InvoiceApiName);
             if (test.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -113,8 +113,8 @@ namespace Electra_WebApi.Controllers
             }
            
         }
-
-        public JsonResult UpdateInvoiceDetail(string Item_id, string No_of_pkg, string type, string Qty, string Rate, string Total_amt, string description, string fy_year, string invoiceid)
+        [HttpPost]
+        public JsonResult UpdateInvoiceDetail(int id,string Item_id, string No_of_pkg, string type, string Qty, string Rate, string Total_amt, string description, string fy_year, string invoiceid)
         {
             Invoice_Detail invoice_Detail = new Invoice_Detail
             {
@@ -128,8 +128,9 @@ namespace Electra_WebApi.Controllers
                 Total_amt = float.Parse(Total_amt),
                 DEC = description
             };
+          
             HttpClient clientDetails = new HttpClient();
-            var test = WebApiApplication.objCommon.ExecutePut(clientDetails, invoice_Detail, WebApiApplication.staticVariables.Invoice_DetailApiName);
+            var test = WebApiApplication.objCommon.ExecutePost(clientDetails, invoice_Detail, WebApiApplication.staticVariables.Invoice_DetailApiName);
             if (test.IsSuccessStatusCode)
             {
 
@@ -166,7 +167,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
             invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id);
-            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
+            var data = WebApiApplication.db.Invoice_Detail.Where(x => x.Invoice_Id == id && x.Financial_Yr == fyr).ToList();
             ViewBag.DataList = data;
             ViewBag.IDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
             ViewBag.RDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
@@ -182,9 +183,9 @@ namespace Electra_WebApi.Controllers
             var inv = new Invoice();
             var invDet = new Invoice_Detail();
             inv = WebApiApplication.db.Invoices.Find(invoiceModel.invoice.Financial_Yr, invoiceModel.invoice.Invoice_ID);
-            if(inv.Invoice_Date <= System.DateTime.Parse(("2020-12-31")))
+            if( inv.Invoice_Date.Value <= System.DateTime.Parse(("2020-12-31")))
             {
-                var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail Where Invoice_Id=" + invoiceModel.invoice.Invoice_ID + " and  Financial_Yr ='" + invoiceModel.invoice.Financial_Yr + "'");
+                var data = WebApiApplication.db.Invoice_Detail.Where(x => x.Invoice_Id == invoiceModel.invoice.Invoice_ID && x.Financial_Yr == invoiceModel.invoice.Financial_Yr).ToList();
                 ViewBag.DataList = data;
                 HttpClient client1 = new HttpClient();
                 ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
@@ -198,13 +199,13 @@ namespace Electra_WebApi.Controllers
             {
                 WebApiApplication.db.Invoices.Remove(inv);
                 WebApiApplication.db.SaveChangesAsync();
+                lRetVal = 1;
                 if (lRetVal > 0)
                 {
-                    var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail Where Invoice_Id=" + invoiceModel.invoice.Invoice_ID + " and  Financial_Yr ='" + invoiceModel.invoice.Financial_Yr + "'");
-                    foreach (var dt in data)
+                    List<Invoice_Detail> data = WebApiApplication.db.Invoice_Detail.Where(x=> x.Invoice_Id == invoiceModel.invoice.Invoice_ID  && x.Financial_Yr == invoiceModel.invoice.Financial_Yr).ToList();
+                    if(data.Count>0)
                     {
-                        invDet = WebApiApplication.db.Invoice_Detail.Find(dt.ID);
-                        WebApiApplication.db.Invoice_Detail.Remove(invDet);
+                        WebApiApplication.db.Invoice_Detail.RemoveRange(data);
                         WebApiApplication.db.SaveChangesAsync();
 
                     }
@@ -218,7 +219,7 @@ namespace Electra_WebApi.Controllers
             var InvoiceNo = WebApiApplication.objCommon.GetInvoiceMaxNo(financial_yr);
             return InvoiceNo;
         }
-
+        [HttpPost]
         public int DeletePerformaInvoice(string financial_yr, int id)
         {
             int lRetVal = 0;
@@ -229,15 +230,15 @@ namespace Electra_WebApi.Controllers
             {
                 WebApiApplication.db.Invoices.Remove(inv);
                 WebApiApplication.db.SaveChangesAsync();
+                lRetVal = 1;
                if(lRetVal > 0)
                 {
-                    var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail Where Invoice_Id=" + id + " and  Financial_Yr ='" + financial_yr + "'");
-                    foreach(var dt in data)
+                    List<Invoice_Detail> data = WebApiApplication.db.Invoice_Detail.Where(x => x.Invoice_Id == id && x.Financial_Yr == financial_yr).ToList();
+                    if (data.Count > 0)
                     {
-                       invDet =  WebApiApplication.db.Invoice_Detail.Find(dt.ID);
-                        WebApiApplication.db.Invoice_Detail.Remove(invDet);
+                        WebApiApplication.db.Invoice_Detail.RemoveRange(data);
                         WebApiApplication.db.SaveChangesAsync();
-
+                        
                     }
                 }
             }

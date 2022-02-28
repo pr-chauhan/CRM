@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Electra_WebApi
@@ -54,7 +55,7 @@ namespace Electra_WebApi
             return putdata.Result;
         }
 
-        public HttpResponseMessage ExecutePut<T>(HttpClient client, T collection, string apiName)
+        public  HttpResponseMessage ExecutePut<T>(HttpClient client, T collection, string apiName)
         {
             //collection.DoE = DateTime.Now;
             //collection.DoM = DateTime.Now;
@@ -62,7 +63,7 @@ namespace Electra_WebApi
             //collection.M_UserID = "admin";
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var putdata = client.PutAsJsonAsync(apiName, collection);
+            var putdata =  client.PutAsJsonAsync(apiName, collection);
             putdata.Wait();
             return putdata.Result;
         }
