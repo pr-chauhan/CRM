@@ -25,9 +25,9 @@ namespace Electra_WebApi.Controllers.API
 
         // GET: api/InvoiceApi/5
         [ResponseType(typeof(Invoice))]
-        public async Task<IHttpActionResult> GetInvoice(string id)
+        public async Task<IHttpActionResult> GetInvoice(Int32 id, string Financial_Yr)
         {
-            Invoice invoice = await db.Invoices.FindAsync(id);
+            Invoice invoice = await db.Invoices.FirstOrDefaultAsync(e => e.Financial_Yr == Financial_Yr && e.Invoice_ID == id);
             if (invoice == null)
             {
                 return NotFound();
@@ -38,14 +38,14 @@ namespace Electra_WebApi.Controllers.API
 
         // PUT: api/InvoiceApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutInvoice(string id, Invoice invoice)
+        public async Task<IHttpActionResult> PutInvoice(Invoice invoice)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            if (id != invoice.Financial_Yr)
+            int id = invoice.Invoice_ID;
+            if (id != invoice.Invoice_ID )
             {
                 return BadRequest();
             }
@@ -58,7 +58,7 @@ namespace Electra_WebApi.Controllers.API
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InvoiceExists(id))
+                if (!InvoiceExists(invoice.Invoice_ID, invoice.Financial_Yr))
                 {
                     return NotFound();
                 }
@@ -88,7 +88,7 @@ namespace Electra_WebApi.Controllers.API
             }
             catch (DbUpdateException)
             {
-                if (InvoiceExists(invoice.Financial_Yr))
+                if (InvoiceExists(invoice.Invoice_ID, invoice.Financial_Yr))
                 {
                     return Conflict();
                 }
@@ -98,14 +98,14 @@ namespace Electra_WebApi.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = invoice.Financial_Yr }, invoice);
+            return CreatedAtRoute("DefaultApi", new { id = invoice.Invoice_ID, Financial_Yr = invoice.Financial_Yr }, invoice);
         }
 
         // DELETE: api/InvoiceApi/5
         [ResponseType(typeof(Invoice))]
-        public async Task<IHttpActionResult> DeleteInvoice(string id)
+        public async Task<IHttpActionResult> DeleteInvoice( Int32 id, string Financial_Yr)
         {
-            Invoice invoice = await db.Invoices.FindAsync(id);
+            Invoice invoice = await db.Invoices.FirstOrDefaultAsync(e=> e.Financial_Yr == Financial_Yr && e.Invoice_ID == id);
             if (invoice == null)
             {
                 return NotFound();
@@ -126,9 +126,9 @@ namespace Electra_WebApi.Controllers.API
             base.Dispose(disposing);
         }
 
-        private bool InvoiceExists(string id)
+        private bool InvoiceExists(Int32 id, string Financial_Yr)
         {
-            return db.Invoices.Count(e => e.Financial_Yr == id) > 0;
+            return db.Invoices.Count(e => e.Financial_Yr == Financial_Yr && e.Invoice_ID == id) > 0;
         }
     }
 }

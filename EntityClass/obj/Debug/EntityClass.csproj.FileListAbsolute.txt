@@ -32,3 +32,14 @@ D:\Projects\electra\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs.c
 D:\Projects\electra\EntityClass\obj\Debug\EntityClass.csproj.CopyComplete
 D:\Projects\electra\EntityClass\obj\Debug\EntityClass.dll
 D:\Projects\electra\EntityClass\obj\Debug\EntityClass.pdb
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityClass.dll.config
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityClass.dll
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityClass.pdb
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityFramework.dll
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityFramework.SqlServer.dll
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityFramework.xml
+D:\Elecra_New\electra\EntityClass\bin\Debug\EntityFramework.SqlServer.xml
+D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs.cache
+D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.csproj.CopyComplete
+D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.dll
+D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.pdb

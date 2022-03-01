@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -21,9 +23,9 @@ namespace Electra_WebApi.Controllers
 
         // GET: api/Invoice_DetailApi/5
         [ResponseType(typeof(Invoice_Detail))]
-        public async Task<IHttpActionResult> GetInvoice_Detail(int id)
+        public async Task<IHttpActionResult> GetInvoice_Detail(Int32 id, string Financial_Yr)
         {
-            Invoice_Detail invoice_Detail = await db.Invoice_Detail.FindAsync(id);
+            Invoice_Detail invoice_Detail = await db.Invoice_Detail.FirstOrDefaultAsync(e => e.Financial_Yr == Financial_Yr && e.Invoice_Id == id);
             if (invoice_Detail == null)
             {
                 return NotFound();
@@ -33,13 +35,14 @@ namespace Electra_WebApi.Controllers
 
         // PUT: api/Invoice_DetailApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutInvoice_Detail(int id, Invoice_Detail invoice_Detail)
+        public async Task<IHttpActionResult> PutInvoice_Detail(Invoice_Detail invoice_Detail)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (id != invoice_Detail.ID)
+            int id = (int)invoice_Detail.Invoice_Id;
+            if (id != (int)invoice_Detail.Invoice_Id)
             {
                 return BadRequest();
             }
@@ -50,7 +53,7 @@ namespace Electra_WebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Invoice_DetailExists(id))
+                if (!Invoice_DetailExists((int)invoice_Detail.Invoice_Id, invoice_Detail.Financial_Yr))
                 {
                     return NotFound();
                 }
@@ -72,19 +75,22 @@ namespace Electra_WebApi.Controllers
             }
             db.Invoice_Detail.Add(invoice_Detail);
             await db.SaveChangesAsync();
-            return CreatedAtRoute("DefaultApi", new { id = invoice_Detail.ID }, invoice_Detail);
+            return CreatedAtRoute("DefaultApi", new { id = invoice_Detail.Invoice_Id, Financial_Yr = invoice_Detail.Financial_Yr }, invoice_Detail);
         }
 
         // DELETE: api/Invoice_DetailApi/5
         [ResponseType(typeof(Invoice_Detail))]
-        public async Task<IHttpActionResult> DeleteInvoice_Detail(int id)
+        public async Task<IHttpActionResult> DeleteInvoice_Detail(Int32 id, string Financial_Yr)
         {
-            Invoice_Detail invoice_Detail = await db.Invoice_Detail.FindAsync(id);
+            List<Invoice_Detail> invoice_Detail = await db.Invoice_Detail.Where(e => e.Financial_Yr == Financial_Yr && e.Invoice_Id == id).ToListAsync();
             if (invoice_Detail == null)
             {
                 return NotFound();
             }
-            db.Invoice_Detail.Remove(invoice_Detail);
+            for (int i = 0; i < invoice_Detail.Count; i++)
+            {
+                db.Invoice_Detail.Remove(invoice_Detail[i]);
+            }
             await db.SaveChangesAsync();
             return Ok(invoice_Detail);
         }
@@ -98,9 +104,9 @@ namespace Electra_WebApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool Invoice_DetailExists(int id)
+        private bool Invoice_DetailExists(Int32 id, string Financial_Yr)
         {
-            return db.Invoice_Detail.Count(e => e.ID == id) > 0;
+            return db.Invoice_Detail.Count(e => e.Financial_Yr == Financial_Yr && e.Invoice_Id == id) > 0;
         }
     }
 }

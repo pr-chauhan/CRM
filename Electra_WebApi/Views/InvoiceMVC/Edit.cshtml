@@ -817,14 +817,13 @@
                             alert("Please check GST Percentage.");
                             return false;
                         }
-
                         var Item_id = 0;
                         var No_of_pkg = 0;
                         var Qty = 0;
                         var Rate = 0;
                         var Total_amt = 0;
                         var row;
-                        $("#ItemDetailsTable TBODY TR").each(function () {
+                        $("#ItemDetailsTable TBODY TR").each(function() {
                             row = $(this);
                             Item_id = row.find("td:eq(0) input[type='text']").val();
                             No_of_pkg = row.find("td:eq(2) input[type='text']").val();
@@ -835,8 +834,6 @@
                             description = row.find("td:eq(7) input[type='text']").val();
                             fy_year = $("#Financial_Yr").val();
                             invoiceid = $("#Invoice_ID").val();
-
-
                             $.post("/InvoiceMVC/UpdateInvoiceDetail", {
                                 Item_id: Item_id, No_of_pkg: No_of_pkg,
                                 type: type, Qty: Qty, Rate: Rate, Total_amt:
