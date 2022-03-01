@@ -9,6 +9,8 @@ namespace EntityClass
 
     public partial class Invoice_Detail
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [StringLength(10)]
