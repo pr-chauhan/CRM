@@ -13,11 +13,20 @@ namespace Electra_WebApi.Controllers
     {
         private readonly HttpClient client = new HttpClient();
         private int itemCount = 0;
+        private static string financial_yearr;
         public ActionResult Index()
         {
             var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
-            lst = lst.Where(x => x.Financial_Yr == "2020-2021").ToList();
+            lst = lst.Where(x => x.Financial_Yr == financial_yearr).ToList();
             return View(lst);
+        }
+        [HttpPost]
+        public ActionResult Index(string financial_yr)
+        {
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
+            lst = lst.Where(x => x.Financial_Yr == financial_yr).ToList();
+            financial_yearr = financial_yr;
+            return RedirectToAction("Index",lst);
         }
 
         public ActionResult Create()
@@ -84,8 +93,9 @@ namespace Electra_WebApi.Controllers
             HttpClient client2 = new HttpClient();
             ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
             ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
-            WebApiApplication.db.SaveChanges();
-            invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id);
+            WebApiApplication.db.SaveChangesAsync();
+            invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id); ;
+            WebApiApplication.db.Entry(invoices.invoice).State = System.Data.Entity.EntityState.Detached;
             var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
             ViewBag.DataList = data;
             ViewBag.IDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
@@ -112,6 +122,7 @@ namespace Electra_WebApi.Controllers
             {
                 return RedirectToAction("Index");
             }
+          
             return View(invoiceModel);
 
         }

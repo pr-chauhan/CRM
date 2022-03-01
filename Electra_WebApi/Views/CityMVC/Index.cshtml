@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<EntityClass.City>
-
+    @using System.Linq;
 @{
     ViewBag.Title = "City Master";
 }
@@ -37,16 +37,25 @@
                             <tr>
 
                                 <td id=@item.City_ID>
-
-                                    <script type="text/javascript">
+                                    @{ 
+                                        var stateName = string.Empty;
+                                        var state = (from ct in WebApiApplication.db.Cities
+                                                     join ss in WebApiApplication.db.States on ct.State_ID equals ss.State_ID
+                                                     where ct.City_ID.Equals(@item.City_ID)
+                                                     select new
+                                                     {
+                                                         StateName = ss.State_Name
+                                                     }).ToList();
+                                        stateName = state[0].StateName.ToString();
+                                    }
+                                    @stateName
+                                    @*<script type="text/javascript">
 
                                      var id =@item.City_ID;
                                         $.get("/ConsigneeMVC/GetStateName", { city_id: id }, function (data) {
                                             $('<div>' + data + '</div>').appendTo("#"+@item.City_ID);
                                         });
-
-
-                                    </script>
+                                    </script>*@
 
                                 </td>
 

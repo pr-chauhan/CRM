@@ -54,15 +54,21 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.address)
                                 </td>
-                                <td id=@item.City_ID>
-                                    @item.City_ID
-                                    <script type="text/javascript">
+                                <td>
+
+                                    @{ 
+                                        var cityName = string.Empty;
+                                        var data =   WebApiApplication.db.Cities.Where(x=> x.City_ID == @item.City_ID ).ToList();
+                                        cityName=  data[0].City_Name;
+                                    }
+                                    @cityName
+                                    @*<script type="text/javascript">
                                     var id = @item.City_ID;
                                     $.get("/CityMVC/GetCityName", { city_id: id }, function (data) {
                                         $('<div>' + data + '</div>').appendTo("#"+@item.City_ID);
                                         
                                     });
-                                    </script>
+                                    </script>*@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Phone_No)

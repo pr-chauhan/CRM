@@ -8,9 +8,35 @@
 <h2>Invoice Generation</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create","",  new { @class = "btn btn-primary" })
-    <button class="btn btn-success" id="export" style='float:right;'>Export To Excel</button>
+    <div style="width:150px;float:left;">
+        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary" })
+    </div>
+    <div style="width:100px;float:left;">
+        <label>Select Year</label>
+
+    </div>
+    <div style="width:150px;float:left;">
+        <select id="Financial_Yr" class="form-control" style="width:125px;">
+            <option value="">Select</option>
+            <option value="2020-2021">2020-2021</option>
+            <option value="2021-2022">2021-2022</option>
+            <option value="2022-2023">2022-2023</option>
+        </select>
+    </div>
+     <button class="btn btn-success" id="export" style='float:right;'>Export To Excel</button>
 </p>
+<script type="text/javascript" src="~/Scripts/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function () { 
+        var financial_yr;
+        $("#Financial_Yr").change(function () {
+            financial_yr = $("#Financial_Yr").val();
+            $.post("/InvoiceMVC/Index", { financial_yr: financial_yr }, function (data) {
+                window.location.reload();
+            });
+        });
+    });
+</script>
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-primary list-panel" id="list-panel">
@@ -53,9 +79,6 @@
                             <td>
                                 @item.Invoice_Date
                             </td>
-                            @*<td>
-                                @item.Consignee_ID
-                            </td>*@
                             <td id=@item.Consignee_ID>
                             <script type="text/javascript">
 
