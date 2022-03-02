@@ -355,6 +355,8 @@
     <Content Include="Views\Report\PartyWiseDateWise.cshtml" />
     <Content Include="Views\Report\DatewiseItemwiseSummary.cshtml" />
     <Content Include="Views\Report\ItemwiseSummary.cshtml" />
+    <Content Include="Views\InvoiceMVC\Delete.cshtml" />
+    <Content Include="Views\InvoiceMVC\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

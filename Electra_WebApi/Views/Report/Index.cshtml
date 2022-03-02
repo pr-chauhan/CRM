@@ -3,85 +3,88 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @*<script type="text/javascript" src="~/Scripts/jquery-3.6.0.min.js"></script>*@
-<h2>Invoice Report</h2>
-<div class="row">
-    <div class="col-md-12">
-        <div class="form-group">
+<h2 style="text-align:center;font-family:'Arial Rounded MT'">Invoice Report</h2>
+<br />
+<div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding:2px; overflow-wrap:break-word;width:60%;margin:auto;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
 
 
-            <div style="width:50px;float:left;">
-                <label>Select Year</label>
+                <div style="width:50px;float:left;">
+                    <label>Select Year</label>
 
-            </div>
-            <div style="width:150px;float:left;">
-                <select id="Financial_Yr" class="form-control" style="width:125px;">
-                    <option value="">Select</option>
-                    <option value="2020-2021">2020-2021</option>
-                    <option value="2021-2022">2021-2022</option>
-                    <option value="2022-2023">2022-2023</option>
-                </select>
-            </div>
-            <div style="width:100px;float:left;">
-                <label>Invoice Number</label>
+                </div>
+                <div style="width:150px;float:left;">
+                    <select id="Financial_Yr" class="form-control" style="width:125px;">
+                        <option value="">Select</option>
+                        <option value="2020-2021">2020-2021</option>
+                        <option value="2021-2022">2021-2022</option>
+                        <option value="2022-2023">2022-2023</option>
+                    </select>
+                </div>
+                <div style="width:100px;float:left;">
+                    <label>Invoice Number</label>
 
-            </div>
-            <div style="width:150px;float:left;">
-                <select id="Invoice_ID" class="form-control" style="width:125px;">
-                    <option value="">Select</option>
-                    @foreach (var item in ViewBag.CL)
-                    {
-                        <option value=@item.Invoice_ID>@item.Invoice_ID</option>
+                </div>
+                <div style="width:150px;float:left;">
+                    <select id="Invoice_ID" class="form-control" style="width:125px;">
+                        <option value="">Select</option>
+                        @foreach (var item in ViewBag.CL)
+                        {
+                            <option value=@item.Invoice_ID>@item.Invoice_ID</option>
 
-                    }
-                </select>
-            </div>
-            <div style="width:250px;float:left;">
+                        }
+                    </select>
+                </div>
+                <div style="width:250px;float:left;">
 
-                <input type="radio" id="origianl" value="Original for buyer" name="Invoice" />
-                <label for="origianl">Original for buyer</label>
-                <br />
+                    <input type="radio" id="origianl" value="Original for buyer" name="Invoice" />
+                    <label for="origianl">Original for buyer</label>
+                    <br />
 
-                <input type="radio" id="duplicate" value="Duplicate for Transporter" name="Invoice" />
-                <label for="duplicate">Duplicate for Transporter</label>
-                <br />
+                    <input type="radio" id="duplicate" value="Duplicate for Transporter" name="Invoice" />
+                    <label for="duplicate">Duplicate for Transporter</label>
+                    <br />
 
-                <input type="radio" id="triplicate" value="Triplicate for Assesee" name="Invoice" />
-                <label for="triplicate">Triplicate for Assesee</label>
-                <br />
+                    <input type="radio" id="triplicate" value="Triplicate for Assesee" name="Invoice" />
+                    <label for="triplicate">Triplicate for Assesee</label>
+                    <br />
 
-                <input type="radio" id="quaduplicate" value="Quaduplicate for office copy" name="Invoice" />
-                <label for="quaduplicate">Quaduplicate for office copy</label>
-                <br />
+                    <input type="radio" id="quaduplicate" value="Quaduplicate for office copy" name="Invoice" />
+                    <label for="quaduplicate">Quaduplicate for office copy</label>
+                    <br />
 
-                <input type="radio" id="extra" value="Extra for office copy" name="Invoice" />
-                <label for="extra">Extra for office copy</label>
+                    <input type="radio" id="extra" value="Extra for office copy" name="Invoice" />
+                    <label for="extra">Extra for office copy</label>
+                </div>
+
+
+
             </div>
 
 
 
         </div>
-
-
-
+        <div style="width:75%;float:right;">
+            <button type="button" class="btn btn-primary" id="ViewReport">Invoice Report</button>
+        </div>
     </div>
-    <div style="width:75%;float:right;">
-        <button type="button" class="btn btn-primary" id="ViewReport">Invoice Report</button>
     </div>
-</div>
-<script type="text/javascript" src="~/Scripts/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#ViewReport").click(function () {
-            var Financial_Yr = $("#Financial_Yr").val();
-            var Invoice_ID = $("#Invoice_ID").val();
-            var optoin = $('input[name="Invoice"]:checked').val();
-            alert(Financial_Yr + Invoice_ID + optoin);
-            $.get("../Reports/PrintInvoice.aspx", { Financial_Yr: Financial_Yr, Invoice_ID: Invoice_ID, optoin: optoin }, function (data) {
-                alert(data);
+    <script type="text/javascript" src="~/Scripts/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#ViewReport").click(function () {
+                var Financial_Yr = $("#Financial_Yr").val();
+                var Invoice_ID = $("#Invoice_ID").val();
+                var optoin = $('input[name="Invoice"]:checked').val();
+                alert(Financial_Yr + Invoice_ID + optoin);
+                $.get("../Reports/PrintInvoice.aspx", { Financial_Yr: Financial_Yr, Invoice_ID: Invoice_ID, optoin: optoin }, function (data) {
+                    alert(data);
+                });
             });
         });
-    });
-</script>
+    </script>
 
 
-@*<a href="../Reports/PrintInvoice.aspx" class="btn btn-primary" id="InvoiceReport">Invoice Report</a>*@
+    @*<a href="../Reports/PrintInvoice.aspx" class="btn btn-primary" id="InvoiceReport">Invoice Report</a>*@
