@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>State Master</h2>
 
 
@@ -45,19 +46,16 @@
             </div>
         </div>
     </div>
+
 </div>
 
 @section Scripts
 {
-
     <script type="text/javascript">
-
         $(document).ready(function () {
-
             $('#Dynamic-data-table').DataTable();
         });
     </script>
-
 
     @*=====================script for download data to csv=====================*@
     <script>
@@ -81,7 +79,7 @@
             for (var i = 0; i < rows.length; i++) {
                 var row = [], cols = rows[i].querySelectorAll("td, th");
 
-                for (var j = 0; j < cols.length-1; j++)
+                for (var j = 0; j < cols.length - 1; j++)
                     row.push(cols[j].innerText);
 
                 csv.push(row.join(","));
@@ -98,3 +96,4 @@
     </script>
     @*=====================script for download data to csv=====================*@
 }
+

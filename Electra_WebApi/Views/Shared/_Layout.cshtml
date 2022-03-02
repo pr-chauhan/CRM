@@ -6,10 +6,11 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-   
+
     <link type="text/css" href="~/Content/sm-blue.css" rel="stylesheet" />
     <link type="text/css" href="~/Content/sm-core-css.css" rel="stylesheet" />
-  
+    <link type="text/css" href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+
 </head>
 <body>
     <nav id="main-nav">
@@ -22,7 +23,8 @@
             <li>@Html.ActionLink("Change Password", "Index", "ChangePwd", new { area = "" }, null)</li>
             <li>@Html.ActionLink("Database Backup", "Index", "DataBaseBackup", new { area = "" }, null)</li>
             <li>@Html.ActionLink("Invoice Generation", "Index", "InvoiceMVC", new { area = "" }, null)</li>
-            <li><a>  Reports</a>
+            <li>
+                <a>  Reports</a>
                 <ul>
                     <li>  @Html.ActionLink("Invoice Reports", "Index", "Report", new { area = "" }, null)</li>
                     <li>  @Html.ActionLink("PartyWise/DateWise InvoiceList", "PartyWiseDateWise", "Report", new { area = "" }, null)</li>
@@ -36,6 +38,7 @@
 
 
     <div class="container-fluid justify-content-evenly body-content">
+
         @RenderBody()
         <hr />
         <footer>
@@ -48,7 +51,8 @@
     @RenderSection("scripts", required: false)
     <script type="text/javascript" src="~/Scripts/jquery.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.smartmenus.js"></script>
-
+    <script type="text/javascript" src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/dataTables.bootstrap.js"></script>
     <!-- SmartMenus jQuery init -->
     <script type="text/javascript">
         $(function () {
