@@ -43,3 +43,4 @@ D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs
 D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.csproj.CopyComplete
 D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.dll
 D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.pdb
+D:\Projects\Electra\EntityClass\obj\Debug\EntityClass.csproj.AssemblyReference.cache
