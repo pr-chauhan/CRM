@@ -59,7 +59,10 @@
                                     @{
                                         var cityName = string.Empty;
                                         var data = WebApiApplication.db.Cities.Where(x => x.City_ID == @item.City_ID).ToList();
-                                        cityName = data[0].City_Name;
+                                        if (data.Count() > 0)
+                                        {
+                                            cityName = data[0].City_Name;
+                                        }
                                     }
                                     @cityName
                                     @*<script type="text/javascript">

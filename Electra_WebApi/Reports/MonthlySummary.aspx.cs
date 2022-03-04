@@ -15,11 +15,9 @@ namespace Electra_WebApi.Reports
         {
             if (!Page.IsPostBack)
             {
-                int searchText = 0;
-
-                if (Request.QueryString["searchText"] != null)
+                if (Request.QueryString["fromdate"] != null)
                 {
-                    searchText = Convert.ToInt32(Request.QueryString["searchText"]);
+                   // searchText = Convert.ToInt32(Request.QueryString["fromdate"]);
                 }
 
                 //List<Invoice> InvMain = null;

@@ -10,8 +10,15 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
-            return View(lst);
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
+                var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
+                return View(lst);
+            }
         }
 
         public ActionResult Details(string id)
@@ -94,6 +101,7 @@ namespace Electra_WebApi.Controllers
             {
                 if (lst.User_Name.Equals(collection.User_Name) && lst.Passwrd.Equals(collection.Passwrd))
                 {
+                    Session["userName"] = collection.User_Name;
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -108,6 +116,7 @@ namespace Electra_WebApi.Controllers
         }
         public ActionResult Logout()
         {
+            Session.Abandon();
             return RedirectToAction("Login", "UserDetailMVC");
         }
     }

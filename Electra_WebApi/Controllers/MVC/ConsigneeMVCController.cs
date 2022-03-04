@@ -12,8 +12,15 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
-            return View(lst);
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
+                var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
+                return View(lst);
+            }
         }
 
         public ActionResult Details(int id)

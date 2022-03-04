@@ -106,7 +106,7 @@
 
                 <div class="col-md-7">
                     @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeDelAddress", @style = "width:900px;" })
+                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeDelAddress" })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-2">
@@ -368,7 +368,12 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
                 <input id="submit" type="submit" value="Save" class="btn btn-success" style="float:right;zoom:1.25;" />
             </div>
         </div>
