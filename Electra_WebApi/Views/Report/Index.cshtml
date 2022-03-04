@@ -80,7 +80,7 @@
                 var optoin = $('input[name="Invoice"]:checked').val();
                // alert(Financial_Yr + Invoice_ID + optoin);
                 $.get("/Report/Index", { Financial_Yr: Financial_Yr, Invoice_ID: Invoice_ID, optoin: optoin }, function (data) {
-                  //  alert(data);
+                    window.location.replace("/Reports/PrintInvoice.aspx");
                 });
             });
         });

@@ -51,7 +51,7 @@
                 var todate = $("#ToDate").val();
                 //alert(fromdate+todate);
                 $.get("/Report/DatewiseItemwiseSummary", { fromdate: fromdate, todate: todate }, function (data) {
-                   // alert(data);
+                    window.location.replace("/Reports/MonthlySummary.aspx");
                 });
             });
         });

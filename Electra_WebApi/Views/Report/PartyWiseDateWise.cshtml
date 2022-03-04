@@ -70,7 +70,7 @@
                 var todate = $("#ToDate").val();
                 //alert(consignee_id + fromdate + todate);
                 $.get("../Report/PartyWiseDateWise", { consignee_id: consignee_id, fromdate: fromdate, todate: todate }, function (data) {
-                     
+                    window.location.replace("/Reports/DataWiseInvoiceList.aspx");
                 });
             });
         });
