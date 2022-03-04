@@ -26,8 +26,10 @@ namespace Electra_WebApi.Reports
                 //List<Invoice> InvMain = null;
                 using (var _context = new CraModel())
                 {
+                    var from_dt = StaticVariables.From_Date;
+                    var to_date = StaticVariables.To_Date;
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                    var InvMain = GetData("exec SP_Summary '2018-12-01','2018-12-31'");
+                    var InvMain = GetData("exec SP_Summary '"+ from_dt + "','"+ to_date + "'");
                     //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/ItemwiseSummary.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();

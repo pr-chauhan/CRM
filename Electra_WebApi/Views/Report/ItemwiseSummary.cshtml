@@ -49,9 +49,9 @@
             $("#ViewReport").click(function () {
                 var fromdate = $("#FromDate").val();
                 var todate = $("#ToDate").val();
-                alert(fromdate + todate);
-                $.get("../Reports/ItemwiseSummary.aspx", { fromdate: fromdate, todate: todate }, function (data) {
-                    alert(data);
+               // alert(fromdate + todate);
+                $.get("/Report/ItemwiseSummary", { fromdate: fromdate, todate: todate }, function (data) {
+                 //   alert(data);
                 });
             });
         });

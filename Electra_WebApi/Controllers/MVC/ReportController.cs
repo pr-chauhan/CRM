@@ -6,20 +6,39 @@ namespace Electra_WebApi.Controllers
     public class ReportController : Controller
     {
         // GET: Report
-        public ActionResult Index()
+
+
+    
+         
+        public ActionResult Index(string Financial_Yr, string Invoice_ID, string optoin)
         {
+
             if (Session["userName"] == null)
             {
                 return RedirectToAction("Login", "UserDetailMVC");
             }
             else
             {
-                HttpClient client = new HttpClient();
-                ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
-                return View();
+
+                if (Financial_Yr == null || Invoice_ID == null)
+                {
+                    HttpClient client = new HttpClient();
+                    ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
+                    return View();
+                }
+                else
+                {
+
+                    StaticVariables.Financial_Year = Financial_Yr;
+                    StaticVariables.Invoice_No = Invoice_ID;
+                    StaticVariables.Option = optoin;
+                    return Redirect(Url.Content("~/Reports/PrintInvoice.aspx"));
+
+                    //return null;
+                }
             }
         }
-        public ActionResult PartyWiseDateWise()
+        public ActionResult PartyWiseDateWise(string consignee_id, string fromdate, string todate)
         {
             if (Session["userName"] == null)
             {
@@ -27,9 +46,21 @@ namespace Electra_WebApi.Controllers
             }
             else
             {
-                HttpClient client = new HttpClient();
-                ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
-                return View();
+                if (fromdate == null || todate == null)
+                {
+
+                    HttpClient client = new HttpClient();
+                    ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
+                    return View();
+                }
+                else
+                {
+                    StaticVariables.From_Date = fromdate;
+                    StaticVariables.To_Date = todate;
+                    StaticVariables.Consignee_ID = consignee_id;
+                    return Redirect(Url.Content("~/Reports/DataWiseInvoiceList.aspx"));
+
+                }
             }
         }
         public ActionResult DatewiseItemwiseSummary(string fromdate, string todate)
@@ -46,18 +77,19 @@ namespace Electra_WebApi.Controllers
                 }
                 else
                 {
-
-                    return null;
+                    
+                    StaticVariables.From_Date = fromdate;
+                    StaticVariables.To_Date = todate;
+                    return Redirect(Url.Content("~/Reports/MonthlySummary.aspx"));
+                   
+                    //return null;
                 }
             }
         }
        
-        public RedirectResult OpenReport(string fromdate, string todate)
-        {
-            return Redirect("/Reports/MonthlySummary.aspx");
-        }
+       
 
-        public ActionResult ItemwiseSummary()
+        public ActionResult ItemwiseSummary(string fromdate, string todate)
         {
             if (Session["userName"] == null)
             {
@@ -65,7 +97,19 @@ namespace Electra_WebApi.Controllers
             }
             else
             {
-                return View();
+                if (fromdate == null || todate == null)
+                {
+                    return View();
+                }
+                else
+                {
+
+                    StaticVariables.From_Date = fromdate;
+                    StaticVariables.To_Date = todate;
+                    return Redirect(Url.Content("~/Reports/ItemwiseSummary.aspx"));
+
+                    //return null;
+                }
             }
         }
     }

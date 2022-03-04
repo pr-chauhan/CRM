@@ -27,8 +27,11 @@ namespace Electra_WebApi
                 //List<Invoice> InvMain = null;
                 using (var _context = new CraModel())
                 {
+                    var invoice_No = StaticVariables.Invoice_No;
+                    var financial_yr = StaticVariables.Financial_Year;
+                    var Optoin = StaticVariables.Option;
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                    var InvMain = GetData("exec SP_PrintInvoice 1, '2020-2021'");
+                    var InvMain = GetData("exec SP_PrintInvoice "+ invoice_No + ", '"+ financial_yr + "'");
                     //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
                     var totExcise = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("TOTAL_EXCISE")).FirstOrDefault();
                     var totamt = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("total_amount")).FirstOrDefault();

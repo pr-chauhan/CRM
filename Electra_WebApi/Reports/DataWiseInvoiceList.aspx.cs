@@ -25,8 +25,12 @@ namespace Electra_WebApi.Reports
                 //List<Invoice> InvMain = null;
                 using (var _context = new CraModel())
                 {
+                    var fromdate = StaticVariables.From_Date ;
+                    var todate =  StaticVariables.To_Date ;
+                    var consignee_id = StaticVariables.Consignee_ID ;
+
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                    var InvMain = GetData("exec SP_DatewiseInvoice 3,'2016-11-26','2018-11-28'");
+                    var InvMain = GetData("exec SP_DatewiseInvoice "+ consignee_id + ",'"+ fromdate + "','"+ todate + "'");
                     //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/DataWiseInvoiceList.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();

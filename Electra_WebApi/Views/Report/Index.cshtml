@@ -78,9 +78,9 @@
                 var Financial_Yr = $("#Financial_Yr").val();
                 var Invoice_ID = $("#Invoice_ID").val();
                 var optoin = $('input[name="Invoice"]:checked').val();
-                alert(Financial_Yr + Invoice_ID + optoin);
-                $.get("../Reports/PrintInvoice.aspx", { Financial_Yr: Financial_Yr, Invoice_ID: Invoice_ID, optoin: optoin }, function (data) {
-                    alert(data);
+               // alert(Financial_Yr + Invoice_ID + optoin);
+                $.get("/Report/Index", { Financial_Yr: Financial_Yr, Invoice_ID: Invoice_ID, optoin: optoin }, function (data) {
+                  //  alert(data);
                 });
             });
         });

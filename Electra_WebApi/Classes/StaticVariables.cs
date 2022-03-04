@@ -11,5 +11,16 @@
         public string ConsigneeApiName { get; set; } = "ConsigneeApi";
         public string InvoiceApiName { get; set; } = "InvoiceApi";
         public string Invoice_DetailApiName { get; set; } = "Invoice_DetailApi";
+        public static string From_Date { get; set; }
+        public static string To_Date { get; set; }
+
+        public static string Financial_Year { get; set; }
+
+        public static string Invoice_No { get; set; }
+
+        public static string Consignee_ID { get; set; }
+
+        public static string Option { get; set; }
+
     }
 }
