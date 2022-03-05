@@ -16,16 +16,16 @@ namespace Electra_WebApi.Controllers
         private static string financial_yearr;
         public ActionResult Index()
         {
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
                 var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
                 lst = lst.Where(x => x.Financial_Yr == financial_yearr).ToList();
                 return View(lst);
-            }
+            //}
         }
         [HttpPost]
         public ActionResult Index(string financial_yr)

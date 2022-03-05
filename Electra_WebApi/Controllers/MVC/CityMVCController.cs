@@ -10,15 +10,15 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
                 var lst = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
                 return View(lst);
-            }
+            //}
         }
 
         public ActionResult Details(int id)

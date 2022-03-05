@@ -13,12 +13,12 @@ namespace Electra_WebApi.Controllers
         public ActionResult Index(string Financial_Yr, string Invoice_ID, string optoin)
         {
 
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
 
                 if (Financial_Yr == null || Invoice_ID == null)
                 {
@@ -36,16 +36,16 @@ namespace Electra_WebApi.Controllers
 
                     //return null;
                 }
-            }
+            //}
         }
         public ActionResult PartyWiseDateWise(string consignee_id, string fromdate, string todate)
         {
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
                 if (fromdate == null || todate == null)
                 {
 
@@ -61,16 +61,16 @@ namespace Electra_WebApi.Controllers
                     return Redirect(Url.Content("~/Reports/DataWiseInvoiceList.aspx"));
 
                 }
-            }
+            //}
         }
         public ActionResult DatewiseItemwiseSummary(string fromdate, string todate)
         {
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
                 if (fromdate == null || todate == null)
                 {
                     return View();
@@ -84,19 +84,19 @@ namespace Electra_WebApi.Controllers
                    
                     //return null;
                 }
-            }
+            //}
         }
        
        
 
         public ActionResult ItemwiseSummary(string fromdate, string todate)
         {
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
                 if (fromdate == null || todate == null)
                 {
                     return View();
@@ -110,7 +110,7 @@ namespace Electra_WebApi.Controllers
 
                     //return null;
                 }
-            }
+            //}
         }
     }
 }

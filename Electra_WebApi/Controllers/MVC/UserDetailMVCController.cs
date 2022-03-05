@@ -1,6 +1,7 @@
 ﻿using EntityClass;
 using System.Net.Http;
 using System.Web.Mvc;
+using System.Windows;
 
 namespace Electra_WebApi.Controllers
 {
@@ -10,15 +11,15 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            if (Session["userName"] == null)
-            {
-                return RedirectToAction("Login", "UserDetailMVC");
-            }
-            else
-            {
+            //if (StaticVariables.UserName == null)
+            //{
+            //    return RedirectToAction("Login", "UserDetailMVC");
+            //}
+            //else
+            //{
                 var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
                 return View(lst);
-            }
+            //}
         }
 
         public ActionResult Details(string id)
@@ -101,7 +102,8 @@ namespace Electra_WebApi.Controllers
             {
                 if (lst.User_Name.Equals(collection.User_Name) && lst.Passwrd.Equals(collection.Passwrd))
                 {
-                    Session["userName"] = collection.User_Name;
+                    //StaticVariables.UserName = collection.User_Name;
+                    MessageBox.Show(lst.User_Name);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -116,7 +118,7 @@ namespace Electra_WebApi.Controllers
         }
         public ActionResult Logout()
         {
-            Session.Abandon();
+            StaticVariables.UserName = null;
             return RedirectToAction("Login", "UserDetailMVC");
         }
     }
