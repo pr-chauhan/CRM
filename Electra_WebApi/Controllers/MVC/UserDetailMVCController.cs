@@ -103,7 +103,7 @@ namespace Electra_WebApi.Controllers
                 if (lst.User_Name.Equals(collection.User_Name) && lst.Passwrd.Equals(collection.Passwrd))
                 {
                     //StaticVariables.UserName = collection.User_Name;
-                    MessageBox.Show(lst.User_Name);
+                    //MessageBox.Show(lst.User_Name);
                     return RedirectToAction("Index", "Home");
                 }
                 else

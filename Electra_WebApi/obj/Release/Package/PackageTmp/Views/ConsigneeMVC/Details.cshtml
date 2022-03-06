@@ -1,0 +1,173 @@
+﻿@model EntityClass.Consignee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div style="border: 1px solid #1945d7; border-radius: 5px 5px 5px 5px;">
+    <h4>Consignee</h4>
+    <hr />
+    <dl class="dl-horizontal" >
+        <dt>
+            @Html.DisplayNameFor(model => model.Consignee_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consignee_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City_ID)
+        </dt>
+
+        <dd id="city_id">
+           
+            <script type="text/javascript">
+
+                var id =   @Html.DisplayFor(model => model.City_ID);
+
+                $.get("/CityMVC/GetCityName", { city_id: id }, function (data) {
+                    $('<div>' + data + '</div>').appendTo("#city_id");
+                });
+
+
+            </script>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tin_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tin_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CST_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CST_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ECC_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECC_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAnge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAnge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Division)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Division)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PANNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PANNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commission_rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commission_rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GSTNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GSTNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_UserID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Consignee_ID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index","", new { @class = "btn btn-primary" })
+</p>

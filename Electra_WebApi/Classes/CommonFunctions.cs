@@ -28,6 +28,7 @@ namespace Electra_WebApi
         }
         public T ExecuteDetailByID<T>(HttpClient client, string id, string apiName)
         {
+            client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             var response = client.GetAsync(apiName + "?id=" + id);
             response.Wait();

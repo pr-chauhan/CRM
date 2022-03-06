@@ -1,0 +1,139 @@
+﻿@model EntityClass.Consignee
+
+@{
+    ViewBag.Title = "Delete Consignee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Consignee</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div style="border: 1px solid #1945d7; border-radius: 5px 5px 5px 5px;">
+    <h4>Consignee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Consignee_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consignee_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tin_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tin_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CST_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CST_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ECC_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECC_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAnge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAnge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Division)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Division)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PANNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PANNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commission_rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commission_rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GSTNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GSTNO)
+        </dd>
+        <dd>
+            @Html.ValidationMessageFor(model => model.Consignee_ID, "", new { @class = "text-danger" })
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index","", new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
