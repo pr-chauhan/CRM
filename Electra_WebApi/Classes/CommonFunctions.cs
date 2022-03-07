@@ -169,7 +169,7 @@ namespace Electra_WebApi
             {
                 if (num >= power_value[i])
                 {
-                    digits = Convert.ToInt32(num / power_value[i]);
+                    digits = (int)(num / power_value[i]);
                     if (result.Length > 0)
                     {
                         result += " ";

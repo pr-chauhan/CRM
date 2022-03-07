@@ -39,7 +39,7 @@ namespace Electra_WebApi
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rdc = new ReportDataSource("InvoiceDataSet", InvMain.Tables[0]);
                     ReportParameter[] parameters = new ReportParameter[4];
-                    parameters[0] = new ReportParameter("headng",string.Empty);
+                    parameters[0] = new ReportParameter("headng","Original For Buyer");
                     parameters[1] = new ReportParameter("h1", string.Empty);
                     parameters[2] = new ReportParameter("totamt", WebApiApplication.objCommon.words_money(totamt));
                     parameters[3] = new ReportParameter("excamt", WebApiApplication.objCommon.words_money(totExcise));

@@ -72,7 +72,7 @@
 
                     @Html.LabelFor(model => model.invoice.Consignee_DelRange, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelRange, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelRange" } })
-                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelRange, "", new { @class = "text-danger" })
+                   
                 </div>
             </div>
             <div class="col-md-12">
@@ -89,7 +89,7 @@
                 <div class="col-md-2">
                     @Html.LabelFor(model => model.invoice.Consignee_DelDivision, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelDivision, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelDivision" } })
-                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelDivision, "", new { @class = "text-danger" })
+                   
                 </div>
             </div>
             <div class="col-md-12">
@@ -112,7 +112,7 @@
                 <div class="col-md-2">
                     @Html.LabelFor(model => model.invoice.Consignee_DelCommRate, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelCommRate, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelCommRate" } })
-                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelCommRate, "", new { @class = "text-danger" })
+                  
                 </div>
             </div>
         </div>
@@ -742,18 +742,7 @@
                             alert("Please check consignee delivery address.");
                             return false;
                         }
-                        if ($("#Consignee_DelRange").val() == "") {
-                            alert("Please check Range.");
-                            return false;
-                        }
-                        if ($("#Consignee_DelDivision").val() == "") {
-                            alert("Please check Division.");
-                            return false;
-                        }
-                        if ($("#Consignee_DelCommRate").val() == "") {
-                            alert("Please check commission rate.");
-                            return false;
-                        }
+                        
                         var Assmt = 0;
                         var r;
                         $("#ItemDetailsTable TBODY TR").each(function () {
