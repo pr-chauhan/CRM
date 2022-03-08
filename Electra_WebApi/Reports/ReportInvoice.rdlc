@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>c6963847-8d33-4200-a601-37ef0c807357</rd:DataSourceID>
+      <rd:DataSourceID>0c4dcb5a-4aac-490a-b2ad-44a932e57052</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -137,6 +137,14 @@
           <DataField>Consignee_DelAddress</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="TCSPer">
+          <DataField>TCSPer</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TCSVal">
+          <DataField>TCSVal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="sr_flag">
           <DataField>sr_flag</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -236,7 +244,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>InventoryDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Elecra_New\electra\Electra_WebApi\InventoryDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Electra060322\Electra_WebApi\InventoryDataSet.xsd</rd:SchemaPath>
         <rd:TableName>SP_PrintInvoice</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -284,7 +292,7 @@
                         <Style>
                           <FontSize>16pt</FontSize>
                           <FontWeight>Bold</FontWeight>
-                          <Color>DarkBlue</Color>
+                          <Color>#4598d8</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -315,6 +323,7 @@
                         <Value>AN ISO 9001:2008 CERTIFIED COMPANY</Value>
                         <Style>
                           <FontWeight>Bold</FontWeight>
+                          <Color>White</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -333,6 +342,7 @@
                   <Border>
                     <Style>None</Style>
                   </Border>
+                  <BackgroundColor>Black</BackgroundColor>
                 </Style>
               </Textbox>
               <Textbox Name="Textbox4">
@@ -373,7 +383,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>EmailAddress (Works) : electrapaper@yahoo.com, Phone No - 98110-85892, 9810007239</Value>
+                        <Value>EmailAddress (Works) : electrapaper@yahoo.com, Phone No - 86990-13501, 86990-13701, 86990-13801</Value>
                         <Style>
                           <FontSize>8pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -442,7 +452,7 @@
               </Line>
               <Line Name="Line4">
                 <Top>1.175in</Top>
-                <Left>0.94445in</Left>
+                <Left>0.99445in</Left>
                 <Height>1.22083in</Height>
                 <Width>0in</Width>
                 <ZIndex>8</ZIndex>
@@ -470,7 +480,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>1.25694in</Top>
+                <Top>1.20694in</Top>
                 <Left>0.06528in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.81389in</Width>
@@ -503,7 +513,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>1.64583in</Top>
+                <Top>1.42083in</Top>
                 <Left>0.06528in</Left>
                 <Height>0.21528in</Height>
                 <Width>0.81389in</Width>
@@ -525,7 +535,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Commodity</Value>
+                        <Value>IEC NO.</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -536,7 +546,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>2.07916in</Top>
+                <Top>2.11666in</Top>
                 <Left>0.06528in</Left>
                 <Height>0.22917in</Height>
                 <Width>0.81389in</Width>
@@ -594,9 +604,9 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Invoice No.</Value>
+                        <Value>INVOICE NO.</Value>
                         <Style>
-                          <FontSize>9pt</FontSize>
+                          <FontSize>11pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -809,36 +819,12 @@
                   </Border>
                 </Style>
               </Line>
-              <Line Name="Line10">
-                <Top>1.99583in</Top>
-                <Left>7.44028in</Left>
-                <Height>0in</Height>
-                <Width>-4.25417in</Width>
-                <ZIndex>23</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                  </Border>
-                </Style>
-              </Line>
-              <Line Name="Line11">
-                <Top>2.20694in</Top>
-                <Left>7.44585in</Left>
-                <Height>0in</Height>
-                <Width>-4.25975in</Width>
-                <ZIndex>24</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>Solid</Style>
-                  </Border>
-                </Style>
-              </Line>
               <Line Name="Line13">
                 <Top>2.6375in</Top>
                 <Left>0.00695in</Left>
                 <Height>0in</Height>
                 <Width>7.4389in</Width>
-                <ZIndex>25</ZIndex>
+                <ZIndex>23</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -869,7 +855,7 @@
                 <Left>0.06528in</Left>
                 <Height>0.19in</Height>
                 <Width>3.6243in</Width>
-                <ZIndex>26</ZIndex>
+                <ZIndex>24</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -904,7 +890,7 @@
                 <Left>3.7868in</Left>
                 <Height>0.21in</Height>
                 <Width>3.61181in</Width>
-                <ZIndex>27</ZIndex>
+                <ZIndex>25</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -920,7 +906,7 @@
                 <Left>3.71736in</Left>
                 <Height>1.7111in</Height>
                 <Width>0in</Width>
-                <ZIndex>28</ZIndex>
+                <ZIndex>26</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -949,7 +935,7 @@
                 <Left>0.06528in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.67222in</Width>
-                <ZIndex>29</ZIndex>
+                <ZIndex>27</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -982,7 +968,7 @@
                 <Left>0.06528in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.68611in</Width>
-                <ZIndex>30</ZIndex>
+                <ZIndex>28</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1015,7 +1001,7 @@
                 <Left>0.06528in</Left>
                 <Height>0.19167in</Height>
                 <Width>1.14722in</Width>
-                <ZIndex>31</ZIndex>
+                <ZIndex>29</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1048,7 +1034,7 @@
                 <Left>0.06528in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.65833in</Width>
-                <ZIndex>32</ZIndex>
+                <ZIndex>30</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1081,7 +1067,7 @@
                 <Left>3.79931in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.71389in</Width>
-                <ZIndex>33</ZIndex>
+                <ZIndex>31</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1114,7 +1100,7 @@
                 <Left>3.79931in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.71389in</Width>
-                <ZIndex>34</ZIndex>
+                <ZIndex>32</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1147,7 +1133,7 @@
                 <Left>3.79931in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.99373in</Width>
-                <ZIndex>35</ZIndex>
+                <ZIndex>33</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1180,7 +1166,7 @@
                 <Left>3.79931in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.71389in</Width>
-                <ZIndex>36</ZIndex>
+                <ZIndex>34</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1213,7 +1199,7 @@
                 <Left>2.06736in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.51945in</Width>
-                <ZIndex>37</ZIndex>
+                <ZIndex>35</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1246,7 +1232,7 @@
                 <Left>2.06736in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.51945in</Width>
-                <ZIndex>38</ZIndex>
+                <ZIndex>36</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1279,7 +1265,7 @@
                 <Left>5.83403in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.56389in</Width>
-                <ZIndex>39</ZIndex>
+                <ZIndex>37</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1312,7 +1298,7 @@
                 <Left>5.83403in</Left>
                 <Height>0.19167in</Height>
                 <Width>0.56389in</Width>
-                <ZIndex>40</ZIndex>
+                <ZIndex>38</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1328,7 +1314,7 @@
                 <Left>0.01528in</Left>
                 <Height>0in</Height>
                 <Width>7.43752in</Width>
-                <ZIndex>41</ZIndex>
+                <ZIndex>39</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -1344,6 +1330,7 @@
                       <TextRun>
                         <Value>03AAECR6405M1ZD</Value>
                         <Style>
+                          <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1352,11 +1339,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox65</rd:DefaultName>
-                <Top>1.25694in</Top>
+                <Top>1.19444in</Top>
                 <Left>1.01389in</Left>
                 <Height>0.19167in</Height>
                 <Width>1.76736in</Width>
-                <ZIndex>42</ZIndex>
+                <ZIndex>40</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1376,6 +1363,7 @@
                       <TextRun>
                         <Value>AAECR6405M</Value>
                         <Style>
+                          <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1384,11 +1372,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox65</rd:DefaultName>
-                <Top>1.65972in</Top>
+                <Top>1.42222in</Top>
                 <Left>1.01389in</Left>
                 <Height>0.20139in</Height>
                 <Width>1.76736in</Width>
-                <ZIndex>43</ZIndex>
+                <ZIndex>41</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1408,6 +1396,7 @@
                       <TextRun>
                         <Value>PAPER &amp; BOARD</Value>
                         <Style>
+                          <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1416,11 +1405,11 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox65</rd:DefaultName>
-                <Top>2.07083in</Top>
+                <Top>1.64583in</Top>
                 <Left>1.01389in</Left>
                 <Height>0.2375in</Height>
                 <Width>1.76736in</Width>
-                <ZIndex>44</ZIndex>
+                <ZIndex>42</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1441,6 +1430,7 @@
                         <Value>TAX INVOICE</Value>
                         <Style>
                           <FontSize>11pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1454,7 +1444,7 @@
                 <Left>0.02361in</Left>
                 <Height>0.19in</Height>
                 <Width>4.13193in</Width>
-                <ZIndex>45</ZIndex>
+                <ZIndex>43</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1482,7 +1472,7 @@
                 <Left>4.56944in</Left>
                 <Height>0.18056in</Height>
                 <Width>1.23332in</Width>
-                <ZIndex>46</ZIndex>
+                <ZIndex>44</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1510,7 +1500,7 @@
                 <Left>0.77917in</Left>
                 <Height>0.18056in</Height>
                 <Width>1.24583in</Width>
-                <ZIndex>47</ZIndex>
+                <ZIndex>45</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1538,7 +1528,7 @@
                 <Left>6.42708in</Left>
                 <Height>0.18056in</Height>
                 <Width>0.97153in</Width>
-                <ZIndex>48</ZIndex>
+                <ZIndex>46</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1566,7 +1556,7 @@
                 <Left>6.42708in</Left>
                 <Height>0.18056in</Height>
                 <Width>0.9632in</Width>
-                <ZIndex>49</ZIndex>
+                <ZIndex>47</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1594,7 +1584,7 @@
                 <Left>4.83471in</Left>
                 <Height>0.18056in</Height>
                 <Width>2.5639in</Width>
-                <ZIndex>50</ZIndex>
+                <ZIndex>48</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1622,7 +1612,7 @@
                 <Left>4.55487in</Left>
                 <Height>0.18056in</Height>
                 <Width>2.83541in</Width>
-                <ZIndex>51</ZIndex>
+                <ZIndex>49</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1651,7 +1641,7 @@
                 <Left>3.79931in</Left>
                 <Height>0.2361in</Height>
                 <Width>3.5993in</Width>
-                <ZIndex>52</ZIndex>
+                <ZIndex>50</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1679,7 +1669,7 @@
                 <Left>3.79931in</Left>
                 <Height>0.28889in</Height>
                 <Width>3.5993in</Width>
-                <ZIndex>53</ZIndex>
+                <ZIndex>51</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1707,7 +1697,7 @@
                 <Left>0.79306in</Left>
                 <Height>0.18056in</Height>
                 <Width>1.23194in</Width>
-                <ZIndex>54</ZIndex>
+                <ZIndex>52</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1735,7 +1725,7 @@
                 <Left>2.61458in</Left>
                 <Height>0.18056in</Height>
                 <Width>1.05972in</Width>
-                <ZIndex>55</ZIndex>
+                <ZIndex>53</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1763,7 +1753,7 @@
                 <Left>2.61458in</Left>
                 <Height>0.18056in</Height>
                 <Width>1.05972in</Width>
-                <ZIndex>56</ZIndex>
+                <ZIndex>54</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1791,7 +1781,7 @@
                 <Left>0.77917in</Left>
                 <Height>0.18056in</Height>
                 <Width>2.91041in</Width>
-                <ZIndex>57</ZIndex>
+                <ZIndex>55</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1819,7 +1809,7 @@
                 <Left>4.55487in</Left>
                 <Height>0.18056in</Height>
                 <Width>1.24443in</Width>
-                <ZIndex>58</ZIndex>
+                <ZIndex>56</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1847,7 +1837,7 @@
                 <Left>1.25417in</Left>
                 <Height>0.18056in</Height>
                 <Width>2.42014in</Width>
-                <ZIndex>59</ZIndex>
+                <ZIndex>57</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1876,7 +1866,7 @@
                 <Left>0.06528in</Left>
                 <Height>0.26527in</Height>
                 <Width>3.59652in</Width>
-                <ZIndex>60</ZIndex>
+                <ZIndex>58</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1907,7 +1897,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                 <Left>0.06528in</Left>
                 <Height>0.26389in</Height>
                 <Width>3.59652in</Width>
-                <ZIndex>61</ZIndex>
+                <ZIndex>59</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1938,7 +1928,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                 <Left>4.63433in</Left>
                 <Height>0.15555in</Height>
                 <Width>2.54999in</Width>
-                <ZIndex>62</ZIndex>
+                <ZIndex>60</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1966,7 +1956,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                 <Left>4.63433in</Left>
                 <Height>0.16527in</Height>
                 <Width>2.54999in</Width>
-                <ZIndex>63</ZIndex>
+                <ZIndex>61</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1982,6 +1972,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                       <TextRun>
                         <Value>=First(Fields!Invoice_ID.Value, "InvoiceDataSet") &amp; "/" &amp; First(Fields!Financial_Yr.Value, "InvoiceDataSet")</Value>
                         <Style>
+                          <FontSize>11pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -1990,11 +1981,11 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Invoice_ID</rd:DefaultName>
-                <Top>1.19445in</Top>
+                <Top>1.18195in</Top>
                 <Left>4.63433in</Left>
-                <Height>0.18in</Height>
+                <Height>0.19723in</Height>
                 <Width>2.54999in</Width>
-                <ZIndex>64</ZIndex>
+                <ZIndex>62</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2009,7 +2000,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                 <Left>6.61945in</Left>
                 <Height>0.93361in</Height>
                 <Width>0.81807in</Width>
-                <ZIndex>65</ZIndex>
+                <ZIndex>63</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2018,12 +2009,12 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
               </Image>
               <Image Name="Logo2">
                 <Source>Embedded</Source>
-                <Value>WhatsAppImage20220219at72247PM</Value>
+                <Value>Capture</Value>
                 <Sizing>Fit</Sizing>
                 <Top>0.24139in</Top>
                 <Height>0.90584in</Height>
                 <Width>0.83473in</Width>
-                <ZIndex>66</ZIndex>
+                <ZIndex>64</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2034,16 +2025,16 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>0.68461in</Width>
+                      <Width>0.44012in</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>2.12422in</Width>
+                      <Width>2.36595in</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.86171in</Width>
+                      <Width>0.87978in</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.98461in</Width>
+                      <Width>0.97071in</Width>
                     </TablixColumn>
                     <TablixColumn>
                       <Width>0.852in</Width>
@@ -2070,7 +2061,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                     <TextRun>
                                       <Value>Sr. No</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>7pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -2340,18 +2331,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!Item_Name.Value</Value>
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=iif(Fields!DEC.Value="","","(" &amp; Fields!DEC.Value &amp; ")")</Value>
+                                      <Value>= Fields!Item_Name.Value &amp; " " &amp; iif(Fields!DEC.Value="","","-" &amp; Fields!DEC.Value)</Value>
                                       <Style>
                                         <FontSize>7pt</FontSize>
                                       </Style>
@@ -2384,7 +2364,7 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                     <TextRun>
                                       <Value>=Fields!Tarriff_no.Value</Value>
                                       <Style>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>7pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2415,28 +2395,15 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!No_of_pkg.Value</Value>
-                                      <Style>
-                                        <FontSize>8pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Center</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Switch(Fields!TYPE.Value = "R", "Reels",
-Fields!TYPE.Value ="B","Boxes",
-Fields!TYPE.Value ="P","Pkts",
-Fields!TYPE.Value ="L","Loose",
-Fields!TYPE.Value ="U","Bundles",
-Fields!TYPE.Value ="S","Sludge",
-Fields!TYPE.Value ="N","Nos.",
-Fields!TYPE.Value ="M","Nag",
-Fields!TYPE.Value ="A","Bag")</Value>
+                                      <Value>=cstr(Fields!No_of_pkg.Value) &amp; " " &amp; Switch(Trim(Fields!TYPE.Value) = "R", "Reels",
+Trim(Fields!TYPE.Value) ="B","Boxes",
+Trim(Fields!TYPE.Value) ="P","Pkts",
+Trim(Fields!TYPE.Value) ="L","Loose",
+Trim(Fields!TYPE.Value) ="U","Bundles",
+Trim(Fields!TYPE.Value) ="S","Sludge",
+Trim(Fields!TYPE.Value) ="N","Nos.",
+Trim(Fields!TYPE.Value) ="M","Nag",
+Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                                       <Style>
                                         <FontSize>7pt</FontSize>
                                       </Style>
@@ -2472,6 +2439,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                                       <Value>=Fields!Qty.Value</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <Format>0.0;(0.0)</Format>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2503,6 +2471,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                                       <Value>=Fields!Rate.Value</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <Format>0.0;(0.0)</Format>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2534,6 +2503,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                                       <Value>=Fields!Total_amt.Value</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <Format>0.00;(0.00)</Format>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2668,10 +2638,13 @@ Fields!TYPE.Value ="A","Bag")</Value>
                                       <Value>=Sum(Fields!No_of_pkg.Value)</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox117</rd:DefaultName>
@@ -2699,6 +2672,8 @@ Fields!TYPE.Value ="A","Bag")</Value>
                                       <Value>=Sum(Fields!Qty.Value)</Value>
                                       <Style>
                                         <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                        <Format>0.0;(0.0)</Format>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -2814,8 +2789,8 @@ Fields!TYPE.Value ="A","Bag")</Value>
                 </PageBreak>
                 <Top>4.1277in</Top>
                 <Height>0.75in</Height>
-                <Width>7.44028in</Width>
-                <ZIndex>67</ZIndex>
+                <Width>7.44169in</Width>
+                <ZIndex>65</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2831,7 +2806,8 @@ Fields!TYPE.Value ="A","Bag")</Value>
                       <TextRun>
                         <Value>=Parameters!headng.Value</Value>
                         <Style>
-                          <FontSize>8pt</FontSize>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -2845,7 +2821,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                 <Left>4.83471in</Left>
                 <Height>0.19722in</Height>
                 <Width>2.55557in</Width>
-                <ZIndex>68</ZIndex>
+                <ZIndex>66</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -2870,23 +2846,261 @@ Fields!TYPE.Value ="A","Bag")</Value>
                         </Style>
                       </TextRun>
                     </TextRuns>
-                    <Style />
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox33</rd:DefaultName>
                 <Top>1.83333in</Top>
-                <Left>5.3639in</Left>
+                <Left>5.3264in</Left>
                 <Height>0.13472in</Height>
                 <Width>0.59304in</Width>
-                <ZIndex>69</ZIndex>
+                <ZIndex>67</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
                 </Style>
               </Textbox>
+              <Textbox Name="Textbox18">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>Commodity</Value>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>1.65278in</Top>
+                <Left>0.06528in</Left>
+                <Height>0.21528in</Height>
+                <Width>0.81389in</Width>
+                <ZIndex>68</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox68">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>UDYAM-PB-20-0004476</Value>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox65</rd:DefaultName>
+                <Top>1.90139in</Top>
+                <Left>1.01389in</Left>
+                <Height>0.2375in</Height>
+                <Width>1.76736in</Width>
+                <ZIndex>69</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox69">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>U2210004187</Value>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox65</rd:DefaultName>
+                <Top>2.15277in</Top>
+                <Left>1.01389in</Left>
+                <Height>0.2375in</Height>
+                <Width>1.76736in</Width>
+                <ZIndex>70</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox19">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>UDYAM Reg.</Value>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox7</rd:DefaultName>
+                <Top>1.89445in</Top>
+                <Left>0.06528in</Left>
+                <Height>0.22917in</Height>
+                <Width>0.89305in</Width>
+                <ZIndex>71</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Removal_Time">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=FormatDateTime(First(Fields!Removal_Time.Value, "InvoiceDataSet"),DateFormat.ShortTime)</Value>
+                        <Style>
+                          <FontSize>8pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Right</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Removal_Time</rd:DefaultName>
+                <Top>1.80138in</Top>
+                <Left>4.65515in</Left>
+                <Height>0.19445in</Height>
+                <Width>0.63931in</Width>
+                <ZIndex>72</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Line Name="Line16">
+                <Top>1.82223in</Top>
+                <Left>5.94653in</Left>
+                <Height>0.56805in</Height>
+                <Width>0in</Width>
+                <ZIndex>73</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line28">
+                <Top>1.99167in</Top>
+                <Left>3.20694in</Left>
+                <Height>0in</Height>
+                <Width>2.73959in</Width>
+                <ZIndex>74</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Line Name="Line29">
+                <Top>2.2in</Top>
+                <Left>3.19861in</Left>
+                <Height>0in</Height>
+                <Width>2.74792in</Width>
+                <ZIndex>75</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                </Style>
+              </Line>
+              <Textbox Name="Textbox36">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>EWAY BILL NO -</Value>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                          <Color>#4598d8</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox36</rd:DefaultName>
+                <Top>1.825in</Top>
+                <Left>5.97847in</Left>
+                <Height>0.23333in</Height>
+                <Width>1.12431in</Width>
+                <ZIndex>76</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
-            <Top>0.105in</Top>
+            <Top>0.1175in</Top>
             <Left>0.10639in</Left>
             <Height>4.8777in</Height>
             <Width>7.4528in</Width>
@@ -2897,7 +3111,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>4.9827in</Height>
+        <Height>4.9952in</Height>
         <Style />
       </Body>
       <Width>7.60431in</Width>
@@ -3073,8 +3287,9 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     <TextRun>
                       <Value>For Electra Paper &amp; Board (P) Ltd.</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>#4598d8</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3115,7 +3330,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
               <Top>3.27083in</Top>
               <Left>0.10501in</Left>
               <Height>0.5667in</Height>
-              <Width>2.02638in</Width>
+              <Width>2.17291in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -3146,7 +3361,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
               <Top>3.60139in</Top>
               <Left>2.34736in</Left>
               <Height>0.21111in</Height>
-              <Width>0.675in</Width>
+              <Width>0.95348in</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -3192,10 +3407,19 @@ Fields!TYPE.Value ="A","Bag")</Value>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>For Electra Paper &amp; Board (P) Ltd.</Value>
+                      <Value>For Electra Paper &amp; Board (P) Ltd</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>#4598d8</Color>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>.</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>RoyalBlue</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3314,7 +3538,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>0.25846in</Top>
+                  <Top>0.23346in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3349,7 +3573,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>0.50581in</Top>
+                  <Top>0.45581in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3398,7 +3622,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>0.75316in</Top>
+                  <Top>0.69066in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3433,7 +3657,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.0005in</Top>
+                  <Top>0.938in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3489,7 +3713,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.24785in</Top>
+                  <Top>1.18535in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3538,7 +3762,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.4827in</Top>
+                  <Top>1.4202in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3573,7 +3797,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.74255in</Top>
+                  <Top>1.64255in</Top>
                   <Left>4.18192in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
@@ -3608,9 +3832,9 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.9899in</Top>
+                  <Top>2.12323in</Top>
                   <Left>4.17081in</Left>
-                  <Height>0.29703in</Height>
+                  <Height>0.1637in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
@@ -3704,7 +3928,22 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>From : Batouli To</Value>
+                          <Value>From : </Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>Batouli</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                            <TextDecoration>Underline</TextDecoration>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value> To</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
@@ -3917,6 +4156,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                             <FontWeight>Bold</FontWeight>
+                            <TextDecoration>Underline</TextDecoration>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3924,7 +4164,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>DESTINATION1</rd:DefaultName>
-                  <Top>0.01244in</Top>
+                  <Top>0.03744in</Top>
                   <Left>1.10415in</Left>
                   <Height>0.18056in</Height>
                   <Width>2.98472in</Width>
@@ -3944,7 +4184,8 @@ Fields!TYPE.Value ="A","Bag")</Value>
                         <TextRun>
                           <Value>=First(Fields!Transporter_Name.Value, "InvoiceDataSet")</Value>
                           <Style>
-                            <FontSize>8pt</FontSize>
+                            <FontSize>7pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3973,6 +4214,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Vehicle_No.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4001,6 +4243,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!GRR_No.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4028,7 +4271,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                         <TextRun>
                           <Value>=First(Fields!DESTINATION1.Value, "InvoiceDataSet") &amp; " To " &amp; First(Fields!DESTINATION2.Value, "InvoiceDataSet")</Value>
                           <Style>
-                            <FontSize>8pt</FontSize>
+                            <FontSize>7pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4056,7 +4299,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                         <TextRun>
                           <Value>=First(Fields!DEST_THROUGH2.Value, "InvoiceDataSet")</Value>
                           <Style>
-                            <FontSize>8pt</FontSize>
+                            <FontSize>7pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4122,7 +4365,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line21">
-                  <Top>0.7368in</Top>
+                  <Top>0.6993in</Top>
                   <Left>4.15275in</Left>
                   <Height>0in</Height>
                   <Width>3.29726in</Width>
@@ -4134,7 +4377,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line22">
-                  <Top>0.48396in</Top>
+                  <Top>0.47146in</Top>
                   <Left>4.1444in</Left>
                   <Height>0in</Height>
                   <Width>3.31392in</Width>
@@ -4146,7 +4389,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line23">
-                  <Top>0.9798in</Top>
+                  <Top>0.9298in</Top>
                   <Left>4.18192in</Left>
                   <Height>0in</Height>
                   <Width>3.27226in</Width>
@@ -4158,7 +4401,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line24">
-                  <Top>1.22954in</Top>
+                  <Top>1.17954in</Top>
                   <Left>4.17081in</Left>
                   <Height>0in</Height>
                   <Width>3.27226in</Width>
@@ -4170,7 +4413,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line25">
-                  <Top>1.46957in</Top>
+                  <Top>1.40707in</Top>
                   <Left>4.15692in</Left>
                   <Height>0in</Height>
                   <Width>3.29726in</Width>
@@ -4182,7 +4425,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line26">
-                  <Top>1.71793in</Top>
+                  <Top>1.63043in</Top>
                   <Left>4.18192in</Left>
                   <Height>0in</Height>
                   <Width>3.27226in</Width>
@@ -4194,8 +4437,8 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line27">
-                  <Top>1.96073in</Top>
-                  <Left>4.13606in</Left>
+                  <Top>1.87323in</Top>
+                  <Left>4.1444in</Left>
                   <Height>0in</Height>
                   <Width>3.31395in</Width>
                   <ZIndex>34</ZIndex>
@@ -4215,6 +4458,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Total_Ass_Amt.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4223,9 +4467,9 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Total_Ass_Amt</rd:DefaultName>
                   <Top>0.04306in</Top>
-                  <Left>5.95486in</Left>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.47014in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>35</ZIndex>
                   <Style>
                     <Border>
@@ -4243,6 +4487,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Frieght.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4251,9 +4496,9 @@ Fields!TYPE.Value ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Frieght</rd:DefaultName>
                   <Top>0.26471in</Top>
-                  <Left>5.94791in</Left>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.45208in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>36</ZIndex>
                   <Style>
                     <Border>
@@ -4271,6 +4516,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Insurance_val.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4278,10 +4524,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Insurance_val</rd:DefaultName>
-                  <Top>0.74552in</Top>
-                  <Left>5.94791in</Left>
+                  <Top>0.72052in</Top>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.45208in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>37</ZIndex>
                   <Style>
                     <Border>
@@ -4299,6 +4545,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Sub_total.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4306,10 +4553,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Sub_total</rd:DefaultName>
-                  <Top>0.99217in</Top>
-                  <Left>5.94791in</Left>
+                  <Top>0.96717in</Top>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.45208in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>38</ZIndex>
                   <Style>
                     <Border>
@@ -4327,6 +4574,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!PCess_Val.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4334,10 +4582,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>PCess_Val</rd:DefaultName>
-                  <Top>1.48548in</Top>
-                  <Left>5.95624in</Left>
+                  <Top>1.42298in</Top>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.45208in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>39</ZIndex>
                   <Style>
                     <Border>
@@ -4354,8 +4602,9 @@ Fields!TYPE.Value ="A","Bag")</Value>
                         <TextRun>
                           <Value>=First(Fields!Total_amount.Value, "InvoiceDataSet")</Value>
                           <Style>
-                            <FontSize>8pt</FontSize>
+                            <FontSize>9pt</FontSize>
                             <FontWeight>Bold</FontWeight>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4363,10 +4612,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Total_amount</rd:DefaultName>
-                  <Top>1.97879in</Top>
-                  <Left>5.94791in</Left>
-                  <Height>0.30814in</Height>
-                  <Width>1.45208in</Width>
+                  <Top>2.14823in</Top>
+                  <Left>5.96666in</Left>
+                  <Height>0.1637in</Height>
+                  <Width>1.425in</Width>
                   <ZIndex>40</ZIndex>
                   <Style>
                     <Border>
@@ -4384,6 +4633,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Total_Excise.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4391,10 +4641,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Total_Excise</rd:DefaultName>
-                  <Top>1.75713in</Top>
-                  <Left>5.94791in</Left>
+                  <Top>1.65713in</Top>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.45208in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>41</ZIndex>
                   <Style>
                     <Border>
@@ -4412,6 +4662,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!BED_Val.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4419,10 +4670,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>BED_Val</rd:DefaultName>
-                  <Top>1.23882in</Top>
-                  <Left>5.95624in</Left>
+                  <Top>1.20132in</Top>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.44375in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>42</ZIndex>
                   <Style>
                     <Border>
@@ -4440,6 +4691,7 @@ Fields!TYPE.Value ="A","Bag")</Value>
                           <Value>=First(Fields!Others.Value, "InvoiceDataSet")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -4447,10 +4699,10 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Others</rd:DefaultName>
-                  <Top>0.51136in</Top>
-                  <Left>5.95624in</Left>
+                  <Top>0.48636in</Top>
+                  <Left>5.96666in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.44375in</Width>
+                  <Width>1.425in</Width>
                   <ZIndex>43</ZIndex>
                   <Style>
                     <Border>
@@ -4507,11 +4759,140 @@ Fields!TYPE.Value ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>excamt</rd:DefaultName>
-                  <Top>1.02777in</Top>
+                  <Top>1.09166in</Top>
                   <Left>0.89167in</Left>
-                  <Height>0.44812in</Height>
+                  <Height>0.35675in</Height>
                   <Width>3.17359in</Width>
                   <ZIndex>45</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox70">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>HDFC Bank Ltd., A/c No. 50200058070092, IFSC Code - HDFC0002989, Lalru- 14501, Distt. - S.A.S Nagar, Mohali (Pb.) </Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox7</rd:DefaultName>
+                  <Top>1.9774in</Top>
+                  <Left>0.06666in</Left>
+                  <Height>0.35113in</Height>
+                  <Width>4.04859in</Width>
+                  <ZIndex>46</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox71">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>TCS </Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>=Fields!TCSPer.Value</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>%</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox7</rd:DefaultName>
+                  <Top>1.87367in</Top>
+                  <Left>4.18192in</Left>
+                  <Height>0.20056in</Height>
+                  <Width>1.63333in</Width>
+                  <ZIndex>47</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Line Name="Line30">
+                  <Top>2.11589in</Top>
+                  <Left>4.14023in</Left>
+                  <Height>0in</Height>
+                  <Width>3.31395in</Width>
+                  <ZIndex>48</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                  </Style>
+                </Line>
+                <Textbox Name="TCSVal">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Sum(Fields!TCSVal.Value, "InvoiceDataSet")</Value>
+                          <Style>
+                            <FontSize>8pt</FontSize>
+                            <Format>0.00;(0.00)</Format>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>TCSVal</rd:DefaultName>
+                  <Top>1.90147in</Top>
+                  <Left>5.97916in</Left>
+                  <Height>0.1801in</Height>
+                  <Width>1.425in</Width>
+                  <ZIndex>49</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -4525,8 +4906,8 @@ Fields!TYPE.Value ="A","Bag")</Value>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0.10501in</Left>
-              <Height>2.32854in</Height>
-              <Width>7.45832in</Width>
+              <Height>2.32859in</Height>
+              <Width>7.45835in</Width>
               <ZIndex>9</ZIndex>
               <Style>
                 <Border>
@@ -4649,6 +5030,16 @@ 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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="Capture">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

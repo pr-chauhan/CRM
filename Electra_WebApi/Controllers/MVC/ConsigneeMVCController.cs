@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Web.Mvc;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace Electra_WebApi.Controllers
 {
@@ -18,8 +19,9 @@ namespace Electra_WebApi.Controllers
             //}
             //else
             //{
-                var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
-                return View(lst);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
+            lst = lst.OrderBy(x => x.Consignee_Name).ToList();
+            return View(lst);
             //}
         }
 
@@ -31,29 +33,32 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
+            ViewBag.CL = lst.OrderBy(x => x.City_Name).ToList();
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Create(Consignee collection)
         {
             try
             {
-                ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
+                var lst = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
+                ViewBag.CL = lst.OrderBy(x => x.City_Name).ToList();
                 if (WebApiApplication.objCommon.ValidateValue<Consignee>("Consignee_Name", collection.Consignee_Name))
                 {
                     ModelState.AddModelError(nameof(Consignee.Consignee_Name), "Duplicate Consignee is not allowed..!!");
                     return View(collection);
                 }
-                var test = WebApiApplication.objCommon.ExecutePost(client, collection, WebApiApplication.staticVariables.ConsigneeApiName);
+                HttpClient client1 = new HttpClient();
+                var test = WebApiApplication.objCommon.ExecutePost(client1, collection, WebApiApplication.staticVariables.ConsigneeApiName);
                 if (test.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
                 }
                 return View(collection);
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
@@ -62,7 +67,8 @@ namespace Electra_WebApi.Controllers
         public ActionResult Edit(int id)
         {
             HttpClient client1 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<City>(client1, WebApiApplication.staticVariables.CityApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<City>(client1, WebApiApplication.staticVariables.CityApiName);
+            ViewBag.CL = l.OrderBy(x => x.City_Name).ToList();
             var lst = WebApiApplication.objCommon.ExecuteDetailByID<Consignee>(client, id.ToString(), WebApiApplication.staticVariables.ConsigneeApiName);
             return View(lst);
         }
@@ -134,19 +140,16 @@ namespace Electra_WebApi.Controllers
         {
             return WebApiApplication.objCommon.GetConsigneeNameByID(Consignee_id);
         }
-        //public string GetConsigneeAddress(int Consignee_id)
-        //{
-        //   // return WebApiApplication.objCommon.GetConsigneeAddressByID(Consignee_id);
-        //}
+
         public string GetCityName(int Consigneey_id)
         {
-           
-            var state = (from cg in WebApiApplication.db.Consignees 
+
+            var state = (from cg in WebApiApplication.db.Consignees
                          join ct in WebApiApplication.db.Cities on cg.City_ID equals ct.City_ID
                          where cg.Consignee_ID == Consigneey_id
                          select new
                          {
-                             City = ct.City_Name
+                             City = (ct.City_Name == null ? string.Empty : ct.City_Name)
                          }
                          ).ToList();
             // do here some operation  
@@ -156,7 +159,7 @@ namespace Electra_WebApi.Controllers
         {
 
             var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
-                         
+
             // do here some operation  
             return Json(state, JsonRequestBehavior.AllowGet);
         }
@@ -169,12 +172,12 @@ namespace Electra_WebApi.Controllers
                            where cg.Consignee_ID == Consigneey_id
                            select new
                            {
-                               _address = cg.address,
-                               _city = ct.City_Name,
-                               _state = st.State_Name,
-                               _range = cg.RAnge,
-                               _division = cg.Division,
-                               _comm_rate = cg.commission_rate
+                               _address = cg.address == null ? string.Empty : cg.address,
+                               _city = ct.City_Name == null ? string.Empty: ct.City_Name,
+                               _state = st.State_Name == null ? string.Empty : st.State_Name,
+                               _range = cg.RAnge == null ? string.Empty : cg.RAnge,
+                               _division = cg.Division == null ? string.Empty : cg.Division,
+                               _comm_rate = cg.commission_rate == null ? string.Empty :  cg.commission_rate,
                            }).ToList();
 
 

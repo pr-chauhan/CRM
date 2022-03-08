@@ -1182,6 +1182,10 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnConsignee_DelAddress;
             
+            private global::System.Data.DataColumn columnTCSPer;
+            
+            private global::System.Data.DataColumn columnTCSVal;
+            
             private global::System.Data.DataColumn columnsr_flag;
             
             private global::System.Data.DataColumn columnNo_of_pkg;
@@ -1505,6 +1509,22 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TCSPerColumn {
+                get {
+                    return this.columnTCSPer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TCSValColumn {
+                get {
+                    return this.columnTCSVal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn sr_flagColumn {
                 get {
                     return this.columnsr_flag;
@@ -1763,6 +1783,8 @@ namespace Electra_WebApi {
                         string Consignee_DelRange, 
                         string Consignee_DelCommRate, 
                         string Consignee_DelAddress, 
+                        decimal TCSPer, 
+                        decimal TCSVal, 
                         int sr_flag, 
                         int No_of_pkg, 
                         decimal Qty, 
@@ -1819,6 +1841,8 @@ namespace Electra_WebApi {
                         Consignee_DelRange,
                         Consignee_DelCommRate,
                         Consignee_DelAddress,
+                        TCSPer,
+                        TCSVal,
                         sr_flag,
                         No_of_pkg,
                         Qty,
@@ -1903,6 +1927,8 @@ namespace Electra_WebApi {
                 this.columnConsignee_DelRange = base.Columns["Consignee_DelRange"];
                 this.columnConsignee_DelCommRate = base.Columns["Consignee_DelCommRate"];
                 this.columnConsignee_DelAddress = base.Columns["Consignee_DelAddress"];
+                this.columnTCSPer = base.Columns["TCSPer"];
+                this.columnTCSVal = base.Columns["TCSVal"];
                 this.columnsr_flag = base.Columns["sr_flag"];
                 this.columnNo_of_pkg = base.Columns["No_of_pkg"];
                 this.columnQty = base.Columns["Qty"];
@@ -1992,6 +2018,10 @@ namespace Electra_WebApi {
                 base.Columns.Add(this.columnConsignee_DelCommRate);
                 this.columnConsignee_DelAddress = new global::System.Data.DataColumn("Consignee_DelAddress", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConsignee_DelAddress);
+                this.columnTCSPer = new global::System.Data.DataColumn("TCSPer", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTCSPer);
+                this.columnTCSVal = new global::System.Data.DataColumn("TCSVal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTCSVal);
                 this.columnsr_flag = new global::System.Data.DataColumn("sr_flag", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsr_flag);
                 this.columnNo_of_pkg = new global::System.Data.DataColumn("No_of_pkg", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3618,6 +3648,38 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal TCSPer {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.TCSPerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TCSPer\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.TCSPerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal TCSVal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_PrintInvoice.TCSValColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TCSVal\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.TCSValColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int sr_flag {
                 get {
                     try {
@@ -4334,6 +4396,30 @@ namespace Electra_WebApi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetConsignee_DelAddressNull() {
                 this[this.tableSP_PrintInvoice.Consignee_DelAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTCSPerNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.TCSPerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTCSPerNull() {
+                this[this.tableSP_PrintInvoice.TCSPerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTCSValNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.TCSValColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTCSValNull() {
+                this[this.tableSP_PrintInvoice.TCSValColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5712,6 +5798,8 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Consignee_DelRange", "Consignee_DelRange");
             tableMapping.ColumnMappings.Add("Consignee_DelCommRate", "Consignee_DelCommRate");
             tableMapping.ColumnMappings.Add("Consignee_DelAddress", "Consignee_DelAddress");
+            tableMapping.ColumnMappings.Add("TCSPer", "TCSPer");
+            tableMapping.ColumnMappings.Add("TCSVal", "TCSVal");
             tableMapping.ColumnMappings.Add("sr_flag", "sr_flag");
             tableMapping.ColumnMappings.Add("No_of_pkg", "No_of_pkg");
             tableMapping.ColumnMappings.Add("Qty", "Qty");
@@ -5961,14 +6049,28 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             this._commandCollection[0].CommandText = "dbo.SP_Summary";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_DateFrom", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Invoice_DateTo", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(InventoryDataSet.SP_SummaryDataTable dataTable) {
+        public virtual int Fill(InventoryDataSet.SP_SummaryDataTable dataTable, global::System.Nullable<global::System.DateTime> Invoice_DateFrom, global::System.Nullable<global::System.DateTime> Invoice_DateTo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Invoice_DateFrom.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Invoice_DateFrom.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Invoice_DateTo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(Invoice_DateTo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -5980,8 +6082,20 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual InventoryDataSet.SP_SummaryDataTable GetData() {
+        public virtual InventoryDataSet.SP_SummaryDataTable GetData(global::System.Nullable<global::System.DateTime> Invoice_DateFrom, global::System.Nullable<global::System.DateTime> Invoice_DateTo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Invoice_DateFrom.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Invoice_DateFrom.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Invoice_DateTo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(Invoice_DateTo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             InventoryDataSet.SP_SummaryDataTable dataTable = new InventoryDataSet.SP_SummaryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

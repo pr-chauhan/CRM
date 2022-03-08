@@ -49,17 +49,14 @@ namespace EntityClass
         public string Consignee_DelAddress { get; set; }
 
         [StringLength(255)]
-        [Required]
         [DisplayName("Range")]
         public string Consignee_DelRange { get; set; }
 
         [StringLength(255)]
-        [Required]
         [DisplayName("Division")]
         public string Consignee_DelDivision { get; set; }
 
         [StringLength(255)]
-        [Required]
         [DisplayName("Commission Rate")]
         public string Consignee_DelCommRate { get; set; }
 

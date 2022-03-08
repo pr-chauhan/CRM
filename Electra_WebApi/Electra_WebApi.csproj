@@ -437,12 +437,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="InventoryDataSet.xsc">
-      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
-    </Content>
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
+    <Content Include="InventoryDataSet.xsc">
+      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="InventoryDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>InventoryDataSet.Designer.cs</LastGenOutput>

@@ -1,4 +1,5 @@
 ﻿using EntityClass;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Mvc;
 
@@ -17,7 +18,8 @@ namespace Electra_WebApi.Controllers
             //else
             //{
                 var lst = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
-                return View(lst);
+            lst = lst.OrderBy(x => x.City_Name).ToList();
+            return View(lst);
             //}
         }
 
@@ -29,7 +31,8 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<State>(client, WebApiApplication.staticVariables.StateApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<State>(client, WebApiApplication.staticVariables.StateApiName);
+            ViewBag.CL = lst.OrderBy(x => x.State_Name).ToList();
             return View();
         }
 
@@ -39,8 +42,9 @@ namespace Electra_WebApi.Controllers
             try
             {
                 HttpClient clientNew = new HttpClient();
-                ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
-                if(WebApiApplication.objCommon.ValidateValue<City>("City_Name", collection.City_Name))
+                var lst = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
+                ViewBag.CL = lst.OrderBy(x => x.State_Name).ToList();
+                if (WebApiApplication.objCommon.ValidateValue<City>("City_Name", collection.City_Name))
                 {
                      ModelState.AddModelError(nameof(City.City_Name), "Duplicate City is not allowed..!!");
                     return View(collection);
@@ -61,7 +65,8 @@ namespace Electra_WebApi.Controllers
         public ActionResult Edit(int id)
         {
             HttpClient clientNew = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
+            ViewBag.CL = l.OrderBy(x => x.State_Name).ToList();
             var lst = WebApiApplication.objCommon.ExecuteDetailByID<City>(client, id.ToString(), WebApiApplication.staticVariables.CityApiName);
             return View(lst);
         }
@@ -72,7 +77,8 @@ namespace Electra_WebApi.Controllers
             try
             {
                 HttpClient clientNew = new HttpClient();
-                ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
+                var lst = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
+                ViewBag.CL = lst.OrderBy(x => x.State_Name).ToList();
                 var test = WebApiApplication.objCommon.ExecutePut(client, collection, WebApiApplication.staticVariables.CityApiName);
                 if (test.IsSuccessStatusCode)
                 {

@@ -1,4 +1,5 @@
 ﻿using EntityClass;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Mvc;
 using System.Windows;
@@ -17,8 +18,9 @@ namespace Electra_WebApi.Controllers
             //}
             //else
             //{
-                var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
-                return View(lst);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
+            lst = lst.OrderBy(x => x.User_Name).ToList();
+            return View(lst);
             //}
         }
 

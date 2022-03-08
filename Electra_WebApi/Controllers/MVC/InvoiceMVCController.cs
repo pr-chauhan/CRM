@@ -39,9 +39,11 @@ namespace Electra_WebApi.Controllers
         public ActionResult Create()
         {
             HttpClient client1 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
-            ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client1, WebApiApplication.staticVariables.ItemApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client1, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             //ViewBag.INVID = WebApiApplication.objCommon.GetInvoiceMaxNo();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
             ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
@@ -53,8 +55,10 @@ namespace Electra_WebApi.Controllers
         {
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
             ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
@@ -98,8 +102,10 @@ namespace Electra_WebApi.Controllers
             InvoiceModel invoices = new InvoiceModel();
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             WebApiApplication.db.SaveChangesAsync();
             invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id); ;
             WebApiApplication.db.Entry(invoices.invoice).State = System.Data.Entity.EntityState.Detached;
@@ -117,8 +123,10 @@ namespace Electra_WebApi.Controllers
         {
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
             client.BaseAddress = new Uri(WebApiApplication.staticVariables.ServerSuffix + "api/" + WebApiApplication.staticVariables.InvoiceApiName);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -171,8 +179,10 @@ namespace Electra_WebApi.Controllers
             InvoiceModel invoices = new InvoiceModel();
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id);
             var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
             ViewBag.DataList = data;
@@ -188,8 +198,10 @@ namespace Electra_WebApi.Controllers
             InvoiceModel invoices = new InvoiceModel();
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
-            ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            ViewBag.IT = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id);
             var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
             ViewBag.DataList = data;
@@ -212,7 +224,8 @@ namespace Electra_WebApi.Controllers
                 var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail Where Invoice_Id=" + invoiceModel.invoice.Invoice_ID + " and  Financial_Yr =" + invoiceModel.invoice.Financial_Yr);
                 ViewBag.DataList = data;
                 HttpClient client1 = new HttpClient();
-                ViewBag.CL = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+                var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+                ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
                 ViewBag.IDT = invoiceModel.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
                 ViewBag.RDT = invoiceModel.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
                 ViewBag.ITime = invoiceModel.invoice.Removal_Time;
