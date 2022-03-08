@@ -54,6 +54,8 @@ namespace Electra_WebApi.Controllers
                 HttpClient client = new HttpClient();
                 var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
                 ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+                ViewBag.DTF = System.DateTime.Today.ToString("yyyy-MM-dd");
+                ViewBag.DTT = System.DateTime.Today.ToString("yyyy-MM-dd");
                 return View();
             }
             else
@@ -76,6 +78,8 @@ namespace Electra_WebApi.Controllers
             //{
             if (fromdate == null || todate == null)
             {
+                ViewBag.DTF = System.DateTime.Today.ToString("yyyy-MM-dd");
+                ViewBag.DTT = System.DateTime.Today.ToString("yyyy-MM-dd");
                 return View();
             }
             else
@@ -102,6 +106,8 @@ namespace Electra_WebApi.Controllers
             //{
             if (fromdate == null || todate == null)
             {
+                ViewBag.DTF = System.DateTime.Today.ToString("yyyy-MM-dd");
+                ViewBag.DTT = System.DateTime.Today.ToString("yyyy-MM-dd");
                 return View();
             }
             else
@@ -114,6 +120,16 @@ namespace Electra_WebApi.Controllers
                 //return null;
             }
             //}
+        }
+
+        public JsonResult getInvoiceList(string Financial_Yr)
+        {
+            HttpClient client = new HttpClient();
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
+           var List = lst.Where(x=> x.Financial_Yr.Equals(Financial_Yr)).OrderBy(x => x.Invoice_ID).ToList();
+            return Json(List, JsonRequestBehavior.AllowGet);
+
+
         }
     }
 }

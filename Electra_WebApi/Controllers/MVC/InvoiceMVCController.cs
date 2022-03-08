@@ -53,6 +53,11 @@ namespace Electra_WebApi.Controllers
         [HttpPost]
         public ActionResult Create(InvoiceModel invoiceModel)
         {
+            string[] RemovalTime = invoiceModel.invoice.Removal_Time.Split(':');
+            if (RemovalTime[0] == "00")
+            {
+                invoiceModel.invoice.Removal_Time = "12" + ":" + RemovalTime[1] + ":" + RemovalTime[2];
+            }
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
             var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
@@ -70,10 +75,11 @@ namespace Electra_WebApi.Controllers
             return View();
         }
 
-        public JsonResult SaveInvoiceDetail(string Item_id, string No_of_pkg,string type, string Qty, string Rate, string Total_amt,string description,string fy_year,string invoiceid)
+        public JsonResult SaveInvoiceDetail(string rID, string Item_id, string No_of_pkg,string type, string Qty, string Rate, string Total_amt,string description,string fy_year,string invoiceid)
         {
             Invoice_Detail invoice_Detail = new Invoice_Detail
             {
+                sr_flag= int.Parse(rID),
                 Financial_Yr = fy_year,
                 Invoice_Id = int.Parse(invoiceid),
                 Item_id = int.Parse(Item_id),
@@ -121,6 +127,11 @@ namespace Electra_WebApi.Controllers
         [HttpPost]
         public ActionResult Edit(InvoiceModel invoiceModel)
         {
+            string[] RemovalTime = invoiceModel.invoice.Removal_Time.Split(':');
+            if (RemovalTime[0] == "00")
+            { 
+                invoiceModel.invoice.Removal_Time = "12" + ":" + RemovalTime[1] + ":" + RemovalTime[2]; 
+            }
             HttpClient client1 = new HttpClient();
             HttpClient client2 = new HttpClient();
             var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
@@ -150,7 +161,7 @@ namespace Electra_WebApi.Controllers
             responseDet.Wait();
             var testDet = responseDet.Result;
         }
-        public JsonResult UpdateInvoiceDetail(string row, string Item_id, string No_of_pkg, string type, string Qty, string Rate, string Total_amt, string description, string fy_year, string invoiceid)
+        public JsonResult UpdateInvoiceDetail(string rID, string Item_id, string No_of_pkg, string type, string Qty, string Rate, string Total_amt, string description, string fy_year, string invoiceid)
         {
             if(itemCount == 0)
             { 
@@ -159,6 +170,7 @@ namespace Electra_WebApi.Controllers
             }
             Invoice_Detail invoice_Detail = new Invoice_Detail
             {
+                sr_flag = int.Parse(rID),
                 Financial_Yr = fy_year,
                 Invoice_Id = int.Parse(invoiceid),
                 Item_id = int.Parse(Item_id),
