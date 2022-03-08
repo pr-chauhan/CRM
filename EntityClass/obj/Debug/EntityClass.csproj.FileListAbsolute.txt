@@ -43,4 +43,16 @@ D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs
 D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.csproj.CopyComplete
 D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.dll
 D:\Elecra_New\electra\EntityClass\obj\Debug\EntityClass.pdb
+D:\Electra060322\EntityClass\bin\Debug\EntityClass.dll.config
+D:\Electra060322\EntityClass\bin\Debug\EntityClass.dll
+D:\Electra060322\EntityClass\bin\Debug\EntityClass.pdb
+D:\Electra060322\EntityClass\bin\Debug\EntityFramework.dll
+D:\Electra060322\EntityClass\bin\Debug\EntityFramework.SqlServer.dll
+D:\Electra060322\EntityClass\bin\Debug\EntityFramework.xml
+D:\Electra060322\EntityClass\bin\Debug\EntityFramework.SqlServer.xml
+D:\Electra060322\EntityClass\obj\Debug\EntityClass.csproj.CoreCompileInputs.cache
+D:\Electra060322\EntityClass\obj\Debug\EntityClass.csproj.CopyComplete
+D:\Electra060322\EntityClass\obj\Debug\EntityClass.dll
+D:\Electra060322\EntityClass\obj\Debug\EntityClass.pdb
+D:\Electra060322\EntityClass\obj\Debug\EntityClass.csproj.AssemblyReference.cache
 D:\Projects\Electra\EntityClass\obj\Debug\EntityClass.csproj.AssemblyReference.cache
