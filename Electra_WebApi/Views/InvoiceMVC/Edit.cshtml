@@ -284,7 +284,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:60px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -302,7 +302,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:60px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -337,7 +337,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:60px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -355,7 +355,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:60px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -370,7 +370,8 @@
             </div>
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @*@Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })*@
+                <input type="text" id="GrandTotal" class="form-control" readonly="readonly" style="background-color: #FFA500;" />
                 @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
@@ -426,10 +427,14 @@
                         $("#invoice_Con_Adr_Check").prop('checked', false);
                     });
 
+                    if ($("#invoice_Con_Adr_Check").val() == "T") {
+                        $("#Con_Adr_Check").prop('checked', true);
+                    }
                     $("#invoice_Con_Adr_Check").hide();
                     $("#Con_Adr_Check").change(function () {
                         if ($(this).is(':checked')) {
                             $("#ConsigneeDelAddress").val($("#ConsigneeAddress").val());
+                            $("#DEL_PARTY").val($("#Consignee_ID").val());
                             $("#invoice_Con_Adr_Check").val("T");
                             $("#ConsigneeDelAddress").attr('readonly', true);
                             $("#Consignee_DelRange").attr('readonly', true);
@@ -744,7 +749,11 @@
                         if (TcsPer > 0) {
                             TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                             $("#invoice_TCSVal").val(TcsVal);
+                        } else {
+                            TcsVal = 0;
+                            $("#invoice_TCSVal").val(TcsVal);
                         }
+                        $("#GrandTotal").val(Math.round(TotalAmount + TcsVal, 2));
 
                     }
 
@@ -828,6 +837,7 @@
                         var Rate = 0;
                         var Total_amt = 0;
                         var row;
+                        var rID = 1;
                         $("#ItemDetailsTable TBODY TR").each(function() {
                             row = $(this);
                             Item_id = row.find("td:eq(0) input[type='text']").val();
@@ -840,6 +850,7 @@
                             fy_year = $("#Financial_Yr").val();
                             invoiceid = $("#Invoice_ID").val();
                             $.post("/InvoiceMVC/UpdateInvoiceDetail", {
+                                rID: rID,
                                 Item_id: Item_id, No_of_pkg: No_of_pkg,
                                 type: type, Qty: Qty, Rate: Rate, Total_amt:
                                     Total_amt, description: description,
@@ -847,12 +858,47 @@
                             }, function (data) {
                                 //  alert("Done");
                             });
+                            rID += 1;
                         });
                     });
                 });
 
+                var TVal = 0;
+                var TotAmount = 0;
+                TVal = Math.round($("#invoice_TCSVal").val(),2);
+                var TotAmount = Math.round( $("#invoice_Total_amount").val(),2);
+                $("#GrandTotal").val(Math.round(TotAmount + TVal, 2));
 
-
+                if ($("#GSTType").val() == "CGST/SGST") {
+                    $("#lGSTPercent").text("CGST Percent");
+                    $("#lGSTValue").text("CGST Value");
+                    $("#GSTPercent").val(6);
+                    $("#invoice_PCess_Per").val(6);
+                    $("#invoice_PCess_Per").show();
+                    $("#invoice_PCess_Val").show();
+                    $("#lPCess_Per").show();
+                    $("#lPCess_Val").show();
+                }
+                if ($("#GSTType").val() == "UGST") {
+                    $("#lGSTPercent").text("UGST Percent");
+                    $("#lGSTValue").text("UGST Value");
+                    $("#GSTPercent").val(12);
+                    $("#invoice_PCess_Per").val(0);
+                    $("#invoice_PCess_Per").hide();
+                    $("#invoice_PCess_Val").hide();
+                    $("#lPCess_Per").hide();
+                    $("#lPCess_Val").hide();
+                }
+                if ($("#GSTType").val() == "IGST") {
+                    $("#lGSTPercent").text("IGST Percent");
+                    $("#lGSTValue").text("IGST Value");
+                    $("#GSTPercent").val(12);
+                    $("#invoice_PCess_Per").hide();
+                    $("#invoice_PCess_Val").hide();
+                    $("#lPCess_Per").hide();
+                    $("#lPCess_Val").hide();
+                    $("#invoice_PCess_Per").val(0);
+                }
 
             });
             function removeTr(index) {
@@ -924,6 +970,11 @@
                         TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                         $("#invoice_TCSVal").val(TcsVal);
                     }
+                    else {
+                        TcsVal = 0;
+                        $("#invoice_TCSVal").val(TcsVal);
+                    }
+                    $("#GrandTotal").val(Math.round(TotalAmount + TcsVal, 2));
                     return false;
                 }
 

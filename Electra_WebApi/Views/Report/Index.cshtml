@@ -39,7 +39,7 @@
                 </div>
                 <div style="width:350px;float:left;margin-left:50px;">
 
-                    <input type="radio" id="origianl" value="Original for buyer" name="Invoice" />
+                    <input type="radio" id="origianl" checked="checked" value="Original for buyer" name="Invoice" />
                     <label for="origianl">Original for buyer</label>
                     <br />
 
@@ -74,10 +74,26 @@
     <script type="text/javascript" src="~/Scripts/jquery-3.6.0.js"></script>
     <script type="text/javascript">
         $(function () {
+            var Financial_Yr ='';
+            var Invoice_ID = 0;
+            var optoin = '';
+            $("#Financial_Yr").change(function () {
+                Financial_Yr = $("#Financial_Yr").val();
+                $.getJSON("/Report/getInvoiceList", { Financial_Yr: Financial_Yr }, function (data) {
+                    $('#Invoice_ID')
+                        .empty()
+                        .append('<option selected="selected" value="">Select</option>');
+                    for (var i = 0; i <= data.length; i++) {
+                        $("#Invoice_ID").append('<option value="' + data[i].Invoice_ID + '">' + data[i].Invoice_ID + '</option>');
+                    }
+                });
+            });
+            
+
             $("#ViewReport").click(function () {
-                var Financial_Yr = $("#Financial_Yr").val();
-                var Invoice_ID = $("#Invoice_ID").val();
-                var optoin = $('input[name="Invoice"]:checked').val();
+                 Financial_Yr = $("#Financial_Yr").val();
+                 Invoice_ID = $("#Invoice_ID").val();
+                 optoin = $('input[name="Invoice"]:checked').val();
                // alert(Financial_Yr + Invoice_ID + optoin);
                 $.get("/Report/Index", { Financial_Yr: Financial_Yr, Invoice_ID: Invoice_ID, optoin: optoin }, function (data) {
                     window.location.replace("/Reports/PrintInvoice.aspx");

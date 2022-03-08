@@ -342,9 +342,10 @@
                 </table>
             </div>
             <div class="col-md-2">
-                @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label", @Text="Grand Total" })
+                @*@Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" ,@id="GrandTotal"} })*@
+                <input type="text" id="GrandTotal" class="form-control" readonly="readonly" style="background-color: #FFA500;" />
+                 @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
                 <input id="submit" type="submit" value="Create" class="btn btn-success" style="float:right;zoom:1.25;" />
@@ -406,6 +407,7 @@
                     $("#Con_Adr_Check").change(function () {
                         if ($(this).is(':checked')) {
                             $("#ConsigneeDelAddress").val($("#ConsigneeAddress").val());
+                            $("#DEL_PARTY").val($("#Consignee_ID").val());
                             $("#invoice_Con_Adr_Check").val("T");
                             $("#ConsigneeDelAddress").attr('readonly', true);
                             $("#Consignee_DelRange").attr('readonly', true);
@@ -721,7 +723,11 @@
                             TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                             $("#invoice_TCSVal").val(TcsVal);
                         }
-
+                        else {
+                            TcsVal = 0;
+                            $("#invoice_TCSVal").val(TcsVal);
+                        }
+                        $("#GrandTotal").val(Math.round(TotalAmount + TcsVal,2));
                     }
 
                     $("#submit").click(function () {
@@ -794,11 +800,12 @@
                         var Rate = 0;
                         var Total_amt = 0;
                         var row;
+                        var rID = 1;
                         $("#ItemDetailsTable TBODY TR").each(function () {
                             row = $(this);
                             Item_id = row.find("td:eq(0) input[type='text']").val();
                             No_of_pkg = row.find("td:eq(2) input[type='text']").val();
-                            type = row.find("td:eq(3) input[type='text']").val();
+                            type = row.find("td:eq(3) input[type='text']").val().trim();
                             Qty = row.find("td:eq(4) input[type='text']").val();
                             Rate = row.find("td:eq(5) input[type='text']").val();;
                             Total_amt = row.find("td:eq(6) input[type='text']").val();
@@ -808,6 +815,7 @@
 
 
                             $.post("/InvoiceMVC/SaveInvoiceDetail", {
+                                rID: rID,
                                 Item_id: Item_id, No_of_pkg: No_of_pkg,
                                 type: type, Qty: Qty, Rate: Rate, Total_amt:
                                     Total_amt, description: description,
@@ -815,6 +823,7 @@
                             }, function (data) {
                                 //  alert("Done");
                             });
+                            rID += 1;
                         });
                     });
                 });
@@ -888,6 +897,11 @@
                         TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                         $("#invoice_TCSVal").val(TcsVal);
                     }
+                    else {
+                        TcsVal =0;
+                        $("#invoice_TCSVal").val(TcsVal);
+                    }
+                    $("#GrandTotal").val(Math.round(TotalAmount + TcsVal, 2));
                     return false;
                 }
 
