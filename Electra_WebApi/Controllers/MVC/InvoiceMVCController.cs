@@ -13,7 +13,7 @@ namespace Electra_WebApi.Controllers
     {
         private readonly HttpClient client = new HttpClient();
         private int itemCount = 0;
-        private static string financial_yearr;
+       
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
@@ -23,7 +23,7 @@ namespace Electra_WebApi.Controllers
             else
             {
                 var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
-                lst = lst.Where(x => x.Financial_Yr == financial_yearr).ToList();
+                lst = lst.Where(x => x.Financial_Yr == StaticVariables.Financial_Year).ToList();
                 return View(lst);
             }
         }
@@ -32,8 +32,10 @@ namespace Electra_WebApi.Controllers
         {
             var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
             lst = lst.Where(x => x.Financial_Yr == financial_yr).ToList();
-            financial_yearr = financial_yr;
+            StaticVariables.Financial_Year = financial_yr;
+           
             return RedirectToAction("Index", lst);
+           
         }
         public ActionResult Create()
         {
@@ -45,6 +47,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
             ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
+            ViewBag.FY = StaticVariables.Financial_Year;
             return View();
         }
 

@@ -26,9 +26,8 @@
                                     new SelectListItem {Text = "2021-2022", Value = "2021-2022"},
                                     new SelectListItem {Text = "2022-2023", Value = "2022-2023"}, }, "Value", "Text");
                     }
-
                     @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text"), new { @class = "form-control", @style = "width:140px;", @id = "Financial_Yr" })
+                    @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text", ViewBag.FY), new { @class = "form-control", @style = "width:140px;", @id = "Financial_Yr"  })
                     @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
@@ -77,7 +76,7 @@
             <div class="col-md-12">
                 <div class="col-md-3">
                     @Html.LabelFor(model => model.invoice.Consignee_ID, htmlAttributes: new { @class = "control-label " })
-                    @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @style = "width:450px;", @id = "Consignee_ID" })
+                    @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"),"", new { @class = "form-control", @style = "width:450px;", @id = "Consignee_ID" })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_ID, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-9">
@@ -99,7 +98,7 @@
                     @Html.LabelFor(model => model.invoice.Con_Adr_Check, htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.invoice.Con_Adr_Check, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.invoice.Con_Adr_Check, "", new { @class = "text-danger" })
-                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @style = "width:450px;", @id = "DEL_PARTY" })
+                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"),"", new { @class = "form-control", @style = "width:450px;", @id = "DEL_PARTY" })
                     @Html.ValidationMessageFor(model => model.invoice.DEL_PARTY, "", new { @class = "text-danger" })
                 </div>
 
@@ -735,6 +734,14 @@
                             alert("Please check PO Number.");
                             return false;
                         }
+                        if ($("#Consignee_ID").val() == "") {
+                            alert("Please check consignee.");
+                            return false;
+                        }
+                        if ($("#DEL_PARTY").val() == "") {
+                            alert("Please check delivery party.");
+                            return false;
+                        }
                         if ($("#ConsigneeAddress").val() == "") {
                             alert("Please check consignee address.");
                             return false;
@@ -780,9 +787,11 @@
                             alert("Please check From Batouli To.");
                             return false;
                         }
-                        if ($("#DESTINATION2").val() == "") {
-                            alert("Please check To : Destination.");
-                            return false;
+                        if ($("#DEST_FLAG").is(':checked')) {
+                            if ($("#DESTINATION2").val() == "") {
+                                alert("Please check To : Destination.");
+                                return false;
+                            }
                         }
                         if ($("#GSTType").val() == "") {
                             alert("Please check GST Type.");
