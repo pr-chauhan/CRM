@@ -406,6 +406,8 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnFrieght;
             
+            private global::System.Data.DataColumn columnTCSVal;
+            
             private global::System.Data.DataColumn columnTotal_Ass_Amt;
             
             private global::System.Data.DataColumn columnConsignee_Name;
@@ -533,6 +535,14 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TCSValColumn {
+                get {
+                    return this.columnTCSVal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Total_Ass_AmtColumn {
                 get {
                     return this.columnTotal_Ass_Amt;
@@ -584,7 +594,7 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SP_DatewiseInvoiceRow AddSP_DatewiseInvoiceRow(int Invoice_ID, System.DateTime Invoice_Date, double Total_amount, string Financial_Yr, double PCess_Val, double IGST, double UGST, double CGST, double Insurance_val, double Others, double Frieght, double Total_Ass_Amt, string Consignee_Name) {
+            public SP_DatewiseInvoiceRow AddSP_DatewiseInvoiceRow(int Invoice_ID, System.DateTime Invoice_Date, double Total_amount, string Financial_Yr, double PCess_Val, double IGST, double UGST, double CGST, double Insurance_val, double Others, double Frieght, decimal TCSVal, double Total_Ass_Amt, string Consignee_Name) {
                 SP_DatewiseInvoiceRow rowSP_DatewiseInvoiceRow = ((SP_DatewiseInvoiceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Invoice_ID,
@@ -598,6 +608,7 @@ namespace Electra_WebApi {
                         Insurance_val,
                         Others,
                         Frieght,
+                        TCSVal,
                         Total_Ass_Amt,
                         Consignee_Name};
                 rowSP_DatewiseInvoiceRow.ItemArray = columnValuesArray;
@@ -641,6 +652,7 @@ namespace Electra_WebApi {
                 this.columnInsurance_val = base.Columns["Insurance_val"];
                 this.columnOthers = base.Columns["Others"];
                 this.columnFrieght = base.Columns["Frieght"];
+                this.columnTCSVal = base.Columns["TCSVal"];
                 this.columnTotal_Ass_Amt = base.Columns["Total_Ass_Amt"];
                 this.columnConsignee_Name = base.Columns["Consignee_Name"];
             }
@@ -670,6 +682,8 @@ namespace Electra_WebApi {
                 base.Columns.Add(this.columnOthers);
                 this.columnFrieght = new global::System.Data.DataColumn("Frieght", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFrieght);
+                this.columnTCSVal = new global::System.Data.DataColumn("TCSVal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTCSVal);
                 this.columnTotal_Ass_Amt = new global::System.Data.DataColumn("Total_Ass_Amt", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Ass_Amt);
                 this.columnConsignee_Name = new global::System.Data.DataColumn("Consignee_Name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1186,6 +1200,8 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnTCSVal;
             
+            private global::System.Data.DataColumn columnVat_CST_flag;
+            
             private global::System.Data.DataColumn columnsr_flag;
             
             private global::System.Data.DataColumn columnNo_of_pkg;
@@ -1525,6 +1541,14 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Vat_CST_flagColumn {
+                get {
+                    return this.columnVat_CST_flag;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn sr_flagColumn {
                 get {
                     return this.columnsr_flag;
@@ -1785,6 +1809,7 @@ namespace Electra_WebApi {
                         string Consignee_DelAddress, 
                         decimal TCSPer, 
                         decimal TCSVal, 
+                        string Vat_CST_flag, 
                         int sr_flag, 
                         int No_of_pkg, 
                         decimal Qty, 
@@ -1843,6 +1868,7 @@ namespace Electra_WebApi {
                         Consignee_DelAddress,
                         TCSPer,
                         TCSVal,
+                        Vat_CST_flag,
                         sr_flag,
                         No_of_pkg,
                         Qty,
@@ -1929,6 +1955,7 @@ namespace Electra_WebApi {
                 this.columnConsignee_DelAddress = base.Columns["Consignee_DelAddress"];
                 this.columnTCSPer = base.Columns["TCSPer"];
                 this.columnTCSVal = base.Columns["TCSVal"];
+                this.columnVat_CST_flag = base.Columns["Vat_CST_flag"];
                 this.columnsr_flag = base.Columns["sr_flag"];
                 this.columnNo_of_pkg = base.Columns["No_of_pkg"];
                 this.columnQty = base.Columns["Qty"];
@@ -2022,6 +2049,8 @@ namespace Electra_WebApi {
                 base.Columns.Add(this.columnTCSPer);
                 this.columnTCSVal = new global::System.Data.DataColumn("TCSVal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTCSVal);
+                this.columnVat_CST_flag = new global::System.Data.DataColumn("Vat_CST_flag", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVat_CST_flag);
                 this.columnsr_flag = new global::System.Data.DataColumn("sr_flag", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsr_flag);
                 this.columnNo_of_pkg = new global::System.Data.DataColumn("No_of_pkg", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2089,6 +2118,7 @@ namespace Electra_WebApi {
                 this.columnConsignee_DelRange.MaxLength = 255;
                 this.columnConsignee_DelCommRate.MaxLength = 255;
                 this.columnConsignee_DelAddress.MaxLength = 255;
+                this.columnVat_CST_flag.MaxLength = 255;
                 this.columnDEC.MaxLength = 255;
                 this.columnTYPE.MaxLength = 255;
                 this.columnItem_Name.MaxLength = 255;
@@ -2250,10 +2280,6 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnqty;
             
-            private global::System.Data.DataColumn columntotal_amt;
-            
-            private global::System.Data.DataColumn columntotal_excise;
-            
             private global::System.Data.DataColumn columnIGSTVAL;
             
             private global::System.Data.DataColumn columnUGSTVAL;
@@ -2262,9 +2288,19 @@ namespace Electra_WebApi {
             
             private global::System.Data.DataColumn columnSGSTVAL;
             
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnfreightVal;
             
-            private global::System.Data.DataColumn columnExpr2;
+            private global::System.Data.DataColumn columnTcsVl;
+            
+            private global::System.Data.DataColumn columntotExise;
+            
+            private global::System.Data.DataColumn columntotAmt;
+            
+            private global::System.Data.DataColumn columntotAssAmt;
+            
+            private global::System.Data.DataColumn columntotIns;
+            
+            private global::System.Data.DataColumn columntotOthrs;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2341,22 +2377,6 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn total_amtColumn {
-                get {
-                    return this.columntotal_amt;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn total_exciseColumn {
-                get {
-                    return this.columntotal_excise;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn IGSTVALColumn {
                 get {
                     return this.columnIGSTVAL;
@@ -2389,17 +2409,57 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn freightValColumn {
                 get {
-                    return this.columnExpr1;
+                    return this.columnfreightVal;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Expr2Column {
+            public global::System.Data.DataColumn TcsVlColumn {
                 get {
-                    return this.columnExpr2;
+                    return this.columnTcsVl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totExiseColumn {
+                get {
+                    return this.columntotExise;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totAmtColumn {
+                get {
+                    return this.columntotAmt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totAssAmtColumn {
+                get {
+                    return this.columntotAssAmt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totInsColumn {
+                get {
+                    return this.columntotIns;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn totOthrsColumn {
+                get {
+                    return this.columntotOthrs;
                 }
             }
             
@@ -2440,7 +2500,23 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SP_SummaryRow AddSP_SummaryRow(string financial_yr, System.DateTime invoice_date, int invoice_id, string item_name, decimal qty, double total_amt, double total_excise, double IGSTVAL, double UGSTVAL, double CGSTVAL, double SGSTVAL, double Expr1, double Expr2) {
+            public SP_SummaryRow AddSP_SummaryRow(
+                        string financial_yr, 
+                        System.DateTime invoice_date, 
+                        int invoice_id, 
+                        string item_name, 
+                        decimal qty, 
+                        double IGSTVAL, 
+                        double UGSTVAL, 
+                        double CGSTVAL, 
+                        double SGSTVAL, 
+                        double freightVal, 
+                        decimal TcsVl, 
+                        double totExise, 
+                        double totAmt, 
+                        double totAssAmt, 
+                        double totIns, 
+                        double totOthrs) {
                 SP_SummaryRow rowSP_SummaryRow = ((SP_SummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         financial_yr,
@@ -2448,14 +2524,17 @@ namespace Electra_WebApi {
                         invoice_id,
                         item_name,
                         qty,
-                        total_amt,
-                        total_excise,
                         IGSTVAL,
                         UGSTVAL,
                         CGSTVAL,
                         SGSTVAL,
-                        Expr1,
-                        Expr2};
+                        freightVal,
+                        TcsVl,
+                        totExise,
+                        totAmt,
+                        totAssAmt,
+                        totIns,
+                        totOthrs};
                 rowSP_SummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_SummaryRow);
                 return rowSP_SummaryRow;
@@ -2483,14 +2562,17 @@ namespace Electra_WebApi {
                 this.columninvoice_id = base.Columns["invoice_id"];
                 this.columnitem_name = base.Columns["item_name"];
                 this.columnqty = base.Columns["qty"];
-                this.columntotal_amt = base.Columns["total_amt"];
-                this.columntotal_excise = base.Columns["total_excise"];
                 this.columnIGSTVAL = base.Columns["IGSTVAL"];
                 this.columnUGSTVAL = base.Columns["UGSTVAL"];
                 this.columnCGSTVAL = base.Columns["CGSTVAL"];
                 this.columnSGSTVAL = base.Columns["SGSTVAL"];
-                this.columnExpr1 = base.Columns["Expr1"];
-                this.columnExpr2 = base.Columns["Expr2"];
+                this.columnfreightVal = base.Columns["freightVal"];
+                this.columnTcsVl = base.Columns["TcsVl"];
+                this.columntotExise = base.Columns["totExise"];
+                this.columntotAmt = base.Columns["totAmt"];
+                this.columntotAssAmt = base.Columns["totAssAmt"];
+                this.columntotIns = base.Columns["totIns"];
+                this.columntotOthrs = base.Columns["totOthrs"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2506,10 +2588,6 @@ namespace Electra_WebApi {
                 base.Columns.Add(this.columnitem_name);
                 this.columnqty = new global::System.Data.DataColumn("qty", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnqty);
-                this.columntotal_amt = new global::System.Data.DataColumn("total_amt", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal_amt);
-                this.columntotal_excise = new global::System.Data.DataColumn("total_excise", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal_excise);
                 this.columnIGSTVAL = new global::System.Data.DataColumn("IGSTVAL", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIGSTVAL);
                 this.columnUGSTVAL = new global::System.Data.DataColumn("UGSTVAL", typeof(double), null, global::System.Data.MappingType.Element);
@@ -2518,18 +2596,33 @@ namespace Electra_WebApi {
                 base.Columns.Add(this.columnCGSTVAL);
                 this.columnSGSTVAL = new global::System.Data.DataColumn("SGSTVAL", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSGSTVAL);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
-                this.columnExpr2 = new global::System.Data.DataColumn("Expr2", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr2);
+                this.columnfreightVal = new global::System.Data.DataColumn("freightVal", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfreightVal);
+                this.columnTcsVl = new global::System.Data.DataColumn("TcsVl", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTcsVl);
+                this.columntotExise = new global::System.Data.DataColumn("totExise", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotExise);
+                this.columntotAmt = new global::System.Data.DataColumn("totAmt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotAmt);
+                this.columntotAssAmt = new global::System.Data.DataColumn("totAssAmt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotAssAmt);
+                this.columntotIns = new global::System.Data.DataColumn("totIns", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotIns);
+                this.columntotOthrs = new global::System.Data.DataColumn("totOthrs", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotOthrs);
                 this.columnfinancial_yr.MaxLength = 10;
                 this.columnitem_name.MaxLength = 255;
                 this.columnIGSTVAL.ReadOnly = true;
                 this.columnUGSTVAL.ReadOnly = true;
                 this.columnCGSTVAL.ReadOnly = true;
                 this.columnSGSTVAL.ReadOnly = true;
-                this.columnExpr1.ReadOnly = true;
-                this.columnExpr2.ReadOnly = true;
+                this.columnfreightVal.ReadOnly = true;
+                this.columnTcsVl.ReadOnly = true;
+                this.columntotExise.ReadOnly = true;
+                this.columntotAmt.ReadOnly = true;
+                this.columntotAssAmt.ReadOnly = true;
+                this.columntotIns.ReadOnly = true;
+                this.columntotOthrs.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2838,6 +2931,22 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal TCSVal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_DatewiseInvoice.TCSValColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TCSVal\' in table \'SP_DatewiseInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_DatewiseInvoice.TCSValColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public double Total_Ass_Amt {
                 get {
                     try {
@@ -2974,6 +3083,18 @@ namespace Electra_WebApi {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFrieghtNull() {
                 this[this.tableSP_DatewiseInvoice.FrieghtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTCSValNull() {
+                return this.IsNull(this.tableSP_DatewiseInvoice.TCSValColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTCSValNull() {
+                this[this.tableSP_DatewiseInvoice.TCSValColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3675,6 +3796,22 @@ namespace Electra_WebApi {
                 }
                 set {
                     this[this.tableSP_PrintInvoice.TCSValColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Vat_CST_flag {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_PrintInvoice.Vat_CST_flagColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Vat_CST_flag\' in table \'SP_PrintInvoice\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_PrintInvoice.Vat_CST_flagColumn] = value;
                 }
             }
             
@@ -4424,6 +4561,18 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVat_CST_flagNull() {
+                return this.IsNull(this.tableSP_PrintInvoice.Vat_CST_flagColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVat_CST_flagNull() {
+                this[this.tableSP_PrintInvoice.Vat_CST_flagColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Issr_flagNull() {
                 return this.IsNull(this.tableSP_PrintInvoice.sr_flagColumn);
             }
@@ -4807,38 +4956,6 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double total_amt {
-                get {
-                    try {
-                        return ((double)(this[this.tableSP_Summary.total_amtColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'total_amt\' in table \'SP_Summary\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_Summary.total_amtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double total_excise {
-                get {
-                    try {
-                        return ((double)(this[this.tableSP_Summary.total_exciseColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'total_excise\' in table \'SP_Summary\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_Summary.total_exciseColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public double IGSTVAL {
                 get {
                     try {
@@ -4903,33 +5020,113 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Expr1 {
+            public double freightVal {
                 get {
                     try {
-                        return ((double)(this[this.tableSP_Summary.Expr1Column]));
+                        return ((double)(this[this.tableSP_Summary.freightValColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'SP_Summary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'freightVal\' in table \'SP_Summary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_Summary.Expr1Column] = value;
+                    this[this.tableSP_Summary.freightValColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Expr2 {
+            public decimal TcsVl {
                 get {
                     try {
-                        return ((double)(this[this.tableSP_Summary.Expr2Column]));
+                        return ((decimal)(this[this.tableSP_Summary.TcsVlColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr2\' in table \'SP_Summary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TcsVl\' in table \'SP_Summary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_Summary.Expr2Column] = value;
+                    this[this.tableSP_Summary.TcsVlColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double totExise {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_Summary.totExiseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totExise\' in table \'SP_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_Summary.totExiseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double totAmt {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_Summary.totAmtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totAmt\' in table \'SP_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_Summary.totAmtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double totAssAmt {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_Summary.totAssAmtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totAssAmt\' in table \'SP_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_Summary.totAssAmtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double totIns {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_Summary.totInsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totIns\' in table \'SP_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_Summary.totInsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double totOthrs {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_Summary.totOthrsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totOthrs\' in table \'SP_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_Summary.totOthrsColumn] = value;
                 }
             }
             
@@ -4995,30 +5192,6 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istotal_amtNull() {
-                return this.IsNull(this.tableSP_Summary.total_amtColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settotal_amtNull() {
-                this[this.tableSP_Summary.total_amtColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istotal_exciseNull() {
-                return this.IsNull(this.tableSP_Summary.total_exciseColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settotal_exciseNull() {
-                this[this.tableSP_Summary.total_exciseColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIGSTVALNull() {
                 return this.IsNull(this.tableSP_Summary.IGSTVALColumn);
             }
@@ -5067,26 +5240,86 @@ namespace Electra_WebApi {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tableSP_Summary.Expr1Column);
+            public bool IsfreightValNull() {
+                return this.IsNull(this.tableSP_Summary.freightValColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tableSP_Summary.Expr1Column] = global::System.Convert.DBNull;
+            public void SetfreightValNull() {
+                this[this.tableSP_Summary.freightValColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsExpr2Null() {
-                return this.IsNull(this.tableSP_Summary.Expr2Column);
+            public bool IsTcsVlNull() {
+                return this.IsNull(this.tableSP_Summary.TcsVlColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetExpr2Null() {
-                this[this.tableSP_Summary.Expr2Column] = global::System.Convert.DBNull;
+            public void SetTcsVlNull() {
+                this[this.tableSP_Summary.TcsVlColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotExiseNull() {
+                return this.IsNull(this.tableSP_Summary.totExiseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotExiseNull() {
+                this[this.tableSP_Summary.totExiseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotAmtNull() {
+                return this.IsNull(this.tableSP_Summary.totAmtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotAmtNull() {
+                this[this.tableSP_Summary.totAmtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotAssAmtNull() {
+                return this.IsNull(this.tableSP_Summary.totAssAmtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotAssAmtNull() {
+                this[this.tableSP_Summary.totAssAmtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotInsNull() {
+                return this.IsNull(this.tableSP_Summary.totInsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotInsNull() {
+                this[this.tableSP_Summary.totInsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstotOthrsNull() {
+                return this.IsNull(this.tableSP_Summary.totOthrsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettotOthrsNull() {
+                this[this.tableSP_Summary.totOthrsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5362,6 +5595,7 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Insurance_val", "Insurance_val");
             tableMapping.ColumnMappings.Add("Others", "Others");
             tableMapping.ColumnMappings.Add("Frieght", "Frieght");
+            tableMapping.ColumnMappings.Add("TCSVal", "TCSVal");
             tableMapping.ColumnMappings.Add("Total_Ass_Amt", "Total_Ass_Amt");
             tableMapping.ColumnMappings.Add("Consignee_Name", "Consignee_Name");
             this._adapter.TableMappings.Add(tableMapping);
@@ -5800,6 +6034,7 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Consignee_DelAddress", "Consignee_DelAddress");
             tableMapping.ColumnMappings.Add("TCSPer", "TCSPer");
             tableMapping.ColumnMappings.Add("TCSVal", "TCSVal");
+            tableMapping.ColumnMappings.Add("Vat_CST_flag", "Vat_CST_flag");
             tableMapping.ColumnMappings.Add("sr_flag", "sr_flag");
             tableMapping.ColumnMappings.Add("No_of_pkg", "No_of_pkg");
             tableMapping.ColumnMappings.Add("Qty", "Qty");
@@ -6022,14 +6257,17 @@ namespace Electra_WebApi.InventoryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("invoice_id", "invoice_id");
             tableMapping.ColumnMappings.Add("item_name", "item_name");
             tableMapping.ColumnMappings.Add("qty", "qty");
-            tableMapping.ColumnMappings.Add("total_amt", "total_amt");
-            tableMapping.ColumnMappings.Add("total_excise", "total_excise");
             tableMapping.ColumnMappings.Add("IGSTVAL", "IGSTVAL");
             tableMapping.ColumnMappings.Add("UGSTVAL", "UGSTVAL");
             tableMapping.ColumnMappings.Add("CGSTVAL", "CGSTVAL");
             tableMapping.ColumnMappings.Add("SGSTVAL", "SGSTVAL");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
-            tableMapping.ColumnMappings.Add("Expr2", "Expr2");
+            tableMapping.ColumnMappings.Add("freightVal", "freightVal");
+            tableMapping.ColumnMappings.Add("TcsVl", "TcsVl");
+            tableMapping.ColumnMappings.Add("totExise", "totExise");
+            tableMapping.ColumnMappings.Add("totAmt", "totAmt");
+            tableMapping.ColumnMappings.Add("totAssAmt", "totAssAmt");
+            tableMapping.ColumnMappings.Add("totIns", "totIns");
+            tableMapping.ColumnMappings.Add("totOthrs", "totOthrs");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

@@ -35,6 +35,7 @@
               <Mapping SourceColumn="Insurance_val" DataSetColumn="Insurance_val" />
               <Mapping SourceColumn="Others" DataSetColumn="Others" />
               <Mapping SourceColumn="Frieght" DataSetColumn="Frieght" />
+              <Mapping SourceColumn="TCSVal" DataSetColumn="TCSVal" />
               <Mapping SourceColumn="Total_Ass_Amt" DataSetColumn="Total_Ass_Amt" />
               <Mapping SourceColumn="Consignee_Name" DataSetColumn="Consignee_Name" />
             </Mappings>
@@ -112,6 +113,7 @@
               <Mapping SourceColumn="Consignee_DelAddress" DataSetColumn="Consignee_DelAddress" />
               <Mapping SourceColumn="TCSPer" DataSetColumn="TCSPer" />
               <Mapping SourceColumn="TCSVal" DataSetColumn="TCSVal" />
+              <Mapping SourceColumn="Vat_CST_flag" DataSetColumn="Vat_CST_flag" />
               <Mapping SourceColumn="sr_flag" DataSetColumn="sr_flag" />
               <Mapping SourceColumn="No_of_pkg" DataSetColumn="No_of_pkg" />
               <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
@@ -160,14 +162,17 @@
               <Mapping SourceColumn="invoice_id" DataSetColumn="invoice_id" />
               <Mapping SourceColumn="item_name" DataSetColumn="item_name" />
               <Mapping SourceColumn="qty" DataSetColumn="qty" />
-              <Mapping SourceColumn="total_amt" DataSetColumn="total_amt" />
-              <Mapping SourceColumn="total_excise" DataSetColumn="total_excise" />
               <Mapping SourceColumn="IGSTVAL" DataSetColumn="IGSTVAL" />
               <Mapping SourceColumn="UGSTVAL" DataSetColumn="UGSTVAL" />
               <Mapping SourceColumn="CGSTVAL" DataSetColumn="CGSTVAL" />
               <Mapping SourceColumn="SGSTVAL" DataSetColumn="SGSTVAL" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
-              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="freightVal" DataSetColumn="freightVal" />
+              <Mapping SourceColumn="TcsVl" DataSetColumn="TcsVl" />
+              <Mapping SourceColumn="totExise" DataSetColumn="totExise" />
+              <Mapping SourceColumn="totAmt" DataSetColumn="totAmt" />
+              <Mapping SourceColumn="totAssAmt" DataSetColumn="totAssAmt" />
+              <Mapping SourceColumn="totIns" DataSetColumn="totIns" />
+              <Mapping SourceColumn="totOthrs" DataSetColumn="totOthrs" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -199,6 +204,7 @@
               <xs:element name="Insurance_val" msprop:Generator_ColumnVarNameInTable="columnInsurance_val" msprop:Generator_ColumnPropNameInRow="Insurance_val" msprop:Generator_ColumnPropNameInTable="Insurance_valColumn" msprop:Generator_UserColumnName="Insurance_val" type="xs:double" minOccurs="0" />
               <xs:element name="Others" msprop:Generator_ColumnVarNameInTable="columnOthers" msprop:Generator_ColumnPropNameInRow="Others" msprop:Generator_ColumnPropNameInTable="OthersColumn" msprop:Generator_UserColumnName="Others" type="xs:double" minOccurs="0" />
               <xs:element name="Frieght" msprop:Generator_ColumnVarNameInTable="columnFrieght" msprop:Generator_ColumnPropNameInRow="Frieght" msprop:Generator_ColumnPropNameInTable="FrieghtColumn" msprop:Generator_UserColumnName="Frieght" type="xs:double" minOccurs="0" />
+              <xs:element name="TCSVal" msprop:Generator_ColumnVarNameInTable="columnTCSVal" msprop:Generator_ColumnPropNameInRow="TCSVal" msprop:Generator_ColumnPropNameInTable="TCSValColumn" msprop:Generator_UserColumnName="TCSVal" type="xs:decimal" minOccurs="0" />
               <xs:element name="Total_Ass_Amt" msprop:Generator_ColumnVarNameInTable="columnTotal_Ass_Amt" msprop:Generator_ColumnPropNameInRow="Total_Ass_Amt" msprop:Generator_ColumnPropNameInTable="Total_Ass_AmtColumn" msprop:Generator_UserColumnName="Total_Ass_Amt" type="xs:double" minOccurs="0" />
               <xs:element name="Consignee_Name" msprop:Generator_ColumnVarNameInTable="columnConsignee_Name" msprop:Generator_ColumnPropNameInRow="Consignee_Name" msprop:Generator_ColumnPropNameInTable="Consignee_NameColumn" msprop:Generator_UserColumnName="Consignee_Name" minOccurs="0">
                 <xs:simpleType>
@@ -352,6 +358,13 @@
               </xs:element>
               <xs:element name="TCSPer" msprop:Generator_ColumnVarNameInTable="columnTCSPer" msprop:Generator_ColumnPropNameInRow="TCSPer" msprop:Generator_ColumnPropNameInTable="TCSPerColumn" msprop:Generator_UserColumnName="TCSPer" type="xs:decimal" minOccurs="0" />
               <xs:element name="TCSVal" msprop:Generator_ColumnVarNameInTable="columnTCSVal" msprop:Generator_ColumnPropNameInRow="TCSVal" msprop:Generator_ColumnPropNameInTable="TCSValColumn" msprop:Generator_UserColumnName="TCSVal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Vat_CST_flag" msprop:Generator_ColumnVarNameInTable="columnVat_CST_flag" msprop:Generator_ColumnPropNameInRow="Vat_CST_flag" msprop:Generator_ColumnPropNameInTable="Vat_CST_flagColumn" msprop:Generator_UserColumnName="Vat_CST_flag" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="sr_flag" msprop:Generator_ColumnVarNameInTable="columnsr_flag" msprop:Generator_ColumnPropNameInRow="sr_flag" msprop:Generator_ColumnPropNameInTable="sr_flagColumn" msprop:Generator_UserColumnName="sr_flag" type="xs:int" minOccurs="0" />
               <xs:element name="No_of_pkg" msprop:Generator_ColumnVarNameInTable="columnNo_of_pkg" msprop:Generator_ColumnPropNameInRow="No_of_pkg" msprop:Generator_ColumnPropNameInTable="No_of_pkgColumn" msprop:Generator_UserColumnName="No_of_pkg" type="xs:int" minOccurs="0" />
               <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:decimal" minOccurs="0" />
@@ -507,14 +520,17 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" msprop:Generator_UserColumnName="qty" type="xs:decimal" minOccurs="0" />
-              <xs:element name="total_amt" msprop:Generator_ColumnVarNameInTable="columntotal_amt" msprop:Generator_ColumnPropNameInRow="total_amt" msprop:Generator_ColumnPropNameInTable="total_amtColumn" msprop:Generator_UserColumnName="total_amt" type="xs:double" minOccurs="0" />
-              <xs:element name="total_excise" msprop:Generator_ColumnVarNameInTable="columntotal_excise" msprop:Generator_ColumnPropNameInRow="total_excise" msprop:Generator_ColumnPropNameInTable="total_exciseColumn" msprop:Generator_UserColumnName="total_excise" type="xs:double" minOccurs="0" />
               <xs:element name="IGSTVAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIGSTVAL" msprop:Generator_ColumnPropNameInRow="IGSTVAL" msprop:Generator_ColumnPropNameInTable="IGSTVALColumn" msprop:Generator_UserColumnName="IGSTVAL" type="xs:double" minOccurs="0" />
               <xs:element name="UGSTVAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUGSTVAL" msprop:Generator_ColumnPropNameInRow="UGSTVAL" msprop:Generator_ColumnPropNameInTable="UGSTVALColumn" msprop:Generator_UserColumnName="UGSTVAL" type="xs:double" minOccurs="0" />
               <xs:element name="CGSTVAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCGSTVAL" msprop:Generator_ColumnPropNameInRow="CGSTVAL" msprop:Generator_ColumnPropNameInTable="CGSTVALColumn" msprop:Generator_UserColumnName="CGSTVAL" type="xs:double" minOccurs="0" />
               <xs:element name="SGSTVAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSGSTVAL" msprop:Generator_ColumnPropNameInRow="SGSTVAL" msprop:Generator_ColumnPropNameInTable="SGSTVALColumn" msprop:Generator_UserColumnName="SGSTVAL" type="xs:double" minOccurs="0" />
-              <xs:element name="Expr1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:double" minOccurs="0" />
-              <xs:element name="Expr2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" type="xs:double" minOccurs="0" />
+              <xs:element name="freightVal" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfreightVal" msprop:Generator_ColumnPropNameInRow="freightVal" msprop:Generator_ColumnPropNameInTable="freightValColumn" msprop:Generator_UserColumnName="freightVal" type="xs:double" minOccurs="0" />
+              <xs:element name="TcsVl" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTcsVl" msprop:Generator_ColumnPropNameInRow="TcsVl" msprop:Generator_ColumnPropNameInTable="TcsVlColumn" msprop:Generator_UserColumnName="TcsVl" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totExise" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotExise" msprop:Generator_ColumnPropNameInRow="totExise" msprop:Generator_ColumnPropNameInTable="totExiseColumn" msprop:Generator_UserColumnName="totExise" type="xs:double" minOccurs="0" />
+              <xs:element name="totAmt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotAmt" msprop:Generator_ColumnPropNameInRow="totAmt" msprop:Generator_ColumnPropNameInTable="totAmtColumn" msprop:Generator_UserColumnName="totAmt" type="xs:double" minOccurs="0" />
+              <xs:element name="totAssAmt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotAssAmt" msprop:Generator_ColumnPropNameInRow="totAssAmt" msprop:Generator_ColumnPropNameInTable="totAssAmtColumn" msprop:Generator_UserColumnName="totAssAmt" type="xs:double" minOccurs="0" />
+              <xs:element name="totIns" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotIns" msprop:Generator_ColumnPropNameInRow="totIns" msprop:Generator_ColumnPropNameInTable="totInsColumn" msprop:Generator_UserColumnName="totIns" type="xs:double" minOccurs="0" />
+              <xs:element name="totOthrs" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotOthrs" msprop:Generator_ColumnPropNameInRow="totOthrs" msprop:Generator_ColumnPropNameInTable="totOthrsColumn" msprop:Generator_UserColumnName="totOthrs" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
