@@ -40,12 +40,10 @@ namespace Electra_WebApi
             return orderBy != null ? orderBy(query).ToList() : query.ToList();
         }
 
-
         public virtual IQueryable<TEntity> GetAllList()
         {
             return dbSet.AsQueryable();
         }
-
 
         public virtual TEntity GetByID(object id)
         {
@@ -58,19 +56,11 @@ namespace Electra_WebApi
             context.SaveChanges();
         }
 
-
-        public virtual void InsertBulk(List<TEntity> entity)
-        {
-            //EFBatchOperation.For(context, dbSet).InsertAll(entity);
-        }
-
-
         public virtual void Delete(int id)
         {
             TEntity entityToDelete = dbSet.Find(id);
             Delete(entityToDelete);
         }
-
 
         public virtual void Delete(TEntity entityToDelete)
         {
@@ -82,13 +72,11 @@ namespace Electra_WebApi
             dbSet.Remove(entityToDelete);
         }
 
-
         public virtual void DeleteBulk(List<TEntity> entityToDelete)
         {
             dbSet.RemoveRange(entityToDelete);
             context.SaveChanges();
         }
-
 
         public virtual void Update(TEntity entityToUpdate)
         {
@@ -103,12 +91,10 @@ namespace Electra_WebApi
             context.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
         }
 
-
         public virtual void TruncateTable(string tableName)
         {
             context.Database.ExecuteSqlCommand("TRUNCATE TABLE " + tableName);
         }
-
 
         public virtual int GetTotalCount()
         {

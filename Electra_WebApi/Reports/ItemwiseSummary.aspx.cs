@@ -22,22 +22,16 @@ namespace Electra_WebApi.Reports
                 {
                     searchText = Convert.ToInt32(Request.QueryString["searchText"]);
                 }
-
-                //List<Invoice> InvMain = null;
-                using (var _context = new CraModel())
+               using (var _context = new CraModel())
                 {
                     var from_dt = StaticVariables.From_Date;
                     var to_date = StaticVariables.To_Date;
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
                     var InvMain = GetData("exec SP_Summary '"+ from_dt + "','"+ to_date + "'");
-                    //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/ItemwiseSummary.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rdc = new ReportDataSource("SummaryDataSet", InvMain.Tables[0]);
                     ReportViewer1.LocalReport.DataSources.Add(rdc);
-                    //ReportViewer1.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
-                    //ReportViewer1.LocalReport.Refresh();
-                    //ReportViewer1.DataBind();
                     Open();
                 }
             }
@@ -68,11 +62,7 @@ namespace Electra_WebApi.Reports
             string contentType;
             string encoding;
             string extension;
-
-            //Export the RDLC Report to Byte Array.
             byte[] bytes = ReportViewer1.LocalReport.Render("PDF", null, out contentType, out encoding, out extension, out streamIds, out warnings);
-
-            // Open generated PDF.
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";

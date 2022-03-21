@@ -9,14 +9,14 @@ namespace Electra_WebApi.Controllers
         // GET: DataBaseBackup
         public ActionResult Index()
         {
-            //if (StaticVariables.UserName == null)
-            //{
-            //    return RedirectToAction("Login", "UserDetailMVC");
-            //}
-            //else
-            //{
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
                 return View();
-            //}
+            }
         }
         public ActionResult Create()
         {

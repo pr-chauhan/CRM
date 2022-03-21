@@ -68,14 +68,9 @@
                 var consignee_id = $("#Consignee_ID").val();
                 var fromdate = $("#FromDate").val();
                 var todate = $("#ToDate").val();
-                //alert(consignee_id + fromdate + todate);
                 $.get("../Report/PartyWiseDateWise", { consignee_id: consignee_id, fromdate: fromdate, todate: todate }, function (data) {
                     window.location.replace("/Reports/DataWiseInvoiceList.aspx");
                 });
             });
         });
     </script>
-
-    @*<div class="form-group">
-            <a href="../Reports/DataWiseInvoiceList.aspx" class="btn btn-primary">PartyWise/DateWise InvoiceList</a>
-        </div>*@

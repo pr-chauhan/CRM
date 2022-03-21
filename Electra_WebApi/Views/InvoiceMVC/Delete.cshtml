@@ -23,7 +23,6 @@
                         var Fin_year = new SelectList(
                             new List<SelectListItem>
                                                     {
-                                    new SelectListItem {Text = "2020-2021", Value = "2020-2021"},
                                     new SelectListItem {Text = "2021-2022", Value = "2021-2022"},
                                     new SelectListItem {Text = "2022-2023", Value = "2022-2023"}, }, "Value", "Text");
                     }
@@ -68,12 +67,12 @@
                     </table>
 
                 </div>
-                <div class="col-md-2">
+                @*<div class="col-md-2">
 
                     @Html.LabelFor(model => model.invoice.Consignee_DelRange, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelRange, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelRange" } })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelRange, "", new { @class = "text-danger" })
-                </div>
+                </div>*@
             </div>
             <div class="col-md-12">
                 <div class="col-md-3">
@@ -86,11 +85,11 @@
                     @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeAddress", @style = "width=900px;" })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
                 </div>
-                <div class="col-md-2">
+                @*<div class="col-md-2">
                     @Html.LabelFor(model => model.invoice.Consignee_DelDivision, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelDivision, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelDivision" } })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelDivision, "", new { @class = "text-danger" })
-                </div>
+                </div>*@
             </div>
             <div class="col-md-12">
                 <div class="col-md-3">
@@ -148,10 +147,10 @@
                                 <tr id="tablerow" @counter>
                                     <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required"  style="visibility:hidden;width:1px;" /></td>
                                     <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required"  /></td>
-                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required"  /></td>
+                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required"  style="width: 130px;" /></td>
                                     <td><input type="text" class="form-control" id="TYPE[ @counter ]" value=" @item.TYPE " required="required"  /></td>
-                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required"  /></td>
-                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required"  /></td>
+                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required"  style="width: 130px;" /></td>
+                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required"  style="width: 130px;" /></td>
                                     <td><input type="text" class="form-control" id="Total_amt[ @counter ]" value=" @item.Total_amt " required="required"  /></td>
                                     <td><input type="text" class="form-control" id="DEC[ @counter ]" value=" @item.DEC " required="required"  /></td>
 
@@ -220,12 +219,12 @@
         <div class="col-md-12">
             <div class="col-md-1">
                 @Html.LabelFor(model => model.invoice.Vehicle_No, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control", @style = "width:275px;" } })
                 @Html.ValidationMessageFor(model => model.invoice.Vehicle_No, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-1">
                 @Html.LabelFor(model => model.invoice.GRR_No, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control", @style = "width:275px;" } })
                 @Html.ValidationMessageFor(model => model.invoice.GRR_No, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
@@ -240,7 +239,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -258,7 +257,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -293,7 +292,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -311,7 +310,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -345,16 +344,16 @@
                             $("#ConsigneeDelAddress").val($("#ConsigneeAddress").val());
                             $("#invoice_Con_Adr_Check").val("T");
                             $("#ConsigneeDelAddress").attr('readonly', true);
-                            $("#Consignee_DelRange").attr('readonly', true);
-                            $("#Consignee_DelDivision").attr('readonly', true);
+                            //$("#Consignee_DelRange").attr('readonly', true);
+                            //$("#Consignee_DelDivision").attr('readonly', true);
                             $("#Consignee_DelCommRate").attr('readonly', true);
                         }
                         else {
                             $("#ConsigneeDelAddress").val("");
                             $("#invoice_Con_Adr_Check").val("F");
                             $("#ConsigneeDelAddress").attr('readonly', false);
-                            $("#Consignee_DelRange").attr('readonly', false);
-                            $("#Consignee_DelDivision").attr('readonly', false);
+                            //$("#Consignee_DelRange").attr('readonly', false);
+                            //$("#Consignee_DelDivision").attr('readonly', false);
                             $("#Consignee_DelCommRate").attr('readonly', false);
                         }
                     });

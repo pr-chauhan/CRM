@@ -61,6 +61,10 @@
           <DataField>Frieght</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="TCSVal">
+          <DataField>TCSVal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="Total_Ass_Amt">
           <DataField>Total_Ass_Amt</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
@@ -72,7 +76,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>InventoryDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Elecra_New\electra\Electra_WebApi\InventoryDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Electra060322\Electra_WebApi\InventoryDataSet.xsd</rd:SchemaPath>
         <rd:TableName>SP_DatewiseInvoice</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -88,34 +92,37 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.87638in</Width>
+                  <Width>2.97638in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.9in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.46667in</Width>
+                  <Width>0.53334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.50834in</Width>
+                  <Width>0.58334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.59999in</Width>
+                  <Width>0.62499in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.78333in</Width>
+                  <Width>0.65in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.75833in</Width>
+                  <Width>0.7in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.75834in</Width>
+                  <Width>0.68471in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.81667in</Width>
+                  <Width>0.64584in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.91667in</Width>
+                  <Width>0.48474in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.75in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -531,7 +538,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>SGST Amt.</Value>
+                                  <Value>SGST</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -544,6 +551,56 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>TCS</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1052,6 +1109,53 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox76">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1145,6 +1249,7 @@
                                   <Value>=Fields!Total_Ass_Amt.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1192,6 +1297,7 @@
                                   <Value>=Fields!Frieght.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1239,6 +1345,7 @@
                                   <Value>=Fields!Others.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1286,6 +1393,7 @@
                                   <Value>=Fields!Insurance_val.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1333,6 +1441,7 @@
                                   <Value>=Fields!IGST.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1380,6 +1489,7 @@
                                   <Value>=Fields!UGST.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1427,6 +1537,7 @@
                                   <Value>=Fields!CGST.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1474,6 +1585,7 @@
                                   <Value>=Fields!PCess_Val.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1511,6 +1623,54 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="TCSVal">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!TCSVal.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TCSVal</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox55">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1518,9 +1678,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Total_amount.Value</Value>
+                                  <Value>=Fields!Total_amount.Value + Fields!TCSVal.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1959,6 +2120,53 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox17">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox30">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2069,6 +2277,7 @@
                                   <Value>=Sum(Fields!Total_Ass_Amt.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2116,6 +2325,7 @@
                                   <Value>=Sum(Fields!Frieght.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2163,6 +2373,7 @@
                                   <Value>=Sum(Fields!Others.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2210,6 +2421,7 @@
                                   <Value>=Sum(Fields!Insurance_val.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2257,6 +2469,7 @@
                                   <Value>=Sum(Fields!IGST.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2304,6 +2517,7 @@
                                   <Value>=Sum(Fields!UGST.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2351,6 +2565,7 @@
                                   <Value>=Sum(Fields!CGST.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2398,6 +2613,7 @@
                                   <Value>=Sum(Fields!PCess_Val.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2435,23 +2651,72 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox71">
+                        <Textbox Name="Textbox18">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Total_amount.Value)</Value>
+                                  <Value>=Sum(Fields!TCSVal.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox71</rd:DefaultName>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TCSVal1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TCSVal.Value) + Sum(Fields!Total_amount.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TCSVal1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2545,6 +2810,7 @@
                                   <Value>=Sum(Fields!Total_Ass_Amt.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2592,6 +2858,7 @@
                                   <Value>=Sum(Fields!Frieght.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2639,6 +2906,7 @@
                                   <Value>=Sum(Fields!Others.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2686,6 +2954,7 @@
                                   <Value>=Sum(Fields!Insurance_val.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2733,6 +3002,7 @@
                                   <Value>=Sum(Fields!IGST.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2766,7 +3036,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2781,6 +3050,7 @@
                                   <Value>=Sum(Fields!UGST.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2828,6 +3098,7 @@
                                   <Value>=Sum(Fields!CGST.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2875,6 +3146,7 @@
                                   <Value>=Sum(Fields!PCess_Val.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2912,6 +3184,54 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!TCSVal.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="Textbox118">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2919,9 +3239,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Total_amount.Value)</Value>
+                                  <Value>=Sum(Fields!TCSVal.Value) + Sum(Fields!Total_amount.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2963,6 +3284,7 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -3227,7 +3549,9 @@
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style />
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Invoice_ID1</rd:DefaultName>
@@ -3266,7 +3590,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value />
+                                    <Value>Total</Value>
                                     <Style>
                                       <FontSize>8pt</FontSize>
                                     </Style>
@@ -3322,7 +3646,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value />
+                                <Value>Total</Value>
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                 </Style>
@@ -3372,7 +3696,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value />
+                                    <Value>Total</Value>
                                     <Style>
                                       <FontSize>8pt</FontSize>
                                     </Style>
@@ -3420,28 +3744,13 @@
             <Top>1.01972in</Top>
             <Left>0.10639in</Left>
             <Height>1.69167in</Height>
-            <Width>9.53332in</Width>
+            <Width>10.68194in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Image Name="Logo2">
-            <Source>Embedded</Source>
-            <Value>WhatsAppImage20220219at72247PM</Value>
-            <Sizing>Fit</Sizing>
-            <Top>0.14639in</Top>
-            <Left>0.10639in</Left>
-            <Height>0.42916in</Height>
-            <Width>0.80833in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
           <Textbox Name="Textbox2">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -3466,8 +3775,8 @@
             <Top>0.14639in</Top>
             <Left>1.02929in</Left>
             <Height>0.25in</Height>
-            <Width>9.55209in</Width>
-            <ZIndex>2</ZIndex>
+            <Width>8.69097in</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3496,8 +3805,8 @@
             <Top>0.41028in</Top>
             <Left>1.02929in</Left>
             <Height>0.19in</Height>
-            <Width>9.55209in</Width>
-            <ZIndex>3</ZIndex>
+            <Width>8.69097in</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3507,8 +3816,8 @@
           <Line Name="Line1">
             <Top>0.66972in</Top>
             <Height>0in</Height>
-            <Width>10.58138in</Width>
-            <ZIndex>4</ZIndex>
+            <Width>10.955in</Width>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -3522,9 +3831,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Current Date :" &amp; Globals!ExecutionTime</Value>
+                    <Value>="Current Date :" &amp; FormatDateTime(Globals!ExecutionTime,dateformat.ShortDate)</Value>
                     <Style>
                       <FontSize>8pt</FontSize>
+                      <Format>dd-MMM-yy</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -3536,7 +3846,7 @@
             <Left>0.10639in</Left>
             <Height>0.225in</Height>
             <Width>2.71597in</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3547,18 +3857,48 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Image Name="Logo2">
+            <Source>Embedded</Source>
+            <Value>Capture</Value>
+            <Sizing>Fit</Sizing>
+            <Top>0.07222in</Top>
+            <Left>0.10639in</Left>
+            <Height>0.52806in</Height>
+            <Width>0.85346in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Image Name="Logo1">
+            <Source>Embedded</Source>
+            <Value>WhatsAppImage20220219at72236PM</Value>
+            <Sizing>Fit</Sizing>
+            <Top>0.07222in</Top>
+            <Left>9.78971in</Left>
+            <Height>0.52806in</Height>
+            <Width>0.63474in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
         <Height>2.72805in</Height>
         <Style />
       </Body>
-      <Width>10.58138in</Width>
+      <Width>10.955in</Width>
       <Page>
         <PageHeight>8.27in</PageHeight>
         <PageWidth>11.69in</PageWidth>
         <LeftMargin>0.25in</LeftMargin>
-        <RightMargin>0.25in</RightMargin>
-        <TopMargin>0.25in</TopMargin>
-        <BottomMargin>0.25in</BottomMargin>
+        <RightMargin>0.1in</RightMargin>
+        <TopMargin>0.1in</TopMargin>
+        <BottomMargin>0.1in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -3613,6 +3953,16 @@ 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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="Capture">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

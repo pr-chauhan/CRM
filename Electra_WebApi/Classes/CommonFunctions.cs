@@ -45,10 +45,6 @@ namespace Electra_WebApi
 
         public HttpResponseMessage ExecutePost<T>(HttpClient client, T collection, string apiName)
         {
-            //collection.DoE = DateTime.Now;
-            //collection.DoM = DateTime.Now;
-            //collection.E_UserID = "admin";
-            //collection.M_UserID = "admin";
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var putdata = client.PostAsJsonAsync(apiName, collection);
@@ -58,10 +54,6 @@ namespace Electra_WebApi
 
         public  HttpResponseMessage ExecutePut<T>(HttpClient client, T collection, string apiName)
         {
-            //collection.DoE = DateTime.Now;
-            //collection.DoM = DateTime.Now;
-            //collection.E_UserID = "admin";
-            //collection.M_UserID = "admin";
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var putdata =  client.PutAsJsonAsync(apiName, collection);
@@ -81,12 +73,6 @@ namespace Electra_WebApi
             return new EntityRepository<TEntity>(WebApiApplication.db);
         }
 
-        public string GetCityNameByID(int city_id)
-        {
-            //var state = WebApiApplication.db.Cities.Where(x => x.City_ID.Equals(city_id)).ToList();
-            //return state[0].City_Name.ToString();
-            return string.Empty;
-        }
         public string GetConsigneeNameByID(int Consignee_id)
         {
             var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consignee_id)).ToList();

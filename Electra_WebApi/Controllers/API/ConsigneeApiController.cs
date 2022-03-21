@@ -33,7 +33,7 @@ namespace Electra_WebApi.Controllers
 
         // PUT: api/ConsigneesApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutState(Consignee consigneeDet)//int id, 
+        public async Task<IHttpActionResult> PutState(Consignee consigneeDet)
         {
             if (!ModelState.IsValid)
             {

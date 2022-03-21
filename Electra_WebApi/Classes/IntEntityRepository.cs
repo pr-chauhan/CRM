@@ -18,8 +18,6 @@ namespace Electra_WebApi
 
         void Insert(TEntity entity);
 
-        void InsertBulk(List<TEntity> entity);
-
         void Delete(int id);
 
         void Delete(TEntity entityToDelete);

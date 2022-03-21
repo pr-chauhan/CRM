@@ -80,7 +80,7 @@
                                 <TextRun>
                                   <Value>=Fields!Item_Name.Value</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -124,7 +124,8 @@
                                 <TextRun>
                                   <Value>=Fields!Qty.Value</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
+                                    <Format>0.0;(0.0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -155,7 +156,8 @@
                                 <TextRun>
                                   <Value>=Fields!Rate.Value</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
+                                    <Format>0.00;(0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

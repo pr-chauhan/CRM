@@ -15,9 +15,9 @@
 </head>
 <body>
     <div class="container-fluid justify-content-evenly body-content" style="margin-top:10px;">
-        <div class="col-md-1">
+        <div class="col-md-2">
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
             <nav id="main-nav">
                 <ul id="main-menu" class="sm sm-blue">
                     <li>@Html.ActionLink("State", "Index", "StateMVC", new { area = "" }, null)</li>
@@ -26,14 +26,13 @@
                     <li>@Html.ActionLink("Consignee", "Index", "ConsigneeMVC", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("New User", "Index", "UserDetailMVC", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Change Password", "Index", "ChangePwd", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Database Backup", "Index", "DataBaseBackup", new { area = "" }, null)</li>
+                    @*<li>@Html.ActionLink("Database Backup", "Index", "DataBaseBackup", new { area = "" }, null)</li>*@
                     <li>@Html.ActionLink("Invoice Generation", "Index", "InvoiceMVC", new { area = "" }, null)</li>
                     <li>
                         <a>Reports</a>
                         <ul>
                             <li>  @Html.ActionLink("Invoice Reports", "Index", "Report", new { area = "" }, null)</li>
                             <li>  @Html.ActionLink("PartyWise/DateWise InvoiceList", "PartyWiseDateWise", "Report", new { area = "" }, null)</li>
-                            <li>  @Html.ActionLink("Datewise Itemwise Summary between two dates", "DatewiseItemwiseSummary", "Report", new { area = "" }, null)</li>
                             <li>  @Html.ActionLink("Item Summary between two dates", "ItemwiseSummary", "Report", new { area = "" }, null)</li>
                         </ul>
                     </li>
@@ -41,7 +40,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-2">
 
         </div>
     </div>

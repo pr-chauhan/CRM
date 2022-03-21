@@ -10,16 +10,16 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            //if (StaticVariables.UserName == null)
-            //{
-            //    return RedirectToAction("Login", "UserDetailMVC");
-            //}
-            //else
-            //{
-            var lst = WebApiApplication.objCommon.ExecuteIndex<State>(client, WebApiApplication.staticVariables.StateApiName);
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
+                var lst = WebApiApplication.objCommon.ExecuteIndex<State>(client, WebApiApplication.staticVariables.StateApiName);
             lst = lst.OrderBy(x => x.State_Name).ToList();
             return View(lst);
-            //}
+            }
         }
 
         public ActionResult Details(int id)
@@ -44,6 +44,8 @@ namespace Electra_WebApi.Controllers
                     ModelState.AddModelError(nameof(State.State_Name), "Duplicate state is not allowed..!!");
                     return View(collection);
                 }
+                collection.E_UserID = Session["UserName"].ToString();
+                collection.DoE = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePost(client, collection, WebApiApplication.staticVariables.StateApiName);
                 if (test.IsSuccessStatusCode)
                 {
@@ -69,6 +71,8 @@ namespace Electra_WebApi.Controllers
         {
             try
             {
+                collection.M_UserID = Session["UserName"].ToString();
+                collection.DoM = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePut(client, collection, WebApiApplication.staticVariables.StateApiName);
                 if (test.IsSuccessStatusCode)
                 {

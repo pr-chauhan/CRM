@@ -12,16 +12,16 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            //if (StaticVariables.UserName == null)
-            //{
-            //    return RedirectToAction("Login", "UserDetailMVC");
-            //}
-            //else
-            //{
-            var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
+                var lst = WebApiApplication.objCommon.ExecuteIndex<User_detail>(client, WebApiApplication.staticVariables.UserDetailApiName);
             lst = lst.OrderBy(x => x.User_Name).ToList();
             return View(lst);
-            //}
+            }
         }
 
         public ActionResult Details(string id)
@@ -41,11 +41,13 @@ namespace Electra_WebApi.Controllers
             try
             {
                 client.BaseAddress = null;
-                if (WebApiApplication.objCommon.ValidateValue<Invoice>("User_Name", collection.User_Name))
+                if (WebApiApplication.objCommon.ValidateValue<User_detail>("User_Name", collection.User_Name))
                 {
                     ModelState.AddModelError(nameof(User_detail.User_Name), "Duplicate User Name is not allowed..!!");
                     return View(collection);
                 }
+                collection.E_UserID = Session["UserName"].ToString();
+                collection.DoE = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePost(client, collection, WebApiApplication.staticVariables.UserDetailApiName);
                 if (test.IsSuccessStatusCode)
                 {
@@ -61,7 +63,7 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Delete(string id)
         {
-            var lst = WebApiApplication.objCommon.ExecuteDetailByID<City>(client, id, WebApiApplication.staticVariables.UserDetailApiName);
+            var lst = WebApiApplication.objCommon.ExecuteDetailByID<User_detail>(client, id, WebApiApplication.staticVariables.UserDetailApiName);
             return View(lst);
         }
 
@@ -73,7 +75,6 @@ namespace Electra_WebApi.Controllers
                 if (WebApiApplication.objCommon.ValidateValue<Invoice>("E_userid", id.ToString()))
                 {
                     ModelState.AddModelError(nameof(User_detail.User_Name), "UserName is used in Invoice master, So UserName can't be delete..!!");
-                    //return View(collection);
                     HttpClient htpc = new HttpClient();
                     var lst = WebApiApplication.objCommon.ExecuteDetailByID<User_detail>(htpc, id.ToString(), WebApiApplication.staticVariables.UserDetailApiName);
                     return View(lst);
@@ -104,8 +105,7 @@ namespace Electra_WebApi.Controllers
             {
                 if (lst.User_Name.Equals(collection.User_Name) && lst.Passwrd.Equals(collection.Passwrd))
                 {
-                    //StaticVariables.UserName = collection.User_Name;
-                    //MessageBox.Show(lst.User_Name);
+                    Session["UserName"] = collection.User_Name;
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -120,7 +120,7 @@ namespace Electra_WebApi.Controllers
         }
         public ActionResult Logout()
         {
-            StaticVariables.UserName = null;
+            Session["UserName"] = null;
             return RedirectToAction("Login", "UserDetailMVC");
         }
     }

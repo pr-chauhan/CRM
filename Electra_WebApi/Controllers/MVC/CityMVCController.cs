@@ -11,16 +11,16 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            //if (StaticVariables.UserName == null)
-            //{
-            //    return RedirectToAction("Login", "UserDetailMVC");
-            //}
-            //else
-            //{
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
                 var lst = WebApiApplication.objCommon.ExecuteIndex<City>(client, WebApiApplication.staticVariables.CityApiName);
             lst = lst.OrderBy(x => x.City_Name).ToList();
             return View(lst);
-            //}
+            }
         }
 
         public ActionResult Details(int id)
@@ -49,6 +49,8 @@ namespace Electra_WebApi.Controllers
                      ModelState.AddModelError(nameof(City.City_Name), "Duplicate City is not allowed..!!");
                     return View(collection);
                 }
+                collection.E_UserID = Session["UserName"].ToString();
+                collection.DoE = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePost(client,collection, WebApiApplication.staticVariables.CityApiName);
                 if (test.IsSuccessStatusCode)
                 {
@@ -79,6 +81,8 @@ namespace Electra_WebApi.Controllers
                 HttpClient clientNew = new HttpClient();
                 var lst = WebApiApplication.objCommon.ExecuteIndex<State>(clientNew, WebApiApplication.staticVariables.StateApiName);
                 ViewBag.CL = lst.OrderBy(x => x.State_Name).ToList();
+                collection.M_UserID = Session["UserName"].ToString();
+                collection.DoM = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePut(client, collection, WebApiApplication.staticVariables.CityApiName);
                 if (test.IsSuccessStatusCode)
                 {
@@ -121,11 +125,6 @@ namespace Electra_WebApi.Controllers
             {
                 return View();
             }
-        }
-
-        public string GetCityName(int city_id)
-        {
-            return WebApiApplication.objCommon.GetCityNameByID(city_id);
         }
     }
 }

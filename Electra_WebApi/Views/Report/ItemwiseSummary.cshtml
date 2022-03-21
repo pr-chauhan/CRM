@@ -28,8 +28,6 @@
                     <input type="date" id="ToDate"  value=@ViewBag.DTT/>
                 </div>
 
-
-
             </div>
 
         </div>
@@ -49,13 +47,12 @@
             $("#ViewReport").click(function () {
                 var fromdate = $("#FromDate").val();
                 var todate = $("#ToDate").val();
-               // alert(fromdate + todate);
                 $.get("/Report/ItemwiseSummary", { fromdate: fromdate, todate: todate }, function (data) {
                     window.location.replace("/Reports/ItemwiseSummary.aspx");
                 });
             });
         });
-    </script>
+   </script>
     @*<div class="form-group">
             <a href="../Reports/ItemwiseSummary.aspx" class="btn btn-primary">Item Summary between two dates</a>
         </div>*@

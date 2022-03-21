@@ -13,16 +13,16 @@ namespace Electra_WebApi.Controllers
 
         public ActionResult Index()
         {
-            //if (StaticVariables.UserName == null)
-            //{
-            //    return RedirectToAction("Login", "UserDetailMVC");
-            //}
-            //else
-            //{
-            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "UserDetailMVC");
+            }
+            else
+            {
+                var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client, WebApiApplication.staticVariables.ConsigneeApiName);
             lst = lst.OrderBy(x => x.Consignee_Name).ToList();
             return View(lst);
-            //}
+            }
         }
 
         public ActionResult Details(int id)
@@ -51,6 +51,8 @@ namespace Electra_WebApi.Controllers
                     return View(collection);
                 }
                 HttpClient client1 = new HttpClient();
+                collection.E_UserID = Session["UserName"].ToString();
+                collection.DoE = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePost(client1, collection, WebApiApplication.staticVariables.ConsigneeApiName);
                 if (test.IsSuccessStatusCode)
                 {
@@ -78,6 +80,8 @@ namespace Electra_WebApi.Controllers
         {
             try
             {
+                collection.M_UserID = Session["UserName"].ToString();
+                collection.DoM = System.DateTime.Now;
                 var test = WebApiApplication.objCommon.ExecutePut(client, collection, WebApiApplication.staticVariables.ConsigneeApiName);
                 if (test.IsSuccessStatusCode)
                 {
@@ -134,7 +138,6 @@ namespace Electra_WebApi.Controllers
                              StateName = ss.State_Name
                          }).ToList();
             return state[0].StateName.ToString();
-            //return string.Empty;
         }
         public string GetConsigneeName(int Consignee_id)
         {
@@ -143,7 +146,6 @@ namespace Electra_WebApi.Controllers
 
         public string GetCityName(int Consigneey_id)
         {
-
             var state = (from cg in WebApiApplication.db.Consignees
                          join ct in WebApiApplication.db.Cities on cg.City_ID equals ct.City_ID
                          where cg.Consignee_ID == Consigneey_id
@@ -152,15 +154,13 @@ namespace Electra_WebApi.Controllers
                              City = (ct.City_Name == null ? string.Empty : ct.City_Name)
                          }
                          ).ToList();
-            // do here some operation  
+
             return state[0].City;
         }
         public JsonResult GetConsigneeDetails(int Consigneey_id)
         {
 
             var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consigneey_id)).ToList();
-
-            // do here some operation  
             return Json(state, JsonRequestBehavior.AllowGet);
         }
 
@@ -175,19 +175,20 @@ namespace Electra_WebApi.Controllers
                                _address = cg.address == null ? string.Empty : cg.address,
                                _city = ct.City_Name == null ? string.Empty: ct.City_Name,
                                _state = st.State_Name == null ? string.Empty : st.State_Name,
-                               _range = cg.RAnge == null ? string.Empty : cg.RAnge,
-                               _division = cg.Division == null ? string.Empty : cg.Division,
+                               //_range = cg.RAnge == null ? string.Empty : cg.RAnge,
+                               //_division = cg.Division == null ? string.Empty : cg.Division,
                                _comm_rate = cg.commission_rate == null ? string.Empty :  cg.commission_rate,
                            }).ToList();
 
 
             string fulladdress = address[0]._address + ", " +
                 address[0]._city + ", " +
-                address[0]._state + ", Range : " +
-              address[0]._range + ", Division: " +
-               address[0]._division + ", Comm.Rate : " +
+                address[0]._state + 
+                //", Range : " +
+              //address[0]._range + ", Division: " +
+              // address[0]._division +
+               ", EximCode : " +
                 address[0]._comm_rate;
-            // do here some operation  
             return fulladdress;
         }
     }

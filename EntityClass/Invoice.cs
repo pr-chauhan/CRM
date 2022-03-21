@@ -57,7 +57,7 @@ namespace EntityClass
         public string Consignee_DelDivision { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Commission Rate")]
+        [DisplayName("Exim Code")]
         public string Consignee_DelCommRate { get; set; }
 
         [StringLength(255)]

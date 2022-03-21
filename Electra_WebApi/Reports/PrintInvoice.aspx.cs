@@ -23,30 +23,27 @@ namespace Electra_WebApi
                 {
                     searchText = Convert.ToInt32(Request.QueryString["searchText"]);
                 }
-
-                //List<Invoice> InvMain = null;
                 using (var _context = new CraModel())
                 {
                     var invoice_No = StaticVariables.Invoice_No;
                     var financial_yr = StaticVariables.Financial_Year;
-                    var Optoin = StaticVariables.Option;
+                    var optionSel = StaticVariables.Option;
                     ReportViewer1.ProcessingMode = ProcessingMode.Local;
                     var InvMain = GetData("exec SP_PrintInvoice "+ invoice_No + ", '"+ financial_yr + "'");
-                    //InvMain = _context.Invoices.Where(t => t.Invoice_ID == 1 && t.Financial_Yr =="2021-2022").ToList();
                     var totExcise = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("TOTAL_EXCISE")).FirstOrDefault();
                     var totamt = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("total_amount")).FirstOrDefault();
+                    var tcsVal = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("total_amount")).FirstOrDefault();
+                    totamt += tcsVal;
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/ReportInvoice.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rdc = new ReportDataSource("InvoiceDataSet", InvMain.Tables[0]);
                     ReportParameter[] parameters = new ReportParameter[4];
-                    parameters[0] = new ReportParameter("headng","Original For Buyer");
+                    parameters[0] = new ReportParameter("headng", optionSel);
                     parameters[1] = new ReportParameter("h1", string.Empty);
                     parameters[2] = new ReportParameter("totamt", WebApiApplication.objCommon.words_money(totamt));
                     parameters[3] = new ReportParameter("excamt", WebApiApplication.objCommon.words_money(totExcise));
                     ReportViewer1.LocalReport.SetParameters(parameters);
                     ReportViewer1.LocalReport.DataSources.Add(rdc);
-                    //ReportViewer1.LocalReport.Refresh();
-                    //ReportViewer1.DataBind();
                     Open();
                 }
             }
@@ -76,11 +73,7 @@ namespace Electra_WebApi
             string contentType;
             string encoding;
             string extension;
-
-            //Export the RDLC Report to Byte Array.
             byte[] bytes = ReportViewer1.LocalReport.Render("PDF", null, out contentType, out encoding, out extension, out streamIds, out warnings);
-
-            // Open generated PDF.
             Response.Clear();
             Response.Buffer = true;
             Response.Charset = "";

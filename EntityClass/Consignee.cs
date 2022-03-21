@@ -60,7 +60,7 @@ namespace EntityClass
         public string PANNO { get; set; }
 
         [StringLength(255)]
-        [DisplayName("Commission Rate")]
+        [DisplayName("Exim Code")]
         public string commission_rate { get; set; }
 
         [StringLength(255)]
