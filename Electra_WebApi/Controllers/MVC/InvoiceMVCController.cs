@@ -12,7 +12,7 @@ namespace Electra_WebApi.Controllers
     public class InvoiceMVCController : Controller
     {
         private readonly HttpClient client = new HttpClient();
-        private int itemCount = 0;
+        private static int itemCount = 0;
        
         public ActionResult Index()
         {
@@ -87,8 +87,8 @@ namespace Electra_WebApi.Controllers
             var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
             ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
-            WebApiApplication.db.SaveChangesAsync();
-            invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id); ;
+            //WebApiApplication.db.SaveChangesAsync();
+            invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id); 
             WebApiApplication.db.Entry(invoices.invoice).State = System.Data.Entity.EntityState.Detached;
             var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
             ViewBag.DataList = data;
@@ -111,6 +111,8 @@ namespace Electra_WebApi.Controllers
             HttpClient client2 = new HttpClient();
             var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
             var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + invoiceModel.invoice.Invoice_ID + " and  Financial_Yr ='" + invoiceModel.invoice.Financial_Yr + "'");
+            ViewBag.DataList = data;
             ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();

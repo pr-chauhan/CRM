@@ -93,6 +93,11 @@ namespace Electra_WebApi
             var state = WebApiApplication.db.States.Where(x => x.State_ID.Equals(state_ID)).ToList();
             return state[0].State_Name.ToString();
         }
+        public string GetCityNameByID(int city_id)
+        {
+            var state = WebApiApplication.db.Cities.Where(x => x.City_ID.Equals(city_id)).ToList();
+            return state[0].City_Name.ToString();
+        }
 
         public bool ValidateValue<T>(string ColumnName, string parameter) where T : class, new()
         {

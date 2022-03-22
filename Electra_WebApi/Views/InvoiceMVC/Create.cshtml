@@ -81,7 +81,8 @@
                 </div>
                 <div class="col-md-9">
                     @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeAddress", @style = "background-color:#ffeb504d;width=1100px;", @readonly = "readonly" })
+                    @*@Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeAddress", @style = "background-color:#ffeb504d;width=1100px;", @readonly = "readonly" })*@
+                    <input type="text" id="ConsigneeAddress" name="ConsigneeAddress" class="form-control" />
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
                 </div>
                 @*<div class="col-md-2">
@@ -253,7 +254,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:80px;" } })
+                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -271,7 +272,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
+                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==4) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -306,7 +307,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:80px;" } })
+                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -324,7 +325,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:80px;" } })
+                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
@@ -425,11 +426,11 @@
                             $("#Invoice_ID").val("0");
                             var id = $("#Invoice_ID").val();
                             var financial_yr = $("#Financial_Yr").val();
-                            alert("Are you sure. Want to create performa invoice ?..!  for Financial Year : " + financial_yr + " And Invoice No. : " + id);
-                            if (confirm()) {
+                            //alert("Are you sure. Want to create performa invoice ?..!  for Financial Year : " + financial_yr + " And Invoice No. : " + id);
+                            //if (confirm("Are you sure. Want to create performa invoice ?")) {
                                 $.post("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
                                 });
-                            }
+                           // }
 
                         }
                     });
@@ -611,18 +612,42 @@
                         TotalAssValTaxCalculation();
                     });
                     $("#GSTPercent").change(function () {
+                        var Per = (!$.isNumeric($("#GSTPercent").val())) ? 0 : parseFloat($("#GSTPercent").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid GST Percentage");
+                            $("#GSTPercent").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
                     $("#invoice_PCess_Per").change(function () {
+                        var Per = (!$.isNumeric($("#invoice_PCess_Per").val())) ? 0 : parseFloat($("#invoice_PCess_Per").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid GST Cess Percentage");
+                            $("#invoice_PCess_Per").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
                     $("#Insurance_per").change(function () {
+                        var Per = (!$.isNumeric($("#Insurance_per").val())) ? 0 : parseFloat($("#Insurance_per").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid Insurance Percentage");
+                            $("#Insurance_per").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
                     $("#GSTType").change(function () {
                         TotalAssValTaxCalculation();
                     });
                     $("#invoice_TCSPer").change(function () {
+                        var  Per = (!$.isNumeric($("#invoice_TCSPer").val())) ? 0 : parseFloat($("#invoice_TCSPer").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid TCS Percentage");
+                            $("#invoice_TCSPer").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
 
@@ -793,6 +818,7 @@
                                 return false;
                             }
                         }
+
                         if ($("#GSTType").val() == "") {
                             alert("Please check GST Type.");
                             return false;
@@ -801,6 +827,7 @@
                             alert("Please check GST Percentage.");
                             return false;
                         }
+                       
 
                         var Item_id = 0;
                         var No_of_pkg = 0;

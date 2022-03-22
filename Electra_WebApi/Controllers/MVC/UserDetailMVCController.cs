@@ -110,11 +110,13 @@ namespace Electra_WebApi.Controllers
                 }
                 else
                 {
-                    return View();
+                    ViewBag.Invalid = "Invalid user name and password..!!";
+                   return View();
                 }
             }
             else
             {
+                ViewBag.Invalid = "Invalid user name and password..!!";
                 return View();
             }
         }

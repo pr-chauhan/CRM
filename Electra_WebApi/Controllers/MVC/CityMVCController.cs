@@ -126,5 +126,9 @@ namespace Electra_WebApi.Controllers
                 return View();
             }
         }
+        public string GetCityName(int city_id)
+        {
+            return WebApiApplication.objCommon.GetCityNameByID(city_id);
+        }
     }
 }
