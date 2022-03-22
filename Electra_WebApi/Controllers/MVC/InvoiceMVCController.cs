@@ -78,59 +78,7 @@ namespace Electra_WebApi.Controllers
             return View();
         }
 
-        public ActionResult Edit(string fyr, int id)
-        {
-            InvoiceModel invoices = new InvoiceModel();
-            HttpClient client1 = new HttpClient();
-            HttpClient client2 = new HttpClient();
-            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
-            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
-            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
-            //WebApiApplication.db.SaveChangesAsync();
-            invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id); 
-            WebApiApplication.db.Entry(invoices.invoice).State = System.Data.Entity.EntityState.Detached;
-            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
-            ViewBag.DataList = data;
-            ViewBag.IDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
-            ViewBag.RDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
-            ViewBag.ITime = invoices.invoice.Removal_Time;
-            ViewBag.GST = WebApiApplication.objCommon.GetGstType();
-            itemCount = 0;
-            return View(invoices);
-        }
-        [HttpPost]
-        public ActionResult Edit(InvoiceModel invoiceModel)
-        {
-            string[] RemovalTime = invoiceModel.invoice.Removal_Time.Split(':');
-            if (RemovalTime[0] == "00")
-            {
-                invoiceModel.invoice.Removal_Time = "12" + ":" + RemovalTime[1] + ":" + RemovalTime[2];
-            }
-            HttpClient client1 = new HttpClient();
-            HttpClient client2 = new HttpClient();
-            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
-            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
-            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + invoiceModel.invoice.Invoice_ID + " and  Financial_Yr ='" + invoiceModel.invoice.Financial_Yr + "'");
-            ViewBag.DataList = data;
-            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
-            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
-            ViewBag.GST = WebApiApplication.objCommon.GetGstType();
-            client.BaseAddress = new Uri(WebApiApplication.staticVariables.ServerSuffix + "api/" + WebApiApplication.staticVariables.InvoiceApiName);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            invoiceModel.invoice.M_userid = Session["UserName"].ToString();
-            invoiceModel.invoice.DOM = System.DateTime.Now;
-            var putdata = client.PutAsJsonAsync(WebApiApplication.staticVariables.InvoiceApiName, invoiceModel.invoice);
-            putdata.Wait();
-            var test = putdata.Result; 
-            if (test.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-
-            return View(invoiceModel);
-
-        }
+       
 
         public ActionResult Details(string fyr, int id)
         {
@@ -262,6 +210,59 @@ namespace Electra_WebApi.Controllers
             return Json(invoice_Detail);
         }
 
+        public ActionResult Edit(string fyr, int id)
+        {
+            InvoiceModel invoices = new InvoiceModel();
+            HttpClient client1 = new HttpClient();
+            HttpClient client2 = new HttpClient();
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
+            //WebApiApplication.db.SaveChangesAsync();
+            invoices.invoice = WebApiApplication.db.Invoices.Find(fyr, id);
+            WebApiApplication.db.Entry(invoices.invoice).State = System.Data.Entity.EntityState.Detached;
+            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + id + " and  Financial_Yr ='" + fyr + "'");
+            ViewBag.DataList = data;
+            ViewBag.IDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
+            ViewBag.RDT = invoices.invoice.Invoice_Date.Value.ToString("yyyy-MM-dd");
+            ViewBag.ITime = invoices.invoice.Removal_Time;
+            ViewBag.GST = WebApiApplication.objCommon.GetGstType();
+            itemCount = 0;
+            return View(invoices);
+        }
+        [HttpPost]
+        public ActionResult Edit(InvoiceModel invoiceModel)
+        {
+            string[] RemovalTime = invoiceModel.invoice.Removal_Time.Split(':');
+            if (RemovalTime[0] == "00")
+            {
+                invoiceModel.invoice.Removal_Time = "12" + ":" + RemovalTime[1] + ":" + RemovalTime[2];
+            }
+            HttpClient client1 = new HttpClient();
+            HttpClient client2 = new HttpClient();
+            var lst = WebApiApplication.objCommon.ExecuteIndex<Consignee>(client1, WebApiApplication.staticVariables.ConsigneeApiName);
+            var l = WebApiApplication.objCommon.ExecuteIndex<Item>(client2, WebApiApplication.staticVariables.ItemApiName);
+            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail   Where Invoice_Id=" + invoiceModel.invoice.Invoice_ID + " and  Financial_Yr ='" + invoiceModel.invoice.Financial_Yr + "'");
+            ViewBag.DataList = data;
+            ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
+            ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
+            ViewBag.GST = WebApiApplication.objCommon.GetGstType();
+            client.BaseAddress = new Uri(WebApiApplication.staticVariables.ServerSuffix + "api/" + WebApiApplication.staticVariables.InvoiceApiName);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            invoiceModel.invoice.M_userid = Session["UserName"].ToString();
+            invoiceModel.invoice.DOM = System.DateTime.Now;
+            var putdata = client.PutAsJsonAsync(WebApiApplication.staticVariables.InvoiceApiName, invoiceModel.invoice);
+            putdata.Wait();
+            var test = putdata.Result;
+            if (test.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(invoiceModel);
+            
+        }
         public JsonResult UpdateInvoiceDetail(string rID, string Item_id, string No_of_pkg, string type, string Qty, string Rate, string Total_amt, string description, string fy_year, string invoiceid)
         {
             if (itemCount == 0)
@@ -284,6 +285,14 @@ namespace Electra_WebApi.Controllers
             };
             HttpClient clientDetails = new HttpClient();
             var test = WebApiApplication.objCommon.ExecutePost(clientDetails, invoice_Detail, WebApiApplication.staticVariables.Invoice_DetailApiName);
+            if (test.IsSuccessStatusCode)
+            {
+
+            }
+            else
+            {
+
+            }
             return Json(invoice_Detail);
         }
         public void DeleteInvoiceDetail(string fy_year, string invoiceid)

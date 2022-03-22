@@ -8,16 +8,17 @@
 
 <h4>Create Invoice</h4>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "InvoiceMVC", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
+                @Html.AntiForgeryToken()
 
-    <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding:2px; overflow-wrap:break-word;overflow-x:auto;zoom:80%">
+                <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding:2px; overflow-wrap:break-word;overflow-x:auto;zoom:80%">
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div>
-            <div class="col-md-12">
+                    <div>
+            
+                        <div class="col-md-12">
                 <div class="col-md-1">
                     @{
                         var Fin_year = new SelectList(
@@ -25,8 +26,8 @@
                             {
                                     new SelectListItem {Text = "2021-2022", Value = "2021-2022"},
                                     new SelectListItem {Text = "2022-2023", Value = "2022-2023"}, }, "Value", "Text");
-                    }
-                    @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
+    }
+    @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
                     @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text", ViewBag.FY), new { @class = "form-control", @style = "width:140px;", @id = "Financial_Yr"  })
                     @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
                 </div>
@@ -847,6 +848,7 @@
                             description = row.find("td:eq(7) input[type='text']").val();
                             fy_year = $("#Financial_Yr").val();
                             invoiceid = $("#Invoice_ID").val();
+
 
 
                             $.post("/InvoiceMVC/SaveInvoiceDetail", {

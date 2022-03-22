@@ -8,7 +8,7 @@
 
 <h4>Edit Invoice</h4>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","InvoiceMVC",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -891,6 +891,9 @@
                             description = row.find("td:eq(7) input[type='text']").val();
                             fy_year = $("#Financial_Yr").val();
                             invoiceid = $("#Invoice_ID").val();
+
+
+
                             $.post("/InvoiceMVC/UpdateInvoiceDetail", {
                                 rID: rID,
                                 Item_id: Item_id, No_of_pkg: No_of_pkg,
@@ -900,8 +903,10 @@
                             }, function (data) {
                                 //  alert("Done");
                             });
+                            
                             rID += 1;
                         });
+                         
                     });
                 });
 
