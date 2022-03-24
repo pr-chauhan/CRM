@@ -2,11 +2,11 @@
 {
     public class StaticVariables
     {
-
-        public string ServerSuffix { get; set; } = "https://localhost:44305/";
+       //public string ServerSuffix { get; set; } = "http://localhost:8084/";
+         public string ServerSuffix { get; set; } = "https://localhost:44305/";
         //public string ServerSuffix { get; set; } = "http://Electra.somee.com/";
         ////public string ServerSuffix { get; set; } = "www.bsite.net/dharmesh3600/";
-      
+
         public string CityApiName { get; set; } = "CityApi";
         public string StateApiName { get; set; } = "StateApi";
         public string UserDetailApiName { get; set; } = "UserDetailApi";

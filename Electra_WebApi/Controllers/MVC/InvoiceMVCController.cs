@@ -302,6 +302,7 @@ namespace Electra_WebApi.Controllers
             var responseDet = clientDetails.DeleteAsync(WebApiApplication.staticVariables.Invoice_DetailApiName + "?id=" + invoiceid + "&Financial_Yr=" + fy_year);
             responseDet.Wait();
             var testDet = responseDet.Result;
+                     
         }
     }
 }

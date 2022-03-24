@@ -8,33 +8,32 @@
 
 <h4>Create Invoice</h4>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "InvoiceMVC", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
+                @Html.AntiForgeryToken()
 
-    <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding:2px; overflow-wrap:break-word;overflow-x:auto;zoom:80%">
+                <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding:2px; overflow-wrap:break-word;overflow-x:auto;zoom:80%">
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div>
-            <div class="col-md-12">
+                    <div>
+            
+                        <div class="col-md-12">
                 <div class="col-md-1">
                     @{
                         var Fin_year = new SelectList(
                             new List<SelectListItem>
                             {
-                                    new SelectListItem {Text = "2020-2021", Value = "2020-2021"},
                                     new SelectListItem {Text = "2021-2022", Value = "2021-2022"},
                                     new SelectListItem {Text = "2022-2023", Value = "2022-2023"}, }, "Value", "Text");
-                    }
-
-                    @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text"), new { @class = "form-control", @style = "width:140px;", @id = "Financial_Yr" })
+    }
+    @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.invoice.Financial_Yr, new SelectList(Fin_year, "Value", "Text", ViewBag.FY), new { @class = "form-control", @style = "width:140px;", @id = "Financial_Yr"  })
                     @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
                     @Html.LabelFor(model => model.invoice.Invoice_ID, htmlAttributes: new { @class = "control-label " })
-                    @Html.EditorFor(model => model.invoice.Invoice_ID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.INVID, @type = "text", @id = "Invoice_ID", @style = "background-color:#FFA500;width:140px", @readonly = "readonly" } })
+                    @Html.EditorFor(model => model.invoice.Invoice_ID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.INVID, @type = "text", @id = "Invoice_ID", @style = "background-color:#ffeb504d;width:140px", @readonly = "readonly" } })
                     @Html.ValidationMessageFor(model => model.invoice.Invoice_ID, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
@@ -68,29 +67,30 @@
                     </table>
 
                 </div>
-                <div class="col-md-2">
+                @*<div class="col-md-2">
 
                     @Html.LabelFor(model => model.invoice.Consignee_DelRange, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelRange, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelRange" } })
-                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelRange, "", new { @class = "text-danger" })
-                </div>
+                   
+                </div>*@
             </div>
             <div class="col-md-12">
                 <div class="col-md-3">
                     @Html.LabelFor(model => model.invoice.Consignee_ID, htmlAttributes: new { @class = "control-label " })
-                    @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @style = "width:450px;", @id = "Consignee_ID" })
+                    @Html.DropDownListFor(model => model.invoice.Consignee_ID, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"),"", new { @class = "form-control", @style = "width:450px;", @id = "Consignee_ID" })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_ID, "", new { @class = "text-danger" })
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-9">
                     @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeAddress", @style = "background-color:#FFA500;width=900px;", @readonly = "readonly" })
+                    @*@Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeAddress", @style = "background-color:#ffeb504d;width=1100px;", @readonly = "readonly" })*@
+                    <input type="text" id="ConsigneeAddress" name="ConsigneeAddress" class="form-control" />
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
                 </div>
-                <div class="col-md-2">
+                @*<div class="col-md-2">
                     @Html.LabelFor(model => model.invoice.Consignee_DelDivision, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelDivision, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelDivision" } })
-                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelDivision, "", new { @class = "text-danger" })
-                </div>
+                   
+                </div>*@
             </div>
             <div class="col-md-12">
                 <div class="col-md-3">
@@ -100,7 +100,7 @@
                     @Html.LabelFor(model => model.invoice.Con_Adr_Check, htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.invoice.Con_Adr_Check, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.invoice.Con_Adr_Check, "", new { @class = "text-danger" })
-                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"), new { @class = "form-control", @style = "width:450px;", @id = "DEL_PARTY" })
+                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name"),"", new { @class = "form-control", @style = "width:450px;", @id = "DEL_PARTY" })
                     @Html.ValidationMessageFor(model => model.invoice.DEL_PARTY, "", new { @class = "text-danger" })
                 </div>
 
@@ -112,7 +112,7 @@
                 <div class="col-md-2">
                     @Html.LabelFor(model => model.invoice.Consignee_DelCommRate, htmlAttributes: new { @class = "control-label " })
                     @Html.EditorFor(model => model.invoice.Consignee_DelCommRate, new { htmlAttributes = new { @class = "form-control", @id = "Consignee_DelCommRate" } })
-                    @Html.ValidationMessageFor(model => model.invoice.Consignee_DelCommRate, "", new { @class = "text-danger" })
+                  
                 </div>
             </div>
         </div>
@@ -195,17 +195,17 @@
             </div>
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Total_Ass_Amt, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_Ass_Amt, new { htmlAttributes = new { @class = "form-control", @id = "Total_Ass_Amt", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.invoice.Total_Ass_Amt, new { htmlAttributes = new { @class = "form-control", @id = "Total_Ass_Amt", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.invoice.Total_Ass_Amt, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Sub_total, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Sub_total, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.invoice.Sub_total, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.invoice.Sub_total, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Total_Excise, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_Excise, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.invoice.Total_Excise, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.invoice.Total_Excise, "", new { @class = "text-danger" })
                 <br />
             </div>
@@ -229,23 +229,21 @@
 
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
             </div>
 
         </div>
         <div class="col-md-12">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Vehicle_No, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.invoice.Vehicle_No, new { htmlAttributes = new { @class = "form-control", @style = "width:275px;" } })
                 @Html.ValidationMessageFor(model => model.invoice.Vehicle_No, "", new { @class = "text-danger" })
             </div>
-            <div class="col-md-1">
-                @Html.LabelFor(model => model.invoice.GRR_No, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.invoice.GRR_No, "", new { @class = "text-danger" })
-            </div>
             <div class="col-md-2">
+                @Html.LabelFor(model => model.invoice.GRR_No, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.invoice.GRR_No, new { htmlAttributes = new { @class = "form-control", @style = "width:275px;" } })
+                @Html.ValidationMessageFor(model => model.invoice.GRR_No, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Others, htmlAttributes: new { @class = "control-label" })
@@ -257,14 +255,14 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.BED_Per, new { htmlAttributes = new { @class = "form-control", @id = "GSTPercent", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
                             <label>&nbsp;%&nbsp;</label>
                         </td>
                         <td>
-                            @Html.EditorFor(model => model.invoice.BED_Val, new { htmlAttributes = new { @class = "form-control", @id = "GSTValue", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                            @Html.EditorFor(model => model.invoice.BED_Val, new { htmlAttributes = new { @class = "form-control", @id = "GSTValue", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                             @Html.ValidationMessageFor(model => model.invoice.BED_Val, "", new { @class = "text-danger" })
                         </td>
                     </tr>
@@ -275,14 +273,14 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.TCSPer, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==4) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.TCSPer, "", new { @class = "text-danger" })
                         </td>
                         <td>
                             <label> &nbsp;%&nbsp;</label>
                         </td>
                         <td>
-                            @Html.EditorFor(model => model.invoice.TCSVal, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500;", @readonly = "readonly" } })
+                            @Html.EditorFor(model => model.invoice.TCSVal, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d;", @readonly = "readonly" } })
                             @Html.ValidationMessageFor(model => model.invoice.TCSVal, "", new { @class = "text-danger" })
                         </td>
                     </tr>
@@ -310,14 +308,14 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.Insurance_per, new { htmlAttributes = new { @class = "form-control", @id = "Insurance_per", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.Insurance_per, "", new { @class = "text-danger" })
                         </td>
                         <td>
                             <label>&nbsp;%&nbsp;</label>
                         </td>
                         <td>
-                            @Html.EditorFor(model => model.invoice.Insurance_val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                            @Html.EditorFor(model => model.invoice.Insurance_val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                             @Html.ValidationMessageFor(model => model.invoice.Insurance_val, "", new { @class = "text-danger" })
                         </td>
                     </tr>
@@ -328,23 +326,24 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==2) return false;", @style = "width:50px;" } })
+                            @Html.EditorFor(model => model.invoice.PCess_Per, new { htmlAttributes = new { @class = "form-control", @onKeyPress = "if(this.value.length==3) return false;", @style = "width:80px;" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Per, "", new { @class = "text-danger" })
                         </td>
                         <td>
-                            <label> &nbsp;%&nbsp;</label>
+                            <label id="sgstper"> &nbsp;%&nbsp;</label>
                         </td>
                         <td>
-                            @Html.EditorFor(model => model.invoice.PCess_Val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
+                            @Html.EditorFor(model => model.invoice.PCess_Val, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d", @readonly = "readonly" } })
                             @Html.ValidationMessageFor(model => model.invoice.PCess_Val, "", new { @class = "text-danger" })
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="col-md-2">
-                @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#FFA500", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label", @Text="Grand Total" })
+                @*@Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d", @readonly = "readonly" ,@id="GrandTotal"} })*@
+                <input type="text" id="GrandTotal" class="form-control" readonly="readonly" style="background-color: #ffeb504d;" />
+                 @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-2">
                 <input id="submit" type="submit" value="Create" class="btn btn-success" style="float:right;zoom:1.25;" />
@@ -380,8 +379,8 @@
                         });
                         $.getJSON("/ConsigneeMVC/GetConsigneeDetails", { Consigneey_id: id }, function (data) {
 
-                            $("#Consignee_DelRange").val(data[0].RAnge);
-                            $("#Consignee_DelDivision").val(data[0].Division);
+                            //$("#Consignee_DelRange").val(data[0].RAnge);
+                            //$("#Consignee_DelDivision").val(data[0].Division);
                             $("#Consignee_DelCommRate").val(data[0].commission_rate);
 
                         });
@@ -396,8 +395,8 @@
                         $.get("/ConsigneeMVC/GetCityName", { Consigneey_id: id }, function (data) {
                             $("#DESTINATION2").val(data);
                         });
-                        $("#Consignee_DelRange").val("");
-                        $("#Consignee_DelDivision").val("");
+                        //$("#Consignee_DelRange").val("");
+                        //$("#Consignee_DelDivision").val("");
                         $("#Consignee_DelCommRate").val("");
                         $("#invoice_Con_Adr_Check").prop('checked', false);
                     });
@@ -406,18 +405,19 @@
                     $("#Con_Adr_Check").change(function () {
                         if ($(this).is(':checked')) {
                             $("#ConsigneeDelAddress").val($("#ConsigneeAddress").val());
+                            $("#DEL_PARTY").val($("#Consignee_ID").val());
                             $("#invoice_Con_Adr_Check").val("T");
                             $("#ConsigneeDelAddress").attr('readonly', true);
-                            $("#Consignee_DelRange").attr('readonly', true);
-                            $("#Consignee_DelDivision").attr('readonly', true);
+                            //$("#Consignee_DelRange").attr('readonly', true);
+                            //$("#Consignee_DelDivision").attr('readonly', true);
                             $("#Consignee_DelCommRate").attr('readonly', true);
                         }
                         else {
                             $("#ConsigneeDelAddress").val("");
                             $("#invoice_Con_Adr_Check").val("F");
                             $("#ConsigneeDelAddress").attr('readonly', false);
-                            $("#Consignee_DelRange").attr('readonly', false);
-                            $("#Consignee_DelDivision").attr('readonly', false);
+                            //$("#Consignee_DelRange").attr('readonly', false);
+                            //$("#Consignee_DelDivision").attr('readonly', false);
                             $("#Consignee_DelCommRate").attr('readonly', false);
                         }
                     });
@@ -427,22 +427,21 @@
                             $("#Invoice_ID").val("0");
                             var id = $("#Invoice_ID").val();
                             var financial_yr = $("#Financial_Yr").val();
-                            alert("Are you sure. Want to create performa invoice ?..!  for Financial Year : " + financial_yr + " And Invoice No. : " + id);
-                            if (confirm()) {
+                            //alert("Are you sure. Want to create performa invoice ?..!  for Financial Year : " + financial_yr + " And Invoice No. : " + id);
+                            //if (confirm("Are you sure. Want to create performa invoice ?")) {
                                 $.post("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
-                                    alert("performa invoice deleted successfully..!!");
                                 });
-                            }
+                           // }
 
                         }
                     });
-                    $("#Consignee_DelRange").change(function () {
-                        if ($.isNumeric($("#Consignee_DelRange").val())) {
-                            alert("Only Alphabet allowed..!!");
-                            $("#Consignee_DelRange").val("");
-                            return;
-                        }
-                    });
+                    //$("#Consignee_DelRange").change(function () {
+                    //    if ($.isNumeric($("#Consignee_DelRange").val())) {
+                    //        alert("Only Alphabet allowed..!!");
+                    //        $("#Consignee_DelRange").val("");
+                    //        return;
+                    //    }
+                    //});
 
                     $("#INo_of_pkg").change(function () {
                         if (!$.isNumeric($("#INo_of_pkg").val())) {
@@ -489,6 +488,7 @@
                             $("#invoice_PCess_Per").val(6);
                             $("#invoice_PCess_Per").show();
                             $("#invoice_PCess_Val").show();
+                            $("#sgstper").show();
                             $("#lPCess_Per").show();
                             $("#lPCess_Val").show();
                         }
@@ -499,15 +499,17 @@
                             $("#invoice_PCess_Per").val(0);
                             $("#invoice_PCess_Per").hide();
                             $("#invoice_PCess_Val").hide();
+                            $("#sgstper").hide();
                             $("#lPCess_Per").hide();
                             $("#lPCess_Val").hide();
                         }
                         if ($("#GSTType").val() == "IGST") {
-                            $("#lGSTPercent").text("IGST Percent");
+                            $("#lGSTPercent").text("IGST");
                             $("#lGSTValue").text("IGST Value");
                             $("#GSTPercent").val(12);
                             $("#invoice_PCess_Per").hide();
                             $("#invoice_PCess_Val").hide();
+                            $("#sgstper").hide();
                             $("#lPCess_Per").hide();
                             $("#lPCess_Val").hide();
                             $("#invoice_PCess_Per").val(0);
@@ -563,28 +565,28 @@
 
 
                         $('<tr id="tablerow' + counter + '"><td>' +
-                            '<input type="text" class="form-control" id="Item_id[' + counter + ']" value="' + itemid + '" required="required"  readonly=readonly  style = "background-color:#FFA500;visibility:hidden;width=1px;" />' +
+                            '<input type="text" class="form-control" id="Item_id[' + counter + ']" value="' + itemid + '" required="required"  readonly=readonly  style = "background-color:#ffeb504d;visibility:hidden;width=1px;" />' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="ItemName[' + counter + ']" value="' + item_name + '" required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="ItemName[' + counter + ']" value="' + item_name + '" required="required"  readonly=readonly   style = "background-color:#ffeb504d"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="No_of_pkg[' + counter + ']" value="' + Noofpak + '" required="required"  readonly=readonly  style = "background-color:#FFA500" />' +
+                            '<input type="text" class="form-control" id="No_of_pkg[' + counter + ']" value="' + Noofpak + '" required="required"  readonly=readonly  style = "background-color:#ffeb504d" />' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="TYPE[' + counter + ']" value="' + type + '" required="required"  readonly=readonly   style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="TYPE[' + counter + ']" value="' + type + '" required="required"  readonly=readonly   style = "background-color:#ffeb504d"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Qty[' + counter + ']" value="' + Qty + '" required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="Qty[' + counter + ']" value="' + Qty + '" required="required"  readonly=readonly  style = "background-color:#ffeb504d"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Rate[' + counter + ']" value="' + Rate + '" required="required"  readonly=readonly  style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="Rate[' + counter + ']" value="' + Rate + '" required="required"  readonly=readonly  style = "background-color:#ffeb504d"/>' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Total_amt[' + counter + ']" value="' + Amount + '" required="required" readonly=readonly  style = "background-color:#FFA500" />' +
+                            '<input type="text" class="form-control" id="Total_amt[' + counter + ']" value="' + Amount + '" required="required" readonly=readonly  style = "background-color:#ffeb504d" />' +
                             '</td>' +
                             '<td>' +
-                            '<input type="text" class="form-control" id="Description[' + counter + ']" value="' + description + '" required="required" readonly=readonly  style = "background-color:#FFA500"/>' +
+                            '<input type="text" class="form-control" id="Description[' + counter + ']" value="' + description + '" required="required" readonly=readonly  style = "background-color:#ffeb504d"/>' +
                             '</td>' +
                             '<td>' +
                             '<button type="button" id="DeleteRow' + counter + '" class="btn btn-danger" onclick="removeTr(' + counter + ');">Delete</button>' +
@@ -611,18 +613,42 @@
                         TotalAssValTaxCalculation();
                     });
                     $("#GSTPercent").change(function () {
+                        var Per = (!$.isNumeric($("#GSTPercent").val())) ? 0 : parseFloat($("#GSTPercent").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid GST Percentage");
+                            $("#GSTPercent").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
                     $("#invoice_PCess_Per").change(function () {
+                        var Per = (!$.isNumeric($("#invoice_PCess_Per").val())) ? 0 : parseFloat($("#invoice_PCess_Per").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid GST Cess Percentage");
+                            $("#invoice_PCess_Per").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
                     $("#Insurance_per").change(function () {
+                        var Per = (!$.isNumeric($("#Insurance_per").val())) ? 0 : parseFloat($("#Insurance_per").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid Insurance Percentage");
+                            $("#Insurance_per").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
                     $("#GSTType").change(function () {
                         TotalAssValTaxCalculation();
                     });
                     $("#invoice_TCSPer").change(function () {
+                        var  Per = (!$.isNumeric($("#invoice_TCSPer").val())) ? 0 : parseFloat($("#invoice_TCSPer").val(), 2);
+                        if (Per >= 100) {
+                            alert("Invalid TCS Percentage");
+                            $("#invoice_TCSPer").val("");
+                            return false;
+                        }
                         TotalAssValTaxCalculation();
                     });
 
@@ -721,13 +747,25 @@
                             TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                             $("#invoice_TCSVal").val(TcsVal);
                         }
-
+                        else {
+                            TcsVal = 0;
+                            $("#invoice_TCSVal").val(TcsVal);
+                        }
+                        $("#GrandTotal").val(Math.round(TotalAmount + TcsVal,2));
                     }
 
                     $("#submit").click(function () {
 
                         if ($("#invoice_PO_NO").val() == "") {
                             alert("Please check PO Number.");
+                            return false;
+                        }
+                        if ($("#Consignee_ID").val() == "") {
+                            alert("Please check consignee.");
+                            return false;
+                        }
+                        if ($("#DEL_PARTY").val() == "") {
+                            alert("Please check delivery party.");
                             return false;
                         }
                         if ($("#ConsigneeAddress").val() == "") {
@@ -742,18 +780,7 @@
                             alert("Please check consignee delivery address.");
                             return false;
                         }
-                        if ($("#Consignee_DelRange").val() == "") {
-                            alert("Please check Range.");
-                            return false;
-                        }
-                        if ($("#Consignee_DelDivision").val() == "") {
-                            alert("Please check Division.");
-                            return false;
-                        }
-                        if ($("#Consignee_DelCommRate").val() == "") {
-                            alert("Please check commission rate.");
-                            return false;
-                        }
+                        
                         var Assmt = 0;
                         var r;
                         $("#ItemDetailsTable TBODY TR").each(function () {
@@ -786,10 +813,13 @@
                             alert("Please check From Batouli To.");
                             return false;
                         }
-                        if ($("#DESTINATION2").val() == "") {
-                            alert("Please check To : Destination.");
-                            return false;
+                        if ($("#DEST_FLAG").is(':checked')) {
+                            if ($("#DESTINATION2").val() == "") {
+                                alert("Please check To : Destination.");
+                                return false;
+                            }
                         }
+
                         if ($("#GSTType").val() == "") {
                             alert("Please check GST Type.");
                             return false;
@@ -798,6 +828,7 @@
                             alert("Please check GST Percentage.");
                             return false;
                         }
+                       
 
                         var Item_id = 0;
                         var No_of_pkg = 0;
@@ -805,11 +836,12 @@
                         var Rate = 0;
                         var Total_amt = 0;
                         var row;
+                        var rID = 1;
                         $("#ItemDetailsTable TBODY TR").each(function () {
                             row = $(this);
                             Item_id = row.find("td:eq(0) input[type='text']").val();
                             No_of_pkg = row.find("td:eq(2) input[type='text']").val();
-                            type = row.find("td:eq(3) input[type='text']").val();
+                            type = row.find("td:eq(3) input[type='text']").val().trim();
                             Qty = row.find("td:eq(4) input[type='text']").val();
                             Rate = row.find("td:eq(5) input[type='text']").val();;
                             Total_amt = row.find("td:eq(6) input[type='text']").val();
@@ -818,7 +850,9 @@
                             invoiceid = $("#Invoice_ID").val();
 
 
+
                             $.post("/InvoiceMVC/SaveInvoiceDetail", {
+                                rID: rID,
                                 Item_id: Item_id, No_of_pkg: No_of_pkg,
                                 type: type, Qty: Qty, Rate: Rate, Total_amt:
                                     Total_amt, description: description,
@@ -826,6 +860,7 @@
                             }, function (data) {
                                 //  alert("Done");
                             });
+                            rID += 1;
                         });
                     });
                 });
@@ -899,6 +934,11 @@
                         TcsVal = Math.round((TotalAmount * TcsPer) / 100, 2);
                         $("#invoice_TCSVal").val(TcsVal);
                     }
+                    else {
+                        TcsVal =0;
+                        $("#invoice_TCSVal").val(TcsVal);
+                    }
+                    $("#GrandTotal").val(Math.round(TotalAmount + TcsVal, 2));
                     return false;
                 }
 
