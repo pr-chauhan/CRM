@@ -14,7 +14,7 @@ namespace EntityClass
         [Column(Order = 0)]
         [StringLength(10)]
         [Required]
-        [DisplayName("Financial Year")]
+        [DisplayName("Financial Yr")]
         public string Financial_Yr { get; set; }
 
         [Key]

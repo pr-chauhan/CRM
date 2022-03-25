@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -14,6 +15,7 @@ namespace Electra_WebApi
         private readonly StaticVariables staticVariables = new StaticVariables();
         public List<T> ExecuteIndex<T>(HttpClient client, string apiName)
         {
+            WebApiApplication.db = new CraModel();
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             var response = client.GetAsync(apiName);
             response.Wait();
@@ -28,6 +30,7 @@ namespace Electra_WebApi
         }
         public T ExecuteDetailByID<T>(HttpClient client, string id, string apiName)
         {
+            WebApiApplication.db = new CraModel();
             client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             var response = client.GetAsync(apiName + "?id=" + id);
@@ -45,6 +48,7 @@ namespace Electra_WebApi
 
         public HttpResponseMessage ExecutePost<T>(HttpClient client, T collection, string apiName)
         {
+            WebApiApplication.db = new CraModel();
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var putdata = client.PostAsJsonAsync(apiName, collection);
@@ -54,6 +58,7 @@ namespace Electra_WebApi
 
         public  HttpResponseMessage ExecutePut<T>(HttpClient client, T collection, string apiName)
         {
+            WebApiApplication.db = new CraModel();
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var putdata =  client.PutAsJsonAsync(apiName, collection);
@@ -62,6 +67,7 @@ namespace Electra_WebApi
         }
         public HttpResponseMessage ExecuteDeleteByID(HttpClient client, string id, string apiName)
         {
+            WebApiApplication.db = new CraModel();
             client.BaseAddress = new Uri(staticVariables.ServerSuffix + "api/" + apiName);
             var response = client.DeleteAsync(apiName + "?id=" + id);
             response.Wait();
@@ -70,37 +76,44 @@ namespace Electra_WebApi
 
         public EntityRepository<TEntity> AttachInstance<TEntity>() where TEntity : class
         {
+            WebApiApplication.db = new CraModel();
             return new EntityRepository<TEntity>(WebApiApplication.db);
         }
 
         public string GetConsigneeNameByID(int Consignee_id)
         {
+            WebApiApplication.db = new CraModel();
             var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consignee_id)).ToList();
             return state[0].Consignee_Name.ToString();
         }
         public string GetConsigneeAddressByID(int Consignee_id)
         {
+            WebApiApplication.db = new CraModel();
             var state = WebApiApplication.db.Consignees.Where(x => x.Consignee_ID.Equals(Consignee_id)).ToList();
             return state[0].address.ToString();
         }
         public string GetInvoiceMaxNo(string financial_yr)
         {
+            WebApiApplication.db = new CraModel();
             var state = WebApiApplication.db.Invoices.Where(x => x != null).Where(x => x.Financial_Yr.Equals(financial_yr)).Select(x => x.Invoice_ID).DefaultIfEmpty().Max() + 1;
             return state.ToString();
         }
         public string GetStateNameByID(int state_ID)
         {
+            WebApiApplication.db = new CraModel();
             var state = WebApiApplication.db.States.Where(x => x.State_ID.Equals(state_ID)).ToList();
             return state[0].State_Name.ToString();
         }
         public string GetCityNameByID(int city_id)
         {
+            WebApiApplication.db = new CraModel();
             var state = WebApiApplication.db.Cities.Where(x => x.City_ID.Equals(city_id)).ToList();
             return state[0].City_Name.ToString();
         }
 
         public bool ValidateValue<T>(string ColumnName, string parameter) where T : class, new()
         {
+            WebApiApplication.db = new CraModel();
             Expression<Func<T, bool>> filter = null;
             var cls = AttachInstance<T>().Get(filter).AsQueryable();
             var chkExst = cls.Where(x => x.GetType().GetProperty(ColumnName).GetValue(x, null) != null).Count(y => y.GetType().GetProperty(ColumnName).GetValue(y, null).ToString() == parameter);

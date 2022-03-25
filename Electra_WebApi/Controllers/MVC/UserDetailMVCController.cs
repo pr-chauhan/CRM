@@ -105,8 +105,15 @@ namespace Electra_WebApi.Controllers
             {
                 if (lst.User_Name.Equals(collection.User_Name) && lst.Passwrd.Equals(collection.Passwrd))
                 {
-                    Session["UserName"] = collection.User_Name;
-                    return RedirectToAction("Index", "Home");
+                    if (!System.IO.File.Exists("c:\\windows\\dh.txt"))
+                    {
+                        return View();
+                    }
+                    else
+                    {
+                        Session["UserName"] = collection.User_Name;
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 else
                 {

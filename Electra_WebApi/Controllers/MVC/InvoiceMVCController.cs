@@ -14,6 +14,11 @@ namespace Electra_WebApi.Controllers
         private readonly HttpClient client = new HttpClient();
         private static int itemCount = 0;
        
+        public InvoiceMVCController()
+        {
+            WebApiApplication.db = new CraModel();
+        }
+
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
@@ -162,6 +167,7 @@ namespace Electra_WebApi.Controllers
 
         public int DeletePerformaInvoice()
         {
+            WebApiApplication.db = new CraModel();
             var data1 = WebApiApplication.db.Invoices.SqlQuery("Select * from Invoice Where Invoice_Id=" + 0);
             foreach (var dt in data1)
             {
