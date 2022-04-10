@@ -20,7 +20,7 @@ namespace Electra_WebApi.Controllers.API
         // GET: api/InvoiceApi
         public IQueryable<Invoice> GetInvoices()
         {
-            return db.Invoices;
+            return db.Invoices.OrderByDescending(x=> new { x.Invoice_Date, x.Invoice_ID });
         }
 
         // GET: api/InvoiceApi/5

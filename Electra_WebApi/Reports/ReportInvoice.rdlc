@@ -263,7 +263,7 @@
           <Rectangle Name="Rectangle1">
             <ReportItems>
               <Line Name="Line1">
-                <Top>0.21666in</Top>
+                <Top>0.19166in</Top>
                 <Left>0.01528in</Left>
                 <Height>0in</Height>
                 <Width>7.425in</Width>
@@ -294,7 +294,7 @@
                       <TextRun>
                         <Value>ELECTRA PAPER &amp; BOARD PVT. LTD.</Value>
                         <Style>
-                          <FontSize>16pt</FontSize>
+                          <FontSize>18pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                           <Color>#4598d8</Color>
                         </Style>
@@ -306,7 +306,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox2</rd:DefaultName>
-                <Top>0.22083in</Top>
+                <Top>0.18333in</Top>
                 <Left>0.84445in</Left>
                 <Height>0.25in</Height>
                 <Width>5.775in</Width>
@@ -356,7 +356,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Works: Village Batouli, P.O Lalru, Tehsil-Derabassi, Distt-S.A.S Nagar(Mohali), Punjab PinCode No. - 140501</Value>
+                        <Value>Works: Village Batouli, P.O Lalru, Tehsil-Derabassi, Distt-S.A.S Nagar(Mohali), Punjab Pin. - 140501</Value>
                         <Style>
                           <FontSize>8pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -387,7 +387,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>EmailAddress (Works) : electrapaper@yahoo.com, Phone No - 86990-13501, 86990-13701, 86990-13801</Value>
+                        <Value>Email ID (Works) : electrapaper@yahoo.com, Phone No - 86990-13501, 86990-13701, 86990-13801</Value>
                         <Style>
                           <FontSize>8pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -643,7 +643,7 @@
                       <TextRun>
                         <Value>Time of Removal</Value>
                         <Style>
-                          <FontSize>8pt</FontSize>
+                          <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
                         </Style>
                       </TextRun>
@@ -652,7 +652,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox7</rd:DefaultName>
-                <Top>2.45972in</Top>
+                <Top>2.44722in</Top>
                 <Left>2.88889in</Left>
                 <Height>0.18in</Height>
                 <Width>1.47778in</Width>
@@ -1246,7 +1246,6 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>0.00972in</Top>
                 <Left>0.02361in</Left>
                 <Height>0.19in</Height>
                 <Width>4.13193in</Width>
@@ -1614,7 +1613,11 @@ First(Fields!Phone_No.Value, "InvoiceDataSet")</Value>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=iif(First(Fields!Invoice_ID.Value, "InvoiceDataSet") = 0 , "PERFORMA INVOICE", First(Fields!Invoice_ID.Value, "InvoiceDataSet") &amp; "/" &amp; First(Fields!Financial_Yr.Value, "InvoiceDataSet"))</Value>
+                        <Value>=iif(First(Fields!Invoice_ID.Value, "InvoiceDataSet") = 0 , "PERFORMA INVOICE",
+iif(First(Fields!Invoice_ID.Value, "InvoiceDataSet") &lt; 10,"0" &amp; cstr(First(Fields!Invoice_ID.Value, "InvoiceDataSet")),
+First(Fields!Invoice_ID.Value, "InvoiceDataSet")) &amp;  "/" &amp;
+mid(First(Fields!Financial_Yr.Value, "InvoiceDataSet"),1,5) &amp; "" &amp; 
+ mid(First(Fields!Financial_Yr.Value, "InvoiceDataSet"),8,2))</Value>
                         <Style>
                           <FontSize>16pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -2461,7 +2464,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>headng</rd:DefaultName>
-                <Top>0.00972in</Top>
                 <Left>4.83471in</Left>
                 <Height>0.19722in</Height>
                 <Width>2.55557in</Width>
@@ -2644,7 +2646,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
               </Textbox>
               <Line Name="Line16">
                 <Top>2.05138in</Top>
-                <Left>5.94653in</Left>
+                <Left>5.58403in</Left>
                 <Height>0.60695in</Height>
                 <Width>0in</Width>
                 <ZIndex>60</ZIndex>
@@ -2658,7 +2660,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 <Top>2.24167in</Top>
                 <Left>2.81111in</Left>
                 <Height>0in</Height>
-                <Width>3.13542in</Width>
+                <Width>2.76042in</Width>
                 <ZIndex>61</ZIndex>
                 <Style>
                   <Border>
@@ -2670,7 +2672,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 <Top>2.45in</Top>
                 <Left>2.80607in</Left>
                 <Height>0in</Height>
-                <Width>3.14046in</Width>
+                <Width>2.76546in</Width>
                 <ZIndex>62</ZIndex>
                 <Style>
                   <Border>
@@ -2700,9 +2702,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Paragraphs>
                 <rd:DefaultName>Textbox36</rd:DefaultName>
                 <Top>2.0375in</Top>
-                <Left>5.97847in</Left>
+                <Left>5.6257in</Left>
                 <Height>0.23333in</Height>
-                <Width>1.42638in</Width>
+                <Width>1.77915in</Width>
                 <ZIndex>63</ZIndex>
                 <Style>
                   <Border>
@@ -2732,7 +2734,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
       <Width>7.61334in</Width>
       <Page>
         <PageFooter>
-          <Height>4.18753in</Height>
+          <Height>4.23753in</Height>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Textbox Name="Textbox40">
@@ -2888,7 +2890,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>Authentication</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2902,7 +2903,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>For Electra Paper &amp; Board (P) Ltd.</Value>
                       <Style>
-                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Color>#4598d8</Color>
                       </Style>
@@ -2945,7 +2945,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>Authorised Signatory</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2959,7 +2958,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
               <Top>3.39583in</Top>
               <Left>0.10501in</Left>
               <Height>0.77087in</Height>
-              <Width>2.17291in</Width>
+              <Width>2.49305in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -2976,7 +2975,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>E. &amp; O.E</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2988,7 +2987,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>3.90559in</Top>
-              <Left>2.43in</Left>
+              <Left>2.6675in</Left>
               <Height>0.21111in</Height>
               <Width>0.95348in</Width>
               <ZIndex>6</ZIndex>
@@ -3007,7 +3006,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>Prepared By</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3038,7 +3037,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>For Electra Paper &amp; Board (P) Ltd</Value>
                       <Style>
-                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Color>#4598d8</Color>
                       </Style>
@@ -3046,7 +3044,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>.</Value>
                       <Style>
-                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Color>RoyalBlue</Color>
                       </Style>
@@ -3103,7 +3100,6 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     <TextRun>
                       <Value>Authorised Signatory</Value>
                       <Style>
-                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3115,9 +3111,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
               </Paragraphs>
               <rd:DefaultName>Textbox40</rd:DefaultName>
               <Top>3.40833in</Top>
-              <Left>5.47029in</Left>
+              <Left>5.18695in</Left>
               <Height>0.75837in</Height>
-              <Width>2.08057in</Width>
+              <Width>2.36391in</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
@@ -3148,7 +3144,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>0.03611in</Top>
-                  <Left>4.18541in</Left>
+                  <Left>4.46041in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <Style>
@@ -3182,7 +3178,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>0.27125in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>1</ZIndex>
@@ -3217,7 +3213,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>0.50638in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>2</ZIndex>
@@ -3266,7 +3262,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>0.76652in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>3</ZIndex>
@@ -3301,7 +3297,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.01415in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>4</ZIndex>
@@ -3357,7 +3353,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.27429in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>5</ZIndex>
@@ -3392,7 +3388,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.52192in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>6</ZIndex>
@@ -3427,7 +3423,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.76956in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>7</ZIndex>
@@ -3462,7 +3458,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>2.25233in</Top>
-                  <Left>4.15692in</Left>
+                  <Left>4.43192in</Left>
                   <Height>0.2137in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>8</ZIndex>
@@ -3480,7 +3476,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <Top>1.0611in</Top>
                   <Left>0.00833in</Left>
                   <Height>0in</Height>
-                  <Width>4.14859in</Width>
+                  <Width>4.38609in</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
                     <Border>
@@ -3510,8 +3506,8 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.06804in</Top>
                   <Left>0.06666in</Left>
-                  <Height>0.3898in</Height>
-                  <Width>0.79723in</Width>
+                  <Height>0.3398in</Height>
+                  <Width>0.82639in</Width>
                   <ZIndex>10</ZIndex>
                   <Style>
                     <Border>
@@ -3539,9 +3535,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.49318in</Top>
+                  <Top>1.43068in</Top>
                   <Left>0.05972in</Left>
-                  <Height>0.42173in</Height>
+                  <Height>0.32173in</Height>
                   <Width>0.80417in</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
@@ -3796,7 +3792,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <Top>0.03744in</Top>
                   <Left>1.10415in</Left>
                   <Height>0.18056in</Height>
-                  <Width>2.98472in</Width>
+                  <Width>3.22083in</Width>
                   <ZIndex>18</ZIndex>
                   <Style>
                     <Border>
@@ -3825,7 +3821,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <Top>0.21562in</Top>
                   <Left>1.39443in</Left>
                   <Height>0.18056in</Height>
-                  <Width>2.69444in</Width>
+                  <Width>2.93055in</Width>
                   <ZIndex>19</ZIndex>
                   <Style>
                     <Border>
@@ -3883,7 +3879,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <Top>0.44236in</Top>
                   <Left>3.02985in</Left>
                   <Height>0.18056in</Height>
-                  <Width>1.05485in</Width>
+                  <Width>1.29096in</Width>
                   <ZIndex>21</ZIndex>
                   <Style>
                     <Border>
@@ -3911,7 +3907,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <Top>0.63263in</Top>
                   <Left>1.39443in</Left>
                   <Height>0.18056in</Height>
-                  <Width>2.68471in</Width>
+                  <Width>2.92082in</Width>
                   <ZIndex>22</ZIndex>
                   <Style>
                     <Border>
@@ -3939,7 +3935,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <Top>0.83888in</Top>
                   <Left>1.39443in</Left>
                   <Height>0.18056in</Height>
-                  <Width>2.68471in</Width>
+                  <Width>2.92082in</Width>
                   <ZIndex>23</ZIndex>
                   <Style>
                     <Border>
@@ -3948,7 +3944,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Style>
                 </Textbox>
                 <Line Name="Line12">
-                  <Left>4.15692in</Left>
+                  <Left>4.39442in</Left>
                   <Height>2.47715in</Height>
                   <Width>0in</Width>
                   <ZIndex>24</ZIndex>
@@ -3959,9 +3955,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Style>
                 </Line>
                 <Line Name="Line19">
-                  <Top>1.94269in</Top>
+                  <Top>1.78019in</Top>
                   <Height>0in</Height>
-                  <Width>4.14859in</Width>
+                  <Width>4.38055in</Width>
                   <ZIndex>25</ZIndex>
                   <Style>
                     <Border>
@@ -3971,7 +3967,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line17">
                   <Top>0.01244in</Top>
-                  <Left>5.86041in</Left>
+                  <Left>6.17291in</Left>
                   <Height>2.46471in</Height>
                   <Width>0in</Width>
                   <ZIndex>26</ZIndex>
@@ -3983,9 +3979,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line20">
                   <Top>0.25798in</Top>
-                  <Left>4.15692in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.29726in</Width>
+                  <Width>3.05976in</Width>
                   <ZIndex>27</ZIndex>
                   <Style>
                     <Border>
@@ -3995,9 +3991,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line21">
                   <Top>0.74013in</Top>
-                  <Left>4.15275in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.29726in</Width>
+                  <Width>3.05559in</Width>
                   <ZIndex>28</ZIndex>
                   <Style>
                     <Border>
@@ -4007,9 +4003,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line22">
                   <Top>0.49646in</Top>
-                  <Left>4.13609in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.31392in</Width>
+                  <Width>3.05559in</Width>
                   <ZIndex>29</ZIndex>
                   <Style>
                     <Border>
@@ -4019,9 +4015,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line23">
                   <Top>0.99485in</Top>
-                  <Left>4.16664in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.29171in</Width>
+                  <Width>3.06393in</Width>
                   <ZIndex>30</ZIndex>
                   <Style>
                     <Border>
@@ -4031,9 +4027,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line24">
                   <Top>1.25499in</Top>
-                  <Left>4.13397in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.32021in</Width>
+                  <Width>3.05976in</Width>
                   <ZIndex>31</ZIndex>
                   <Style>
                     <Border>
@@ -4043,9 +4039,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line25">
                   <Top>1.49013in</Top>
-                  <Left>4.14859in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.29726in</Width>
+                  <Width>3.05143in</Width>
                   <ZIndex>32</ZIndex>
                   <Style>
                     <Border>
@@ -4055,9 +4051,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line26">
                   <Top>1.74825in</Top>
-                  <Left>4.1444in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.31395in</Width>
+                  <Width>3.06393in</Width>
                   <ZIndex>33</ZIndex>
                   <Style>
                     <Border>
@@ -4067,9 +4063,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Line>
                 <Line Name="Line27">
                   <Top>1.98071in</Top>
-                  <Left>4.1444in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.31395in</Width>
+                  <Width>3.06393in</Width>
                   <ZIndex>34</ZIndex>
                   <Style>
                     <Border>
@@ -4096,9 +4092,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Total_Ass_Amt</rd:DefaultName>
                   <Top>0.04306in</Top>
-                  <Left>5.95833in</Left>
+                  <Left>6.26041in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>35</ZIndex>
                   <Style>
                     <Border>
@@ -4125,9 +4121,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Frieght</rd:DefaultName>
                   <Top>0.27542in</Top>
-                  <Left>5.95833in</Left>
+                  <Left>6.26041in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>36</ZIndex>
                   <Style>
                     <Border>
@@ -4154,9 +4150,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Insurance_val</rd:DefaultName>
                   <Top>0.75778in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>37</ZIndex>
                   <Style>
                     <Border>
@@ -4183,9 +4179,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Sub_total</rd:DefaultName>
                   <Top>1.01515in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>38</ZIndex>
                   <Style>
                     <Border>
@@ -4212,9 +4208,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>PCess_Val</rd:DefaultName>
                   <Top>1.51737in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>39</ZIndex>
                   <Style>
                     <Border>
@@ -4242,9 +4238,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Total_amount</rd:DefaultName>
                   <Top>2.244in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.1971in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>40</ZIndex>
                   <Style>
                     <Border>
@@ -4271,9 +4267,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Total_Excise</rd:DefaultName>
                   <Top>1.76223in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>41</ZIndex>
                   <Style>
                     <Border>
@@ -4300,9 +4296,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>BED_Val</rd:DefaultName>
                   <Top>1.26001in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>42</ZIndex>
                   <Style>
                     <Border>
@@ -4329,9 +4325,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Others</rd:DefaultName>
                   <Top>0.51136in</Top>
-                  <Left>5.95833in</Left>
+                  <Left>6.26041in</Left>
                   <Height>0.20056in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>43</ZIndex>
                   <Style>
                     <Border>
@@ -4356,10 +4352,10 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>totamt</rd:DefaultName>
-                  <Top>1.47728in</Top>
+                  <Top>1.42728in</Top>
                   <Left>0.87778in</Left>
-                  <Height>0.45013in</Height>
-                  <Width>3.22358in</Width>
+                  <Height>0.32513in</Height>
+                  <Width>3.47497in</Width>
                   <ZIndex>44</ZIndex>
                   <Style>
                     <Border>
@@ -4390,8 +4386,8 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   <rd:DefaultName>excamt</rd:DefaultName>
                   <Top>1.06804in</Top>
                   <Left>0.89167in</Left>
-                  <Height>0.3898in</Height>
-                  <Width>3.22081in</Width>
+                  <Height>0.30368in</Height>
+                  <Width>3.46108in</Width>
                   <ZIndex>45</ZIndex>
                   <Style>
                     <Border>
@@ -4412,6 +4408,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                         <TextRun>
                           <Value>HDFC Bank Ltd.</Value>
                           <Style>
+                            <FontSize>11pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -4425,6 +4422,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                         <TextRun>
                           <Value>A/c No. 50200058070092, IFSC Code - HDFC0002989 </Value>
                           <Style>
+                            <FontSize>11pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -4438,6 +4436,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                         <TextRun>
                           <Value>Lalru- 140501, Distt. - S.A.S Nagar, Mohali (Pb.) </Value>
                           <Style>
+                            <FontSize>11pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -4448,10 +4447,10 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.95936in</Top>
+                  <Top>1.80797in</Top>
                   <Left>0.06666in</Left>
-                  <Height>0.5178in</Height>
-                  <Width>4.04859in</Width>
+                  <Height>0.66919in</Height>
+                  <Width>4.25832in</Width>
                   <ZIndex>46</ZIndex>
                   <Style>
                     <Border>
@@ -4498,7 +4497,7 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.99219in</Top>
-                  <Left>4.18192in</Left>
+                  <Left>4.45692in</Left>
                   <Height>0.20056in</Height>
                   <Width>1.63333in</Width>
                   <ZIndex>47</ZIndex>
@@ -4514,9 +4513,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                 </Textbox>
                 <Line Name="Line30">
                   <Top>2.22331in</Top>
-                  <Left>4.15692in</Left>
+                  <Left>4.39442in</Left>
                   <Height>0in</Height>
-                  <Width>3.30281in</Width>
+                  <Width>3.06531in</Width>
                   <ZIndex>48</ZIndex>
                   <Style>
                     <Border>
@@ -4543,9 +4542,9 @@ Trim(Fields!TYPE.Value) ="A","Bag")</Value>
                   </Paragraphs>
                   <rd:DefaultName>TCSVal</rd:DefaultName>
                   <Top>2.0071in</Top>
-                  <Left>5.94999in</Left>
+                  <Left>6.25207in</Left>
                   <Height>0.1801in</Height>
-                  <Width>1.425in</Width>
+                  <Width>1.12292in</Width>
                   <ZIndex>49</ZIndex>
                   <Style>
                     <Border>

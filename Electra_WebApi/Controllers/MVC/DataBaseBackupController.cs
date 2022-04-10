@@ -24,7 +24,7 @@ namespace Electra_WebApi.Controllers
             {
                 string backlocation = Server.MapPath("~/BackupFolder/");
                 String query = "backup database Inventory to disk='" + backlocation + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".Bak'";
-                String mycon = "Data Source=lap-150; Initial Catalog=Inventory; Integrated Security=true";
+                String mycon = System.Configuration.ConfigurationManager.ConnectionStrings["CraModel"].ConnectionString; 
                 SqlConnection con = new SqlConnection(mycon);
                 con.Open();
                 SqlCommand cmd = new SqlCommand

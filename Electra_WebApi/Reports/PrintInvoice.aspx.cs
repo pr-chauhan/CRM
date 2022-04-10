@@ -32,8 +32,8 @@ namespace Electra_WebApi
                     var InvMain = GetData("exec SP_PrintInvoice "+ invoice_No + ", '"+ financial_yr + "'");
                     var totExcise = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("TOTAL_EXCISE")).FirstOrDefault();
                     var totamt = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("total_amount")).FirstOrDefault();
-                    var tcsVal = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<double>("total_amount")).FirstOrDefault();
-                    totamt += tcsVal;
+                    var tcsVal = InvMain.Tables[0].AsEnumerable().Select(x => x.Field<decimal>("tcsval")).FirstOrDefault();
+                    totamt += Convert.ToDouble(tcsVal);
                     ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/ReportInvoice.rdlc");
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rdc = new ReportDataSource("InvoiceDataSet", InvMain.Tables[0]);

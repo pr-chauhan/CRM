@@ -311,7 +311,8 @@
             </div>
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
-                @Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @id = "GrandTotal" } })*@
+                <input type="text" id="GrandTotal" class="form-control" readonly="readonly"  />
                 @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
             </div>
 
@@ -380,6 +381,11 @@
 
                         }
                     });
+                    var TVal = 0;
+                    var TotAmount = 0;
+                    TVal = Math.round($("#invoice_TCSVal").val(), 2);
+                    var TotAmount = Math.round($("#invoice_Total_amount").val(), 2);
+                    $("#GrandTotal").val(Math.round(TotAmount + TVal, 2));
                 });
             });
             

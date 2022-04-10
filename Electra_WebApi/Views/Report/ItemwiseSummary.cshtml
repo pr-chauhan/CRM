@@ -48,7 +48,8 @@
                 var fromdate = $("#FromDate").val();
                 var todate = $("#ToDate").val();
                 $.get("/Report/ItemwiseSummary", { fromdate: fromdate, todate: todate }, function (data) {
-                    window.location.replace("/Reports/ItemwiseSummary.aspx");
+                    //window.location.replace("/Reports/ItemwiseSummary.aspx");
+                    window.open("/Reports/ItemwiseSummary.aspx","_blank");
                 });
             });
         });

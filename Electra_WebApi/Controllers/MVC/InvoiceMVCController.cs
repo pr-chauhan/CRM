@@ -51,7 +51,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
-            ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
+            ViewBag.ITime = System.DateTime.Now.ToShortTimeString();// .ToString("hh:mm:ss");
             ViewBag.FY = StaticVariables.Financial_Year;
             return View();
         }
@@ -72,7 +72,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
-            ViewBag.ITime = System.DateTime.Now.ToString("hh:mm:ss");
+            ViewBag.ITime = System.DateTime.Now.ToShortTimeString();// .ToString("hh:mm:ss");
             invoiceModel.invoice.E_userid = Session["UserName"].ToString();
             invoiceModel.invoice.DOE = System.DateTime.Now;
             var test = WebApiApplication.objCommon.ExecutePost(client, invoiceModel.invoice, WebApiApplication.staticVariables.InvoiceApiName);
