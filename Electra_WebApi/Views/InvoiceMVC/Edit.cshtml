@@ -408,6 +408,7 @@
                             $("#ConsigneeDelAddress").val(data);
                         });
                         $.get("/ConsigneeMVC/GetCityName", { Consigneey_id: id }, function (data) {
+                            $("#invoice_DESTINATION1").val(data);
                             $("#DESTINATION2").val(data);
                         });
                         //$("#Consignee_DelRange").val("");

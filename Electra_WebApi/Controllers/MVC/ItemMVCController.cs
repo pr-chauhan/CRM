@@ -18,7 +18,7 @@ namespace Electra_WebApi.Controllers
             else
             {
                 var lst = WebApiApplication.objCommon.ExecuteIndex<Item>(client, WebApiApplication.staticVariables.ItemApiName);
-            lst = lst.OrderBy(x => x.Item_Name).ToList();
+            lst = lst.OrderByDescending(x => x.Item_ID).ToList();
             return View(lst);
             }
         }

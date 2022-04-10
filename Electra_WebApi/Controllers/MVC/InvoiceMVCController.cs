@@ -28,7 +28,7 @@ namespace Electra_WebApi.Controllers
             else
             {
                 var lst = WebApiApplication.objCommon.ExecuteIndex<Invoice>(client, WebApiApplication.staticVariables.InvoiceApiName);
-                lst = lst.Where(x => x.Financial_Yr == StaticVariables.Financial_Year).ToList();
+                lst = lst.Where(x => x.Financial_Yr == StaticVariables.Financial_Year && x.Invoice_ID!=0).ToList();
                 return View(lst);
             }
         }
@@ -51,7 +51,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.CL = lst.OrderBy(x => x.Consignee_Name).ToList();
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
-            ViewBag.ITime = System.DateTime.Now.ToShortTimeString();// .ToString("hh:mm:ss");
+            ViewBag.ITime = System.DateTime.Now.ToString("HH:mm"); //24 Hour Format
             ViewBag.FY = StaticVariables.Financial_Year;
             return View();
         }
@@ -72,7 +72,7 @@ namespace Electra_WebApi.Controllers
             ViewBag.IT = l.OrderBy(x => x.Item_Name).ToList();
             ViewBag.GST = WebApiApplication.objCommon.GetGstType();
             ViewBag.IDT = System.DateTime.Today.ToString("yyyy-MM-dd");
-            ViewBag.ITime = System.DateTime.Now.ToShortTimeString();// .ToString("hh:mm:ss");
+            ViewBag.ITime = System.DateTime.Now.ToString("HH:mm");
             invoiceModel.invoice.E_userid = Session["UserName"].ToString();
             invoiceModel.invoice.DOE = System.DateTime.Now;
             var test = WebApiApplication.objCommon.ExecutePost(client, invoiceModel.invoice, WebApiApplication.staticVariables.InvoiceApiName);
@@ -168,20 +168,20 @@ namespace Electra_WebApi.Controllers
         public int DeletePerformaInvoice()
         {
             WebApiApplication.db = new CraModel();
-            var data1 = WebApiApplication.db.Invoices.SqlQuery("Select * from Invoice Where Invoice_Id=" + 0);
+            var data1 = WebApiApplication.db.Invoices.SqlQuery("Select * from Invoice Where Invoice_Id=" + 0).ToList();
             foreach (var dt in data1)
             {
                 var inv = WebApiApplication.db.Invoices.Find(dt.Financial_Yr, dt.Invoice_ID);
                 WebApiApplication.db.Invoices.Remove(inv);
-                WebApiApplication.db.SaveChangesAsync();
+                WebApiApplication.db.SaveChanges();
             }
 
-            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("Select * from Invoice_Detail Where Invoice_Id=" + 0);
+            var data = WebApiApplication.db.Invoice_Detail.SqlQuery("select * from Invoice_Detail Where Invoice_Id=" + 0).ToList();
             foreach (var dt in data)
             {
                 var invDet = WebApiApplication.db.Invoice_Detail.Find(dt.ID);
                 WebApiApplication.db.Invoice_Detail.Remove(invDet);
-                WebApiApplication.db.SaveChangesAsync();
+                WebApiApplication.db.SaveChanges();
 
             }
 
