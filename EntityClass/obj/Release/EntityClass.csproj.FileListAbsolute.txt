@@ -7,7 +7,6 @@ D:\Projects\Electra\EntityClass\bin\Release\EntityFramework.xml
 D:\Projects\Electra\EntityClass\bin\Release\EntityFramework.SqlServer.xml
 D:\Projects\Electra\EntityClass\obj\Release\EntityClass.csproj.AssemblyReference.cache
 D:\Projects\Electra\EntityClass\obj\Release\EntityClass.csproj.CoreCompileInputs.cache
-D:\Projects\Electra\EntityClass\obj\Release\EntityClass.csproj.CopyComplete
 D:\Projects\Electra\EntityClass\obj\Release\EntityClass.dll
 D:\Projects\Electra\EntityClass\obj\Release\EntityClass.pdb
 D:\Electra060322\EntityClass\bin\Release\EntityClass.dll.config
@@ -22,3 +21,4 @@ D:\Electra060322\EntityClass\obj\Release\EntityClass.csproj.CoreCompileInputs.ca
 D:\Electra060322\EntityClass\obj\Release\EntityClass.csproj.CopyComplete
 D:\Electra060322\EntityClass\obj\Release\EntityClass.dll
 D:\Electra060322\EntityClass\obj\Release\EntityClass.pdb
+D:\Projects\Electra\EntityClass\obj\Release\EntityClass.csproj.CopyComplete

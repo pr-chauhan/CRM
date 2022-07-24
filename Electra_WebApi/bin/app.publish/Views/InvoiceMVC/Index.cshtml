@@ -19,7 +19,6 @@
         <div style="width:150px;float:left;">
             <select id="Financial_Yr" class="form-control" style="width:125px;">
                 <option value="">Select</option>
-                <option value="2020-2021">2020-2021</option>
                 <option value="2021-2022">2021-2022</option>
                 <option value="2022-2023">2022-2023</option>
             </select>
@@ -34,10 +33,12 @@
         var financial_yr;
         $("#Financial_Yr").change(function () {
             financial_yr = $("#Financial_Yr").val();
+            window.sessionStorage.setItem("SelItem", financial_yr);
             $.post("/InvoiceMVC/Index", { financial_yr: financial_yr }, function (data) {
-                window.location.reload();
+                window.location.reload(true);
             });
         });
+            $("#Financial_Yr").val(window.sessionStorage.getItem("SelItem"));
     });
 </script>
 <div class="row">

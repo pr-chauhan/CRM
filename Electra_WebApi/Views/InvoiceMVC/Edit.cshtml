@@ -2,13 +2,13 @@
 
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h4>Edit Invoice</h4>
 
-@using (Html.BeginForm("Edit","InvoiceMVC",FormMethod.Post))
+@using (Html.BeginForm("Edit", "InvoiceMVC", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -28,7 +28,7 @@
                     }
 
                     @Html.LabelFor(model => model.invoice.Financial_Yr, htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.invoice.Financial_Yr,  new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d;width:115px;", @id = "Financial_Yr", @readonly = "readonly" } })
+                    @Html.EditorFor(model => model.invoice.Financial_Yr, new { htmlAttributes = new { @class = "form-control", @style = "background-color:#ffeb504d;width:115px;", @id = "Financial_Yr", @readonly = "readonly" } })
                     @Html.ValidationMessageFor(model => model.invoice.Financial_Yr, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-md-9">
                     @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                    <input type="text" id="ConsigneeAddress" name="ConsigneeAddress" class="form-control" style = "background-color:#ffeb504d;width=1100px;" readonly = "readonly" />
+                    <input type="text" id="ConsigneeAddress" name="ConsigneeAddress" class="form-control" style="background-color:#ffeb504d;width=1100px;" readonly="readonly" />
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     @Html.LabelFor(model => model.invoice.Con_Adr_Check, htmlAttributes: new { @class = "control-label" })
                     @Html.EditorFor(model => model.invoice.Con_Adr_Check, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.invoice.Con_Adr_Check, "", new { @class = "text-danger" })
-                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name",""), new { @class = "form-control", @style = "width:360px;", @id = "DEL_PARTY" })
+                    @Html.DropDownListFor(model => model.invoice.DEL_PARTY, new SelectList(ViewBag.CL, "Consignee_ID", "Consignee_Name", ""), new { @class = "form-control", @style = "width:360px;", @id = "DEL_PARTY" })
                     @Html.ValidationMessageFor(model => model.invoice.DEL_PARTY, "", new { @class = "text-danger" })
                 </div>
 
@@ -176,7 +176,7 @@
                             {
                                 int itemid = @item.Item_id;
                                 var itemname = WebApiApplication.db.Items.Where(x => x.Item_ID.Equals(itemid)).ToList();
-                                var id= "tablerow"+@counter;
+                                var id = "tablerow" + @counter;
                                 <tr id=@id>
                                     <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required" readonly=readonly style="background-color:#ffeb504d;visibility:hidden;width:1px;" /></td>
                                     <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required" readonly=readonly style="background-color:#ffeb504d" /></td>
@@ -448,8 +448,8 @@
                             var financial_yr = $("#Financial_Yr").val();
                             //alert("Are you sure. Want to create performa invoice ?..!  for Financial Year : " + financial_yr + " And Invoice No. : " + id);
                             //if (confirm("Are you sure. Want to create performa invoice ?")) {
-                                $.get("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
-                                });
+                            $.get("/InvoiceMVC/DeletePerformaInvoice", { financial_yr: financial_yr, id: id }, function (data) {
+                            });
                             //}
 
                         }
@@ -866,7 +866,7 @@
                         var Total_amt = 0;
                         var row;
                         var rID = 1;
-                        $("#ItemDetailsTable TBODY TR").each(function() {
+                        $("#ItemDetailsTable TBODY TR").each(function () {
                             row = $(this);
                             Item_id = row.find("td:eq(0) input[type='text']").val();
                             No_of_pkg = row.find("td:eq(2) input[type='text']").val();
@@ -889,17 +889,17 @@
                             }, function (data) {
                                 //  alert("Done");
                             });
-                            
+
                             rID += 1;
                         });
-                         
+
                     });
                 });
 
                 var TVal = 0;
                 var TotAmount = 0;
-                TVal = Math.round($("#invoice_TCSVal").val(),2);
-                var TotAmount = Math.round( $("#invoice_Total_amount").val(),2);
+                TVal = Math.round($("#invoice_TCSVal").val(), 2);
+                var TotAmount = Math.round($("#invoice_Total_amount").val(), 2);
                 $("#GrandTotal").val(Math.round(TotAmount + TVal, 2));
 
                 if ($("#GSTType").val() == "CGST/SGST") {
@@ -919,7 +919,7 @@
                     $("#GSTPercent").val(12);
                     $("#invoice_PCess_Per").val(0);
                     $("#invoice_PCess_Per").hide();
-                    $("#invoice_PCess_Val").hide(); 
+                    $("#invoice_PCess_Val").hide();
                     $("#sgstper").hide();
                     $("#lPCess_Per").hide();
                     $("#lPCess_Val").hide();

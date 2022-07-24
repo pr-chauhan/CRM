@@ -18,17 +18,15 @@
 
                 </div>
                 <div style="width:170px;float:left;">
-                    <input type="date" id="FromDate" />
+                    <input type="date" id="FromDate"  value=@ViewBag.DTF/>
                 </div>
                 <div style="width:75px;float:left;">
                     <label>To Date</label>
 
                 </div>
                 <div style="width: 100px; float: left;">
-                    <input type="date" id="ToDate" />
+                    <input type="date" id="ToDate"  value=@ViewBag.DTT/>
                 </div>
-
-
 
             </div>
 
@@ -49,13 +47,13 @@
             $("#ViewReport").click(function () {
                 var fromdate = $("#FromDate").val();
                 var todate = $("#ToDate").val();
-               // alert(fromdate + todate);
                 $.get("/Report/ItemwiseSummary", { fromdate: fromdate, todate: todate }, function (data) {
-                    window.location.replace("/Reports/ItemwiseSummary.aspx");
+                    //window.location.replace("/Reports/ItemwiseSummary.aspx");
+                    window.open("/Reports/ItemwiseSummary.aspx","_blank");
                 });
             });
         });
-    </script>
+   </script>
     @*<div class="form-group">
             <a href="../Reports/ItemwiseSummary.aspx" class="btn btn-primary">Item Summary between two dates</a>
         </div>*@

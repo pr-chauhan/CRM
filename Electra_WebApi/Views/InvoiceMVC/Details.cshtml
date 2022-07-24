@@ -2,7 +2,7 @@
 
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding: 2px; overflow-wrap: break-word; overflow-x: auto; zoom: 90%; pointer-events: none;">
+    <div style="border: 1px solid #1945d7; border-radius: 2px 2px 2px 2px; padding: 2px; overflow-wrap: break-word; overflow-x: auto; zoom: 80%; pointer-events: none;">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -94,7 +94,7 @@
 
                 <div class="col-md-7">
                     @Html.LabelFor(model => model.invoice.Consignee_DelAddress, htmlAttributes: new { @class = "control-label " })
-                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeDelAddress",  @style = "width:845px" })
+                    @Html.TextBoxFor(model => model.invoice.Consignee_DelAddress, new { @class = "form-control", @id = "ConsigneeDelAddress", @style = "width:845px" })
                     @Html.ValidationMessageFor(model => model.invoice.Consignee_DelAddress, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-2">
@@ -107,7 +107,7 @@
 
         <div style="overflow-y:scroll;height:400px;border:1px solid #999;">
             <fieldset>
-            
+
                 <table id="ItemDetailsTable" class="table table-bordered">
                     <thead>
                         <tr>
@@ -134,14 +134,14 @@
                                 var itemname = WebApiApplication.db.Items.Where(x => x.Item_ID.Equals(itemid)).ToList();
 
                                 <tr id="tablerow" @counter>
-                                    <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required"  visibility:hidden;width:1px;" /></td>
-                                    <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required"   /></td>
-                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required"  style="width: 130px;" /></td>
-                                    <td><input type="text" class="form-control" id="TYPE[ @counter ]" value=" @item.TYPE " required="required"   /></td>
-                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required"  style="width: 130px;"  /></td>
-                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required"   style="width: 130px;" /></td>
-                                    <td><input type="text" class="form-control" id="Total_amt[ @counter ]" value=" @item.Total_amt " required="required"   /></td>
-                                    <td><input type="text" class="form-control" id="DEC[ @counter ]" value=" @item.DEC " required="required"   /></td>
+                                    <td><input type="text" class="form-control" id="Item_id[ @counter ]" value=" @item.Item_id " required="required" visibility:hidden;width:1px;" /></td>
+                                    <td><input type="text" class="form-control" id="ItemName[ @counter ]" value=" @itemname[0].Item_Name " required="required" /></td>
+                                    <td><input type="text" class="form-control" id="No_of_pkg[ @counter ]" value=" @item.No_of_pkg " required="required" style="width: 130px;" /></td>
+                                    <td><input type="text" class="form-control" id="TYPE[ @counter ]" value=" @item.TYPE " required="required" /></td>
+                                    <td><input type="text" class="form-control" id="Qty[ @counter ]" value=" @item.Qty " required="required" style="width: 130px;" /></td>
+                                    <td><input type="text" class="form-control" id="Rate[ @counter ]" value=" @item.Rate " required="required" style="width: 130px;" /></td>
+                                    <td><input type="text" class="form-control" id="Total_amt[ @counter ]" value=" @item.Total_amt " required="required" /></td>
+                                    <td><input type="text" class="form-control" id="DEC[ @counter ]" value=" @item.DEC " required="required" /></td>
                                 </tr>
                                 counter += 1;
                             }
@@ -312,7 +312,7 @@
             <div class="col-md-2">
                 @Html.LabelFor(model => model.invoice.Total_amount, htmlAttributes: new { @class = "control-label" })
                 @*@Html.EditorFor(model => model.invoice.Total_amount, new { htmlAttributes = new { @class = "form-control", @id = "GrandTotal" } })*@
-                <input type="text" id="GrandTotal" class="form-control" readonly="readonly"  />
+                <input type="text" id="GrandTotal" class="form-control" readonly="readonly" />
                 @Html.ValidationMessageFor(model => model.invoice.Total_amount, "", new { @class = "text-danger" })
             </div>
 
@@ -388,7 +388,7 @@
                     $("#GrandTotal").val(Math.round(TotAmount + TVal, 2));
                 });
             });
-            
+
         </script>
     </div>
 
